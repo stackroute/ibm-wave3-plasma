@@ -1,5 +1,5 @@
 
-[![CircleCI](https://circleci.com/gh/stackroute/ibm-wave3-quizify.svg?style=svg)](https://circleci.com/gh/stackroute/ibm-wave3-quizify)
+[![CircleCI](https://circleci.com/gh/stackroute/ibm-wave3-plasma.svg?style=svg)](https://circleci.com/gh/stackroute/ibm-wave3-plasma)
 
 ****Running the System****
 
