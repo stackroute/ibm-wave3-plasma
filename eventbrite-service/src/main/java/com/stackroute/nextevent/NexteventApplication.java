@@ -8,9 +8,9 @@ import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 @EnableEurekaClient
 public class NexteventApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(NexteventApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(NexteventApplication.class, args);
+    }
 
 }
 

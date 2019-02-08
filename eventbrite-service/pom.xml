@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>com.stackroute</groupId>
-		<artifactId>boeing-wave4-knowledgehub</artifactId>
+		<artifactId>ibm-wave3-plasma</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 		<relativePath>../pom.xml</relativePath>
 	</parent>
@@ -22,12 +22,6 @@
 		<maven.compiler.target>${java.version}</maven.compiler.target>
 	</properties>
 
-	<!--<properties>-->
-	<!--<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>-->
-	<!--<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>-->
-	<!--<java.version>11</java.version>-->
-	<!--<spring-cloud.version>Finchley.SR1</spring-cloud.version>-->
-	<!--</properties>-->
 
 	<dependencies>
 		<dependency>

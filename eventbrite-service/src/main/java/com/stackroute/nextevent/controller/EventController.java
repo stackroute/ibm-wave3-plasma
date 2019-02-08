@@ -26,40 +26,40 @@ public class EventController {
 
     @GetMapping("events")
     public ResponseEntity<?> getAllEvent() throws EventNotFound {
-            log.info("getAllEvevnt hit");
-            responseEntity = new ResponseEntity(eventService.getAllEvent(), HttpStatus.OK);
+        log.info("getAllEvevnt hit");
+        responseEntity = new ResponseEntity(eventService.getAllEvent(), HttpStatus.OK);
         return responseEntity;
     }
 
     @PostMapping("events")
-    public ResponseEntity<?> saveEvent(@RequestBody Event event) throws EventAlreadyExist{
-            eventService.saveEvent(event);
-            responseEntity = new ResponseEntity(event, HttpStatus.CREATED);
+    public ResponseEntity<?> saveEvent(@RequestBody Event event) throws EventAlreadyExist {
+        eventService.saveEvent(event);
+        responseEntity = new ResponseEntity(event, HttpStatus.CREATED);
 
         return responseEntity;
     }
 
     @DeleteMapping("events/{id}")
     public ResponseEntity<?> deleteEvent(@PathVariable("id") String id) throws EventNotFound {
-            eventService.deleteEvent(id);
-            log.info("event mapping hit event deleted======");
-            responseEntity = new ResponseEntity("Event deleted successfully", HttpStatus.OK);
+        eventService.deleteEvent(id);
+        log.info("event mapping hit event deleted======");
+        responseEntity = new ResponseEntity("Event deleted successfully", HttpStatus.OK);
         return responseEntity;
     }
 
 
     @PutMapping("events/{id}")
-    public ResponseEntity<?> updateEvent(@PathVariable("id") String id,@RequestBody Event event) throws EventNotFound {
-            log.info("upadte event hit");
-           Event event1= eventService.updateEvent(event,id);
-           log.info("updated event+++++"+event1);
+    public ResponseEntity<?> updateEvent(@PathVariable("id") String id, @RequestBody Event event) throws EventNotFound {
+        log.info("upadte event hit");
+        Event event1 = eventService.updateEvent(event, id);
+        log.info("updated event+++++" + event1);
         return responseEntity;
     }
 
     @GetMapping("event/{id}")
     public ResponseEntity<?> getEventById(@PathVariable("id") String id) throws EventNotFound {
-            log.info("getEvent hit by Id");
-            responseEntity = new ResponseEntity(eventService.getEventById(id), HttpStatus.OK);
+        log.info("getEvent hit by Id");
+        responseEntity = new ResponseEntity(eventService.getEventById(id), HttpStatus.OK);
         return responseEntity;
     }
 }

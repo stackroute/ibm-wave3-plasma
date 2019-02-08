@@ -13,7 +13,7 @@
 
 	<parent>
         <groupId>com.stackroute</groupId>
-        <artifactId>boeing-wave4-knowledgehub</artifactId>
+        <artifactId>ibm-wave3-plasma</artifactId>
         <version>0.0.1-SNAPSHOT</version>
 		<relativePath>../pom.xml</relativePath> <!-- lookup parent from repository -->
 	</parent>
@@ -36,11 +36,7 @@
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-netflix-zuul</artifactId>
 		</dependency>
-		<!--<dependency>-->
-			<!--&lt;!&ndash; Spring Cloud starter &ndash;&gt;-->
-			<!--<groupId>org.springframework.cloud</groupId>-->
-			<!--<artifactId>spring-cloud-starter</artifactId>-->
-		<!--</dependency>-->
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
@@ -52,18 +48,6 @@
 			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
 		</dependency>
 	</dependencies>
-
-	<!--<dependencyManagement>-->
-	<!--<dependencies>-->
-	<!--<dependency>-->
-	<!--<groupId>org.springframework.cloud</groupId>-->
-	<!--<artifactId>spring-cloud-dependencies</artifactId>-->
-	<!--<version>Brixton.SR5</version>-->
-	<!--<type>pom</type>-->
-	<!--<scope>import</scope>-->
-	<!--</dependency>-->
-	<!--</dependencies>-->
-	<!--</dependencyManagement>-->
 
 	<dependencyManagement>
 		<dependencies>
