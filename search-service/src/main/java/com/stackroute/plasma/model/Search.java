@@ -1,5 +1,7 @@
 package com.stackroute.plasma.model;
 
+import java.util.Arrays;
+
 public class Search {
     private String domainName;
     private String[] concepts;
@@ -27,6 +29,14 @@ public class Search {
 
     public static String getAllUrls() {
         return null;
+    }
+
+    @Override
+    public String toString() {
+        return "Search{" +
+                "domainName='" + domainName + '\'' +
+                ", concepts=" + Arrays.toString(concepts) +
+                '}';
     }
 
 }

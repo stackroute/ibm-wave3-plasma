@@ -1,0 +1,21 @@
+server:
+    port: 8088
+spring:
+    profiles:
+        active: google
+# Spring Security configuration
+security:
+    oauth2:
+        client:
+            clientId: <here is your client ID>
+            clientSecret: <here is your client secret>
+            accessTokenUri: https://www.googleapis.com/oauth2/v4/token
+            userAuthorizationUri: https://accounts.google.com/o/oauth2/v2/auth
+            clientAuthenticationScheme: form
+            scope:
+                - openid
+                - email
+                - profile
+        resource:
+            userInfoUri: https://www.googleapis.com/oauth2/v3/userinfo
+preferTokenInfo: true
