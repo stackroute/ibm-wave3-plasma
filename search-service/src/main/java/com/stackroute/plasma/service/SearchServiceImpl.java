@@ -1,11 +1,12 @@
-package com.stackroute.plasma.searchservice.service;
+package com.stackroute.plasma.service;
 
-import com.stackroute.plasma.searchservice.domain.Search;
-import com.stackroute.plasma.searchservice.exception.SearchAlreadyExistException;
+import com.stackroute.plasma.model.Search;
+import com.stackroute.plasma.exception.SearchAlreadyExistException;
+
 
 import java.util.List;
 
-public class SearchServiceImpl implements SearchService{
+public class SearchServiceImpl implements SearchService {
 
     @Override
     public Search saveSearch(Search search) throws SearchAlreadyExistException {
