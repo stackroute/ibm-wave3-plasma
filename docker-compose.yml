@@ -14,7 +14,7 @@ services:
     - 8092
 
   eurekaserver:
-    image: eureka-servcie:latest
+    image: eureka-service:latest
     build: eureka-server/
     restart: always
     network_mode: host
@@ -24,7 +24,7 @@ services:
     - 9091
 
   configserver:
-      image: config-servcie:latest
+      image: config-service:latest
       build: config-server/
       restart: always
       network_mode: host
@@ -34,5 +34,13 @@ services:
       - 8888
 
 
-
+  documentcrawler:
+    image: document-crawler-service:latest
+    build: document-crawler-service/
+    restart: always
+    network_mode: host
+    ports:
+      - 8900:8900
+    expose:
+      - 8900
 

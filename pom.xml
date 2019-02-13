@@ -26,6 +26,7 @@
     </properties>
 
     <modules>
+        <module>document-crawler-service</module>
         <module>eureka-server</module>
         <module>zuul-gatewayservice</module>
         <module>config-server</module>
