@@ -14,31 +14,26 @@ import java.sql.Timestamp;
 //@NoArgsConstructor
 //@AllArgsConstructor
 public class Evaluator {
-    private String url;
-    private String concept;
+
+    private Timestamp timestamp;
     private String domain;
-    private int level;
+    private String concept;
+    private String url;
+    private String level;
+    private int confidenceScore;
 
-
-    public Timestamp getTimestamp() {
-        return timestamp;
-    }
 
     public void setTimestamp(Timestamp timestamp) {
         this.timestamp = timestamp;
     }
 
-    private Timestamp timestamp;
-
-    public int getLevel() {
+    public String getLevel() {
         return level;
     }
 
-    public void setLevel(int level) {
+    public void setLevel(String level) {
         this.level = level;
     }
-
-    private int confidenceScore;
 
     public String getUrl() {
         return url;

@@ -35,13 +35,14 @@ public class EvalServiceImpl  implements  EvalService{
     private String[] level2 = {"main","fundamental","essential","beginner","basics","model","secondary","additional","auxiliary","snippets"};
     private String[] level3 = {"academic","informational","instructive","guidance","instructional","tutorials","training","primary","primitive","foundation"};
     private String[] level4 = {"source code","reference","relating","snippet","sample","expression","model","instance","class","function"};
+    private String[] levels={"Knowledge","Comprehensive","Application","Analysis","Synthesis","Evaluation"};
     private List<String> strL1 = Arrays.asList(level1);
     private List<String> strL2 = Arrays.asList(level2);
     private List<String> strL3 = Arrays.asList(level3);
     private List<String> strL4 = Arrays.asList(level4);
 
 
-    private String url = "https://www.geeksforgeeks.org/encapsulation-in-java/";
+    private String url = "https://www.guru99.com/java-oops-class-objects.html";
 
     public EvalServiceImpl() throws IOException{
         this.docx = Jsoup.connect(url).get();
@@ -78,7 +79,6 @@ public class EvalServiceImpl  implements  EvalService{
         String h1Tag = docx.select("h1").first().text();
         String[] str=h1Tag.toLowerCase().trim().split(" ");
         List<String> strn = Arrays.asList(str);
-        System.out.println(strn);
         h[0]=countOccurences(strn,strL1);
         h[1]=countOccurences(strn,strL2);
         h[2]=countOccurences(strn,strL3);
@@ -151,11 +151,12 @@ public class EvalServiceImpl  implements  EvalService{
 
         eva = new Evaluator();
         eva.setTimestamp(Timestamp.valueOf(LocalDateTime.of(LocalDate.now(), LocalTime.now())));
-        eva.setConcept("class");
         eva.setDomain("java");
-        eva.setUrl("http://www.microscopy-uk.org.uk/mag/indexmag.html?http://www.microscopy-uk.org.uk/mag/wimsmall/smal1.html");
+        eva.setConcept("class");
+        eva.setUrl("https://www.guru99.com/java-oops-class-objects.html");
         eva.setConfidenceScore(Collections.max(scores));
-        eva.setLevel(level+1);
+
+        eva.setLevel(levels[level]);
         return eva;
 
     }
