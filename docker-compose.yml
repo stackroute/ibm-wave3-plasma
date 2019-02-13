@@ -32,9 +32,7 @@ services:
       - 8888:8888
       expose:
       - 8888
-
-
-
+ 
   documentcrawler:
     image: document-crawler-service:latest
     build: document-crawler-service/
@@ -54,4 +52,16 @@ services:
       - 8080:8080
     expose:
       - 8080
+ 
+
+  nlpservice:
+    image: nlp-servcie:latest
+    build: nlp-service/
+    restart: always
+    network_mode: host
+    ports:
+      - 8098:8098
+    expose:
+      - 8098
+  
 
