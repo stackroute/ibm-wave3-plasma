@@ -33,6 +33,14 @@ services:
       expose:
       - 8888
 
-
+  searchservice:
+    image: search-servcie:latest
+    build: search-service/
+    restart: always
+    network_mode: host
+    ports:
+      - 8080:8080
+    expose:
+      - 8080
 
 
