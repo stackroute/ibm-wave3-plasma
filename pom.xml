@@ -26,11 +26,9 @@
     </properties>
 
     <modules>
-<<<<<<< HEAD
         <module>document-crawler-service</module>
-=======
         <module>search-service</module>
->>>>>>> 47320a5fd7cd600277fe83d03b3e51a23b0ddcd5
+
         <module>eureka-server</module>
         <module>zuul-gatewayservice</module>
         <module>config-server</module>
