@@ -33,7 +33,7 @@ services:
       expose:
       - 8888
 
-<<<<<<< HEAD
+
 
   documentcrawler:
     image: document-crawler-service:latest
@@ -44,7 +44,7 @@ services:
       - 8900:8900
     expose:
       - 8900
-=======
+
   searchservice:
     image: search-servcie:latest
     build: search-service/
@@ -55,5 +55,13 @@ services:
     expose:
       - 8080
 
->>>>>>> 47320a5fd7cd600277fe83d03b3e51a23b0ddcd5
 
+  nlpservice:
+    image: nlp-servcie:latest
+    build: nlp-service/
+    restart: always
+    network_mode: host
+    ports:
+      - 8098:8098
+    expose:
+      - 8098
