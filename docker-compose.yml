@@ -33,7 +33,7 @@ services:
       expose:
       - 8888
 
-<<<<<<< HEAD
+
 
   documentcrawler:
     image: document-crawler-service:latest
@@ -44,7 +44,7 @@ services:
       - 8900:8900
     expose:
       - 8900
-=======
+
   searchservice:
     image: search-servcie:latest
     build: search-service/
@@ -54,6 +54,4 @@ services:
       - 8080:8080
     expose:
       - 8080
-
->>>>>>> 47320a5fd7cd600277fe83d03b3e51a23b0ddcd5
 
