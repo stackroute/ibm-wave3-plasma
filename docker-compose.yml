@@ -63,5 +63,14 @@ services:
       - 8098:8098
     expose:
       - 8098
-  
+
+  evaluatorservice:
+    image: evaluator-service:latest
+    build: evaluator-service/
+    restart: always
+    network_mode: host
+    ports:
+      - 8082:8082
+    expose:
+      - 8082
 
