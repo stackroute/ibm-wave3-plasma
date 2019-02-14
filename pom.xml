@@ -27,11 +27,6 @@
 
     <modules>
         <module>document-crawler-service</module>
- 
-        <module>search-service</module>
-
- 
-
         <module>search-service</module> 
         <module>eureka-server</module>
         <module>zuul-gatewayservice</module>

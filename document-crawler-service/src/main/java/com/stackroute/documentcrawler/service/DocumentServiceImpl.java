@@ -8,6 +8,10 @@ import org.jsoup.nodes.Document;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
+import java.sql.Timestamp;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
 
 @Service
 public class DocumentServiceImpl implements DocumentService {
@@ -26,9 +30,9 @@ public class DocumentServiceImpl implements DocumentService {
                 .timeout(600000)
                 .get();
         url.setDoc(doc.toString());
+        url.setTimestamp(Timestamp.valueOf(LocalDateTime.of(LocalDate.now(), LocalTime.now())));
         return url;
     }
-
 
 }
 //    @Override
