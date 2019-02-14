@@ -4,6 +4,7 @@ import edu.stanford.nlp.ling.CoreLabel;
 import edu.stanford.nlp.pipeline.CoreDocument;
 import edu.stanford.nlp.pipeline.StanfordCoreNLP;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -12,9 +13,10 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
-import java.util.stream.Collectors;
+//import java.util.stream.Collectors;
 
-public class NlpServiceImpl {
+@Service
+public class NlpServiceImpl implements NlpService{
 
     private final static HashSet<String> stopWordSet = new HashSet<>();
     List<String> extractedString = new ArrayList<>();
@@ -58,28 +60,18 @@ public class NlpServiceImpl {
     public List<String> queryConverter(String query) {
         CoreDocument coreDocument = new CoreDocument(query);
         stanfordCoreNLP.annotate(coreDocument);
-        // System.out.println(stopWord.getList());
         List<CoreLabel> coreLabels = coreDocument.tokens();
         String lemma;
 
         HashSet<String> word;
         word = readStopWordCsvFile();
-        System.out.println(word);
         for (CoreLabel coreLabel: coreLabels
         ) {
             lemma = coreLabel.lemma();
             if (!(word.contains(lemma))) {
-                System.out.println("goooood");
-                System.out.println(lemma);
                 extractedString.add(lemma);
             }
-            // finalString.add(lemma);
-            // System.out.println(lemma);
         }
-        // return coreLabels.stream().map(CoreLabel::originalText).collect(Collectors.toList());
-        return extractedString.stream().map(String::toString).collect(Collectors.toList());
+        return extractedString;
     }
-        // return null;
-   // }
-
 }
