@@ -1,4 +1,4 @@
-package com.stackroute.nlpservice;
+package com.stackroute.plasma;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
