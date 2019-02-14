@@ -38,27 +38,33 @@ services:
     build: document-crawler-service/
     restart: always
     network_mode: host
+    depends_on:
+      - eurekaserver
     ports:
-      - 8900:8900
+      - 8193:8193
     expose:
-      - 8900
+      - 8193
 
   searchservice:
-    image: search-servcie:latest
+    image: search-service:latest
     build: search-service/
     restart: always
     network_mode: host
+    depends_on:
+      - eurekaserver
     ports:
-      - 8080:8080
+      - 8090:8090
     expose:
-      - 8080
+      - 8090
  
 
   nlpservice:
-    image: nlp-servcie:latest
+    image: nlp-service:latest
     build: nlp-service/
     restart: always
     network_mode: host
+    depends_on:
+      - eurekaserver
     ports:
       - 8098:8098
     expose:
@@ -69,8 +75,21 @@ services:
     build: evaluator-service/
     restart: always
     network_mode: host
+    depends_on:
+      - eurekaserver
     ports:
       - 8082:8082
     expose:
       - 8082
 
+  plasmaloginservice:
+    image: plasma-login-service:latest
+    build: plasma-login-service/
+    restart: always
+    network_mode: host
+    depends_on:
+      - eurekaserver
+    ports:
+      - 8132:8132
+    expose:
+      - 8132

@@ -26,6 +26,7 @@
     </properties>
 
     <modules>
+        <module>plasma-login-service</module>
         <module>search-service</module>
         <module>evaluator-service</module>
         <module>eureka-server</module>
