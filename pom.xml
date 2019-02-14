@@ -34,6 +34,7 @@
         <module>eventbrite-service</module>
         <module>nlp-service</module>
         <module>document-crawler-service</module>
+        <module>nodemapper-service</module>
     </modules>
     <dependencies>
         <dependency>
