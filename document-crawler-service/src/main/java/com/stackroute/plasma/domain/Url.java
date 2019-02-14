@@ -1,7 +1,8 @@
-package com.stackroute.documentcrawler.domain;
+package com.stackroute.plasma.domain;
 
 import lombok.NoArgsConstructor;
-import org.jsoup.nodes.Document;
+
+import java.sql.Timestamp;
 
 @NoArgsConstructor
 public class Url {
@@ -10,12 +11,22 @@ public class Url {
     private String concept;
     private String domain;
     private String doc;
+    private Timestamp timestamp;
 
-    public Url(String url, String concept, String domain, String doc) {
+    public Url(String url, String concept, String domain, String doc, Timestamp timestamp) {
         this.url = url;
         this.concept = concept;
         this.domain = domain;
-        this.doc=doc;
+        this.doc = doc;
+        this.timestamp = timestamp;
+    }
+
+    public Timestamp getTimestamp() {
+        return timestamp;
+    }
+
+    public void setTimestamp(Timestamp timestamp) {
+        this.timestamp = timestamp;
     }
 
     public String getUrl() {

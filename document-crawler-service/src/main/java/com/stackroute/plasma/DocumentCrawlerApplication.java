@@ -1,12 +1,8 @@
-package com.stackroute.documentcrawler;
+package com.stackroute.plasma;
 
-import com.stackroute.documentcrawler.controller.DocumentController;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.ComponentScan;
-
-import javax.swing.text.Document;
 
 
 @EnableAutoConfiguration
