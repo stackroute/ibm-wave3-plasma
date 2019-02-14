@@ -1,10 +1,9 @@
-package com.stackroute.documentcrawler.controller;
+package com.stackroute.plasma.controller;
 
 
 
-import com.stackroute.documentcrawler.domain.Url;
-import com.stackroute.documentcrawler.service.DocumentService;
-import org.jsoup.nodes.Document;
+import com.stackroute.plasma.domain.Url;
+import com.stackroute.plasma.service.DocumentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

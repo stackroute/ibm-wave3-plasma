@@ -1,7 +1,7 @@
-//package com.stackroute.documentcrawler.controller;
+//package com.stackroute.plasma.controller;
 //import com.fasterxml.jackson.databind.ObjectMapper;
-//import com.stackroute.documentcrawler.domain.Url;
-//import com.stackroute.documentcrawler.service.DocumentService;
+//import com.stackroute.plasma.domain.Url;
+//import com.stackroute.plasma.service.DocumentService;
 //import org.junit.Test;
 //import org.junit.runner.RunWith;
 //import org.mockito.InjectMocks;
@@ -23,7 +23,6 @@
 //
 //
 //@RunWith(SpringRunner.class)
-//@WebMvcTest
 //public class DocumentControllerTest {
 //    @Autowired
 //    private MockMvc mockMvc;
@@ -39,7 +38,7 @@
 //    public void getContent() throws Exception {
 //        when(documentService.getDocument()).thenReturn(url);
 //        mockMvc.perform(MockMvcRequestBuilders.get("/api/v1/doc")
-//                .contentType(MediaType.APPLICATION_JSON).content(String.valueOf(url)))
+//                .contentType(MediaType.APPLICATION_JSON).content(asJsonString(url)))
 //                .andExpect(MockMvcResultMatchers.status().isOk())
 //                .andDo(MockMvcResultHandlers.print());
 //    }

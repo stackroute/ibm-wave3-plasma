@@ -1,7 +1,6 @@
-package com.stackroute.documentcrawler.domain;
+package com.stackroute.plasma.domain;
 
 import lombok.NoArgsConstructor;
-import org.jsoup.nodes.Document;
 
 import java.sql.Timestamp;
 

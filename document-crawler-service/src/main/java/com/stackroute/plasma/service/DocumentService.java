@@ -1,7 +1,6 @@
-package com.stackroute.documentcrawler.service;
+package com.stackroute.plasma.service;
 
-import com.stackroute.documentcrawler.domain.Url;
-import org.jsoup.nodes.Document;
+import com.stackroute.plasma.domain.Url;
 
 import java.io.IOException;
 

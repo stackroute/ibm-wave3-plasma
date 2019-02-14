@@ -1,4 +1,4 @@
-//package com.stackroute.documentcrawler.domain;
+//package com.stackroute.plasma.domain;
 //
 //import lombok.Data;
 //import lombok.NoArgsConstructor;

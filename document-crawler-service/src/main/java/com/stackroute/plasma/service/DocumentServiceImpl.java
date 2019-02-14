@@ -1,8 +1,7 @@
-package com.stackroute.documentcrawler.service;
+package com.stackroute.plasma.service;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.stackroute.documentcrawler.domain.Url;
+import com.stackroute.plasma.domain.Url;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.springframework.stereotype.Service;
@@ -24,8 +23,8 @@ public class DocumentServiceImpl implements DocumentService {
         url = new Url();
         url.setConcept("class");
         url.setDomain("java");
-        url.setUrl("http://www.microscopy-uk.org.uk/mag/indexmag.html?http://www.microscopy-uk.org.uk/mag/wimsmall/smal1.html");
-        doc = Jsoup.connect("http://www.microscopy-uk.org.uk/mag/indexmag.html?http://www.microscopy-uk.org.uk/mag/wimsmall/smal1.html")
+        url.setUrl("http://www.dustyfeet.com/");
+        doc = Jsoup.connect("http://www.dustyfeet.com/")
                 .header("Accept", "application/json")
                 .timeout(600000)
                 .get();
