@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.stackroute.plasma</groupId>
 	<artifactId>search-service</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<!--<version>0.0.1-SNAPSHOT</version>-->
 	<name>search-service</name>
 	<description>Demo project for Spring Boot</description>
 
