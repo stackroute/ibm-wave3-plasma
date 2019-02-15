@@ -15,22 +15,23 @@ import javax.persistence.Id;
 @Builder
 
 public class User {
-    public  String getUserId() {return userId;}
+
 
     @Id
     private String userId;
     private String password;
+//    public  String getUserId() {return userId;}
 
-    public void setManagerId(String managerId) {
-        this.userId = managerId;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-    public void setPassword(String password) {
-        this.password = password;
-    }
+//    public void setUserId(String userId) {
+//        this.userId = userId;
+//    }
+//
+//    public String getPassword() {
+//        return password;
+//    }
+//    public void setPassword(String password) {
+//        this.password = password;
+//    }
 
 }
 

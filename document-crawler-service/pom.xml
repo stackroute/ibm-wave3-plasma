@@ -9,8 +9,8 @@
 		<relativePath>../pom.xml</relativePath>
 	</parent>
 	<groupId>com.stackroute</groupId>
-	<artifactId>plasma</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<artifactId>document-crawler</artifactId>
+	<!--<version>0.0.1-SNAPSHOT</version>-->
 	<name>document-crawler-service</name>
 	<description>Document Crawler using Spring Boot</description>
 
@@ -20,8 +20,6 @@
 	</properties>
 
 	<dependencies>
-
-
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
