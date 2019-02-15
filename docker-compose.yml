@@ -53,9 +53,9 @@ services:
     depends_on:
       - eurekaserver
     ports:
-      - 8090:8090
+      - 8999:8999
     expose:
-      - 8090
+      - 8999
  
 
   nlpservice:
