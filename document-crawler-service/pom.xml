@@ -9,19 +9,17 @@
 		<relativePath>../pom.xml</relativePath>
 	</parent>
 	<groupId>com.stackroute</groupId>
-	<artifactId>plasma</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<artifactId>document-crawler</artifactId>
+	<!--<version>0.0.1-SNAPSHOT</version>-->
 	<name>document-crawler-service</name>
 	<description>Document Crawler using Spring Boot</description>
 
 	<properties>
 		<java.version>11</java.version>
-		<spring-cloud.version>Greenwich.RC2</spring-cloud.version>
+		<!--<spring-cloud.version></spring-cloud.version>-->
 	</properties>
 
 	<dependencies>
-
-
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
@@ -44,11 +42,7 @@
 			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
 		</dependency>
 
-		<!--MongoDB-->
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-data-mongodb</artifactId>
-		</dependency>
+
 		<dependency>
 			<groupId>org.mongodb</groupId>
 			<artifactId>mongo-java-driver</artifactId>
