@@ -1,13 +1,4 @@
-// import { SearchService } from './search.service';
-// import { Injectable } from '@angular/core';
 
-// @Injectable({
-//   providedIn: 'root'
-// })
-// export class SearchService {
-
-//   constructor() { }
-// }
 
 import { Injectable } from "@angular/core";
 import { Http, Response } from '@angular/http';
@@ -23,15 +14,16 @@ import { catchError } from "rxjs/operators";
 })
 export class SearchService {
   console: any;
-  private nlpserviceurl: 'http://localhost:8098/api/v1/';
+  // private nlpserviceurl: 'http://localhost:8098/api/v1/';
 
-  constructor(private http: Http) {
-    console.log("Hi how are you ");
-    this.getData();
+  // constructor(private http: Http) {
+  //   console.log("Hi how are you ");
+  //   this.getData();
 
-  }
+  // }
 
   getData() {
-    return this.http.get(this.nlpserviceurl);
+    // return this.http.get(this.nlpserviceurl);
+    console.log("Hi how are you ");
   }
 }
