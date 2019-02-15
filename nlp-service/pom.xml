@@ -9,8 +9,8 @@
 		<relativePath>../pom.xml</relativePath>
 	</parent>
 	<groupId>com.stackroute</groupId>
-	<artifactId>plasma</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<artifactId>nlp-service</artifactId>
+	<!--<version>0.0.1-SNAPSHOT</version>-->
 	<name>nlp-service</name>
 	<description>Demo project for Spring Boot</description>
 

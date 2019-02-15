@@ -2,6 +2,6 @@ language: java
 jdk: openjdk11
 cache:
 directories:
- - "$HOME/.m2/repository"
+- "$HOME/.m2/repository"
 after_success:
 - bash <(curl -s https://codecov.io/bash)

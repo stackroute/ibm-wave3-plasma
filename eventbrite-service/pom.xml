@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.stackroute</groupId>
 	<artifactId>eventbrite-service</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<!--<version>0.0.1-SNAPSHOT</version>-->
 	<name>eventbrite-service</name>
 	<description>nextEvent project in Spring Boot</description>
 
