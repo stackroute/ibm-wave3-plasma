@@ -3,7 +3,7 @@
 ![](https://img.shields.io/codecov/c/github/stackroute/ibm-wave3-plasma.svg?style=flat)
 
 ![](https://img.shields.io/snyk/vulnerabilities/github/stackroute/ibm-wave3-plasma.svg?style=popout)
-![](https://img.shields.io/github/issues/stackroute/<repo_name>.svg?style=popout)
+![](https://img.shields.io/github/issues/stackroute/ibm-wave3-plasma.svg?style=popout)
 
 ![](https://img.shields.io/github/contributors/stackroute/ibm-wave3-plasma.svg?style=popout)
 ![](https://img.shields.io/github/last-commit/stackroute/ibm-wave3-plasma.svg?style=popout)
