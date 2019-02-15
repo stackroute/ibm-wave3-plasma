@@ -26,21 +26,16 @@
     </properties>
 
     <modules>
- 
- 
 
         <module>document-crawler-service</module>
-        <module>search-service</module>  
- 
-        <module>plasma-login-service</module>
         <module>search-service</module>
+        <module>plasma-login-service</module>
         <module>evaluator-service</module> 
         <module>eureka-server</module>
         <module>zuul-gatewayservice</module>
         <module>config-server</module>
         <module>eventbrite-service</module>
         <module>nlp-service</module>
-        <module>document-crawler-service</module>
         <module>nodemapper-service</module>
     </modules>
     <dependencies>
