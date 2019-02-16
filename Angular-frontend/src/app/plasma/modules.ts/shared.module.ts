@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MaterialModule } from './material/material.module';
-import { StyleManager } from './style-manager/style-manager';
+import { MaterialModule } from '../plasma.material.modules.ts/material.module';
+import { StyleManager } from './style-manager';
 
 @NgModule({
   imports: [

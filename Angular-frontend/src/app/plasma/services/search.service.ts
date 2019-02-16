@@ -24,6 +24,9 @@ export class SearchService {
 
   getData() {
     // return this.http.get(this.nlpserviceurl);
+    // .toPromise()
+    //            .then(response => response.json().data as Hero[])
+    //            .catch(this.handleError);
     console.log("Hi how are you ");
   }
 }

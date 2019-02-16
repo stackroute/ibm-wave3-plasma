@@ -1,6 +1,6 @@
 import { ActionStrategy } from './action-strategy';
-import { Theme } from '../theme';
-import { StyleManager } from '../../../../shared/style-manager/style-manager';
+import { Theme } from './theme';
+import { StyleManager } from './style-manager';
 // import { SpeechSynthesizerService } from '../../../shared/services/speech-synthesizer.service';
 
 export class ChangeColorStrategy extends ActionStrategy {
