@@ -1,6 +1,8 @@
+import { SearchService } from './plasma/services/search.service';
 import { Observable, observable } from 'rxjs';
 import { Component } from '@angular/core';
-import { SearchService } from './web-speech/shared/services/search.service';
+// import { SearchService } from './web-speech/shared/services/search.service';
+
 import { HttpClient } from '@angular/common/http';
 
 @Component({

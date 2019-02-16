@@ -1,10 +1,10 @@
-import { SearchService } from "./shared/services/search.service";
+import { SearchService } from "./../services/search.service";
 import { ChangeDetectorRef, Component, OnInit } from "@angular/core";
-import { SpeechRecognizerService } from "./shared/services/speech-recognizer.service";
+import { SpeechRecognizerService } from "./../services/speech-recognizer.service";
 
-import { SpeechNotification } from "./shared/model/speech-notification";
-import { SpeechError } from "./shared/model/speech-error";
-import { ActionContext } from "./shared/model/strategy/action-context";
+import { SpeechNotification } from "./../modules.ts/speech-notification";
+import { SpeechError } from "./../modules.ts/speech-error";
+import { ActionContext } from "./../modules.ts/action-context";
 
 @Component({
   selector: "wsa-web-speech",

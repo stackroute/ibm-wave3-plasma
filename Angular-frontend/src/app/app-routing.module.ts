@@ -1,6 +1,7 @@
+import { WebSpeechComponent } from './plasma/web-speech/web-speech.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { WebSpeechComponent } from './web-speech/web-speech.component';
+
 
 const routes: Routes = [
   {
