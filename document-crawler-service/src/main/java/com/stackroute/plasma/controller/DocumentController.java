@@ -4,6 +4,7 @@ package com.stackroute.plasma.controller;
 
 import com.stackroute.plasma.domain.Url;
 import com.stackroute.plasma.service.DocumentService;
+import com.stackroute.plasma.service.RabbitMQSender;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -24,13 +25,17 @@ public class DocumentController {
         this.documentService = documentService;
     }
 
+    @Autowired
+    RabbitMQSender rabbitMQSender;
 
-    @GetMapping("/doc")
+
+    @GetMapping("doc")
     public ResponseEntity<?> getContent() throws IOException {
 //        CustomResponse customResponse=new CustomResponse();
 ////        customResponse.setMessage(documentService.getHtmlContent().html());
 //        customResponse.setObj(documentService.getDocument());
 //        System.out.println(documentService.getDocument());
+        rabbitMQSender.send(documentService.getDocument());
         return new ResponseEntity(documentService.getDocument(), HttpStatus.CREATED);
 
     }
