@@ -15,7 +15,7 @@ public class GlobalExceptionHandler {
 
         @ResponseStatus(value= HttpStatus.BAD_REQUEST, reason="Content not found")
         @ExceptionHandler(UrlNotFoundException.class)
-        public void handleEmptyFieldException(ContentNotFoundException e){
+        public void handleEmptyFieldException(UrlNotFoundException e){
 
             System.out.println("Content not found"+e);
         }
