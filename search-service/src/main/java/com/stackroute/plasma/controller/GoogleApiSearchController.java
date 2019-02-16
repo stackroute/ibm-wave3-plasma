@@ -1,5 +1,6 @@
 package com.stackroute.plasma.controller;
 
+import com.stackroute.plasma.model.Api;
 import com.stackroute.plasma.service.GoogleApiSearchService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,45 +16,52 @@ import java.io.StringReader;
 public class GoogleApiSearchController {
     @Autowired
     GoogleApiSearchService googleApiSearchService;
+    Api api = new Api();
+    String newConcepts[] = api.getConcepts();
     public String result;
     private int initial;
     private int finall;
     @GetMapping("/search")
     public String getApi(){
-        result = googleApiSearchService.read("java+android", 1, 10);
-        JsonParser parser = Json.createParser(new StringReader(result));
-        while (parser.hasNext()) {
-            JsonParser.Event event = parser.next();
+        //for(int i=0;i<10;i++)
 
-            if (event == JsonParser.Event.KEY_NAME) {
-
-                if (parser.getString().equals("htmlTitle")) {
-                    JsonParser.Event value = parser.next();
-
-                    if (value == JsonParser.Event.VALUE_STRING)
-                        System.out.println("Title (HTML): "
-                                + parser.getString());
-                }
-
-                if (parser.getString().equals("link")) {
-
-                    JsonParser.Event value = parser.next();
-
-                    if (value == JsonParser.Event.VALUE_STRING)
-                        System.out.println("Link: " + parser.getString());
-                }
-
-            }
-
-        }
-
-        initial = initial + 10;
-
-        finall++;
-
-        System.out
-                .println("**************************************************");
-
+        result = googleApiSearchService.read(api.getDomain()+newConcepts[1], 1, 10);
+        System.out.println("hello");
+        System.out.println(result);
+//        JsonParser parser = Json.createParser(new StringReader(result));
+//        while (parser.hasNext()) {
+//            JsonParser.Event event = parser.next();
+//
+//            if (event == JsonParser.Event.KEY_NAME) {
+//
+//                if (parser.getString().equals("htmlTitle")) {
+//                    JsonParser.Event value = parser.next();
+//
+//                    if (value == JsonParser.Event.VALUE_STRING)
+//                        System.out.println("Title (HTML): "
+//                                + parser.getString());
+//                }
+//
+//                if (parser.getString().equals("link")) {
+//
+//                    JsonParser.Event value = parser.next();
+//
+//                    if (value == JsonParser.Event.VALUE_STRING)
+//                        System.out.println("Link: " + parser.getString());
+//                }
+//
+//            }
+//
+//        }
+//
+//        initial = initial + 10;
+//
+//        finall++;
+//
+//        System.out
+//                .println("**************************************************");
+//
+//        return result;
         return result;
     }
 }

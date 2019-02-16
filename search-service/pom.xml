@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.stackroute.plasma</groupId>
 	<artifactId>search-service</artifactId>
-	<!--<version>0.0.1-SNAPSHOT</version>-->
+	<version>0.0.1-SNAPSHOT</version>
 	<name>search-service</name>
 	<description>Demo project for Spring Boot</description>
 
@@ -23,15 +23,16 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
-		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
-		</dependency>
+		<!--<dependency>-->
+			<!--<groupId>org.springframework.cloud</groupId>-->
+			<!--<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>-->
+		<!--</dependency>-->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+
 		<!-- https://mvnrepository.com/artifact/javax.json/javax.json-api -->
 		<dependency>
 			<groupId>javax.json</groupId>
@@ -50,11 +51,6 @@
 			<groupId>org.jsoup</groupId>
 			<artifactId>jsoup</artifactId>
 			<version>1.11.3</version>
-		</dependency>
-		<dependency>
-			<groupId>org.projectlombok</groupId>
-			<artifactId>lombok</artifactId>
-			<version>1.18.4</version>
 		</dependency>
 
 

@@ -14,7 +14,11 @@ import java.net.URL;
 public class GoogleApiSearchService {
     final static String apiKey = "AIzaSyB-93tpPyxrK76l6iw-mFnsvDiUJCLpFw8";
     final static String customSearchEngineKey = "006477474756235376421:nz2modhy5qa";
-
+    public String newResult ;
+    private int initial;
+    String link ;
+    private int finall;
+    String result;
     // base url for the search query
     final static String searchURL = "https://www.googleapis.com/customsearch/v1?";
     //https://cse.google.com/cse/setup/basic?cx=006477474756235376421%3Anz2modhy5qa
@@ -44,11 +48,48 @@ public class GoogleApiSearchService {
             while ((line = br.readLine()) != null) {
                 buffer.append(line);
             }
-            return buffer.toString();
+            newResult = buffer.toString();
+            JsonParser parser = Json.createParser(new StringReader(newResult));
+            while (parser.hasNext()) {
+                JsonParser.Event event = parser.next();
+
+                if (event == JsonParser.Event.KEY_NAME) {
+
+                    if (parser.getString().equals("htmlTitle")) {
+                        JsonParser.Event value = parser.next();
+
+                        if (value == JsonParser.Event.VALUE_STRING)
+                            System.out.println("Title (HTML): "
+                                    + parser.getString());
+                    }
+
+                    if (parser.getString().equals("link")) {
+
+                        JsonParser.Event value = parser.next();
+
+                        if (value == JsonParser.Event.VALUE_STRING)
+                            link = parser.getString();
+                            System.out.println("Link: " + parser.getString());
+                    }
+
+                }
+
+            }
+            initial = initial + 10;
+
+            finall++;
+
+            System.out
+                    .println("**************************************************");
+
+            //return result;
+
+            //return buffer.toString();
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return null;
+        //return null;
+        return link;
     }
 
 }
