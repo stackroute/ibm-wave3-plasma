@@ -1,5 +1,11 @@
 version: "2"
 services:
+  rabbitmq:
+    image: rabbitmq:management
+    ports:
+      - 15673:15673
+      - 5673:5673
+    network_mode: host
 
   apigateway:
     image: zuul-service

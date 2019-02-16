@@ -8,7 +8,7 @@
 		<version>0.0.1-SNAPSHOT</version>
 		<relativePath>../pom.xml</relativePath> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.stackroute</groupId>
+	<!--<groupId>com.stackroute</groupId>-->
 	<artifactId>plasma</artifactId>
 	<!--<version>0.0.1-SNAPSHOT</version>-->
 	<name>plasma-login</name>

@@ -12,7 +12,7 @@ import java.io.IOException;
 
 @RestController
 @RequestMapping(value="api/v1")
-public class EvalController {
+public class  EvalController {
 
     EvalService evalService;
     private Evaluator eval;
