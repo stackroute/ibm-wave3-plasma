@@ -11,7 +11,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { HttpClientModule } from '@angular/common/http';
-import { DomainExpertComponent } from './plasma/domain-expert/domain-expert/domain-expert.component';
+import { DomainExpertComponent } from './plasma/domain-expert/domain-expert.component';
 
 @NgModule({
   declarations: [
