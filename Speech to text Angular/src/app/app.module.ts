@@ -9,6 +9,7 @@ import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
 import { WebSpeechModule } from './web-speech/web-speech.module';
 import { HttpClientModule } from '@angular/common/http';
+import { UserRegisterServiceModule } from './userregister/userregisterservice.module';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { HttpClientModule } from '@angular/common/http';
     SharedModule,
     WebSpeechModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    UserRegisterServiceModule
   ],
   bootstrap: [
     AppComponent
