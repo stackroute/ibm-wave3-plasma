@@ -69,29 +69,7 @@ public class Url {
     public void setDoc(String doc) {
         this.doc = doc;
     }
-    //    public String getConcept() {
-//        return concept;
-//    }
-//
-//    public void setConcept(String concept) {
-//        this.concept = concept;
-//    }
-//
-//    public String getDomain() {
-//        return domain;
-//    }
-//
-//    public void setDomain(String domain) {
-//        this.domain = domain;
-//    }
-//
-//    public String getUrl() {
-//        return url;
-//    }
-//
-//    public void setUrl(String url) {
-//        this.url = url;
-//    }
+
 
     @Override
     public String toString() {
@@ -103,11 +81,6 @@ public class Url {
                 ", timestamp=" + timestamp +
                 '}';
     }
-//
-//    public void  setDoc(Document doc)
-//    {
-//        this.doc =  doc;
-//    }
 
 
 }

@@ -1,3 +1,4 @@
+
 //package com.stackroute.plasma.exception;
 //
 //public class UrlNotFoundException extends Exception {
@@ -14,3 +15,4 @@
 //        this.message=message;
 //    }
 //}
+

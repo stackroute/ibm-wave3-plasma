@@ -18,10 +18,7 @@ public class DocumentServiceTest {
     DocumentServiceImpl documentServiceImpl = new DocumentServiceImpl();
     Url url=new Url();
 
-//    private String url;
-//    private String concept;
-//    private String domain;
-//    private String doc;
+
 
 
     public DocumentServiceTest() throws IOException {
@@ -49,8 +46,7 @@ public class DocumentServiceTest {
     @Test
     public void getDoc() throws IOException {
     assertNotNull(documentServiceImpl.getDocument());
-//        assertEquals(url, documentServiceImpl.getDocument()+" ");
-//
+
 
     }
 
