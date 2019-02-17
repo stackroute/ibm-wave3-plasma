@@ -33,7 +33,7 @@ public class NlpServiceImpl implements NlpService{
 
     public NlpServiceImpl() {
     }
-
+    //method for reading csv file
     public HashSet<String> readStopWordCsvFile() {
 
         try {

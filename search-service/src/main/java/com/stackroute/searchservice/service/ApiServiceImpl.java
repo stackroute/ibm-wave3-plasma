@@ -31,7 +31,7 @@ public class ApiServiceImpl implements ApiService {
     final static String searchURL = "https://www.googleapis.com/customsearch/v1?";
     //https://cse.google.com/cse/setup/basic?cx=006477474756235376421%3Anz2modhy5qa
     //https://console.developers.google.com/apis/credentials?project=plasma-231517
-
+//method to read call api
     public String[] getConceptsUrl(String qSearch, int start, int numOfResults) {
         try {
             int i = 0;
