@@ -65,6 +65,7 @@ public class NlpServiceImpl implements NlpService{
 
         HashSet<String> word;
         word = readStopWordCsvFile();
+        System.out.println(coreLabels);
         for (CoreLabel coreLabel: coreLabels
         ) {
             lemma = coreLabel.lemma();

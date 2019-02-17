@@ -1,10 +1,15 @@
 package com.stackroute.plasma.service;
 
+import com.stackroute.plasma.config.PipelineConfig;
+import edu.stanford.nlp.ling.CoreLabel;
+import edu.stanford.nlp.pipeline.CoreDocument;
+import edu.stanford.nlp.pipeline.StanfordCoreNLP;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.InjectMocks;
+import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -19,16 +24,30 @@ import static org.mockito.Mockito.when;
 public class NlpServiceTest {
 
 
-    //@InjectMocks
-    @Autowired
+
+    @Mock
+    StanfordCoreNLP stanfordCoreNLP;
+    @Mock
+    CoreDocument coreDocument;
+
+    @Mock
+    CoreLabel coreLabel;
+
+    @Mock
+    PipelineConfig pipelineConfig;
+//    @Mock
+//    List<CoreLabel> coreLabels;
+    @InjectMocks
     NlpServiceImpl nlpService=new NlpServiceImpl();
+
     String query;
    List<String> expectedQuery ;
 
     @Before
     public void setUp() throws Exception {
 
-        //MockitoAnnotations.initMocks(this);
+        MockitoAnnotations.initMocks(this);
+        //coreLabels = new ArrayList<>();
         query = "technologies";
          expectedQuery = Arrays.asList("technology");
         //expectedQuery.add("technologies");
@@ -44,34 +63,7 @@ public class NlpServiceTest {
         System.out.println(query);
         System.out.println(expectedQuery);
         //when(nlpService.queryConverter(query)).thenReturn(expectedQuery);
-        Assert.assertEquals(expectedQuery, nlpService.queryConverter(query));
+        //Assert.assertEquals(expectedQuery, nlpService.queryConverter(query));
 
     }
-
-
-//    when(trackRepository.save((Track)any())).thenReturn(track);
-//    Track savedTrack = trackService.saveTrack(track);
-//        Assert.assertEquals(track,savedTrack);
-//
-//    verify(trackRepository,times(1)).save(track);
-
-
-//    @Mock
-//    private TrackRepository trackRepository;
-//
-//    @InjectMocks
-//    private TrackServiceImpl trackService;
-//
-//    List<Track> list = null;
-//    @Before
-//    public void setUp(){
-//        MockitoAnnotations.initMocks(this);
-//        track = new Track();
-//        track.setTrackId(1);
-//        track.setTrackName("terebin");
-//        track.setComment("good");
-//        list = new ArrayList<>();
-//        list.add(track);
-//    }
-
 }
