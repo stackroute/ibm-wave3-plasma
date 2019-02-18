@@ -9,16 +9,10 @@ import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
-<<<<<<< HEAD:Speech to text Angular/src/app/app.module.ts
-import { SharedModule } from './shared/shared.module';
-import { WebSpeechModule } from './web-speech/web-speech.module';
-import { HttpClientModule } from '@angular/common/http';
-import { UserRegisterServiceModule } from './userregister/userregisterservice.module';
-=======
->>>>>>> f719488db96299f03ad0f772af047743b3dee7fd:Angular-frontend/src/app/app.module.ts
 
 import { HttpClientModule } from '@angular/common/http';
 import { DomainExpertComponent } from './plasma/domain-expert/domain-expert.component';
+import { UserRegisterServiceModule } from './plasma/userregister/userregisterservice.module';
 
 @NgModule({
   declarations: [
