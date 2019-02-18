@@ -4,12 +4,14 @@ import { FormsModule } from '@angular/forms';
 import { MaterialModule } from '../../plasma.material.modules.ts/material.module';
 import { SpeechRecognizerService } from '../../services/speech-recognizer.service';
 import { WebSpeechComponent } from './web-speech.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
-    MaterialModule
+    MaterialModule,
+    RouterModule
   ],
   declarations: [
     WebSpeechComponent
