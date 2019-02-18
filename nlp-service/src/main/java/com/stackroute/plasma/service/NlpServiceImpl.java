@@ -33,7 +33,7 @@ public class NlpServiceImpl implements NlpService{
 
     public NlpServiceImpl() {
     }
-
+    //method for reading csv file
     public HashSet<String> readStopWordCsvFile() {
 
         try {
@@ -65,6 +65,7 @@ public class NlpServiceImpl implements NlpService{
 
         HashSet<String> word;
         word = readStopWordCsvFile();
+        System.out.println(coreLabels);
         for (CoreLabel coreLabel: coreLabels
         ) {
             lemma = coreLabel.lemma();

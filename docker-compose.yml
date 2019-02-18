@@ -59,9 +59,9 @@ services:
     depends_on:
       - eurekaserver
     ports:
-      - 8999:8999
+      - 8090:8090
     expose:
-      - 8999
+      - 8090
  
 
   nlpservice:
@@ -99,3 +99,15 @@ services:
       - 8132:8132
     expose:
       - 8132
+
+  userregisterservice:
+    image: user-register-service:latest
+    build: user-register-service/
+    restart: always
+    network_mode: host
+    depends_on:
+      - eurekaserver
+    ports:
+      - 8089:8089
+    expose:
+      - 8089

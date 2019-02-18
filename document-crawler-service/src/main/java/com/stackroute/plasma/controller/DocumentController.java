@@ -31,10 +31,7 @@ public class DocumentController {
 
     @GetMapping("doc")
     public ResponseEntity<?> getContent() throws IOException {
-//        CustomResponse customResponse=new CustomResponse();
-////        customResponse.setMessage(documentService.getHtmlContent().html());
-//        customResponse.setObj(documentService.getDocument());
-//        System.out.println(documentService.getDocument());
+
         rabbitMQSender.send(documentService.getDocument());
         return new ResponseEntity(documentService.getDocument(), HttpStatus.CREATED);
 

@@ -36,6 +36,7 @@
         <module>eventbrite-service</module>
         <module>nlp-service</module>
         <module>nodemapper-service</module>
+        <module>user-register-service</module>
     </modules>
     <dependencies>
         <dependency>
@@ -140,24 +141,11 @@
                     </execution>
                 </executions>
             </plugin>
-
-
-            <!--
-            Code Coverage using Jacoco
-            ***
-            ***Refer https://www.petrikainulainen.net/programming/maven/creating-code-coverage-reports-for-unit-and-integration-tests-with-the-jacoco-maven-plugin/
-            ***
-            -->
-
             <plugin>
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
                 <version>0.8.2</version>
                 <executions>
-                    <!--
-                        Prepares the property pointing to the JaCoCo runtime agent which
-                        is passed as VM argument when Maven the Surefire plugin is executed.
-                    -->
                     <execution>
                         <id>pre-unit-test</id>
                         <goals>
@@ -166,17 +154,9 @@
                         <configuration>
                             <!-- Sets the path to the file which contains the execution data. -->
                             <destFile>${project.build.directory}/coverage-reports/jacoco-ut.exec</destFile>
-                            <!--
-                                Sets the name of the property containing the settings
-                                for JaCoCo runtime agent.
-                            -->
                             <propertyName>surefireArgLine</propertyName>
                         </configuration>
                     </execution>
-                    <!--
-                        Ensures that the code coverage report for unit tests is created after
-                        unit tests have been run.
-                    -->
                     <execution>
                         <id>post-unit-test</id>
                         <phase>test</phase>
