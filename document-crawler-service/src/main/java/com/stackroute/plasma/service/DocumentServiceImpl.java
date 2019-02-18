@@ -24,7 +24,7 @@ public class DocumentServiceImpl implements DocumentService {
         url.setConcept("class");
         url.setDomain("java");
         url.setUrl("http://www.dustyfeet.com/");
-        doc = Jsoup.connect("http://www.dustyfeet.com/")
+        doc =Jsoup.connect("http://www.dustyfeet.com/")
                 .header("Accept", "application/json")
                 .timeout(600000)
                 .get();
