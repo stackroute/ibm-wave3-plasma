@@ -25,7 +25,8 @@ import {MatChipsModule} from '@angular/material/chips';
     MatSelectModule,
     MatListModule,
     MatSidenavModule,
-    MatChipsModule
+    MatChipsModule,
+    MatSelectModule
   ],
   exports: [
     MatButtonModule,

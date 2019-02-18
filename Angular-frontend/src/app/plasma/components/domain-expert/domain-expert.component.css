@@ -1,63 +1,21 @@
-.speech-result-width {
-  width: 90%;
-  padding-left: 20px;
-  padding-right: 20px;
-}
-section
+/* .search
 {
-margin-top: 0px;
-  height:1000px;
-
+  margin-left: 500px;
+  margin-top: 150px;
+  position: relative;
 }
-figure{
- padding-left: 300px;
-
-}
-
-.topnav {
-  margin-top: 0px;
-  overflow: hidden;
-  background-color: #333;
-}
-
-.topnav a {
-  float: right;
-  color: #f2f2f2;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-  font-size: 17px;
-}
-
-.topnav a:hover {
-  background-color: #ddd;
-  color: black;
-}
-
-
-.mat-input-element:disabled {
-  color:black;
-}
-
-.buttonwrapper {
-  display:inline-block;
-}
-
-input,
-button {
-  background-color:transparent;
-  border:1 solid black;
-}
-
-.search
+.search1
 {
   margin-left: 500px;
   position: relative;
+} */
+
+ .form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
 }
 
-.go
-{
-  margin-left: 750px;
-  position: absolute;
-  top:235px;
-}
+.full-width {
+  width: 100%;
+} 
