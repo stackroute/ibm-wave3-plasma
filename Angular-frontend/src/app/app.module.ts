@@ -1,5 +1,5 @@
 
-import { WebSpeechModule } from './plasma/web-speech/web-speech.module';
+import { WebSpeechModule } from './plasma/components/web-speech/web-speech.module';
 import { SharedModule } from './plasma/modules.ts/shared.module';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
