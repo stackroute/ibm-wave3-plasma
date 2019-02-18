@@ -1,6 +1,7 @@
-import { WebSpeechComponent } from './plasma/web-speech/web-speech.component';
+import { WebSpeechComponent } from './plasma/components/web-speech/web-speech.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { UserRegisterServiceComponent } from './plasma/userregister/userregisterservice.component';
 
 
 const routes: Routes = [
@@ -12,6 +13,10 @@ const routes: Routes = [
   {
     path: 'web-speech',
     component: WebSpeechComponent
+  },
+  {
+    path: 'userregister',
+    component: UserRegisterServiceComponent
   }
 ];
 

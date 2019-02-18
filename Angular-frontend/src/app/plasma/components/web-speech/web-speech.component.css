@@ -13,14 +13,11 @@ figure{
  padding-left: 300px;
 
 }
-
-
 .topnav {
   margin-top: 0px;
   overflow: hidden;
   background-color: #333;
 }
-
 .topnav a {
   float: right;
   color: #f2f2f2;
