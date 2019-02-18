@@ -5,13 +5,13 @@ services:
     ports:
       - 15673:15673
       - 5673:5673
-    network_mode: host
+#    network_mode: host
 
   apigateway:
     image: zuul-service
     build: zuul-gatewayservice/
     restart: always
-    network_mode: host
+#    network_mode: host
     depends_on:
     - eurekaserver
     ports:
@@ -23,7 +23,7 @@ services:
     image: eureka-service:latest
     build: eureka-server/
     restart: always
-    network_mode: host
+#    network_mode: host
     ports:
     - 9091:9091
     expose:
@@ -33,7 +33,7 @@ services:
       image: config-service:latest
       build: config-server/
       restart: always
-      network_mode: host
+#      network_mode: host
       ports:
       - 8888:8888
       expose:
@@ -43,7 +43,7 @@ services:
     image: document-crawler-service:latest
     build: document-crawler-service/
     restart: always
-    network_mode: host
+#    network_mode: host
     depends_on:
       - eurekaserver
       - rabbitmq
@@ -56,7 +56,7 @@ services:
     image: search-service:latest
     build: search-service/
     restart: always
-    network_mode: host
+#    network_mode: host
     depends_on:
       - eurekaserver
       - rabbitmq
@@ -70,7 +70,7 @@ services:
     image: nlp-service:latest
     build: nlp-service/
     restart: always
-    network_mode: host
+#    network_mode: host
     depends_on:
       - eurekaserver
     ports:
@@ -82,7 +82,7 @@ services:
     image: evaluator-service:latest
     build: evaluator-service/
     restart: always
-    network_mode: host
+#    network_mode: host
     depends_on:
       - eurekaserver
     ports:
@@ -94,7 +94,7 @@ services:
     image: plasma-login-service:latest
     build: plasma-login-service/
     restart: always
-    network_mode: host
+#    network_mode: host
     depends_on:
       - eurekaserver
     ports:
@@ -106,7 +106,7 @@ services:
     image: user-register-service:latest
     build: user-register-service/
     restart: always
-    network_mode: host
+#    network_mode: host
     depends_on:
       - eurekaserver
     ports:
