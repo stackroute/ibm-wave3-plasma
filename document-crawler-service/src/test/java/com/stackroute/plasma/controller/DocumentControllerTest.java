@@ -63,7 +63,7 @@ public class DocumentControllerTest {
         when(documentService.getDocument()).thenReturn(url);
         mockMvc.perform(MockMvcRequestBuilders.get("/api/v1/doc")
                 .contentType(MediaType.APPLICATION_JSON).content(asJsonString(url)))
-                .andExpect(MockMvcResultMatchers.status().isCreated())
+                .andExpect(MockMvcResultMatchers.status().isOk())
                 .andDo(MockMvcResultHandlers.print());
     }
 

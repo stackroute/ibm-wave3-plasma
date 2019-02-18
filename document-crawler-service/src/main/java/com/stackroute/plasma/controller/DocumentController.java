@@ -29,11 +29,11 @@ public class DocumentController {
     RabbitMQSender rabbitMQSender;
 
 
-    @GetMapping("doc")
+    @GetMapping("/doc")
     public ResponseEntity<?> getContent() throws IOException {
 
         rabbitMQSender.send(documentService.getDocument());
-        return new ResponseEntity(documentService.getDocument(), HttpStatus.CREATED);
+        return new ResponseEntity(documentService.getDocument(), HttpStatus.OK);
 
     }
 

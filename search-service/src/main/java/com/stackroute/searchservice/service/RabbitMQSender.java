@@ -1,8 +1,8 @@
-package com.stackroute.plasma.service;
+package com.stackroute.searchservice.service;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.stackroute.plasma.domain.Url;
+import com.stackroute.searchservice.domain.SearchOutput;
 import org.springframework.amqp.core.AmqpTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -13,21 +13,17 @@ public class RabbitMQSender {
 
     @Autowired
     private AmqpTemplate amqpTemplate;
-
+    ObjectMapper objectMapper = new ObjectMapper();
     @Value("${javainuse.rabbitmq.exchange}")
     private String exchange;
 
-    @Value("${javainuse.rabbitmq.routingkey}")
-    private String routingkey;
+    @Value("${javainuse2.rabbitmq.routingkey}")
+    private String routingkey2;
     // String kafkaTopic = "java_in_use_topic";
-    ObjectMapper objectMapper = new ObjectMapper();
-    public void send(Url url) {
-        try {
-            amqpTemplate.convertAndSend(exchange, routingkey, objectMapper.writeValueAsString(url));
-        } catch (JsonProcessingException e) {
-            e.printStackTrace();
-        }
-        System.out.println("Send msg = " + url);
+
+    public void send(SearchOutput[] searchOutput) throws JsonProcessingException {
+        amqpTemplate.convertAndSend(exchange, routingkey2, objectMapper.writeValueAsString(searchOutput));
+        System.out.println("Send msg = " + searchOutput);
 
     }
 }

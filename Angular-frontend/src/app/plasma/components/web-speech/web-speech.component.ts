@@ -4,7 +4,6 @@ import { SpeechRecognizerService } from "../../services/speech-recognizer.servic
 
 import { SpeechNotification } from "../../modules.ts/speech-notification";
 import { SpeechError } from "../../modules.ts/speech-error";
-// import { ActionContext } from "../../modules.ts/action-context";
 
 @Component({
   selector: "wsa-web-speech",
@@ -15,9 +14,6 @@ export class WebSpeechComponent implements OnInit {
   finalTranscript = "";
   recognizing = false;
   notification: string;
-  // languages: string[] = ["en-US", "es-ES", "en-IN"];
-  // currentLanguage: string;
-  // actionContext: ActionContext = new ActionContext();
 
   constructor(
     private changeDetector: ChangeDetectorRef,
@@ -45,10 +41,7 @@ export class WebSpeechComponent implements OnInit {
     this.speechRecognizer.start(event.timeStamp);
   }
 
-  // onSelectLanguage(language: string) {
-  //   this.currentLanguage = language;
-  //   this.speechRecognizer.setLanguage(this.currentLanguage);
-  // }
+
 
   private initRecognition() {
     this.speechRecognizer.onStart().subscribe(data => {
@@ -68,9 +61,8 @@ export class WebSpeechComponent implements OnInit {
       const message = data.content.trim();
       if (data.info === "final_transcript" && message.length > 0) {
         this.finalTranscript = `${this.finalTranscript}\n${message}`;
-        // this.actionContext.processMessage(message, this.currentLanguage);
         this.detectChanges();
-        // this.actionContext.runAction(message, this.currentLanguage);
+
       }
     });
 
