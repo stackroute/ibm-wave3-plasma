@@ -46,6 +46,7 @@ services:
     network_mode: host
     depends_on:
       - eurekaserver
+      - rabbitmq
     ports:
       - 8193:8193
     expose:
@@ -58,6 +59,7 @@ services:
     network_mode: host
     depends_on:
       - eurekaserver
+      - rabbitmq
     ports:
       - 8090:8090
     expose:
