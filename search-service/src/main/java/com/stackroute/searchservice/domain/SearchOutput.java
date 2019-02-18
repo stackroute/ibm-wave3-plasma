@@ -37,7 +37,7 @@ public class SearchOutput {
         this.urls = urls;
     }
 
-
+//url object sent
 
     public SearchOutput() {
     }
