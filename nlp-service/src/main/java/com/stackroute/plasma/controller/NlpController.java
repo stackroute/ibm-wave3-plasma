@@ -5,6 +5,8 @@ import com.stackroute.plasma.model.NlpModel;
 import com.stackroute.plasma.service.NlpService;
 import com.stackroute.plasma.service.NlpServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,10 +25,10 @@ public class NlpController {
     NlpModel nlpModel = new NlpModel();
     List<String> temp = new ArrayList<>();
 
-    @PostMapping("/query")
-    public List<String> extractedQuery(@RequestBody final String query) {
-        temp = nlpService.queryConverter(query);
-        nlpModel.setTokenized_lematized(temp);
-        return temp.stream().map(String::toString).collect(Collectors.toList());
-    }
+@PostMapping("/query")
+public ResponseEntity<?> extractedQuery(@RequestBody final String query) {
+    temp = nlpService.queryConverter(query);
+    nlpModel.setTokenized_lematized(temp);
+    return new ResponseEntity<>(temp.stream().map(String::toString).collect(Collectors.toList()), HttpStatus.CREATED);
+}
 }
