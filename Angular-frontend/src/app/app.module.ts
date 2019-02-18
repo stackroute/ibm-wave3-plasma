@@ -1,5 +1,5 @@
 
-import { WebSpeechModule } from './plasma/web-speech/web-speech.module';
+import { WebSpeechModule } from './plasma/components/web-speech/web-speech.module';
 import { SharedModule } from './plasma/modules.ts/shared.module';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -11,7 +11,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { HttpClientModule } from '@angular/common/http';
-import { DomainExpertComponent } from './plasma/domain-expert/domain-expert/domain-expert.component';
+import { DomainExpertComponent } from './plasma/domain-expert/domain-expert.component';
+import { UserRegisterServiceModule } from './plasma/userregister/userregisterservice.module';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { DomainExpertComponent } from './plasma/domain-expert/domain-expert/doma
     SharedModule,
     WebSpeechModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    UserRegisterServiceModule
   ],
   bootstrap: [
     AppComponent
