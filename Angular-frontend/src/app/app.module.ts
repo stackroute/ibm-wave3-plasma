@@ -12,12 +12,13 @@ import { AppComponent } from './app.component';
 
 import { HttpClientModule } from '@angular/common/http';
 import { DomainExpertComponent } from './plasma/domain-expert/domain-expert.component';
-import { UserRegisterServiceModule } from './plasma/userregister/userregisterservice.module';
+import { UserRegisterComponent } from './plasma/user-register/user-register.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DomainExpertComponent,
+    UserRegisterComponent
   ],
   imports: [
     BrowserModule,
@@ -26,8 +27,7 @@ import { UserRegisterServiceModule } from './plasma/userregister/userregisterser
     SharedModule,
     WebSpeechModule,
     FormsModule,
-    HttpClientModule,
-    UserRegisterServiceModule
+    HttpClientModule
   ],
   bootstrap: [
     AppComponent

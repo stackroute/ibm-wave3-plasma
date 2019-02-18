@@ -1,7 +1,7 @@
 import { WebSpeechComponent } from './plasma/web-speech/web-speech.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { UserRegisterServiceComponent } from './plasma/userregister/userregisterservice.component';
+import { UserRegisterComponent } from './plasma/user-register/user-register.component';
 
 
 const routes: Routes = [
@@ -15,11 +15,10 @@ const routes: Routes = [
     component: WebSpeechComponent
   },
   {
-    path: 'userregister',
-    component: UserRegisterServiceComponent
+    path: 'signup',
+    component: UserRegisterComponent
   }
 ];
-
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
