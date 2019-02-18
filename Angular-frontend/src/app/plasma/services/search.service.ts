@@ -14,19 +14,16 @@ import { catchError } from "rxjs/operators";
 })
 export class SearchService {
   console: any;
-  // private nlpserviceurl: 'http://localhost:8098/api/v1/';
+ private nlpserviceurl: 'http://localhost:8098/api/v1/query';
 
-  // constructor(private http: Http) {
-  //   console.log("Hi how are you ");
-  //   this.getData();
+//   constructor(private http: Http) {
+//   //   console.log("Hi how are you ");
+// this.data();
+//   }
 
-  // }
-
-  getData() {
-    // return this.http.get(this.nlpserviceurl);
-    // .toPromise()
-    //            .then(response => response.json().data as Hero[])
-    //            .catch(this.handleError);
-    console.log("Hi how are you ");
-  }
+//    data(finalTranscript: String) {
+//      console.log(finalTranscript);
+//      return this.http
+//      .post(this.nlpserviceurl + 'finalTranscript', String , 'response' );
+//    }
 }

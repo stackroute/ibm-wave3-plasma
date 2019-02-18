@@ -1,10 +1,9 @@
-import { SearchService } from "./../services/search.service";
+import { SearchService } from "../../services/search.service";
 import { ChangeDetectorRef, Component, OnInit } from "@angular/core";
-import { SpeechRecognizerService } from "./../services/speech-recognizer.service";
+import { SpeechRecognizerService } from "../../services/speech-recognizer.service";
 
-import { SpeechNotification } from "./../modules.ts/speech-notification";
-import { SpeechError } from "./../modules.ts/speech-error";
-import { ActionContext } from "./../modules.ts/action-context";
+import { SpeechNotification } from "../../modules.ts/speech-notification";
+import { SpeechError } from "../../modules.ts/speech-error";
 
 @Component({
   selector: "wsa-web-speech",
@@ -15,9 +14,6 @@ export class WebSpeechComponent implements OnInit {
   finalTranscript = "";
   recognizing = false;
   notification: string;
-  languages: string[] = ["en-US", "es-ES", "en-IN"];
-  currentLanguage: string;
-  actionContext: ActionContext = new ActionContext();
 
   constructor(
     private changeDetector: ChangeDetectorRef,
@@ -26,16 +22,16 @@ export class WebSpeechComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.currentLanguage = this.languages[0];
-    this.speechRecognizer.initialize(this.currentLanguage);
+    // this.currentLanguage = this.languages[0];
+    // this.speechRecognizer.initialize(this.currentLanguage);
     this.initRecognition();
     this.notification = null;
   }
 
   onClickMe() {
     console.log("transcript valus is ", this.finalTranscript);
-    this.searchService.getData();
-  }
+  //  this.searchService.data(this.finalTranscript);
+   }
   startButton(event) {
     if (this.recognizing) {
       this.speechRecognizer.stop();
@@ -45,15 +41,13 @@ export class WebSpeechComponent implements OnInit {
     this.speechRecognizer.start(event.timeStamp);
   }
 
-  onSelectLanguage(language: string) {
-    this.currentLanguage = language;
-    this.speechRecognizer.setLanguage(this.currentLanguage);
-  }
+
 
   private initRecognition() {
     this.speechRecognizer.onStart().subscribe(data => {
       this.recognizing = true;
-      this.notification = "I am  listening...";
+      // this.notification = "I am  listening...";
+      this.notification = "";
       this.detectChanges();
     });
 
@@ -67,9 +61,8 @@ export class WebSpeechComponent implements OnInit {
       const message = data.content.trim();
       if (data.info === "final_transcript" && message.length > 0) {
         this.finalTranscript = `${this.finalTranscript}\n${message}`;
-        this.actionContext.processMessage(message, this.currentLanguage);
         this.detectChanges();
-        this.actionContext.runAction(message, this.currentLanguage);
+
       }
     });
 
