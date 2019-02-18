@@ -1,15 +1,24 @@
 package com.stackroute.searchservice.domain;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
+@JsonIdentityInfo(generator = ObjectIdGenerators.IntSequenceGenerator.class, property = "@id", scope = SearchOutput.class)
 public class SearchOutput {
 
+    @JsonProperty("timestamp")
     private Timestamp timestamp;
+    @JsonProperty("domain")
     private String domain;
+    @JsonProperty("concept")
     private String concept;
    // private List<String[]> urls;
+   @JsonProperty("urls")
     private String[] urls;
 
 
