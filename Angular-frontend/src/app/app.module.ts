@@ -11,10 +11,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { HttpClientModule } from '@angular/common/http';
-import { DomainExpertComponent } from './plasma/domain-expert/domain-expert.component';
-import { UserRegisterComponent } from './plasma/user-register/user-register.component';
+import { DomainExpertComponent } from './plasma/components/domain-expert/domain-expert.component';
 import { MaterialModule } from './plasma/plasma.material.modules.ts/material.module';
 import { RouterModule } from '@angular/router';
+import { UserRegisterComponent } from './plasma/components/user-register/user-register.component';
 
 @NgModule({
   declarations: [
