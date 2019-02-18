@@ -1,9 +1,11 @@
 package com.stackroute.searchservice.controller;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.stackroute.searchservice.domain.SearchInput;
 import com.stackroute.searchservice.domain.SearchOutput;
 import com.stackroute.searchservice.service.ApiService;
 import com.stackroute.searchservice.service.ApiServiceImpl;
+import com.stackroute.searchservice.service.RabbitMQSender;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -29,9 +31,12 @@ public class SearchController {
     @Autowired
     ApiService apiService;
 
+    @Autowired
+    RabbitMQSender rabbitMQSender;
+
 
     @PostMapping(value = "/search")
-    public ResponseEntity<?> getPostApi(@RequestBody SearchInput searchInput)  {
+    public ResponseEntity<?> getPostApi(@RequestBody SearchInput searchInput) throws JsonProcessingException {
         SearchOutput[] searchOutput = new SearchOutput[searchInput.getConcepts().length];
 
         tempList = new ArrayList<>();
@@ -54,7 +59,11 @@ public class SearchController {
             //responseEntity = new ResponseEntity(searchOutput[k],HttpStatus.CREATED);
             k = k+1;
         }
+
         responseEntity = new ResponseEntity(searchOutput,HttpStatus.CREATED);
+        rabbitMQSender.send(searchOutput);
+
         return responseEntity;
     }
+
 }
