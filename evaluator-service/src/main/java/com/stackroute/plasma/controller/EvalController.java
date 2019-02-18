@@ -2,6 +2,7 @@ package com.stackroute.plasma.controller;
 
 import com.stackroute.plasma.domain.Evaluator;
 import com.stackroute.plasma.service.EvalService;
+import com.stackroute.plasma.service.RabbitMQSender;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -23,8 +24,14 @@ public class  EvalController {
         this.evalService = evalService;
     }
 
+    @Autowired
+    RabbitMQSender rabbitMQSender;
+
+
     @GetMapping("/score")
     public ResponseEntity<?> getScore() throws IOException {
+
+        rabbitMQSender.send(evalService.getScore());
         return new ResponseEntity<>(evalService.getScore(), HttpStatus.OK);
     }
 }

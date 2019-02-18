@@ -10,10 +10,11 @@ import org.springframework.stereotype.Service;
 public class RabbitMQListner {
     @RabbitListener(queues="${javainuse.rabbitmq.queue}", containerFactory="jsaFactory")
     public void recievedMessage(Url url) {
-        //System.out.println("Recieved Message From RabbitMQ: " +url.getUrl() );
-        //System.out.println("Recieved Message From RabbitMQ: " +url.getDoc());
-        System.out.println("Recieved Message From RabbitMQ: " +url.toString());
+        System.out.println("Recieved Message From RabbitMQ: " +url.getUrl() );
+        System.out.println("Recieved Message From RabbitMQ: " +url.getDoc());
+        System.out.println("Recieved Message From RabbitMQ: " +url.getDomain());
         //return url.toString();
 
     }
+
 }
