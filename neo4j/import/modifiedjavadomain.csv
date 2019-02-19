@@ -1,0 +1,12 @@
+nodeid,name,parentnodeid,nodetype,nodeclass,parentrelation,context,identifier,description
+JAVA:1,Abstract Class,JAVA:119,concept,concept,subconcept of,Java software programming,,Abstract Class: Java software programming: Web programming
+JAVA:2,Abstract Class,JAVA:579,concept,concept,subconcept of,Java software programming,,Abstract Class: Java software programming: Web programming
+JAVA:119,Class,JAVA:433,concept,concept,subconcept of,Java software programming,,Class: Java software programming: Web programming
+JAVA:433,Java Classes,JAVA:680,concept,concept,subconcept of,Java software programming,,Java Classes: Java software programming: Web programming
+JAVA:440,Java Web Application Development,JAVA:1000,concept,concept,,Java software programming,,Java Web Application Development: Java software programming: Web programming
+JAVA:579,Modeling,JAVA:611,concept,concept,subconcept of,Java software programming,,Modeling: Java software programming: Web programming
+JAVA:611,Object Oriented Design,JAVA:440,concept,concept,subconcept of,Java software programming,,Object Oriented Design: Java software programming: Web programming
+JAVA:680,Programming in Java,JAVA:440,concept,concept,subconcept of,Java software programming,,Programming in Java: Java software programming: Web programming
+JAVA:681,Programming Language,JAVA:440,concept,concept,subconcept of,Java software programming,,Programming Language: Java software programming: Web programming
+JAVA:682,Programming Paradigm,JAVA:440,concept,concept,subconcept of,Java software programming,,Programming Paradigm: Java software programming: Web programming
+
