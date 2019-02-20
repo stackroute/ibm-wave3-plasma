@@ -15,6 +15,7 @@ import { DomainExpertComponent } from './plasma/components/domain-expert/domain-
 import { MaterialModule } from './plasma/plasma.material.modules.ts/material.module';
 import { RouterModule } from '@angular/router';
 import { UserRegisterComponent } from './plasma/components/user-register/user-register.component';
+import { MatSelectModule } from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { UserRegisterComponent } from './plasma/components/user-register/user-re
     HttpClientModule,
     MaterialModule,
     RouterModule,
-    WebSpeechModule
+    WebSpeechModule,
+    MatSelectModule
   ],
   bootstrap: [
     AppComponent
