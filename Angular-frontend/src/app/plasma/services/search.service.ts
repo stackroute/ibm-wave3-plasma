@@ -1,29 +1,35 @@
 
 
-import { Injectable } from "@angular/core";
-import { Http, Response } from '@angular/http';
+import { Injectable } from '@angular/core';
 import {
   HttpClient,
   HttpHeaders,
   HttpErrorResponse
-} from "@angular/common/http";
-import { BehaviorSubject, throwError } from "rxjs";
-import { catchError } from "rxjs/operators";
+} from '@angular/common/http';
+import { BehaviorSubject, throwError } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 @Injectable({
-  providedIn: "root"
+  providedIn: 'root'
 })
 export class SearchService {
   console: any;
- private nlpserviceurl: 'http://localhost:8098/api/v1/query';
+  private nlpserviceurl: String = 'http://172.23.239.201:8079/api/v1/query';
 
-//   constructor(private http: Http) {
-//   //   console.log("Hi how are you ");
-// this.data();
-//   }
+  constructor(private http: HttpClient) {
+  console.log('Hi how are you ');
+
+  }
 
 //    data(finalTranscript: String) {
 //      console.log(finalTranscript);
 //      return this.http
-//      .post(this.nlpserviceurl + 'finalTranscript', String , 'response' );
+//      .post(this.nlpserviceurl + 'finalTranscript', String);
 //    }
+data(finalTranscript: String) {
+  console.log('asydoyds' + finalTranscript);
+  console.log(this.nlpserviceurl, finalTranscript);
+  return this.http
+  .post( `${this.nlpserviceurl}` , finalTranscript);
+
+}
 }

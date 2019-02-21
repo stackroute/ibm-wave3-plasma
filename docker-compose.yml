@@ -113,3 +113,13 @@ services:
       - 8089:8089
     expose:
       - 8089
+
+  Angular-frontend:
+    build: Angular-frontend/
+    image: plasma-front-end
+    container_name: plasma-front-end
+    network_mode: "host"
+    hostname: localhost
+    ports:
+      - 4200:4200
+    restart: always

@@ -25,8 +25,7 @@ import {MatChipsModule} from '@angular/material/chips';
     MatSelectModule,
     MatListModule,
     MatSidenavModule,
-    MatChipsModule,
-    MatSelectModule
+    MatChipsModule
   ],
   exports: [
     MatButtonModule,
@@ -41,4 +40,4 @@ import {MatChipsModule} from '@angular/material/chips';
     MatChipsModule
   ]
 })
-export class MaterialModule { }
+export class PlasmaMaterialModule { }
