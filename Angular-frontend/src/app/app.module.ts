@@ -20,8 +20,8 @@ import { DomainExpertComponent } from './plasma/components/domain-expert/domain-
   declarations: [
     AppComponent,
     DomainExpertComponent,
-    HeaderComponent
-
+    HeaderComponent,
+    AppComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +31,8 @@ import { DomainExpertComponent } from './plasma/components/domain-expert/domain-
     HttpClientModule,
     PlasmaMaterialModule,
     WebSpeechModule,
-    RouterModule
+    RouterModule,
+    PlasmaModule,
   ],
   bootstrap: [
     AppComponent

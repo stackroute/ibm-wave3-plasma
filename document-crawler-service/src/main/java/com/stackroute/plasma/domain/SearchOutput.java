@@ -1,12 +1,13 @@
-package com.stackroute.searchservice.domain;
+package com.stackroute.plasma.domain;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+import org.springframework.stereotype.Component;
 
 import java.sql.Timestamp;
-import java.util.List;
 
+@Component
 @JsonIdentityInfo(generator = ObjectIdGenerators.IntSequenceGenerator.class, property = "@id", scope = SearchOutput.class)
 public class SearchOutput {
 
@@ -16,19 +17,14 @@ public class SearchOutput {
     private String domain;
     @JsonProperty("concept")
     private String concept;
-   // private List<String[]> urls;
-   @JsonProperty("urls")
+    // private List<String[]> urls;
+    @JsonProperty("urls")
     private String[] urls;
 
 
-    public String[] getUrls() {
-        return urls;
-    }
+    public SearchOutput() {
 
-    public void setUrls(String[] urls) {
-        this.urls = urls;
     }
-
     public SearchOutput(Timestamp timestamp, String domain, String concept, String[] urls) {
         this.timestamp = timestamp;
         this.domain = domain;
@@ -38,8 +34,6 @@ public class SearchOutput {
 
 //url object sent
 
-    public SearchOutput() {
-    }
 
     public Timestamp getTimestamp() {
         return timestamp;
@@ -64,6 +58,16 @@ public class SearchOutput {
     public void setConcept(String concept) {
         this.concept = concept;
     }
+
+    public String[] getUrls() {
+        return urls;
+    }
+
+    public void setUrls(String[] urls) {
+        this.urls = urls;
+    }
+
+
 
 
 }
