@@ -32,7 +32,7 @@ import { DomainExpertComponent } from './plasma/components/domain-expert/domain-
     PlasmaMaterialModule,
     WebSpeechModule,
     RouterModule,
-    PlasmaModule,
+    PlasmaMaterialModule
   ],
   bootstrap: [
     AppComponent
