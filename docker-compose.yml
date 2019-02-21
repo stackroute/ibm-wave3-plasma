@@ -90,9 +90,9 @@ services:
     expose:
       - 8082
 
-  plasmaloginservice:
-    image: plasma-login-service:latest
-    build: plasma-login-service/
+  userloginservice:
+    image: user-login-service:latest
+    build: user-login-service/
     restart: always
     network_mode: host
     depends_on:
@@ -113,3 +113,26 @@ services:
       - 8089:8089
     expose:
       - 8089
+  
+  knowledgeindexerservice:
+    image: knowledge-indexer-service:latest
+    build: knowledge-indexer-service/
+    restart: always
+    network_mode: host
+#    depends_on: neo4j!
+#      - eurekaserver
+#      - rabbitmq
+    ports:
+      - 8000:8000
+    expose:
+      - 8000
+
+  Angular-frontend:
+    build: Angular-frontend/
+    image: plasma-front-end
+    container_name: plasma-front-end
+    network_mode: "host"
+    hostname: localhost
+    ports:
+      - 4200:4200
+    restart: always
