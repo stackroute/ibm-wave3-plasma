@@ -1,6 +1,3 @@
-import { WebSpeechComponent } from './plasma/components/web-speech/web-speech.component';
-
-//  import { WebSpeechModule } from './plasma/components/web-speech/web-speech.component';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -15,10 +12,16 @@ import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { PlasmaMaterialModule } from './plasma/plasma.material.modules';
 import { WebSpeechModule } from './plasma/components/web-speech/web-speech.module';
+import { HeaderComponent } from './plasma/components/header/header.component';
+import { DomainExpertComponent } from './plasma/components/domain-expert/domain-expert.component';
+import { UserregistrationComponent } from './plasma/components/userregistration/userregistration.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    HeaderComponent,
+    DomainExpertComponent,
+    UserregistrationComponent
 
   ],
   imports: [
@@ -29,7 +32,7 @@ import { WebSpeechModule } from './plasma/components/web-speech/web-speech.modul
     WebSpeechModule,
     HttpClientModule,
     PlasmaMaterialModule,
-    RouterModule,
+    RouterModule
   ],
   bootstrap: [
     AppComponent
