@@ -13,20 +13,20 @@ import { AppComponent } from '../app.component';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 
-import { WebSpeechModule } from './components/web-speech/web-speech.module';
+
  import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-// import { WebSpeechComponent } from './components/web-speech/web-speech.component';
+
+ import { CommonModule } from '@angular/common';
+
 import { PlasmaMaterialModule } from './plasma.material.modules';
 // import { UserLoginComponent } from './components/user-login/user-login.component';
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    WebSpeechComponent
   ],
   imports: [
-
+    CommonModule,
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
@@ -39,5 +39,7 @@ import { PlasmaMaterialModule } from './plasma.material.modules';
   // bootstrap: [
   //   AppComponent
   // ]
+
+
  })
 export class PlasmaModule { }
