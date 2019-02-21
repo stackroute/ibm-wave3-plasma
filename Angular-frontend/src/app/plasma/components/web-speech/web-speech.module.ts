@@ -22,8 +22,10 @@ import { PlasmaMaterialModule } from '../../plasma.material.modules';
   imports: [
     CommonModule,
     FormsModule,
+    PlasmaMaterialModule,
   ],
   declarations: [
+    WebSpeechComponent
   ],
   providers: [
      SpeechRecognizerService,
