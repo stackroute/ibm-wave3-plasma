@@ -3,12 +3,13 @@ package com.stackroute.plasma.controller;
 
 import com.stackroute.plasma.model.User;
 import com.stackroute.plasma.exception.UserIdAndPasswordMismatchException;
-import com.stackroute.plasma.exception.UserNameOrPasswordEmpty;
+import com.stackroute.plasma.exception.UserNameOrPasswordEmptyException;
 import com.stackroute.plasma.exception.UserNotFoundException;
 import com.stackroute.plasma.security.SecurityTokenGenerator;
 import com.stackroute.plasma.services.UserService;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,14 +20,14 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@CrossOrigin(value = "*")
+//@CrossOrigin(value = "*")
 @RestController
 @RequestMapping("api/")
 public class UserController {
 
     @Autowired
     private UserService userService;
-
+    ResponseEntity responseEntity;
     @Autowired
     public UserController(UserService userService) {
         this.userService = userService;
@@ -40,7 +41,7 @@ public class UserController {
             String password = loginDetails.getPassword();
 
             if (userId == null || password == null) {
-                throw new UserNameOrPasswordEmpty("Userid and Password cannot be empty");
+                throw new UserNameOrPasswordEmptyException("Userid and Password cannot be empty");
             }
 
             User user  = userService.findByUserIdAndPassword(userId, password);
@@ -72,7 +73,7 @@ public class UserController {
 
             return new ResponseEntity<>(map, HttpStatus.OK);
 
-        } catch (UserNameOrPasswordEmpty | UserNotFoundException | UserIdAndPasswordMismatchException exception) {
+        } catch (UserNameOrPasswordEmptyException | UserNotFoundException | UserIdAndPasswordMismatchException exception) {
 
             return new ResponseEntity<>("{ \"message\": \"" + exception.getMessage() + "\"}", HttpStatus.UNAUTHORIZED);
         }
@@ -83,5 +84,14 @@ public class UserController {
     public ResponseEntity<?> getAllUsers()
     {
         return new ResponseEntity<List<User>>(userService.getAllUsers(), HttpStatus.OK);
+    }
+    @ApiOperation(value="Accept user into repository")
+    @PostMapping("users")
+    public ResponseEntity<?> saveUser(@RequestBody User user) throws UserNotFoundException
+    {
+        userService.saveUsers(user);
+        responseEntity = new ResponseEntity<User>(user, HttpStatus.OK);
+
+        return responseEntity;
     }
 }

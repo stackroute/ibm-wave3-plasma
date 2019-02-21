@@ -90,9 +90,9 @@ services:
     expose:
       - 8082
 
-  plasmaloginservice:
-    image: plasma-login-service:latest
-    build: plasma-login-service/
+  userloginservice:
+    image: user-login-service:latest
+    build: user-login-service/
     restart: always
     network_mode: host
     depends_on:

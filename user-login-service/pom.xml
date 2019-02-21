@@ -11,7 +11,7 @@
 	<!--<groupId>com.stackroute</groupId>-->
 	<artifactId>plasma</artifactId>
 	<!--<version>0.0.1-SNAPSHOT</version>-->
-	<name>plasma-login</name>
+	<name>user-login-service</name>
 	<description>Demo project for Spring Boot</description>
 
 	<properties>
@@ -62,6 +62,12 @@
 			<artifactId>lombok</artifactId>
 			<optional>true</optional>
 		</dependency>
+		<dependency>
+		<groupId>io.springfox</groupId>
+		<artifactId>springfox-swagger2</artifactId>
+		<version>2.6.1</version>
+		<scope>compile</scope>
+	</dependency>
 
 	</dependencies>
 
