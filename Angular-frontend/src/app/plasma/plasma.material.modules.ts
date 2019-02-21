@@ -11,6 +11,8 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatListModule } from '@angular/material/list';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import {MatChipsModule} from '@angular/material/chips';
+import { WebSpeechModule } from './components/web-speech/web-speech.module';
+// import { WebSpeechModule } from './components/web-speech/web-speech.module';
 
 
 @NgModule({
@@ -26,7 +28,7 @@ import {MatChipsModule} from '@angular/material/chips';
     MatListModule,
     MatSidenavModule,
     MatChipsModule,
-    MatSelectModule
+    WebSpeechModule
   ],
   exports: [
     MatButtonModule,
@@ -38,7 +40,8 @@ import {MatChipsModule} from '@angular/material/chips';
     MatSelectModule,
     MatListModule,
     MatSidenavModule,
-    MatChipsModule
+    MatChipsModule,
+    WebSpeechModule
   ]
 })
-export class MaterialModule { }
+export class PlasmaMaterialModule { }
