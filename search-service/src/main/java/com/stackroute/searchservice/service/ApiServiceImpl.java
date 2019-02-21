@@ -49,7 +49,7 @@ public class ApiServiceImpl implements ApiService {
             try {
                 //int i = 0;
                 //link = new String[10];
-                System.out.println("before key");
+
                 String toSearch = searchURL + "key=" + apiKey + "&cx="
                         + customSearchEngineKey + "&q=";
 
