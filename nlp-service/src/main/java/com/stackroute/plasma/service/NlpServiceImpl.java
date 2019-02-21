@@ -19,8 +19,8 @@ import java.util.List;
 public class NlpServiceImpl implements NlpService{
 
     private final static HashSet<String> stopWordSet = new HashSet<>();
-    List<String> extractedString = new ArrayList<>();
-
+   // List<String> extractedString = new ArrayList<>();
+    List<String> extractedString;
     @Autowired
     StanfordCoreNLP stanfordCoreNLP;
 
@@ -58,6 +58,7 @@ public class NlpServiceImpl implements NlpService{
     }
 
     public List<String> queryConverter(String query) {
+        extractedString = new ArrayList<>();
         CoreDocument coreDocument = new CoreDocument(query);
         stanfordCoreNLP.annotate(coreDocument);
         List<CoreLabel> coreLabels = coreDocument.tokens();
