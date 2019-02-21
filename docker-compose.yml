@@ -114,15 +114,12 @@ services:
     expose:
       - 8089
 
-  knowledgeindexerservice:
-    image: knowledge-indexer-service:latest
-    build: knowledge-indexer-service/
-    restart: always
-    network_mode: host
-#    depends_on: neo4j!
-#      - eurekaserver
-#      - rabbitmq
+  Angular-frontend:
+    build: Angular-frontend/
+    image: plasma-front-end
+    container_name: plasma-front-end
+    network_mode: "host"
+    hostname: localhost
     ports:
-      - 8000:8000
-    expose:
-      - 8000
+      - 4200:4200
+    restart: always

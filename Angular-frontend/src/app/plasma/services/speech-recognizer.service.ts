@@ -1,11 +1,11 @@
-import { SpeechNotification } from './../modules.ts/speech-notification';
+import { SpeechNotification } from './../tsclasses/speech-notification';
 import { Injectable } from '@angular/core';
 import { Observable, from } from 'rxjs';
 
 
-import { SpeechError } from './../modules.ts/speech-error';
+import { SpeechError } from './../tsclasses/speech-error';
 
-import { AppWindow } from './../modules.ts/app-window';
+import { AppWindow } from './../tsclasses/app-window';
 const { webkitSpeechRecognition }: AppWindow = <AppWindow>window;
 
 @Injectable()
