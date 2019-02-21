@@ -1,7 +1,6 @@
- 
+
 import { HeaderComponent } from './components/header/header.component';
 import { WebSpeechComponent } from '../plasma/components/web-speech/web-speech.component';
-import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
@@ -15,20 +14,19 @@ import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 
 import { WebSpeechModule } from './components/web-speech/web-speech.module';
-import { NgModule } from '@angular/core';
+ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { WebSpeechComponent } from './components/web-speech/web-speech.component';
+// import { WebSpeechComponent } from './components/web-speech/web-speech.component';
 import { PlasmaMaterialModule } from './plasma.material.modules';
- 
-
+// import { UserLoginComponent } from './components/user-login/user-login.component';
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-
+    WebSpeechComponent
   ],
   imports: [
- 
+
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
@@ -37,15 +35,9 @@ import { PlasmaMaterialModule } from './plasma.material.modules';
     WebSpeechComponent,
     RouterModule,
   ],
-  exports: [HeaderComponent]
+  exports: [HeaderComponent, WebSpeechComponent]
   // bootstrap: [
   //   AppComponent
   // ]
- 
-    CommonModule,
-    PlasmaMaterialModule
-  ],
-  exports: [WebSpeechComponent]
->>>>>>> 1fbed12e966dcd6a8c4531cd81c02496ce37a951
-})
+ })
 export class PlasmaModule { }

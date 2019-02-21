@@ -17,7 +17,7 @@ import { PlasmaModule } from './plasma/plasma.module';
 
 @NgModule({
   declarations: [
-    AppComponent,
+    AppComponent
 
   ],
   imports: [
@@ -27,7 +27,8 @@ import { PlasmaModule } from './plasma/plasma.module';
     FormsModule,
     HttpClientModule,
     RouterModule,
-    PlasmaModule
+    PlasmaModule,
+
   ],
   bootstrap: [
     AppComponent
