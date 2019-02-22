@@ -24,16 +24,16 @@ const routes: Routes = [
     path: 'header',
     component: HeaderComponent
   },
-<<<<<<< HEAD
+
   { path: 'login',
-  component: UserLoginComponent }
-=======
+  component: UserLoginComponent
+  },
   {
     path: 'userregistration',
     component: UserregistrationComponent
   }
 
->>>>>>> b3de806f894d0ac41467a42d9b8eb531825324b0
+
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
