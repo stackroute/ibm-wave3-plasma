@@ -1,3 +1,7 @@
+import { UserLoginService } from './plasma/services/user-login.service';
+import { WebSpeechModule } from './plasma/components/web-speech/web-speech.module';
+import { PlasmaMaterialModule } from './plasma/plasma.material.modules';
+import { HeaderComponent } from './plasma/components/header/header.component';
 
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -11,14 +15,14 @@ import { AppComponent } from './app.component';
 
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
-// import { PlasmaMaterialModule } from './plasma/plasma.material.modules';
-import { PlasmaModule } from './plasma/plasma.module';
-// import { WebSpeechModule } from './plasma/components/web-speech/web-speech.module';
+import { DomainExpertComponent } from './plasma/components/domain-expert/domain-expert.component';
 
 @NgModule({
   declarations: [
-    AppComponent
-
+    AppComponent,
+    // DomainExpertComponent,
+    // HeaderComponent,
+    // AppComponent
   ],
   imports: [
     BrowserModule,
@@ -26,10 +30,12 @@ import { PlasmaModule } from './plasma/plasma.module';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+    PlasmaMaterialModule,
+    WebSpeechModule,
     RouterModule,
-    PlasmaModule,
 
   ],
+  providers: [UserLoginService],
   bootstrap: [
     AppComponent
   ]

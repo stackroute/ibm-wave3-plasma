@@ -1,3 +1,8 @@
+import { UserLoginComponent } from './components/user-login/user-login.component';
+import { CommonModule } from '@angular/common';
+import { PlasmaMaterialModule } from './plasma.material.modules';
+import { DomainExpertComponent } from './components/domain-expert/domain-expert.component';
+
 
 import { HeaderComponent } from './components/header/header.component';
 import { WebSpeechComponent } from '../plasma/components/web-speech/web-speech.component';
@@ -6,24 +11,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from '../app-routing.module';
-
-import { AppComponent } from '../app.component';
-
-
-import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
-
-
- import { NgModule } from '@angular/core';
-
- import { CommonModule } from '@angular/common';
-
-import { PlasmaMaterialModule } from './plasma.material.modules';
-// import { UserLoginComponent } from './components/user-login/user-login.component';
+import { NgModule } from '@angular/core';
+import { UserLoginService } from './services/user-login.service';
 @NgModule({
   declarations: [
-    AppComponent,
     HeaderComponent,
+    UserLoginComponent,
   ],
   imports: [
     CommonModule,
@@ -33,13 +27,16 @@ import { PlasmaMaterialModule } from './plasma.material.modules';
     FormsModule,
     HttpClientModule,
     WebSpeechComponent,
-    RouterModule,
+    DomainExpertComponent,
+    CommonModule,
+    PlasmaMaterialModule
   ],
-  exports: [HeaderComponent, WebSpeechComponent]
-  // bootstrap: [
-  //   AppComponent
-  // ]
-
-
- })
+  providers: [UserLoginService],
+  exports: [
+    HeaderComponent,
+    WebSpeechComponent,
+    DomainExpertComponent,
+    UserLoginComponent,
+  ]
+})
 export class PlasmaModule { }

@@ -25,12 +25,15 @@ public class Evaluator {
     private String domain;
     @JsonProperty("concept")
     private String concept;
+    private String title;
+    private String description;
+    private String keywords;
     @JsonProperty("url")
     private String url;
     @JsonProperty("level")
     private String level;
     @JsonProperty("confidenceScore")
-    private int confidenceScore;
+    private long confidenceScore;
 
 
     public void setTimestamp(Timestamp timestamp) {
@@ -69,25 +72,52 @@ public class Evaluator {
         this.domain = domain;
     }
 
-    public int getConfidenceScore() {
+    public long getConfidenceScore() {
         return confidenceScore;
     }
 
-    public void setConfidenceScore(int confidenceScore) {
+    public void setConfidenceScore(long confidenceScore) {
         this.confidenceScore = confidenceScore;
+    }
+
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getKeywords() {
+        return keywords;
+    }
+
+    public void setKeywords(String keywords) {
+        this.keywords = keywords;
     }
 
     @Override
     public String toString() {
         return "Evaluator{" +
-                "url='" + url + '\'' +
-                ", concept='" + concept + '\'' +
+                "timestamp=" + timestamp +
                 ", domain='" + domain + '\'' +
-                ", level=" + level +
-                ", timestamp=" + timestamp +
+                ", concept='" + concept + '\'' +
+                ", title='" + title + '\'' +
+                ", description='" + description + '\'' +
+                ", keywords='" + keywords + '\'' +
+                ", url='" + url + '\'' +
+                ", level='" + level + '\'' +
                 ", confidenceScore=" + confidenceScore +
                 '}';
     }
-
 }
 
