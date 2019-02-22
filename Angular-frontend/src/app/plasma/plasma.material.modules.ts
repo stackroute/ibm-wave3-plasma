@@ -10,7 +10,11 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSelectModule } from '@angular/material/select';
 import { MatListModule } from '@angular/material/list';
 import { MatSidenavModule } from '@angular/material/sidenav';
-import {MatChipsModule} from '@angular/material/chips';
+import {MatChipsModule, MatChipList} from '@angular/material/chips';
+
+
+
+
 
 
 @NgModule({

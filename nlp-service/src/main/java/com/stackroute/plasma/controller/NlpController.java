@@ -23,10 +23,12 @@ public class NlpController {
     NlpService nlpService;
     //@Autowired
     NlpModel nlpModel = new NlpModel();
-    List<String> temp = new ArrayList<>();
+    //List<String> temp = new ArrayList<>();
+    List<String> temp;
 
 @PostMapping("/query")
 public ResponseEntity<?> extractedQuery(@RequestBody final String query) {
+    temp = new ArrayList<>();
     temp = nlpService.queryConverter(query);
     nlpModel.setTokenized_lematized(temp);
     return new ResponseEntity<>(temp.stream().map(String::toString).collect(Collectors.toList()), HttpStatus.CREATED);

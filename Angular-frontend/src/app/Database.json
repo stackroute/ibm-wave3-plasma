@@ -1,19 +1,11 @@
-{
-  "posts": [
-    {
-      "id": 1,
-      "title": "json-server",
-      "author": "typicode"
+ {
+    "data": {"domain":"Java",
+    "concepts":[ "Abstract Class","Abstract Factory", "Abstraction", "Activity Diagram",
+       "Acyclic Dependency", "Acyclic Graph", "Afferent Coupling", "Aggregate functions", 
+       "Aggregation", "Agile Development", "Ajax", "Algorithm Complexity", "Amazon AWS", 
+       "Angular JS", "Annotations", "Anonymous Inner Class", "App instances", "Architecture Patterns", 
+       "Appletviewer", "Array", "Aspect Oriented Programming", "Assert", "Association", 
+       "Attribute", "Autoboxing", "bi-directional association", "Big-O Notation", "Binary Search", 
+       "Binary Search Tree", "Black Box Testing", "Inheritance", "Data Encapsulation", "Polymorphism"
+    ]}
     }
-  ],
-  "comments": [
-    {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
-    }
-  ],
-  "profile": {
-    "name": "typicode"
-  }
-}

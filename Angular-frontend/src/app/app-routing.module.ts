@@ -1,11 +1,9 @@
+import { HeaderComponent } from './plasma/components/header/header.component';
 import { WebSpeechComponent } from './plasma/components/web-speech/web-speech.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { DomainExpertComponent } from './plasma/components/domain-expert/domain-expert.component';
 import { UserregistrationComponent } from './plasma/components/userregistration/userregistration.component';
-// import { DomainExpertComponent } from './plasma/components/domain-expert/domain-expert.component';
-// import { UserRegisterComponent } from './plasma/components/user-register/user-register.component';
-
 
 const routes: Routes = [
   {
@@ -18,13 +16,18 @@ const routes: Routes = [
     component: WebSpeechComponent
   },
   {
-    path: 'domain-expert',
+    path: 'admin',
     component: DomainExpertComponent
+  },
+  {
+    path: 'header',
+    component: HeaderComponent
   },
   {
     path: 'userregistration',
     component: UserregistrationComponent
-  },
+  }
+
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

@@ -1,11 +1,11 @@
 <header>
-    <nav>
-       <mat-form-field>
-              <mat-chip-list #chipList>
-                <mat-chip color="accent" class="navLinks" selected [routerLink]="['/domain-expert']" >Admin</mat-chip>
-                <mat-chip color="accent" class="navLinks" selected [routerLink]="['/userregistration']" >SIGN UP</mat-chip>
-              </mat-chip-list>
-              <input [matChipInputFor]="chipList">
-        </mat-form-field>
-    </nav>
-   </header>
+  <nav>
+     <mat-form-field>
+            <mat-chip-list #chipList>
+              <mat-chip color="accent" class="navLinks" selected [routerLink]="['/admin']" >Admin</mat-chip>
+              <mat-chip color="accent" class="navLinks" selected [routerLink]="['/userregistration']" >SIGN UP</mat-chip>
+            </mat-chip-list>
+            <input [matChipInputFor]="chipList">
+      </mat-form-field>
+  </nav>
+ </header>
