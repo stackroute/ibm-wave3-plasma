@@ -27,12 +27,15 @@ const routes: Routes = [
 
   { path: 'login',
   component: UserLoginComponent
-  },
+  }, 
   {
     path: 'userregistration',
     component: UserregistrationComponent
+  },
+  {
+    path: 'user-login',
+    component: UserLoginComponent
   }
-
 
 ];
 @NgModule({
