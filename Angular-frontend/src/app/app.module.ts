@@ -32,12 +32,11 @@ import { UserregistrationComponent } from './plasma/components/userregistration/
     BrowserAnimationsModule,
     AppRoutingModule,
     FormsModule,
-    FormGroup,
     HttpClientModule,
     PlasmaMaterialModule,
     WebSpeechModule,
     RouterModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
 
   ],
   providers: [UserLoginService],

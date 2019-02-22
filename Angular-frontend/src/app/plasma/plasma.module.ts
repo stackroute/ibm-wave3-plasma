@@ -29,11 +29,11 @@ import { FormsModule } from '@angular/forms';
    AppRoutingModule,
    FormsModule,
    HttpClientModule,
-   WebSpeechComponent,
-   DomainExpertComponent,
+  //  WebSpeechComponent,
+  //  DomainExpertComponent,
    CommonModule,
    PlasmaMaterialModule,
-   UserregistrationComponent
+  //  UserregistrationComponent
   ],
 
   providers: [UserLoginService],
