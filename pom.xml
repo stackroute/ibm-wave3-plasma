@@ -28,15 +28,20 @@
     <modules> 
         <module>document-crawler-service</module>
         <module>search-service</module>
-        <module>plasma-login-service</module>
+        <module>user-login-service</module>
         <module>evaluator-service</module> 
         <module>eureka-server</module>
         <module>zuul-gatewayservice</module>
         <module>config-server</module>
         <module>eventbrite-service</module>
         <module>nlp-service</module>
-        <module>user-register-service</module>
+        <module>userservice</module>
         <module>knowledge-indexer-service</module>
+
+        <module>tagging-service</module>
+
+        <module>cache-manager-service</module>
+
     </modules>
     <dependencies>
         <dependency>

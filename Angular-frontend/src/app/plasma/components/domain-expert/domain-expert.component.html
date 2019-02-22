@@ -1,0 +1,12 @@
+
+<div class="example-container">
+ <mat-form-field>
+   <input [(ngModel)] = "domain" matInput placeholder="Domain" required= required>
+ </mat-form-field>
+ <mat-form-field>
+   <mat-select placeholder="Concepts" multiple>
+     <mat-option *ngFor="let data of concepts" [value]="concepts">{{data}}</mat-option>
+   </mat-select>
+ </mat-form-field>
+</div>
+<button  (click)= "onClick()" mat-button >Add</button>

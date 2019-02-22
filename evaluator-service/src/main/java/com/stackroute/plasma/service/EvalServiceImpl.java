@@ -1,10 +1,14 @@
+/*
 package com.stackroute.plasma.service;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.stackroute.plasma.domain.Evaluator;
+import com.stackroute.plasma.domain.Url;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
+import org.springframework.amqp.rabbit.annotation.RabbitListener;
+import org.springframework.amqp.rabbit.listener.adapter.MessageListenerAdapter;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
@@ -20,10 +24,11 @@ import java.util.List;
 @Service
 public class EvalServiceImpl  implements  EvalService{
 
+    @JsonIgnore
     Document docx;
     String data;
-    @JsonIgnore
-    Document doc;
+    Url url;
+  //  Document doc;
     Evaluator eva;
     private int[] t=new int[5];
     private int[] h=new int[5];
@@ -40,83 +45,41 @@ public class EvalServiceImpl  implements  EvalService{
     private List<String> strL2 = Arrays.asList(level2);
     private List<String> strL3 = Arrays.asList(level3);
     private List<String> strL4 = Arrays.asList(level4);
+    //RabbitMQListner rmq= new RabbitMQListner();
+    EvalServiceImpl evalServiceImpl;
+    private Url urlx;
 
-
-    private String url = "https://www.guru99.com/java-oops-class-objects.html";
-
-    public EvalServiceImpl() throws IOException{
-        this.docx = Jsoup.connect(url).get();
-    }
-    public String titleTag() throws IOException {
-        int count=0;
-        List<String> str= Arrays.asList(docx.title().split(" "));
-        t[0]=countOccurences(str,strL1);
-        t[1]=countOccurences(str,strL2);
-        t[2]=countOccurences(str,strL3);
-        t[3]=countOccurences(str,strL4);
-        return docx.title();
+    public Document getDocx() {
+        return docx;
     }
 
-
-    public String pTag() throws IOException {
-        //Document docx = Jsoup.connect(url).get();
-        String ss=docx.select("p").text().toLowerCase().trim().replaceAll(":","");
-        String ss1=ss.trim().replaceAll(",","");
-        String[] str1=ss1.split(" ");
-
-
-        String pTag = docx.select("p").text();
-        List<String> strn = Arrays.asList(str1);
-
-        p[0]=countOccurences(strn,strL1);
-        p[1]=countOccurences(strn,strL2);
-        p[2]=countOccurences(strn,strL3);
-        p[3]=countOccurences(strn,strL4);
-        return pTag;
+    public void setDocx(String docx) {
+        this.docx = Jsoup.parse(docx);
     }
 
-    public String headTag() throws IOException {
-        String h1Tag = docx.select("h1").first().text();
-        String[] str=h1Tag.toLowerCase().trim().split(" ");
-        List<String> strn = Arrays.asList(str);
-        h[0]=countOccurences(strn,strL1);
-        h[1]=countOccurences(strn,strL2);
-        h[2]=countOccurences(strn,strL3);
-        h[3]=countOccurences(strn,strL4);
-        return h1Tag;
-    }
+    */
+/*  private String url = "https://www.guru99.com/java-oops-class-objects.html";
+*//*
 
-    public String bodyTag() throws IOException {
-        data = docx.text();
-
-        String ss=docx.text().toLowerCase().trim().replaceAll(":","");
-        String ss1=ss.trim().replaceAll(",","");
-        String[] str1=ss1.split(" ");
-        List<String> str = Arrays.asList(str1);
-
-        b[0]=countOccurences(str,strL1)-t[0]-p[0]-h[0];
-        b[1]=countOccurences(str,strL2)-t[1]-p[1]-h[1];
-        b[2]=countOccurences(str,strL3)-t[2]-p[2]-h[2];
-        b[3]=countOccurences(str,strL4)-t[3]-p[3]-h[3];
-        return data;
-    }
-    public int countOccurences(List<String> str,List<String> strL){
-        int countx=0;
-        for (String s : str) {
-            if (strL.contains(s.trim())){
-                countx++;
-            }
+        public EvalServiceImpl(String doc) throws IOException{
+            this.docx=Jsoup.parse(doc);
         }
-        return countx;
-    }
 
 
-    @Override
-    public Evaluator getScore() throws IOException {
-            System.out.println("in method");
+  */
+/*  @Override
+    public String getScore() throws IOException {
+            System.out.println("in method................................\n\n\n");
             int[][] val=new int[4][4];
             Integer[] score=new Integer[4];
             int i=0;
+
+            //String str=url.getDoc();
+            //evalServiceImpl.setDocx(str);
+        System.out.println("\n\n\n\nin method after setdoc................................"+url.getUrl());
+*//*
+*/
+/*
 
             titleTag();
             headTag();
@@ -145,23 +108,83 @@ public class EvalServiceImpl  implements  EvalService{
                 }
             }
 
-            List<Integer> scores = Arrays.asList(score);
+*//*
+*/
+/*
+
+
+           *//*
+*/
+/* List<Integer> scores = Arrays.asList(score);
             int level=scores.indexOf(Collections.max(scores));
 
 
-        eva = new Evaluator();
-        eva.setTimestamp(Timestamp.valueOf(LocalDateTime.of(LocalDate.now(), LocalTime.now())));
-        eva.setDomain("java");
+        eva = new Evaluator();*//*
+*/
+/*
+        *//*
+*/
+/*eva.setUrl(url.getUrl());
+        eva.setDomain(url.getDomain());
+        eva.setConcept(url.getConcept());
+        eva.setUrl(url.getUrl());*//*
+*/
+/*
+      // System.out.println("chandu hdsjjsds"+url.getUrl());
+       // eva.setTimestamp(Timestamp.valueOf(LocalDateTime.of(LocalDate.now(), LocalTime.now())));
+      *//*
+*/
+/*  eva.setDomain("java");
         eva.setConcept("class");
-        eva.setUrl("https://www.guru99.com/java-oops-class-objects.html");
-        eva.setConfidenceScore(Collections.max(scores));
+        eva.setUrl("https://www.guru99.com/java-oops-class-objects.html");*//*
+*/
+/*
+      *//*
+*/
+/*  eva.setConfidenceScore(Collections.max(scores));
 
-        eva.setLevel(levels[level]);
-        return eva;
+        eva.setLevel(levels[level]);*//*
+*/
+/*
+        return "hello";
+
+    }*//*
+
+
+*/
+/*
+    public void getMessage(Url urlx){
+
+        this.url=urlx;
+        System.out.println("getting message..."+this.url + this.url.getUrl());
 
     }
+*//*
 
 
+
+
+   */
+/* @Override
+    public Evaluator getObj(){
+        return this.eva;
+    }*//*
+
+
+    @RabbitListener(queues="${javainuse.rabbitmq.queue}", containerFactory="jsaFactory")
+    public void recievedMessage(Url url) throws IOException {
+        //System.out.println("Recieved Message From RabbitMQ: " +url.getUrl() );
+        //System.out.println("Recieved Message From RabbitMQ: " +url.getDoc());
+        System.out.println("Recieved Message From RabbitMQ: " +url.getUrl());
+
+        this.urlx=url;
+        this.urlx.setUrl(url.getUrl());
+        this.urlx.setDoc(url.getDoc());
+        this.urlx.setDomain(url.getDomain());
+        this.urlx.setConcept(url.getConcept());
+        //  evaluator.setUrl(url.getUrl());
+        new EvalServiceImpl(url.getDoc());
+        System.out.println(evalServiceImpl.getScore());
+    }
 }
-
-
+*/

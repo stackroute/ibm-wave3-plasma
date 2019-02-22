@@ -4,8 +4,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.stackroute.searchservice.domain.SearchInput;
 import com.stackroute.searchservice.domain.SearchOutput;
 import com.stackroute.searchservice.service.ApiService;
-import com.stackroute.searchservice.service.ApiServiceImpl;
-import com.stackroute.searchservice.service.RabbitMQSender;
+//import com.stackroute.searchservice.service.RabbitMQSender;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -31,8 +30,8 @@ public class SearchController {
     @Autowired
     ApiService apiService;
 
-    @Autowired
-    RabbitMQSender rabbitMQSender;
+//    @Autowired
+//    RabbitMQSender rabbitMQSender;
 
 
     @PostMapping(value = "/search")
@@ -42,6 +41,7 @@ public class SearchController {
         tempList = new ArrayList<>();
         int j = 0;
         int k = 0;
+        System.out.println("hello");
 
         for(int i=0;i<searchInput.getConcepts().length;i++) {
             searchOutput[k] = new SearchOutput();
@@ -61,7 +61,7 @@ public class SearchController {
         }
 
         responseEntity = new ResponseEntity(searchOutput,HttpStatus.CREATED);
-        rabbitMQSender.send(searchOutput);
+       // rabbitMQSender.send(searchOutput);
 
         return responseEntity;
     }
