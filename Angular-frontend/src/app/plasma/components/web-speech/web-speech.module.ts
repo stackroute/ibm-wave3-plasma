@@ -17,6 +17,7 @@ import { FormsModule } from '@angular/forms';
 
 import { WebSpeechComponent } from './web-speech.component';
 import { PlasmaMaterialModule } from '../../plasma.material.modules';
+import { HeaderComponent } from '../header/header.component';
 
 @NgModule({
   imports: [
