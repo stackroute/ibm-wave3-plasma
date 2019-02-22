@@ -1,4 +1,3 @@
-import { WebSpeechModule } from './components/web-speech/web-speech.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { WebSpeechComponent } from './components/web-speech/web-speech.component';
