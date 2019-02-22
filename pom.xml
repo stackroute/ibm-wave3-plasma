@@ -28,7 +28,7 @@
     <modules> 
         <module>document-crawler-service</module>
         <module>search-service</module>
-        <module>plasma-login-service</module>
+        <module>user-login-service</module>
         <module>evaluator-service</module> 
         <module>eureka-server</module>
         <module>zuul-gatewayservice</module>
