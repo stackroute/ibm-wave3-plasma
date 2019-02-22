@@ -13,8 +13,12 @@ import { NgModule } from '@angular/core';
 import { UserLoginService } from './services/user-login.service';
 @NgModule({
   declarations: [
+<<<<<<< HEAD
+    HeaderComponent
+=======
     HeaderComponent,
     UserLoginComponent,
+>>>>>>> 21a8cb6f7720dc7c9ed6fd30d16ec18cc440484c
   ],
   imports: [
     CommonModule,
