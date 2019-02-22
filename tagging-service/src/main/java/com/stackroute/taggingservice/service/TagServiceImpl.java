@@ -23,13 +23,17 @@ public class TagServiceImpl implements TagService {
     @Autowired
     StanfordCoreNLP stanfordCoreNLP;
     List<String> taggedString;
-    private final static HashSet<String> intent_word_set = new HashSet<>();
-    private final static HashSet<String> concept_word_set = new HashSet<>();
+    List<String> concept = new ArrayList<>();
+    List<String> intent = new ArrayList<>();
+    //private final static HashSet<String> intent_word_set = new HashSet<>();
+    //private final static HashSet<String> concept_word_set = new HashSet<>();
+    private final static ArrayList<String> concept_word_set = new ArrayList<>();
+    private final static ArrayList<String> intent_word_set = new ArrayList<>();
 
     public TagServiceImpl() {
     }
 
-    public HashSet<String> readIntentFile() {
+    public List<String> readIntentFile() {
         try {
             BufferedReader bufferedReader = new BufferedReader(new FileReader("/home/sunil/Desktop/plasma/v1.0.1/ibm-wave3-plasma/tagging-service/src/main/java/com/stackroute/taggingservice/dictionary/intent.csv"));
             String intent_word = "";
@@ -38,7 +42,7 @@ public class TagServiceImpl implements TagService {
                 while (bufferedReader.readLine() != null){
                     intent_word = intent_word + bufferedReader.readLine() + " ";
                 }
-                String[] intent_word_split = intent_word.split(" ");
+                String[] intent_word_split = intent_word.split("\\n");
                 for (String intent_word_split_single:intent_word_split
                      ) {
                     intent_word_set.add(intent_word_split_single);
@@ -53,7 +57,7 @@ public class TagServiceImpl implements TagService {
     }
 
 
-    public HashSet<String> readConceptFile() {
+    public List<String> readConceptFile() {
         try {
             BufferedReader bufferedReader = new BufferedReader(new FileReader("/home/sunil/Desktop/plasma/v1.0.1/ibm-wave3-plasma/tagging-service/src/main/java/com/stackroute/taggingservice/dictionary/concept.csv"));
             String concept_word = "";
@@ -86,15 +90,45 @@ public class TagServiceImpl implements TagService {
         for (CoreLabel coreLabel:coreLabels
              ) {
             String pos = coreLabel.get(CoreAnnotations.PartOfSpeechAnnotation.class);
+            if(pos.equals("NN") || pos.equals("JJ")) {
+                concept.add(coreLabel.originalText());
+            }
+            else if(pos.equals("WP") || pos.equals("VB")) {
+                    intent.add(coreLabel.originalText());
+            }
+            else{
+                taggedString.add(coreLabel.originalText());
+            }
             taggedString.add(pos);
-            System.out.println(taggedString);
-            System.out.println(coreLabel.originalText() + "====" + pos);
-        }
-        System.out.println(readConceptFile());
-        System.out.println("*******************");
-        System.out.println(readIntentFile());
 
+            System.out.println(coreLabel.originalText() + "====" + pos);
+
+        }
+      //  System.out.println(taggedString);
+        System.out.println("*******************");
+       // System.out.println(readConceptFile());
+        System.out.println("*******************");
+       // System.out.println(readIntentFile());
+
+        System.out.println(concept);
+        System.out.println(intent);
+        System.out.println(taggedString);
         return new String[0];
+    }
+
+    public String getConcept(){
+
+
+        return null;
+
+    }
+
+
+    public String getIntent() {
+
+
+        return null;
+
     }
 }
 
