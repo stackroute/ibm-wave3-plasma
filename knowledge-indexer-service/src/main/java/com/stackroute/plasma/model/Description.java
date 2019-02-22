@@ -1,5 +1,4 @@
-package com.stackroute.plasma.domain;
-
+package com.stackroute.plasma.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -11,6 +10,7 @@ import org.neo4j.ogm.annotation.NodeEntity;
 import org.neo4j.ogm.annotation.Property;
 import org.neo4j.ogm.annotation.Relationship;
 
+import java.sql.Timestamp;
 import java.util.List;
 
 @Getter
@@ -18,14 +18,21 @@ import java.util.List;
 @AllArgsConstructor
 @ToString
 @NodeEntity
-public class Concept {
+public class Description {
 
     @Id @GeneratedValue
     private long id;
     @Property
-    private String domain;
+    private Timestamp timestamp;
     @Property
-    private String concept;
-    @Relationship(type = "Details_of", direction = Relationship.INCOMING)
-    private Relationship relationship;
+    private String description;
+    @Property
+    private String title;
+    @Property
+    private String url;
+    @Property
+    private String keywords;
+    @Relationship(type = "Details_of", direction = Relationship.OUTGOING)
+    private Concept parent;
+
 }
