@@ -1,50 +1,41 @@
- 
+import { CommonModule } from '@angular/common';
+import { WebSpeechComponent } from './components/web-speech/web-speech.component';
+import { UserregistrationComponent } from './components/userregistration/userregistration.component';
 import { HeaderComponent } from './components/header/header.component';
-import { WebSpeechComponent } from '../plasma/components/web-speech/web-speech.component';
+import {DomainExpertComponent} from './components/domain-expert/domain-expert.component';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FormsModule } from '@angular/forms';
-
-import { AppRoutingModule } from '../app-routing.module';
-
-import { AppComponent } from '../app.component';
-
-
-import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
-
-import { WebSpeechModule } from './components/web-speech/web-speech.module';
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { WebSpeechComponent } from './components/web-speech/web-speech.component';
+import { AppRoutingModule } from '../app-routing.module';
+import { FormsModule } from '@angular/forms';
 import { PlasmaMaterialModule } from './plasma.material.modules';
- 
-
 @NgModule({
   declarations: [
-    AppComponent,
     HeaderComponent,
-
-  ],
-  imports: [
- 
-    BrowserModule,
-    BrowserAnimationsModule,
-    AppRoutingModule,
-    FormsModule,
-    HttpClientModule,
     WebSpeechComponent,
-    RouterModule,
+    ],
+  imports: [
+   BrowserModule,
+   BrowserAnimationsModule,
+   AppRoutingModule,
+   FormsModule,
+   HttpClientModule,
+   WebSpeechComponent,
+   DomainExpertComponent,
+   CommonModule,
+   PlasmaMaterialModule,
+   UserregistrationComponent
   ],
-  exports: [HeaderComponent]
-  // bootstrap: [
-  //   AppComponent
-  // ]
- 
-    CommonModule,
-    PlasmaMaterialModule
-  ],
+<<<<<<< HEAD
   exports: [WebSpeechComponent]
+=======
+  exports: [
+   HeaderComponent,
+   WebSpeechComponent,
+   DomainExpertComponent,
+   UserregistrationComponent
+ ]
+>>>>>>> e24ce893c5b75993d2bc4e99a0b39050f9f2d20d
 })
 export class PlasmaModule { }
