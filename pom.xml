@@ -37,6 +37,7 @@
         <module>nlp-service</module>
         <module>user-register-service</module>
         <module>knowledge-indexer-service</module>
+        <module>tagging-service</module>
     </modules>
     <dependencies>
         <dependency>
