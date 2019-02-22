@@ -86,15 +86,7 @@
             <groupId>org.neo4j</groupId>
             <artifactId>neo4j-ogm-core</artifactId>
         </dependency>
-
-<<<<<<< HEAD
-    </dependencies>
-=======
-
-
-
 	</dependencies>
->>>>>>> 428ca489b877731bef75525f47d789784fdb5cef
 
 	<dependencyManagement>
 		<dependencies>
