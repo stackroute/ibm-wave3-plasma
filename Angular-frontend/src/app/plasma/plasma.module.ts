@@ -8,17 +8,13 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
-<<<<<<< HEAD
 import { NgModule } from '@angular/core';
 import { UserLoginService } from './services/user-login.service';
 @NgModule({
   declarations: [
-<<<<<<< HEAD
-    HeaderComponent
-=======
     HeaderComponent,
     UserLoginComponent,
->>>>>>> 21a8cb6f7720dc7c9ed6fd30d16ec18cc440484c
+    WebSpeechComponent
   ],
   imports: [
     CommonModule,
@@ -27,17 +23,8 @@ import { UserLoginService } from './services/user-login.service';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-=======
-import { AppRoutingModule } from '../app-routing.module';
-import { FormsModule } from '@angular/forms';
-import { PlasmaMaterialModule } from './plasma.material.modules';
-@NgModule({
-  declarations: [
-    HeaderComponent,
->>>>>>> b3de806f894d0ac41467a42d9b8eb531825324b0
-    WebSpeechComponent,
-    ],
-  imports: [
+
+
    BrowserModule,
    BrowserAnimationsModule,
    AppRoutingModule,
@@ -49,7 +36,6 @@ import { PlasmaMaterialModule } from './plasma.material.modules';
    PlasmaMaterialModule,
    UserregistrationComponent
   ],
-<<<<<<< HEAD
   providers: [UserLoginService],
   exports: [
     HeaderComponent,
@@ -57,17 +43,11 @@ import { PlasmaMaterialModule } from './plasma.material.modules';
     DomainExpertComponent,
     UserLoginComponent,
   ]
-=======
-<<<<<<< HEAD
-  exports: [WebSpeechComponent]
-=======
   exports: [
    HeaderComponent,
    WebSpeechComponent,
    DomainExpertComponent,
    UserregistrationComponent
  ]
->>>>>>> e24ce893c5b75993d2bc4e99a0b39050f9f2d20d
->>>>>>> b3de806f894d0ac41467a42d9b8eb531825324b0
 })
 export class PlasmaModule { }

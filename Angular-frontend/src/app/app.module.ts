@@ -21,15 +21,9 @@ import { UserregistrationComponent } from './plasma/components/userregistration/
 @NgModule({
   declarations: [
     AppComponent,
-<<<<<<< HEAD
-    // DomainExpertComponent,
-    // HeaderComponent,
-    // AppComponent
-=======
     DomainExpertComponent,
     HeaderComponent,
     UserregistrationComponent
->>>>>>> b3de806f894d0ac41467a42d9b8eb531825324b0
   ],
   imports: [
     BrowserModule,
