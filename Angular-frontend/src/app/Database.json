@@ -1,4 +1,4 @@
-{
+ {
     "data": {"domain":"Java",
     "concepts":[ "Abstract Class","Abstract Factory", "Abstraction", "Activity Diagram",
        "Acyclic Dependency", "Acyclic Graph", "Afferent Coupling", "Aggregate functions", 
@@ -9,4 +9,3 @@
        "Binary Search Tree", "Black Box Testing", "Inheritance", "Data Encapsulation", "Polymorphism"
     ]}
     }
-  

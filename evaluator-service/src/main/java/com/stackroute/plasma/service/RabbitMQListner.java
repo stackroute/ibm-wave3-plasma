@@ -66,7 +66,7 @@ public class RabbitMQListner {
     private long[] article = new long[5];
     private long[] nav = new long[5];
 
-
+    private  String keywords,description;
     private int[] tagVal = {10, 9, 6, 4};
     private String[] content = {"title", "h1", "p", "body"};
 
@@ -94,11 +94,42 @@ public class RabbitMQListner {
 
     }
 
+    public void htmlTag() {
+        String htmlTag = docx.select("html").text();
+        String[] str = htmlTag.toLowerCase().trim().split(" ");
+        List<String> strn = Arrays.asList(str);
+        html[0] = countOccurences(strn, strL1)-head[0]-body[0];
+        html[1] = countOccurences(strn, strL2)-head[1]-body[1];
+        html[2] = countOccurences(strn, strL3)-head[2]-body[2];
+        html[3] = countOccurences(strn, strL4)-head[3]-body[3];
+
+
+        for(int i=0;i<4;i++){
+            System.out.println("html "+html[i]);
+        }
+    }
+
+
+    public void headTag() {
+        //long h1=9;//tagweight.get("h1");
+        String headTag = docx.select("head").text();
+        String[] str = headTag.toLowerCase().trim().split(" ");
+        List<String> strn = Arrays.asList(str);
+        head[0] = countOccurences(strn, strL1)-title[0]-meta[0];
+        head[1] = countOccurences(strn, strL2)-title[1]-meta[1];
+        head[2] = countOccurences(strn, strL3)-title[2]-meta[2];
+        head[3] = countOccurences(strn, strL4)-title[3]-meta[3];
+        //return h1Tag;
+
+
+        for(int i=0;i<4;i++){
+            System.out.println("head "+head[i]);
+        }
+    }
 
     public void titleTag() {
-        int count = 0;
+
         List<String> str = Arrays.asList(docx.title().split(" "));
-        long t=10;//tagweight.get("title");
         title[0] = countOccurences(str, strL1);
         title[1] = countOccurences(str, strL2);
         title[2] = countOccurences(str, strL3);
@@ -111,22 +142,48 @@ public class RabbitMQListner {
     }
 
 
+    public void metaTag() {
+        int count = 0;
+        description = docx.select("meta[name=description]").get(0).attr("content");
+        //Print description.
+        System.out.println("Meta Description: " + description);
 
+        //Get keywords from document object.
+        keywords = docx.select("meta[name=keywords]").first().attr("content");
+        //Print keywords.
+        System.out.println("Meta Keyword : " + keywords);
+
+        String string= description+keywords;
+        String ss1 = string.trim().replaceAll(",", "");
+        List<String> str = Arrays.asList(ss1.split(" "));
+        meta[0] = countOccurences(str, strL1);
+        meta[1] = countOccurences(str, strL2);
+        meta[2] = countOccurences(str, strL3);
+        meta[3] = countOccurences(str, strL4);
+
+        for(int i=0;i<4;i++){
+            System.out.println("meta "+meta[i]);
+        }
+
+    }
 
 
     public void bodyTag() {
-        data = docx.text();
-        //long body=4;//tagweight.get("body");
 
-        String ss = docx.text().toLowerCase().trim().replaceAll(":", "");
+        String bodyTag = docx.select("body").text();
+        String ss =bodyTag.toLowerCase().trim().replaceAll(":", "");
         String ss1 = ss.trim().replaceAll(",", "");
         String[] str1 = ss1.split(" ");
         List<String> str = Arrays.asList(str1);
+        long[] sum=new long[4];
+        for(int i=0;i<4;i++){
+            sum[i]=h1[i]+h2[i]+h3[i]+h4[i]+h5[i]+h6[i]+code[i]+address[i]+summary[i]+blockquote[i]+mark[i]+ins[i]+map[i]+p[i]+span[i]+div[i]+ul[i]+ol[i]+ul[i]+article[i]+nav[i];
+        }
 
-        body[0] = (countOccurences(str, strL1) - title[0] - p[0] - h1[0]-h2[0]-h3[0]-h4[0]-h5[0]-h6[0]);
-        body[1] = (countOccurences(str, strL2) - title[1] - p[1] - h1[1]-h2[1]-h3[1]-h4[1]-h5[1]-h6[1]);
-        body[2] = (countOccurences(str, strL3) - title[2] - p[2] - h1[2]-h2[2]-h3[2]-h4[2]-h5[2]-h6[2]);
-        body[3] = (countOccurences(str, strL4) - title[3] - p[3] - h1[3]-h2[3]-h3[3]-h4[3]-h5[3]-h6[3]);
+        body[0] = countOccurences(str, strL1) - sum[0];
+        body[1] = countOccurences(str, strL2) - sum[1];
+        body[2] = countOccurences(str, strL3) - sum[2];
+        body[3] = countOccurences(str, strL4) - sum[3];
 
 
         for(int i=0;i<4;i++){
@@ -186,7 +243,6 @@ public class RabbitMQListner {
         }
     }
     public void h4Tag() {
-        //long h1=9;//tagweight.get("h1");
         String h4Tag = docx.select("h4").text();
         String[] str = h4Tag.toLowerCase().trim().split(" ");
         List<String> strn = Arrays.asList(str);
@@ -202,7 +258,6 @@ public class RabbitMQListner {
         }
     }
     public void h5Tag() {
-        //long h1=9;//tagweight.get("h1");
         String h5Tag = docx.select("h5").text();
         String[] str = h5Tag.toLowerCase().trim().split(" ");
         List<String> strn = Arrays.asList(str);
@@ -218,7 +273,6 @@ public class RabbitMQListner {
         }
     }
     public void h6Tag() {
-        //long h1=9;//tagweight.get("h1");
         String h6Tag = docx.select("h6").text();
         String[] str = h6Tag.toLowerCase().trim().split(" ");
         List<String> strn = Arrays.asList(str);
@@ -236,7 +290,6 @@ public class RabbitMQListner {
 
 
     public void codeTag() {
-        //long body=4;//tagweight.get("body");
         String codeTag = docx.select("code").text();
         String ss = codeTag.toLowerCase().trim().replaceAll(":", "");
         String ss1 = ss.trim().replaceAll(",", "");
@@ -255,8 +308,7 @@ public class RabbitMQListner {
     }
 
     public void addressTag() {
-        //long body=4;//tagweight.get("body");
-        String addressTag = docx.select("code").text();
+        String addressTag = docx.select("address").text();
         String ss = addressTag.toLowerCase().trim().replaceAll(":", "");
         String ss1 = ss.trim().replaceAll(",", "");
         String[] str1 = ss1.split(" ");
@@ -276,8 +328,7 @@ public class RabbitMQListner {
 
 
     public void summaryTag() {
-        //long body=4;//tagweight.get("body");
-        String summaryTag = docx.select("code").text();
+        String summaryTag = docx.select("summary").text();
         String ss = summaryTag.toLowerCase().trim().replaceAll(":", "");
         String ss1 = ss.trim().replaceAll(",", "");
         String[] str1 = ss1.split(" ");
@@ -294,7 +345,6 @@ public class RabbitMQListner {
         }
     }
     public void blockQuoteTag() {
-        //long h1=9;//tagweight.get("h1");
         String blockQuoteTag = docx.select("blockquote").text();
         String[] str = blockQuoteTag.toLowerCase().trim().split(" ");
         List<String> strn = Arrays.asList(str);
@@ -302,7 +352,7 @@ public class RabbitMQListner {
         blockquote[1] = countOccurences(strn, strL2);
         blockquote[2] = countOccurences(strn, strL3);
         blockquote[3] = countOccurences(strn, strL4);
-        //return h1Tag;
+
 
 
         for(int i=0;i<4;i++){
@@ -312,7 +362,6 @@ public class RabbitMQListner {
 
 
     public void markTag() {
-        //long h1=9;//tagweight.get("h1");
         String markTag = docx.select("mark").text();
         String[] str = markTag.toLowerCase().trim().split(" ");
         List<String> strn = Arrays.asList(str);
@@ -320,8 +369,6 @@ public class RabbitMQListner {
         mark[1] = countOccurences(strn, strL2);
         mark[2] = countOccurences(strn, strL3);
         mark[3] = countOccurences(strn, strL4);
-        //return h1Tag;
-
 
         for(int i=0;i<4;i++){
             System.out.println("mark "+mark[i]);
@@ -331,15 +378,13 @@ public class RabbitMQListner {
 
 
     public void insTag() {
-        //long h1=9;//tagweight.get("h1");
-        String insTag = docx.select("mark").text();
+        String insTag = docx.select("ins").text();
         String[] str = insTag.toLowerCase().trim().split(" ");
         List<String> strn = Arrays.asList(str);
         ins[0] = countOccurences(strn, strL1);
         ins[1] = countOccurences(strn, strL2);
         ins[2] = countOccurences(strn, strL3);
         ins[3] = countOccurences(strn, strL4);
-        //return h1Tag;
 
 
         for(int i=0;i<4;i++){
@@ -350,15 +395,14 @@ public class RabbitMQListner {
 
 
     public void mapTag() {
-        //long h1=9;//tagweight.get("h1");
-        String mapTag = docx.select("mark").text();
+        String mapTag = docx.select("map").text();
         String[] str = mapTag.toLowerCase().trim().split(" ");
         List<String> strn = Arrays.asList(str);
         map[0] = countOccurences(strn, strL1);
         map[1] = countOccurences(strn, strL2);
         map[2] = countOccurences(strn, strL3);
         map[3] = countOccurences(strn, strL4);
-        //return h1Tag;
+
 
 
         for(int i=0;i<4;i++){
@@ -369,22 +413,15 @@ public class RabbitMQListner {
 
     public void pTag() {
 
-        long pw=6;//tagweight.get("p");
-        //Document docx = Jsoup.connect(url).get();
         String ss = docx.select("p").text().toLowerCase().trim().replaceAll(":", "");
         String ss1 = ss.trim().replaceAll(",", "");
         String[] str1 = ss1.split(" ");
-
-
-        String pTag = docx.select("p").text();
         List<String> strn = Arrays.asList(str1);
 
         p[0] = countOccurences(strn, strL1);
         p[1] = countOccurences(strn, strL2);
         p[2] = countOccurences(strn, strL3);
         p[3] = countOccurences(strn, strL4);
-        //return pTag;
-
 
         for(int i=0;i<4;i++){
             System.out.println("p tag"+p[i]);
@@ -393,7 +430,6 @@ public class RabbitMQListner {
 
 
     public void spanTag() {
-        //long h1=9;//tagweight.get("h1");
         String spanTag = docx.select("span").text();
         String[] str = spanTag.toLowerCase().trim().split(" ");
         List<String> strn = Arrays.asList(str);
@@ -410,8 +446,7 @@ public class RabbitMQListner {
     }
 
     public void divTag() {
-        //long body=4;//tagweight.get("body");
-        String divTag = docx.select("code").text();
+        String divTag = docx.select("div").text();
         String ss = divTag.toLowerCase().trim().replaceAll(":", "");
         String ss1 = ss.trim().replaceAll(",", "");
         String[] str1 = ss1.split(" ");
@@ -424,7 +459,7 @@ public class RabbitMQListner {
 
 
         for(int i=0;i<4;i++){
-            System.out.println("code "+div[i]);
+            System.out.println("div "+div[i]);
         }
     }
 
@@ -433,7 +468,6 @@ public class RabbitMQListner {
 
 
     public void liTag() {
-        //long h1=9;//tagweight.get("h1");
         String liTag = docx.select("li").text();
         String[] str = liTag.toLowerCase().trim().split(" ");
         List<String> strn = Arrays.asList(str);
@@ -453,7 +487,6 @@ public class RabbitMQListner {
 
 
     public void ulTag() {
-        //long h1=9;//tagweight.get("h1");
         String ulTag = docx.select("ul").text();
         String[] str = ulTag.toLowerCase().trim().split(" ");
         List<String> strn = Arrays.asList(str);
@@ -471,7 +504,6 @@ public class RabbitMQListner {
 
 
     public void olTag() {
-        //long h1=9;//tagweight.get("h1");
         String olTag = docx.select("ol").text();
         String[] str = olTag.toLowerCase().trim().split(" ");
         List<String> strn = Arrays.asList(str);
@@ -489,16 +521,13 @@ public class RabbitMQListner {
 
 
     public void articleTag() {
-        //long h1=9;//tagweight.get("h1");
-        String ulTag = docx.select("article").text();
-        String[] str = ulTag.toLowerCase().trim().split(" ");
+        String articleTag = docx.select("article").text();
+        String[] str = articleTag.toLowerCase().trim().split(" ");
         List<String> strn = Arrays.asList(str);
-        article[0] = countOccurences(strn, strL1)-li[0];
-        article[1] = countOccurences(strn, strL2)-li[1];
-        article[2] = countOccurences(strn, strL3)-li[2];
-        article[3] = countOccurences(strn, strL4)-li[3];
-        //return h1Tag;
-
+        article[0] = countOccurences(strn, strL1);
+        article[1] = countOccurences(strn, strL2);
+        article[2] = countOccurences(strn, strL3);
+        article[3] = countOccurences(strn, strL4);
 
         for(int i=0;i<4;i++){
             System.out.println("article "+article[i]);
@@ -506,25 +535,20 @@ public class RabbitMQListner {
     }
 
     public void navTag() {
-        //long h1=9;//tagweight.get("h1");
-        String ulTag = docx.select("nav").text();
-        String[] str = ulTag.toLowerCase().trim().split(" ");
+
+        String navTag = docx.select("nav").text();
+        String[] str = navTag.toLowerCase().trim().split(" ");
         List<String> strn = Arrays.asList(str);
-        nav[0] = countOccurences(strn, strL1)-li[0];
-        nav[1] = countOccurences(strn, strL2)-li[1];
-        nav[2] = countOccurences(strn, strL3)-li[2];
-        nav[3] = countOccurences(strn, strL4)-li[3];
-        //return h1Tag;
+        nav[0] = countOccurences(strn, strL1);
+        nav[1] = countOccurences(strn, strL2);
+        nav[2] = countOccurences(strn, strL3);
+        nav[3] = countOccurences(strn, strL4);
 
 
         for(int i=0;i<4;i++){
             System.out.println("nav "+nav[i]);
         }
     }
-
-
-
-
 
 
     public int countOccurences(List<String> str, List<String> strL) {
@@ -546,71 +570,142 @@ public class RabbitMQListner {
         int i=0;
 
         getWeights();
-        System.out.println(tagweight.get("title")*10);
-        String description =
-                docx.select("meta[name=description]").get(0)
-                        .attr("content");
-        //Print description.
-        System.out.println("Meta Description: " + description);
-
-        //Get keywords from document object.
-        String keywords =
-                docx.select("meta[name=keywords]").first()
-                        .attr("content");
-        //Print keywords.
-        System.out.println("Meta Keyword : " + keywords);
         System.out.println("starting methods");
-        titleTag();
         h1Tag();
         h2Tag();
         h3Tag();
         h4Tag();
         h5Tag();
         h6Tag();
+        codeTag();
+        addressTag();
+        summaryTag();
+        blockQuoteTag();
+        markTag();
+        insTag();
+        mapTag();
         pTag();
+        spanTag();
+        divTag();
+        ulTag();
+        olTag();
+        liTag();
+        articleTag();
+        navTag();
+
         bodyTag();
+
+        titleTag();
+        metaTag();
+
+        headTag();
+
+        htmlTag();
 
         System.out.println("ending methods");
         for (int j = 0; j < 4; j++) {
-            val[0][j] = title[j]*tagweight.get("title");
-            System.out.println(val[0][j]);
+            val[0][j] = html[j]*tagweight.get("html");
+            System.out.println("html "+j+" "+ val[0][j]);
         }
         for (int j = 0; j < 4; j++) {
-            val[1][j] = h1[j]*tagweight.get("h1");
-            System.out.println(val[1][j]);
+            val[1][j] = head[j]*tagweight.get("head");
+            System.out.println("head "+j+" "+val[1][j]);
         }
         for (int j = 0; j < 4; j++) {
-            val[1][j] = h2[j]*tagweight.get("h2");
-            System.out.println(val[2][j]);
+            val[2][j] = title[j]*tagweight.get("title");
+            System.out.println("title "+j+" "+val[2][j]);
         }
         for (int j = 0; j < 4; j++) {
-            val[1][j] = h3[j]*tagweight.get("h3");
-            System.out.println(val[3][j]);
+            val[3][j] = meta[j]*tagweight.get("meta");
+            System.out.println("meta "+j+" "+val[3][j]);
         }
         for (int j = 0; j < 4; j++) {
-            val[1][j] = h4[j]*tagweight.get("h4");
-            System.out.println(val[4][j]);
+            val[4][j] = body[j]*tagweight.get("body");
+            System.out.println("body "+j+" "+val[4][j]);
         }
         for (int j = 0; j < 4; j++) {
-            val[1][j] = h5[j]*tagweight.get("h5");
-            System.out.println(val[5][j]);
+            val[5][j] = h1[j]*tagweight.get("h1");
+            System.out.println("h1 "+j+" "+val[5][j]);
         }
         for (int j = 0; j < 4; j++) {
-            val[1][j] = h6[j]*tagweight.get("h6");
-            System.out.println(val[6][j]);
+            val[6][j] = h2[j]*tagweight.get("h2");
+            System.out.println("h2 "+j+" "+val[6][j]);
         }
         for (int j = 0; j < 4; j++) {
-            val[2][j] = p[j]*tagweight.get("p");
-            System.out.println(val[7][j]);
+            val[7][j] = h3[j]*tagweight.get("h3");
+            System.out.println("h3"+j+" "+val[7][j]);
         }
         for (int j = 0; j < 4; j++) {
-            val[3][j] = body[j]*tagweight.get("body");
-            System.out.println(val[8][j]);
+            val[8][j] = h4[j]*tagweight.get("h4");
+            System.out.println("h4 "+j+" "+val[8][j]);
         }
 
         for (int j = 0; j < 4; j++) {
+            val[9][j] = h5[j]*tagweight.get("h5");
+            System.out.println("h5 "+j+" "+val[9][j]);
+        }
+        for (int j = 0; j < 4; j++) {
+            val[10][j] = h6[j]*tagweight.get("h6");
+            System.out.println("h6 "+j+" "+val[10][j]);
+        }
+        for (int j = 0; j < 4; j++) {
+            val[11][j] = code[j]*tagweight.get("code");
+            System.out.println("code "+j+" "+val[11][j]);
+        }
+        for (int j = 0; j < 4; j++) {
+            val[12][j] = address[j]*tagweight.get("address");
+            System.out.println("address "+j+" "+val[12][j]);
+        }
+        for (int j = 0; j < 4; j++) {
+            val[13][j] = summary[j]*tagweight.get("summary");
+            System.out.println("summary "+j+" "+val[13][j]);
+        }
+        for (int j = 0; j < 4; j++) {
+            val[14][j] = blockquote[j]*tagweight.get("blockquote");
+            System.out.println("blockquote "+j+" "+val[14][j]);
+        }
+        for (int j = 0; j < 4; j++) {
+            val[15][j] = mark[j]*tagweight.get("mark");
+            System.out.println("mark "+j+" "+val[15][j]);
+        }
+        for (int j = 0; j < 4; j++) {
+            val[16][j] = ins[j]*tagweight.get("ins");
+            System.out.println("ins "+j+" "+val[16][j]);
+        }
+        for (int j = 0; j < 4; j++) {
+            val[17][j] = map[j]*tagweight.get("map");
+            System.out.println("map "+j+" "+val[17][j]);
+        }
+        for (int j = 0; j < 4; j++) {
+            val[18][j] = p[j]*tagweight.get("p");
+            System.out.println("p "+j+" "+val[18][j]);
+        }
+        for (int j = 0; j < 4; j++) {
+            val[19][j] = span[j]*tagweight.get("span");
+            System.out.println("span "+j+" "+val[8][j]);
+        } for (int j = 0; j < 4; j++) {
+            val[20][j] = div[j]*tagweight.get("div");
+            System.out.println("div "+j+" "+val[20][j]);
+        } for (int j = 0; j < 4; j++) {
+            val[21][j] = ul[j]*tagweight.get("ul");
+            System.out.println("ul "+j+" "+val[21][j]);
+        } for (int j = 0; j < 4; j++) {
+            val[22][j] = ol[j]*tagweight.get("ol");
+            System.out.println("ol "+j+" "+val[22][j]);
+        } for (int j = 0; j < 4; j++) {
+            val[23][j] = li[j]*tagweight.get("li");
+            System.out.println("li"+j+" "+val[23][j]);
+        } for (int j = 0; j < 4; j++) {
+            val[24][j] = article[j]*tagweight.get("article");
+            System.out.print("article "+j+" "+val[24][j]);
+        }for (int j = 0; j < 4; j++) {
+            val[25][j] = nav[j]*tagweight.get("nav");
+            System.out.print("nav j:"+val[25][j]);
+        }
+        //Scores calculation
+        for (int j = 0; j < 4; j++) {
             score[j] = Long.valueOf(0);
-            for (i = 0; i < 9; i++) {
+            for (i = 0; i < 26; i++) {
 
                 score[j] = score[j] + (val[i][j]);
 

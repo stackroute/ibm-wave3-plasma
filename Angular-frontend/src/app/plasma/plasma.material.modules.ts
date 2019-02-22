@@ -11,7 +11,6 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatListModule } from '@angular/material/list';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import {MatChipsModule, MatChipList} from '@angular/material/chips';
-import { WebSpeechModule } from './components/web-speech/web-speech.module';
 
 
 
