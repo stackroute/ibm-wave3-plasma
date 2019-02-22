@@ -4,13 +4,13 @@
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>com.stackroute</groupId>
-		<artifactId>ibm-wave3-quizify</artifactId>
+		<artifactId>ibm-wave3-plasma</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 		<relativePath>../pom.xml</relativePath>
 	</parent>
-	<groupId>com.stackroute</groupId>
+	<!--<groupId>com.stackroute</groupId>-->
 	<artifactId>userservice</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<!--<version>0.0.1-SNAPSHOT</version>-->
 	<name>userservice</name>
 	<description>Demo project for Spring Boot</description>
 
