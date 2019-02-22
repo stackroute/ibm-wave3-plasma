@@ -35,8 +35,9 @@
         <module>config-server</module>
         <module>eventbrite-service</module>
         <module>nlp-service</module>
-        <module>user-register-service</module>
+        <module>userservice</module>
         <module>knowledge-indexer-service</module>
+        <module>cache-manager-service</module>
     </modules>
     <dependencies>
         <dependency>
