@@ -34,8 +34,7 @@ public class TagServiceImpl implements TagService {
     private List<String> finalIntent = new ArrayList<>();
     private final static   ArrayList<String> concept_word_set = new ArrayList<>();
     private final static  ArrayList<String> intent_word_set = new ArrayList<>();
-    //@Autowired
-    TagOutput tagOutput = new TagOutput(new ArrayList<>(),new ArrayList<>());
+    private TagOutput tagOutput = new TagOutput(new ArrayList<>(),new ArrayList<>());
 
     public TagServiceImpl() {
         readConceptFile();
@@ -234,6 +233,8 @@ public class TagServiceImpl implements TagService {
     }
 
     public List<String> checkForConcept() {
+
+        finalConcept = new ArrayList<>();
         for(int i=0;i<concept.size();i++){
             if((concept_word_set.contains(concept.get(i).toLowerCase().trim()))) {
                 finalConcept.add(concept.get(i).toLowerCase().trim());
@@ -252,7 +253,7 @@ public class TagServiceImpl implements TagService {
 
     public List<String> checkForIntent() {
 
-        //System.out.println(readIntentFile());
+        finalIntent = new ArrayList<>();
         for(int i=0;i<intent.size();i++){
            if (basic_word_set.contains(intent.get(i).toLowerCase().trim())){
                finalIntent.add("basics");
@@ -288,6 +289,8 @@ public class TagServiceImpl implements TagService {
     @Override
     public TagOutput tagger(String lemma) {
         taggedString = new ArrayList<>();
+        intent = new ArrayList<>();
+        concept = new ArrayList<>();
         CoreDocument coreDocument = new CoreDocument(lemma);
         stanfordCoreNLP.annotate(coreDocument);
         List<CoreLabel> coreLabels = coreDocument.tokens();
@@ -307,19 +310,10 @@ public class TagServiceImpl implements TagService {
                 taggedString.add(coreLabel.originalText());
             }
         }
-
-        //System.out.println(basic_word_set);
-       // System.out.println("***********************");
-       // System.out.println(intent);
-       // System.out.println(concept);
-        System.out.println("###########################");
-        System.out.println(checkForConcept());
-        System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-        System.out.println(checkForIntent());
+        checkForConcept();
+        checkForIntent();
         tagOutput.setTaggedConcept(finalConcept);
         tagOutput.setTaggedLevel(finalIntent);
-        System.out.println("&&&&&&&&&&&&&&&&&&&&&&&&&&&");
-        System.out.println(tagOutput);
         return tagOutput;
     }
 }
