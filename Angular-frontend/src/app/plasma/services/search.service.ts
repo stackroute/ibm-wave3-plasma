@@ -9,16 +9,11 @@ export class SearchService {
   console: any;
   private nlpserviceurl: String = 'http://172.23.239.201:8079/api/v1/query';
 
-  constructor(private http: HttpClient) {
-  console.log('Hi how are you ');
+constructor(private http: HttpClient) {
 
-  }
+}
 
-//    data(finalTranscript: String) {
-//      console.log(finalTranscript);
-//      return this.http
-//      .post(this.nlpserviceurl + 'finalTranscript', String);
-//    }
+
 data(finalTranscript: String) {
   console.log('asydoyds' + finalTranscript);
   console.log(this.nlpserviceurl, finalTranscript);
