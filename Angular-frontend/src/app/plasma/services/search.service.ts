@@ -21,7 +21,5 @@ data(finalTranscript: String) {
   .post( `${this.nlpserviceurl}` , finalTranscript);
 
 }
-    getTheData() {
-      return this.http.get('http://localhost:3000/data');
-    }
+
 }
