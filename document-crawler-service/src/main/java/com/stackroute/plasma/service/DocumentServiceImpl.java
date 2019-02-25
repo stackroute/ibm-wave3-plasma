@@ -49,9 +49,9 @@ public class DocumentServiceImpl implements DocumentService {
     }
 
 
-    @RabbitListener(queues = "${javainuse.rabbitmq.queue}", containerFactory = "jsaFactory")
+    @RabbitListener(queues = "${javainuse2.rabbitmq.queue}", containerFactory = "jsaFactory")
     public void recievedMessage(SearchOutput searchOutput) throws IOException {
-        System.out.println("Recieved Message From RabbitMQ: " + searchOutput.getUrls());
+        System.out.println("Recieved Message From RabbitMQ: " + searchOutput);
         this.searchOutput = searchOutput;
     }
 

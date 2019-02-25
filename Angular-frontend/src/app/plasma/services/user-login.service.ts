@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 
 @Injectable()
   export class UserLoginService {
-  private loginUrl = 'http://localhost:8133/api/user';
+  private loginUrl = 'http://localhost:8133/api/user';  // URL to web api
 
   constructor(private http: HttpClient) { }
   login(user: any): Observable<any> {

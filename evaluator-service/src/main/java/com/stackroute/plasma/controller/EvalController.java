@@ -3,6 +3,7 @@ package com.stackroute.plasma.controller;
 import com.stackroute.plasma.domain.Evaluator;
 //import com.stackroute.plasma.service.EvalService;
 import com.stackroute.plasma.service.RabbitMQListner;
+import com.stackroute.plasma.service.RabbitMQSender;
 import org.json.simple.parser.ParseException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -22,12 +23,16 @@ public class  EvalController {
     RabbitMQListner rmq;
 
     @Autowired
+    RabbitMQSender rabbitMQSender;
+
+    @Autowired
       public EvalController(RabbitMQListner rabbitMQListner) {
         this.rmq = rabbitMQListner;
     }
 
     @GetMapping("/score")
     public ResponseEntity<?> getScore() throws IOException, ParseException {
+        rabbitMQSender.send(rmq.getScore());
         return new ResponseEntity<>(rmq.getScore(), HttpStatus.OK);
     }
 }

@@ -8,7 +8,7 @@ import org.jsoup.nodes.Document;
 
 import java.sql.Timestamp;
 
-@NoArgsConstructor
+//@NoArgsConstructor
 @JsonIdentityInfo(generator = ObjectIdGenerators.IntSequenceGenerator.class, property = "@id", scope = Url.class)
 public class Url {
 
@@ -22,6 +22,9 @@ public class Url {
     private String doc;
     @JsonProperty("timestamp")
     private Timestamp timestamp;
+
+    public Url() {
+    }
 
     public Url(String url, String concept, String domain, String doc, Timestamp timestamp) {
         this.url = url;
