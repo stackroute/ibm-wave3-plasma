@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class SearchService {
   console: any;
-  private nlpserviceurl: String = 'http://172.23.239.201:8079/api/v1/query';
+  private nlpserviceurl: String = 'http://172.23.239.201:8088/api/v1/query';
 
 constructor(private http: HttpClient) {
 
