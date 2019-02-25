@@ -29,11 +29,12 @@ public class DocumentServiceImpl implements DocumentService {
     public DocumentServiceImpl() {
 
     }
+
     @Autowired
     public DocumentServiceImpl(SearchOutput searchOutput) {
         //url=new Url();
-        this.searchOutput=searchOutput;
-        searchOutput.setUrls(new String[]{"https://www.youtube.com/watch?v=szYzBC89CPE","https://beginnersbook.com/2013/03/oops-in-java-encapsulation-inheritance-polymorphism-abstraction/",
+        this.searchOutput = searchOutput;
+        searchOutput.setUrls(new String[]{"https://www.youtube.com/watch?v=szYzBC89CPE", "https://beginnersbook.com/2013/03/oops-in-java-encapsulation-inheritance-polymorphism-abstraction/",
                 "https://www.youtube.com/watch?v=PM47JJe_8xI",
                 "https://dzone.com/articles/java-encapsulation-for-adults",
                 "https://howtodoinjava.com/oops/encapsulation-in-java-and-its-relation-with-abstraction/",
@@ -48,13 +49,11 @@ public class DocumentServiceImpl implements DocumentService {
     }
 
 
-
     @RabbitListener(queues = "${javainuse.rabbitmq.queue}", containerFactory = "jsaFactory")
     public void recievedMessage(SearchOutput searchOutput) throws IOException {
         System.out.println("Recieved Message From RabbitMQ: " + searchOutput.getUrls());
         this.searchOutput = searchOutput;
     }
-
 
 
     @Override
@@ -65,7 +64,7 @@ public class DocumentServiceImpl implements DocumentService {
         searchOutput.setTimestamp(Timestamp.valueOf(LocalDateTime.of(LocalDate.now(), LocalTime.now())));
         searchOutput.setDomain("java");
         searchOutput.setConcept("abstraction");
-        for(String urlx : searchOutput.getUrls()){
+        for (String urlx : searchOutput.getUrls()) {
             url = new Url();
 
             System.out.println("hello");
@@ -87,13 +86,7 @@ public class DocumentServiceImpl implements DocumentService {
         return list;
 
 
-
     }
 
 
-
-
-
-
-    }
-
+}
