@@ -20,12 +20,6 @@ public class DescriptionImpl implements DescriptionService{
     ConceptRepository conceptRepository;
 
     @Override
-    public List<Concept> getC(){return conceptRepository.get();}
-
-    @Override
-    public List<Description> getD(){return descriptionRepository.get();}
-
-    @Override
     public Description create(Description description) {
 
         long id = description.getId();

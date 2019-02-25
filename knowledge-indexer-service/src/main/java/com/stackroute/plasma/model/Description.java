@@ -18,8 +18,6 @@ public class Description {
     private long id;
     @Property
     private String timestamp;
-   /* @Property
-    private String type;*/
     @Property
     private String concept;
     @Property
@@ -32,11 +30,13 @@ public class Description {
     private String url;
     @Property
     private String keywords;
+    /* @Property
+    private String type;*/
 
     /*@Relationship(type = "Details_of", direction = Relationship.OUTGOING)
     private Concept parent;*/
-    @Relationship(type = "Details_of", direction = Relationship.OUTGOING)
-    private List<Concept> parent = new ArrayList<>();
+    /*@Relationship(type = "Details_of", direction = Relationship.OUTGOING)
+    private List<Concept> parent = new ArrayList<>();*/
 
     public long getId() {
         return id;
@@ -102,11 +102,4 @@ public class Description {
         this.keywords = keywords;
     }
 
-    public List<Concept> getParent() {
-        return parent;
-    }
-
-    public void setParent(List<Concept> parent) {
-        this.parent = parent;
-    }
 }
