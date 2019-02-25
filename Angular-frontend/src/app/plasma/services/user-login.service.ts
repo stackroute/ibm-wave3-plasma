@@ -13,15 +13,15 @@ import { Observable } from 'rxjs';
   }
 
   setCookie(cname: string, cvalue: string, exdays: number) {
-    let date = new Date();
+  const date = new Date();
     date.setTime(date.getTime() + (exdays * 24 * 60 * 60 * 1000));
-    let expires = `expires=${date.toUTCString()}`;
+    const expires = `expires=${date.toUTCString()}`;
     document.cookie =  `${cname}=${cvalue};${expires};path=/`;
   }
 
   getCookie(cname: string) {
-    let name = cname + '=';
-    let ca = document.cookie.split(';');
+    const name = cname + '=';
+    const ca = document.cookie.split(';');
     for (let i = 0; i < ca.length; i++) {
       let c = ca[i];
       while (c.charAt(0) === '') {

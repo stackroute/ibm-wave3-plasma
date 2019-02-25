@@ -2,7 +2,7 @@ import { PlasmaMaterialModule } from './plasma.material.modules';
 import { UserLoginComponent } from './components/user-login/user-login.component';
 import { CommonModule } from '@angular/common';
 import { WebSpeechComponent } from './components/web-speech/web-speech.component';
-import { UserregistrationComponent } from './components/userregistration/userregistration.component';
+
 import { HeaderComponent } from './components/header/header.component';
 import {DomainExpertComponent} from './components/domain-expert/domain-expert.component';
 import { NgModule } from '@angular/core';
@@ -15,6 +15,10 @@ import { UserLoginService } from './services/user-login.service';
 import { AppRoutingModule } from '../app-routing.module';
 
 import { FormsModule } from '@angular/forms';
+<<<<<<< HEAD
+import { PlasmaMaterialModule } from './plasma.material.modules';
+=======
+>>>>>>> ba36496586cffd777c0d617963dec281054efa1d
 
 @NgModule({
   declarations: [
@@ -22,6 +26,7 @@ import { FormsModule } from '@angular/forms';
     HeaderComponent,
 
     WebSpeechComponent,
+    UserregistrationComponent,
     ],
   imports: [
    BrowserModule,
@@ -29,11 +34,18 @@ import { FormsModule } from '@angular/forms';
    AppRoutingModule,
    FormsModule,
    HttpClientModule,
+<<<<<<< HEAD
   //  WebSpeechComponent,
   //  DomainExpertComponent,
    CommonModule,
    PlasmaMaterialModule,
   //  UserregistrationComponent
+=======
+
+   CommonModule,
+   PlasmaMaterialModule,
+
+>>>>>>> ba36496586cffd777c0d617963dec281054efa1d
   ],
   providers: [UserLoginService],
   exports: [

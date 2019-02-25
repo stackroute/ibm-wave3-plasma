@@ -1,5 +1,6 @@
 package com.stackroute.taggingservice.service;
 
+import com.stackroute.taggingservice.domain.TagOutput;
 import edu.stanford.nlp.ling.CoreLabel;
 import edu.stanford.nlp.pipeline.CoreDocument;
 import edu.stanford.nlp.pipeline.StanfordCoreNLP;
@@ -16,6 +17,6 @@ import java.util.List;
 
 @Service
 public interface TagService {
-    public String[] tagger(String lemma);
+    public TagOutput tagger(String lemma);
 
 }
