@@ -24,8 +24,7 @@ export class WebSpeechComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-  // this.currentLanguage = this.languages[0];
-    // this.speechRecognizer.initialize(this.currentLanguage);
+
     this.initRecognition();
     this.notification = null;
   }
