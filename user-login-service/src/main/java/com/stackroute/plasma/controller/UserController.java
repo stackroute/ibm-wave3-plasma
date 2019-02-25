@@ -20,7 +20,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-//@CrossOrigin(value = "*")
+@CrossOrigin(value = "*")
 @RestController
 @RequestMapping("api/")
 public class UserController {
@@ -34,24 +34,28 @@ public class UserController {
     }
 
     @PostMapping("user")
-    public ResponseEntity login(@RequestBody User loginDetails) {
+    public ResponseEntity<?> login(@RequestBody User loginDetails) {
         try {
 
             String userId = loginDetails.getUserId();
             String password = loginDetails.getPassword();
+            System.out.println("details"+userId+"\n"+password);
 
             if (userId == null || password == null) {
+                System.out.println("in  method1");
                 throw new UserNameOrPasswordEmptyException("Userid and Password cannot be empty");
             }
 
             User user  = userService.findByUserIdAndPassword(userId, password);
-
-            if (user == null) {
-                throw new UserNotFoundException("User with given Id does not exists");
-            }
+            System.out.println(user);
+           if (user == null) {
+               System.out.println("in  method2");
+               throw new UserNotFoundException("User with given Id does not exists");
+           }
 
             String fetchedPassword = user.getPassword();
             if (!password.equals(fetchedPassword)) {
+                System.out.println("in  method3");
                 throw new UserIdAndPasswordMismatchException("Invalid login credential, Please check username and password ");
             }
 
@@ -66,6 +70,7 @@ public class UserController {
                 map1.put("token", jwtToken);
                 map1.put("message", "User successfully logged in");
                 System.out.println("token value"+jwtToken);
+                System.out.println("in  method4");
                 return map1;
             };
 
@@ -74,7 +79,7 @@ public class UserController {
             return new ResponseEntity<>(map, HttpStatus.OK);
 
         } catch (UserNameOrPasswordEmptyException | UserNotFoundException | UserIdAndPasswordMismatchException exception) {
-
+            System.out.println("in  catch");
             return new ResponseEntity<>("{ \"message\": \"" + exception.getMessage() + "\"}", HttpStatus.UNAUTHORIZED);
         }
     }
@@ -85,6 +90,7 @@ public class UserController {
     {
         return new ResponseEntity<List<User>>(userService.getAllUsers(), HttpStatus.OK);
     }
+
     @ApiOperation(value="Accept user into repository")
     @PostMapping("users")
     public ResponseEntity<?> saveUser(@RequestBody User user) throws UserNotFoundException

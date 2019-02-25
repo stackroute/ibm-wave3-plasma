@@ -93,7 +93,6 @@ public class RabbitMQListner implements EvaluatorService{
         System.out.println("Recieved Message From RabbitMQ: " + urlx.getUrl());
         this.url=urlx;
         System.out.println(getScore());
-
     }
 
     //Calculating scores for html tag

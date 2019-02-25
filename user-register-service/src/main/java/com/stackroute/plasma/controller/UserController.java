@@ -5,6 +5,8 @@ import com.stackroute.plasma.domain.User;
 import com.stackroute.plasma.exceptions.UpdateException;
 import com.stackroute.plasma.exceptions.UserAlreadyExistException;
 import com.stackroute.plasma.service.UserService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -12,8 +14,11 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin (value = "*")
 @RestController
 @RequestMapping(value = "/api/v1")
+@Api()
+
 public class UserController {
     UserService userService;
 
@@ -22,6 +27,7 @@ public class UserController {
         this.userService = userService;
     }
 
+    @ApiOperation(value ="Accepts user into the repository")
     @PostMapping("/user")
     public ResponseEntity<?> saveUser(@RequestBody User user) throws UserAlreadyExistException {
         ResponseEntity responseEntity;
@@ -30,13 +36,13 @@ public class UserController {
         return responseEntity;
     }
 
-
+    @ApiOperation(value ="Accepts user into the repository")
     @GetMapping("/user")
     public ResponseEntity<?> getAllUser() {
         return new ResponseEntity<List<User>>(userService.getAllUsers(), HttpStatus.OK);
     }
 
-
+    @ApiOperation(value ="Accepts user into the repository")
     @PutMapping("/user")
     public ResponseEntity<?> UpdateUser(@RequestBody User user) throws UpdateException, UserAlreadyExistException {
         ResponseEntity responseEntity;
@@ -46,6 +52,7 @@ public class UserController {
 
     }
 
+    @ApiOperation(value ="Accepts user into the repository")
     @DeleteMapping("/user/{id}")
     public ResponseEntity<?> getDeleteUser( @PathVariable("id") String id){
         ResponseEntity responseEntity;

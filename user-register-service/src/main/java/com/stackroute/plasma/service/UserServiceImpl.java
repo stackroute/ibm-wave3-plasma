@@ -1,7 +1,8 @@
 package com.stackroute.plasma.service;
 
-import com.stackroute.plasma.domain.User;
 
+
+import com.stackroute.plasma.domain.User;
 import com.stackroute.plasma.exceptions.UpdateException;
 import com.stackroute.plasma.exceptions.UserAlreadyExistException;
 import com.stackroute.plasma.repository.UserRepository;

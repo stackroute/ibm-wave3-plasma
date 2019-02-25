@@ -1,0 +1,48 @@
+<mat-toolbar>
+    <span>Register</span>
+  </mat-toolbar>
+<mat-card-content>
+    <form class="my-form">
+        <mat-form-field class="full-width">
+            <mat-label>Id</mat-label>
+            <input  matInput  placeholder="Id" [(ngModel)]="id" name="id">
+         </mat-form-field>
+       <mat-form-field class="full-width">
+              <mat-label>Name</mat-label>
+              <input  matInput  placeholder="Name" [(ngModel)]="name" name="name">
+           </mat-form-field>
+           <mat-form-field class="full-width">
+              <mat-label>Date of Birth</mat-label>
+          <input matInput [matDatepicker]="picker" placeholder="Choose a date" [(ngModel)]="dateOfBirth" name="dateOfBirth">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+        <section class="example-section">
+            <label class="example-margin">Gender:</label>
+            <mat-radio-group [(ngModel)]="gender">
+              <mat-radio-button class="example-margin" name="gender" value="M">Male</mat-radio-button>
+              <mat-radio-button class="example-margin" name="gender" value="F">Female</mat-radio-button>
+              <mat-radio-button class="example-margin" name="gender" value="Other">Other</mat-radio-button>
+            </mat-radio-group>
+          </section>
+          <mat-form-field class="full-width">
+              <mat-label>Contact</mat-label>
+              <input  matInput  placeholder="Contact" [(ngModel)]="contact" name="contact">
+           </mat-form-field>
+           <mat-form-field class="full-width">
+              <mat-label>Email</mat-label>
+              <input  matInput  placeholder="Email" [(ngModel)]="emailId" name="emailId">
+           </mat-form-field>
+           <mat-form-field class="full-width">
+              <mat-label>Set Password</mat-label>
+              <input  matInput  placeholder="Set Password" [(ngModel)]="setPassword" name="setPassword">
+           </mat-form-field>
+           <mat-form-field class="full-width">
+              <mat-label>Confirm Password</mat-label>
+              <input  matInput  placeholder="Confirm Password" [(ngModel)]="confirmpassword" name="confirmpassword">
+           </mat-form-field>
+    </form>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-raised-button (click)="register($event)" color="accent">REGISTER</button>
+  </mat-card-actions>

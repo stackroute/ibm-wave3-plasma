@@ -1,10 +1,7 @@
-.mat-form-field {
-    font-size: 16px;
-    color: blanchedalmond;
-    grid-auto-flow: column;
+.navLinks {
+  font-size: 1.25rem;
+  cursor: pointer;
 }
-header {
-    background-color: black;
-    width: 100%;
-    height: 50px;
+.spacer {
+  flex: 1 1 auto;
 }

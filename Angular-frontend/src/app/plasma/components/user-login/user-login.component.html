@@ -1,0 +1,26 @@
+<form>
+   <!-- (ngSubmit)="login()"> -->
+ <mat-toolbar>
+    <span>LOGIN</span>
+  </mat-toolbar>
+     <mat-card-content>
+        <form class="my-form">
+           <mat-form-field class="full-width">
+              <mat-label>Email</mat-label>
+              <input  matInput  placeholder="Email" [(ngModel)] = "userId" name="email">
+           </mat-form-field>
+           <mat-form-field class="full-width">
+              <mat-label>Password</mat-label>
+              <input  matInput  placeholder="Password" [(ngModel)] = "password" name="password">
+           </mat-form-field>
+           <mat-card-actions>
+            <!-- <button mat-raised-button (click)="login()" color="accent">LOGIN</button>  -->
+           <button mat-button color="accent" (click)="login($event)"  type="submit">Login</button>
+        </mat-card-actions>
+         </form>
+     </mat-card-content>
+
+
+
+     
+   

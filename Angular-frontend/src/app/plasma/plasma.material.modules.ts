@@ -1,5 +1,6 @@
-import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
 
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
@@ -11,7 +12,11 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatListModule } from '@angular/material/list';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import {MatChipsModule, MatChipList} from '@angular/material/chips';
-import { WebSpeechModule } from './components/web-speech/web-speech.module';
+import {MatDialogModule} from '@angular/material/dialog';
+import { MatNativeDateModule } from '@angular/material/core';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatRadioModule} from '@angular/material/radio';
 
 
 
@@ -30,9 +35,17 @@ import { WebSpeechModule } from './components/web-speech/web-speech.module';
     MatSelectModule,
     MatListModule,
     MatSidenavModule,
-    MatChipsModule
+    MatChipsModule,
+    MatDialogModule,
+    MatNativeDateModule,
+    MatDatepickerModule,
+    MatCheckboxModule,
+    FormsModule,
+    MatRadioModule,
+
   ],
   exports: [
+    CommonModule,
     MatButtonModule,
     MatCardModule,
     MatInputModule,
@@ -42,7 +55,14 @@ import { WebSpeechModule } from './components/web-speech/web-speech.module';
     MatSelectModule,
     MatListModule,
     MatSidenavModule,
-    MatChipsModule
+    MatChipsModule,
+    MatDialogModule,
+    MatNativeDateModule,
+    MatDatepickerModule,
+    MatCheckboxModule,
+    FormsModule,
+    MatRadioModule,
+
   ]
 })
 export class PlasmaMaterialModule { }
