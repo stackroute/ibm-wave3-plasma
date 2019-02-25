@@ -36,7 +36,6 @@ import { UserregistrationComponent } from './components/userregistration/userreg
    PlasmaMaterialModule,
 
   ],
-
   providers: [UserLoginService],
   exports: [
     HeaderComponent,
@@ -44,6 +43,5 @@ import { UserregistrationComponent } from './components/userregistration/userreg
     DomainExpertComponent,
     UserLoginComponent,
   ]
-
 })
 export class PlasmaModule { }

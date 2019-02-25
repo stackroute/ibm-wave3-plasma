@@ -1,5 +1,18 @@
 version: "2"
 services:
+
+  mysql:
+    image: mysql:5.7
+    ports:
+      - 3306:3306
+    container_name: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: PlasmaDB
+    #    volumes:
+    #      - '/opt/datasql:/var/lib/mysql'
+    network_mode: host
+
   rabbitmq:
     image: rabbitmq:management
     ports:
@@ -97,10 +110,11 @@ services:
     network_mode: host
     depends_on:
       - eurekaserver
+      - mysql
     ports:
-      - 8132:8132
+      - 8133:8133
     expose:
-      - 8132
+      - 8133
 
   userregisterservice:
     image: user-register-service:latest
@@ -141,14 +155,14 @@ services:
 
 
 
- taggingservice:
-  image: tagging-service:latest
-  build: tagging-service/
-  restart: always
-  network_mode: host
-  depends_on:
-    - eurekaserver
-  ports:
-    - 8070:8070
-  expose:
-    - 8070
+  taggingservice:
+    image: tagging-service:latest
+    build: tagging-service/
+    restart: always
+    network_mode: host
+    depends_on:
+      - eurekaserver
+    ports:
+      - 8070:8070
+    expose:
+      - 8070
