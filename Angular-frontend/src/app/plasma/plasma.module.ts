@@ -15,10 +15,7 @@ import { UserLoginService } from './services/user-login.service';
 import { AppRoutingModule } from '../app-routing.module';
 
 import { FormsModule } from '@angular/forms';
-<<<<<<< HEAD
-import { PlasmaMaterialModule } from './plasma.material.modules';
-=======
->>>>>>> ba36496586cffd777c0d617963dec281054efa1d
+import { UserregistrationComponent } from './components/userregistration/userregistration.component';
 
 @NgModule({
   declarations: [
@@ -34,18 +31,10 @@ import { PlasmaMaterialModule } from './plasma.material.modules';
    AppRoutingModule,
    FormsModule,
    HttpClientModule,
-<<<<<<< HEAD
-  //  WebSpeechComponent,
-  //  DomainExpertComponent,
-   CommonModule,
-   PlasmaMaterialModule,
-  //  UserregistrationComponent
-=======
 
    CommonModule,
    PlasmaMaterialModule,
 
->>>>>>> ba36496586cffd777c0d617963dec281054efa1d
   ],
   providers: [UserLoginService],
   exports: [
