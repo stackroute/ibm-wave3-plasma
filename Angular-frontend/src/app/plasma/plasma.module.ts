@@ -1,24 +1,18 @@
-import { PlasmaMaterialModule } from './plasma.material.modules';
-import { UserLoginComponent } from './components/user-login/user-login.component';
-import { CommonModule } from '@angular/common';
-import { WebSpeechComponent } from './components/web-speech/web-speech.component';
-
-import { HeaderComponent } from './components/header/header.component';
-import {DomainExpertComponent} from './components/domain-expert/domain-expert.component';
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
-
-import { UserLoginService } from './services/user-login.service';
-
-import { AppRoutingModule } from '../app-routing.module';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
-<<<<<<< HEAD
+
+import { UserregistrationComponent } from './components/userregistration/userregistration.component';
+import { HeaderComponent } from './components/header/header.component';
+import { WebSpeechComponent } from './components/web-speech/web-speech.component';
+import { AppRoutingModule } from '../app-routing.module';
+import { DomainExpertComponent } from './components/domain-expert/domain-expert.component';
+import { UserLoginComponent } from './components/user-login/user-login.component';
 import { PlasmaMaterialModule } from './plasma.material.modules';
-=======
->>>>>>> ba36496586cffd777c0d617963dec281054efa1d
+import { UserLoginService } from './services/user-login.service';
+import { CommonModule } from '@angular/common';
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
 
 @NgModule({
   declarations: [
@@ -30,22 +24,13 @@ import { PlasmaMaterialModule } from './plasma.material.modules';
     ],
   imports: [
    BrowserModule,
+
    BrowserAnimationsModule,
    AppRoutingModule,
    FormsModule,
    HttpClientModule,
-<<<<<<< HEAD
-  //  WebSpeechComponent,
-  //  DomainExpertComponent,
    CommonModule,
    PlasmaMaterialModule,
-  //  UserregistrationComponent
-=======
-
-   CommonModule,
-   PlasmaMaterialModule,
-
->>>>>>> ba36496586cffd777c0d617963dec281054efa1d
   ],
 
   providers: [UserLoginService],

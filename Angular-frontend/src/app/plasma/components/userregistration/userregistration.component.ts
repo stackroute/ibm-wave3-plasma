@@ -29,15 +29,15 @@ export class UserregistrationComponent implements OnInit {
     this.regform.contact = this.contact;
     this.regform.dateOfBirth = this.dateOfBirth;
     this.regform.gender = this.gender;
-    // console.log(this.regform);
+
     this.value = event.target.value;
     this.regserv.addregister(this.regform).subscribe(data => {
-      // console.log('data', data);
+
     });
 
   }
   constructor(private regserv: UserregistrationService, private http: HttpClient) {
-  //  console.log('name' , this.value);
+
   }
 
   ngOnInit() {

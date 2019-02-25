@@ -1,28 +1,17 @@
-<header>
-<<<<<<< HEAD
+  <header>
   <nav>
-     <mat-form-field>
-            <mat-chip-list #chipList>
-              <mat-chip color="accent" class="navLinks" selected [routerLink]="['/admin']" >Admin</mat-chip>
-              <mat-chip color="accent" class="navLinks" selected [routerLink]="['/signup']" >signup</mat-chip>
-            </mat-chip-list>
-            <input [matChipInputFor]="chipList">
-      </mat-form-field>
-  </nav>
+<mat-toolbar color="accent">
+    <mat-toolbar-row>
+      <div class="navbar-header">
+          <a href="/">
+              <img src="../assets/icon.png" class="img-rounded" alt="plasma" width="50px" height="40px">
+              </a>
+              </div>
+       <span class="spacer"></span>
+       <a mat-button routerLink="/signup">Register</a>
+       <a mat-button routerLink="/login">Login</a>
+       <a mat-button routerLink="/admin">Admin</a>
+      </mat-toolbar-row>
+ </mat-toolbar>
+ </nav>
  </header>
- <!-- <header>
-  <div class="topnav"> 
-    <a [routerLink]="['/admin']">Admin</a>
-    <a [routerLink]="['/signup']">SignUp</a>
-    <a [routerLink]="['/login']">SignIn</a>
-  </div>
-  </header> -->
-=======
-  
-  <div class="topnav">
-    <a [routerLink]="['/admin']"> Admin </a>
-    <a [routerLink]="['/signup']"> SignUp  </a>
-    <a [routerLink]="['/login']"> SignIn</a>
-  </div>
- </header>
->>>>>>> ba36496586cffd777c0d617963dec281054efa1d
