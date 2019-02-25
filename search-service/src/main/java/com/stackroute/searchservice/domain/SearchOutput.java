@@ -7,7 +7,7 @@ import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import java.sql.Timestamp;
 import java.util.List;
 
-@JsonIdentityInfo(generator = ObjectIdGenerators.IntSequenceGenerator.class, property = "@id", scope = SearchOutput.class)
+//@JsonIdentityInfo(generator = ObjectIdGenerators.IntSequenceGenerator.class, property = "@id", scope = SearchOutput.class)
 public class SearchOutput {
 
     @JsonProperty("timestamp")

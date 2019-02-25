@@ -1,3 +1,4 @@
+import { UserLoginComponent } from './plasma/components/user-login/user-login.component';
 import { HeaderComponent } from './plasma/components/header/header.component';
 import { WebSpeechComponent } from './plasma/components/web-speech/web-speech.component';
 import { NgModule } from '@angular/core';
@@ -24,13 +25,13 @@ const routes: Routes = [
     component: HeaderComponent
   },
   {
-    path: 'signup',
+   path: 'signup',
     component: UserregistrationComponent
   },
-  // {
-  //   path: 'login',
-  //   component: UserregistrationComponent
-  // }
+  {
+    path: 'login',
+    component: UserLoginComponent
+  }
 
 ];
 @NgModule({

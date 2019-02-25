@@ -19,7 +19,7 @@ export class DomainExpertComponent implements OnInit {
     private concepts: any [];
   ngOnInit() {
     this.search.getTheData().subscribe((data: any) => {
-      // console.log(data.concepts);
+
       this.concepts = data.concepts;
   });
   }
