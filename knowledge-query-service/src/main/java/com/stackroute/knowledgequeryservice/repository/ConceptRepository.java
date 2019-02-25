@@ -10,7 +10,6 @@ import java.util.List;
 @Repository
 public interface ConceptRepository extends Neo4jRepository<Concept,Long> {
 
-    @Query("MATCH (n:Domain) RETURN n LIMIT 2")
-    // where n.type="concept"
+    @Query("MATCH (n:Domain) where n.type=\"domain\" RETURN n")
     List<Concept> getAll();
 }

@@ -11,7 +11,7 @@ import org.neo4j.ogm.annotation.Property;
 @Setter
 @NodeEntity
 public class Concept {
-
+/*n.id = i.id, n.name = i.name, n.parentId = i.parentId, n.type = i.type, n.Class = i.Class, n.relation = i.relation,  n.context = i.context*/
     @Id
     @GeneratedValue
     private long Id;
@@ -27,68 +27,34 @@ public class Concept {
     private String relation;
     @Property
     private String context;
-    @Property
-    private String id;
-
-/*id: row.nodeid, name: row.name,  parentId: row.parentnodeid, type: row.nodetype,class:row.nodeclass,relation: row.parentRelation,context: row.context*/
+    /*@Property
+    private String id;*/
 
     public long getId() {
         return Id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public void setId(long id) {
-        Id = id;
     }
 
     public String getName() {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public String getParentId() {
         return parentId;
-    }
-
-    public void setParentId(String parentId) {
-        this.parentId = parentId;
     }
 
     public String getType() {
         return type;
     }
 
-    public void setType(String type) {
-        this.type = type;
-    }
-
     public String getClasss() {
         return classs;
-    }
-
-    public void setClasss(String classs) {
-        this.classs = classs;
     }
 
     public String getRelation() {
         return relation;
     }
 
-    public void setRelation(String relation) {
-        this.relation = relation;
-    }
-
     public String getContext() {
         return context;
-    }
-
-    public void setContext(String context) {
-        this.context = context;
     }
 }

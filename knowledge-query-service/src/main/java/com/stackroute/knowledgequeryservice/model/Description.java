@@ -16,8 +16,6 @@ public class Description {
     private long id;
     @Property
     private String timestamp;
-    /* @Property
-     private String type;*/
     @Property
     private String concept;
     @Property
@@ -30,5 +28,6 @@ public class Description {
     private String url;
     @Property
     private String keywords;
-
+    /* @Property
+     private String type;*/
 }
