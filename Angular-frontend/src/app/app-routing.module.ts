@@ -25,11 +25,11 @@ const routes: Routes = [
     component: HeaderComponent
   },
   {
-    path: 'userregistration',
+   path: 'userregistration',
     component: UserregistrationComponent
   },
   {
-    path: 'user-login',
+    path: 'login',
     component: UserLoginComponent
   }
 

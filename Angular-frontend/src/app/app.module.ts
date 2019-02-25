@@ -1,12 +1,11 @@
+import { UserLoginComponent } from './plasma/components/user-login/user-login.component';
 import { UserLoginService } from './plasma/services/user-login.service';
-import { WebSpeechModule } from './plasma/components/web-speech/web-speech.module';
-import { PlasmaMaterialModule } from './plasma/plasma.material.modules';
-import { HeaderComponent } from './plasma/components/header/header.component';
 
+import { PlasmaMaterialModule } from './plasma/plasma.material.modules';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, FormGroup, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 
@@ -15,7 +14,9 @@ import { AppComponent } from './app.component';
 
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
+import { WebSpeechModule } from './plasma/components/web-speech/web-speech.module';
 import { DomainExpertComponent } from './plasma/components/domain-expert/domain-expert.component';
+import { HeaderComponent } from './plasma/components/header/header.component';
 import { UserregistrationComponent } from './plasma/components/userregistration/userregistration.component';
 
 @NgModule({
@@ -23,7 +24,8 @@ import { UserregistrationComponent } from './plasma/components/userregistration/
     AppComponent,
     DomainExpertComponent,
     HeaderComponent,
-    UserregistrationComponent
+    UserregistrationComponent,
+    UserLoginComponent
   ],
   imports: [
     BrowserModule,
@@ -34,6 +36,7 @@ import { UserregistrationComponent } from './plasma/components/userregistration/
     PlasmaMaterialModule,
     WebSpeechModule,
     RouterModule,
+    ReactiveFormsModule,
 
   ],
   providers: [UserLoginService],

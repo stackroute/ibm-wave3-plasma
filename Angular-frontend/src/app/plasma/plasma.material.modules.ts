@@ -1,3 +1,4 @@
+import { FormsModule, FormGroup } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -11,6 +12,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatListModule } from '@angular/material/list';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import {MatChipsModule, MatChipList} from '@angular/material/chips';
+import {MatDialogModule} from '@angular/material/dialog';
 
 
 
@@ -29,7 +31,8 @@ import {MatChipsModule, MatChipList} from '@angular/material/chips';
     MatSelectModule,
     MatListModule,
     MatSidenavModule,
-    MatChipsModule
+    MatChipsModule,
+    MatDialogModule,
   ],
   exports: [
     MatButtonModule,
@@ -41,7 +44,7 @@ import {MatChipsModule, MatChipList} from '@angular/material/chips';
     MatSelectModule,
     MatListModule,
     MatSidenavModule,
-    MatChipsModule
+    MatChipsModule,
   ]
 })
 export class PlasmaMaterialModule { }
