@@ -20,6 +20,21 @@ services:
       - 5673:5673
     network_mode: host
 
+  neo4j:
+    image: neo4j:3.5
+#    build: ./neo4j
+    ports:
+      - 7474:7474
+      - 7687:7687
+    network_mode: host
+    volumes:
+      - ./neo4j/import:/import
+      - ./neo4j/data:/data
+      - ./neo4j/plugins:/plugins
+    expose:
+      -7474
+      -7687
+
   apigateway:
     image: zuul-service
     build: zuul-gatewayservice/
@@ -77,7 +92,6 @@ services:
       - 8090:8090
     expose:
       - 8090
- 
 
   nlpservice:
     image: nlp-service:latest
@@ -133,9 +147,11 @@ services:
     build: knowledge-indexer-service/
     restart: always
     network_mode: host
-#    depends_on: neo4j!
-#      - eurekaserver
-#      - rabbitmq
+    depends_on:
+      - neo4j
+      - eurekaserver
+      - rabbitmq
+      - configserver
     ports:
       - 8000:8000
     expose:
@@ -151,18 +167,15 @@ services:
       - 4200:4200
     restart: always
 
+ taggingservice:
+  image: tagging-service:latest
+  build: tagging-service/
+  restart: always
+  network_mode: host
+  depends_on:
+    - eurekaserver
+  ports:
+    - 8070:8070
+  expose:
+    - 8070
 
-
-
-
-  taggingservice:
-    image: tagging-service:latest
-    build: tagging-service/
-    restart: always
-    network_mode: host
-    depends_on:
-      - eurekaserver
-    ports:
-      - 8070:8070
-    expose:
-      - 8070
