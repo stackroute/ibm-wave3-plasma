@@ -9,15 +9,10 @@
 		<relativePath>../pom.xml</relativePath>
 	</parent>
 	<!--<groupId>com.stackroute</groupId>-->
-<<<<<<< HEAD:user-register-service/pom.xml
+
 	<artifactId>user-register-service</artifactId>
 	<!--<version>0.0.1-SNAPSHOT</version>-->
 	<name>user-register-service</name>
-=======
-	<artifactId>userservice</artifactId>
-	<!--<version>0.0.1-SNAPSHOT</version>-->
-	<name>userservice</name>
->>>>>>> ba36496586cffd777c0d617963dec281054efa1d:userservice/pom.xml
 	<description>Demo project for Spring Boot</description>
 
 	<properties>
