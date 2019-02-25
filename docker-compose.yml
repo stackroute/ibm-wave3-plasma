@@ -116,17 +116,17 @@ services:
     expose:
       - 8133
 
-#  userregisterservice:
-#    image: user-register-service:latest
-#    build: user-register-service/
-#    restart: always
-#    network_mode: host
-#    depends_on:
-#      - eurekaserver
-#    ports:
-#      - 8089:8089
-#    expose:
-#      - 8089
+  userregisterservice:
+    image: user-register-service:latest
+    build: user-register-service/
+    restart: always
+    network_mode: host
+    depends_on:
+      - eurekaserver
+    ports:
+      - 8089:8089
+    expose:
+      - 8089
   
   knowledgeindexerservice:
     image: knowledge-indexer-service:latest
