@@ -24,9 +24,13 @@ const routes: Routes = [
     component: HeaderComponent
   },
   {
-    path: 'userregistration',
+    path: 'signup',
     component: UserregistrationComponent
-  }
+  },
+  // {
+  //   path: 'login',
+  //   component: UserregistrationComponent
+  // }
 
 ];
 @NgModule({

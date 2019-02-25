@@ -10,10 +10,12 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from '../app-routing.module';
 import { FormsModule } from '@angular/forms';
 import { PlasmaMaterialModule } from './plasma.material.modules';
+
 @NgModule({
   declarations: [
     HeaderComponent,
     WebSpeechComponent,
+    UserregistrationComponent,
     ],
   imports: [
    BrowserModule,
@@ -21,11 +23,11 @@ import { PlasmaMaterialModule } from './plasma.material.modules';
    AppRoutingModule,
    FormsModule,
    HttpClientModule,
-   WebSpeechComponent,
-   DomainExpertComponent,
+  //  WebSpeechComponent,
+  //  DomainExpertComponent,
    CommonModule,
    PlasmaMaterialModule,
-   UserregistrationComponent
+  //  UserregistrationComponent
   ],
   exports: [
    HeaderComponent,

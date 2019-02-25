@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Userregister } from '../../tsclasses/userregister';
+import { HttpClient } from '@angular/common/http';
+import { UserregistrationService } from '../../services/userregistration.service';
 
 @Component({
   selector: 'app-userregistration',
@@ -6,8 +9,36 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./userregistration.component.css']
 })
 export class UserregistrationComponent implements OnInit {
+  value: string;
+  @Input()
+  private regform: Userregister;
+  private name: string;
+  private id: string;
+  private setPassword: string;
+  private contact: string;
+  private dateOfBirth: string;
+  private gender: string;
+  private confirmpassword: string;
 
-  constructor() { }
+  register(event: any) {
+    this.regform = new Userregister();
+    this.regform.name = this.name;
+    this.regform.id = this.id;
+    this.regform.setPassword = this.setPassword;
+    this.regform.confirmpassword = this.confirmpassword;
+    this.regform.contact = this.contact;
+    this.regform.dateOfBirth = this.dateOfBirth;
+    this.regform.gender = this.gender;
+    // console.log(this.regform);
+    this.value = event.target.value;
+    this.regserv.addregister(this.regform).subscribe(data => {
+      // console.log('data', data);
+    });
+
+  }
+  constructor(private regserv: UserregistrationService, private http: HttpClient) {
+  //  console.log('name' , this.value);
+  }
 
   ngOnInit() {
   }
