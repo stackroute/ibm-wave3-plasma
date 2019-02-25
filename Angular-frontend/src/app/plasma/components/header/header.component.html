@@ -1,0 +1,17 @@
+<header>
+  <!-- <nav>
+     <mat-form-field>
+            <mat-chip-list #chipList>
+              <mat-chip color="accent" class="navLinks" selected [routerLink]="['/admin']" >Admin</mat-chip>
+              <mat-chip color="accent" class="navLinks" selected [routerLink]="['/userregistration']" >SIGN UP</mat-chip>
+              <mat-chip color="accent" class="navLinks" selected [routerLink]="['/user-login']" >SIGN IN</mat-chip>
+            </mat-chip-list>
+            <input [matChipInputFor]="chipList">
+      </mat-form-field>
+  </nav> -->
+  <div class="topnav">
+    <a [routerLink]="['/admin']"> Admin </a>
+    <a [routerLink]="['/signup']"> SignUp  </a>
+    <a [routerLink]="['/login']"> SignIn</a>
+  </div>
+ </header>

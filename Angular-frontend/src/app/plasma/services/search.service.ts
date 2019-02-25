@@ -1,13 +1,7 @@
 
 
 import { Injectable } from '@angular/core';
-import {
-  HttpClient,
-  HttpHeaders,
-  HttpErrorResponse
-} from '@angular/common/http';
-import { BehaviorSubject, throwError } from 'rxjs';
-import { catchError } from 'rxjs/operators';
+import { HttpClient } from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
@@ -32,4 +26,7 @@ data(finalTranscript: String) {
   .post( `${this.nlpserviceurl}` , finalTranscript);
 
 }
+    getTheData() {
+      return this.http.get('http://localhost:3000/data');
+    }
 }

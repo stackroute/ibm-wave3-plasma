@@ -11,6 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1")
@@ -29,11 +30,11 @@ public class DocumentController {
     RabbitMQSender rabbitMQSender;
 
 
-    @GetMapping("/doc")
+    @GetMapping("doc")
     public ResponseEntity<?> getContent() throws IOException {
 
-        rabbitMQSender.send(documentService.getDocument());
-        return new ResponseEntity(documentService.getDocument(), HttpStatus.OK);
+        //rabbitMQSender.send((List<Url>) documentService.getHtml());
+        return new ResponseEntity(documentService.getHtml(), HttpStatus.OK);
 
     }
 

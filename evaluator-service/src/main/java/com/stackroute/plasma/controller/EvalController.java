@@ -1,8 +1,9 @@
 package com.stackroute.plasma.controller;
 
 import com.stackroute.plasma.domain.Evaluator;
-import com.stackroute.plasma.service.EvalService;
-import com.stackroute.plasma.service.RabbitMQSender;
+//import com.stackroute.plasma.service.EvalService;
+import com.stackroute.plasma.service.RabbitMQListner;
+import org.json.simple.parser.ParseException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,23 +16,18 @@ import java.io.IOException;
 @RequestMapping(value="api/v1")
 public class  EvalController {
 
-    EvalService evalService;
-    private Evaluator eval;
-
+   // EvalService evalService;
+    //private Evaluator eval;
+    @Autowired
+    RabbitMQListner rmq;
 
     @Autowired
-    public EvalController(EvalService evalService) {
-        this.evalService = evalService;
+      public EvalController(RabbitMQListner rabbitMQListner) {
+        this.rmq = rabbitMQListner;
     }
 
-    @Autowired
-    RabbitMQSender rabbitMQSender;
-
-
     @GetMapping("/score")
-    public ResponseEntity<?> getScore() throws IOException {
-
-        rabbitMQSender.send(evalService.getScore());
-        return new ResponseEntity<>(evalService.getScore(), HttpStatus.OK);
+    public ResponseEntity<?> getScore() throws IOException, ParseException {
+        return new ResponseEntity<>(rmq.getScore(), HttpStatus.OK);
     }
 }
