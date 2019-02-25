@@ -15,7 +15,7 @@ public class TermService{
 
     // @Override
     public List<Term> getAll() {
-        return termRepository.getAllNodes();
+        return termRepository.getAllTerms();
     }
 
 
