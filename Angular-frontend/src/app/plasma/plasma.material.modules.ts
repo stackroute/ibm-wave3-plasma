@@ -1,6 +1,6 @@
-import { FormsModule, FormGroup } from '@angular/forms';
-import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
 
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
@@ -13,6 +13,10 @@ import { MatListModule } from '@angular/material/list';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import {MatChipsModule, MatChipList} from '@angular/material/chips';
 import {MatDialogModule} from '@angular/material/dialog';
+import { MatNativeDateModule } from '@angular/material/core';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatRadioModule} from '@angular/material/radio';
 
 
 
@@ -33,8 +37,15 @@ import {MatDialogModule} from '@angular/material/dialog';
     MatSidenavModule,
     MatChipsModule,
     MatDialogModule,
+    MatNativeDateModule,
+    MatDatepickerModule,
+    MatCheckboxModule,
+    FormsModule,
+    MatRadioModule,
+
   ],
   exports: [
+    CommonModule,
     MatButtonModule,
     MatCardModule,
     MatInputModule,
@@ -45,6 +56,13 @@ import {MatDialogModule} from '@angular/material/dialog';
     MatListModule,
     MatSidenavModule,
     MatChipsModule,
+    MatDialogModule,
+    MatNativeDateModule,
+    MatDatepickerModule,
+    MatCheckboxModule,
+    FormsModule,
+    MatRadioModule,
+
   ]
 })
 export class PlasmaMaterialModule { }

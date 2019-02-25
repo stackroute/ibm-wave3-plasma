@@ -1,5 +1,6 @@
 package com.stackroute.taggingservice.controller;
 
+import com.stackroute.taggingservice.domain.TagInput;
 import com.stackroute.taggingservice.service.TagService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -18,7 +19,6 @@ import java.util.stream.Collectors;
 public class TaggingController {
 
     @Autowired
-    //TagService tagService;
     TagService tagService;
     //List<>
     List<String> temp;
@@ -27,13 +27,9 @@ public class TaggingController {
     }
 
     @PostMapping("/tag")
-    public ResponseEntity<?> tagger(@RequestBody  String query) {
-        //temp = new ArrayList<>();
-        //temp = nlpService.queryConverter(query);
-        //nlpModel.setTokenized_lematized(temp);
-
-        System.out.println(tagService.tagger(query));
-        return new ResponseEntity<>(temp.stream().map(String::toString).collect(Collectors.toList()), HttpStatus.CREATED);
+    public ResponseEntity<?> tagger(@RequestBody  String nlpOutput) {
+        return new ResponseEntity<>(tagService.tagger(nlpOutput), HttpStatus.CREATED);
+       // return new ResponseEntity<>(temp.stream().map(String::toString).collect(Collectors.toList()), HttpStatus.CREATED);
     }
 
 }

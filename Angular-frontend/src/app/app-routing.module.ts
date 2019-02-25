@@ -25,7 +25,7 @@ const routes: Routes = [
     component: HeaderComponent
   },
   {
-   path: 'userregistration',
+   path: 'signup',
     component: UserregistrationComponent
   },
   {

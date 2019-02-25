@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class RabbitMQSender {
 
@@ -21,9 +23,9 @@ public class RabbitMQSender {
     private String routingkey;
     // String kafkaTopic = "java_in_use_topic";
     ObjectMapper objectMapper = new ObjectMapper();
-    public void send(Url url) {
+    public void send(List<Url> url) {
         try {
-            amqpTemplate.convertAndSend(exchange, routingkey, objectMapper.writeValueAsString(url));
+            amqpTemplate.convertAndSend(exchange, routingkey, objectMapper.writeValueAsBytes(url));
         } catch (JsonProcessingException e) {
             e.printStackTrace();
         }

@@ -8,15 +8,27 @@ import org.springframework.data.repository.query.Param;
 public interface RelationshipRespository extends Neo4jRepository<Relationship,Long> {
 
     /* Creates the relationship from description node to concept node */
-    @Query("MATCH (c:Concept),(d:Description) WHERE c.concept CREATE x=(n)-[r:CHILD_OF]->(p) RETURN r")
-    Relationship create();
+    @Query("MATCH (c:DomainOntology),(d:Description) " +
+            "WHERE d.concept={concept} AND c.name = d.concept AND c.type = \"concept\" " +
+            "CREATE x=(c)-[r:Details_of { confidenceScore:{confidenceScore},level:{level} }]->(d) RETURN r")
+    Relationship create(@Param("concept")String concept,@Param("confidenceScore")String confidenceScore,@Param("level")String level);
 
-    /* Updates the relationship from description node to concept node */
-    @Query("MATCH ()-[r]->() WHERE relationship(r)= 0 RETURN r ")
-    Relationship update();//@Param("id") long id);
+    /* Reads the Concept node from  Domain Ontology */
+    //@Query("MATCH (c:DomainOntology) WHERE c.name={name} AND c.class=\"concept\" RETURN c")
+    //String getOneConcept(@Param("name") String name);
+    //now the problem is I am not specifying the domain for searching the node which is important
+
 
     /* Deletes the relationship from description node to concept node */
-    @Query("MATCH (n:Node)-[r]->(p:Parent) WHERE r.id={id} DETACH DELETE r RETURN r.id,r.node,r.parent ")
-    Relationship delete(@Param("id") long id);      //return type Relationship(for good practice)
+    @Query("MATCH (d:Description)-[r:Details_of]->(c:DomainOntology) WHERE d.concept={concept} DETACH DELETE r RETURN r")
+    Relationship delete(@Param("concept") String concept);
 
 }
+
+
+
+
+
+
+
+

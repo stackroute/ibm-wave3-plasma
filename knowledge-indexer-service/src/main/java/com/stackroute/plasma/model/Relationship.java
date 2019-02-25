@@ -6,11 +6,10 @@ public class Relationship {
 
     @Id @GeneratedValue
     private long id;
-    //private List<String> relationship = new ArrayList<>();
     @Property
     private String level;
     @Property
-    private long confidenceScore;
+    private String confidenceScore;
 
     @StartNode
     private Description description;

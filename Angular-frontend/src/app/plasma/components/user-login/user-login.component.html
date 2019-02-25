@@ -1,25 +1,18 @@
-<br>
-<form [formGroup]="user" (ngSubmit)="login()">
-  <mat-form-field appearance="outline" class="id">
-    <mat-label>login</mat-label>
-    <input matInput placeholder="Enter your email id" type="text"
-      formControlName="userId" required />
-    <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
-    <mat-hint></mat-hint>
-  </mat-form-field>
-
-  <br>
-
-
-  <mat-form-field appearance="outline" class="password">
-    <mat-label>Password</mat-label>
-    <input matInput placeholder="Enter your password" type="password"
-      formControlName="password" required />
-    <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
-    <mat-hint></mat-hint>
-  </mat-form-field>
-  <br>
-  <button mat-button color="primary" type="submit" [disabled]="!user.valid">Login</button>
-</form>
-
-
+ <mat-toolbar>
+    <span>LOGIN</span>
+  </mat-toolbar>
+     <mat-card-content>
+        <form class="my-form">
+           <mat-form-field class="full-width">
+              <mat-label>Email</mat-label>
+              <input  matInput  placeholder="Email" name="email">
+           </mat-form-field>
+           <mat-form-field class="full-width">
+              <mat-label>Password</mat-label>
+              <input  matInput  placeholder="Password" name="password">
+           </mat-form-field>
+        </form>
+     </mat-card-content>
+     <mat-card-actions>
+        <button mat-raised-button (click)="login()" color="accent">LOGIN</button>
+     </mat-card-actions>
