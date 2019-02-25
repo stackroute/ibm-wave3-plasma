@@ -1,11 +1,24 @@
-form{
-    width: 450px;
-    height: 250px;
-    align-content: center;
+ /* form{
+    /* width: 450px;
+    height: 650px; */
+    /* align-content: center;
     text-align: center;
     margin-left: 570px;
-    margin-top: 250px; 
+    margin-top: 650px; 
 }
 mat-form-field{
 height:40px;
+} */ 
+.button{
+    margin-left: 120px;
+    margin-top: 0px; 
+    align-content: center;
+}
+.id{
+    margin-left: 120px;
+    margin-top: 0px; 
+}
+.password{
+    margin-left: 120px;
+    margin-top: 0px; 
 }

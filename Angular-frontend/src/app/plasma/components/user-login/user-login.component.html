@@ -1,26 +1,27 @@
 
+
+  <mat-card>
 <form [formGroup]="user" (ngSubmit)="login()">
-    <table>
-    <mat-label>Login</mat-label>
-    <tr>
-  <mat-form-field appearance="outline" class="id">
-    <input matInput placeholder="Enter your email id" type="text"
-      formControlName="userId" required />
+   <table width = 50%>
+     <td>User</td>
   
-  </tr>
+   <tr>
+ 
+   <input matInput placeholder="Enter your email id" type="text"
+     formControlName="userId" class="id" required />
 
+ 
+ </tr>
 
-  <mat-label>Password</mat-label>
-  <tr>
-  <mat-form-field appearance="outline" class="password">
-    <input matInput placeholder="Enter your password" type="password"
-      formControlName="password" required />
-     
+<td>Password</td>
+ 
+ <tr>
+   <input matInput placeholder="Enter your password" type="password"
+     formControlName="password" class="password" required />
 
+ 
 </tr>
 </table>
 </form>
-  <button mat-button color="primary" type="submit" [disabled]="!user.valid">Login</button>
-
-
-
+ <button mat-button color="primary" class="button" type="submit" [disabled]="!user.valid">Login</button>
+</mat-card>  
