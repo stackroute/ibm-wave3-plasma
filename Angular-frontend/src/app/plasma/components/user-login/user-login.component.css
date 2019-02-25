@@ -1,24 +1,9 @@
- /* form{
-    /* width: 450px;
-    height: 650px; */
-    /* align-content: center;
-    text-align: center;
-    margin-left: 570px;
-    margin-top: 650px; 
+.my-form{
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
 }
-mat-form-field{
-height:40px;
-} */ 
-.button{
-    margin-left: 120px;
-    margin-top: 0px; 
-    align-content: center;
-}
-.id{
-    margin-left: 120px;
-    margin-top: 0px; 
-}
-.password{
-    margin-left: 120px;
-    margin-top: 0px; 
+ 
+.full-width {
+  width: 100%;
 }

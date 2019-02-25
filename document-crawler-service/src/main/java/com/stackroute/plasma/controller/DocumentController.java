@@ -33,7 +33,7 @@ public class DocumentController {
     @GetMapping("doc")
     public ResponseEntity<?> getContent() throws IOException {
 
-        //rabbitMQSender.send((List<Url>) documentService.getHtml());
+        rabbitMQSender.send((documentService.getHtml()));
         return new ResponseEntity(documentService.getHtml(), HttpStatus.OK);
 
     }
