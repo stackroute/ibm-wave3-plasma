@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class SearchService {
   console: any;
-  private nlpserviceurl: String = 'http://172.23.239.201:8088/api/v1/query';
+  private nlpserviceurl: String = 'http://localhost:8098/api/v1/query';
 
 constructor(private http: HttpClient) {
 
@@ -15,7 +15,6 @@ constructor(private http: HttpClient) {
 
 
 data(finalTranscript: String) {
-  console.log('asydoyds' + finalTranscript);
   console.log(this.nlpserviceurl, finalTranscript);
   return this.http
   .post( `${this.nlpserviceurl}` , finalTranscript);
