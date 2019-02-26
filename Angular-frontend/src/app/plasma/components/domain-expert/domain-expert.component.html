@@ -9,9 +9,18 @@
             </mat-form-field>
               <mat-form-field class="full-width">
                 <mat-label>Concepts</mat-label>
-                <mat-select  multiple aria-required="Concepts">
-                  <mat-option *ngFor="let data of concepts" [value]="concepts">{{data}}</mat-option>
-                </mat-select>
+                <!-- <mat-select  multiple aria-required="Concepts" >
+                    <mat-option *ngFor="let data of concepts" [value]="concepts">{{data}}</mat-option>
+                </mat-select> -->
+
+                <!-- <mat-option multiple *ngFor="let data of concepts; let i =index" [value]="data">
+
+                    <mat-checkbox multiple [checked]="selected === i" (change)="onChange(data);selected = i"> {{data}}</mat-checkbox>
+                  </mat-option> -->
+                  <mat-select  placeholder="Concept"  multiple>
+                     <mat-option  *ngFor="let data of concepts" [value]="data" (click)="onChange(data)" >{{data}}</mat-option>
+                  </mat-select>
+
               </mat-form-field>
         </form>
      </mat-card-content>

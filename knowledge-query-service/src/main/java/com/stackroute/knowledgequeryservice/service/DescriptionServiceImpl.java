@@ -17,4 +17,10 @@ public class DescriptionServiceImpl implements DescriptionService {
     public List<Description> getAll() {
         return descriptionRepository.getAll();
     }
+
+    @Override
+    public List<Description> concept(String concept, String level) {
+        /*return descriptionRepository.concept("Erlang","basics");*/
+        return descriptionRepository.concept(concept,level);
+    }
 }
