@@ -31,14 +31,8 @@ services:
       - ./neo4j/import:/import
       - ./neo4j/data:/data
       - ./neo4j/plugins:/plugins
-<<<<<<< HEAD
 #    expose:
 #      -[7474, 7687]
-=======
-    expose:
-       - 7474
-       - 7687
->>>>>>> 148e68565b795838fa31066ab685cb49f21fba2a
 
   apigateway:
     image: zuul-service
