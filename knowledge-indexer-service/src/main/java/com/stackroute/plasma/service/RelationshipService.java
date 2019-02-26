@@ -7,6 +7,6 @@ import java.util.List;
 
 public interface RelationshipService {
     //public List<Relationship> get();
-    public Relationship create(String concept, String confidenceScore, String level);
+    public Relationship create(String concept, long confidenceScore, String level);
     public Relationship delete(String concept);
 }

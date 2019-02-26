@@ -17,7 +17,7 @@ public class RelationshipController {
 
     @GetMapping("/create")
     public Relationship create(){
-        return relationshipService.create("Erlang","90","basics");
+        return relationshipService.create("Erlang",90,"basics");
     }
 
     @DeleteMapping("/delete")
