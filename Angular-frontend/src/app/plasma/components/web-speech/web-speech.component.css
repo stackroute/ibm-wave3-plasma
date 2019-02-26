@@ -10,7 +10,7 @@
   
   }
   figure{
-   padding-left: 300px;
+   padding-left: 350px;
   
   }
   .topnav {
@@ -39,16 +39,16 @@
   .center2
   {
     position: absolute;
-    top:250px;
+    top:290px;
     padding-left: 580px;
     
     
     }
-  
-  
+
+
   
   .mat-input-element:disabled {
-    /* color: rgba(0,0,0,.9); */
+
     color:black;
   }
   
@@ -62,13 +62,9 @@
     display:inline-block;
   }
   
-  input,
-  button {
-    background-color:transparent;
-    border:1 solid black;
-  }
   
-  .search
+ 
+   .search
   {
     margin-left: 500px;
     position: relative;
@@ -78,5 +74,5 @@
   {
     margin-left: 710px;
     position: absolute;
-    top:180px;
-  }
+    top:250px;
+  } 

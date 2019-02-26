@@ -20,7 +20,7 @@ public class RabbitMQSender {
     @Value("${javainuse2.rabbitmq.routingkey}")
     private String routingkey2;
     public void send(SearchOutput[] searchOutput) throws JsonProcessingException {
-        amqpTemplate.convertAndSend(exchange, routingkey2, objectMapper.writeValueAsString(searchOutput));
+        amqpTemplate.convertAndSend(exchange, routingkey2, objectMapper.writeValueAsBytes(searchOutput));
         System.out.println("Send msg = " + searchOutput);
 
     }

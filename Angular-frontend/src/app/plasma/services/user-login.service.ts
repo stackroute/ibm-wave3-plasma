@@ -1,27 +1,38 @@
+import { UserLogin } from './../tsclasses/user-login';
 
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 
 @Injectable()
   export class UserLoginService {
-  private loginUrl = 'http://localhost:8132/api/user';  // URL to web api
-
+    response: any;
+  private loginUrl = 'http://localhost:8133/api/user';  // URL to web api
+  private errorStatus: string;
+  private errorBody: string;
   constructor(private http: HttpClient) { }
-  login(user: any): Observable<any> {
-    return this.http.post<any>(this.loginUrl, user);
-  }
+  login(user: UserLogin) {
+
+    // this.http.get(this.loginUrl).subscribe(resp => {
+    //   console.log(resp);
+    //   this.response = resp;
+    //     });
+    return this.http
+    .post(this.loginUrl + '', user, {observe: 'response'})
+    .pipe(catchError(this.handleError));
+    }
 
   setCookie(cname: string, cvalue: string, exdays: number) {
-    let date = new Date();
+  const date = new Date();
     date.setTime(date.getTime() + (exdays * 24 * 60 * 60 * 1000));
-    let expires = `expires=${date.toUTCString()}`;
+    const expires = `expires=${date.toUTCString()}`;
     document.cookie =  `${cname}=${cvalue};${expires};path=/`;
   }
 
   getCookie(cname: string) {
-    let name = cname + '=';
-    let ca = document.cookie.split(';');
+    const name = cname + '=';
+    const ca = document.cookie.split(';');
     for (let i = 0; i < ca.length; i++) {
       let c = ca[i];
       while (c.charAt(0) === '') {
@@ -37,6 +48,19 @@ import { Observable } from 'rxjs';
       deleteCookie(cname: string) {
         document.cookie = `${cname}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
 
+      }
+      private handleError(error: HttpErrorResponse) {
+        if (error.error instanceof ErrorEvent) {
+          console.log('An error occured :', error.error.message);
+        } else {
+          this.errorStatus = `${error.status}`;
+          console.log('Error msg', this.errorStatus);
+          this.errorBody = `${error.error}`;
+          console.log(
+            `Backened returned code ${error.status},` + `body was :${error.error}`
+          );
+        }
+        return throwError(this.errorStatus);
       }
     }
 

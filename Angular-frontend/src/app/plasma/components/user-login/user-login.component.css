@@ -1,28 +1,9 @@
-form{
-    width: 450px;
-    height: 250px;
-    align-content: center;
-    text-align: center;
-    margin-left: 570px;
-    margin-top: 250px; 
+.my-form{
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
 }
-mat-form-field{
-height:30px;
-}
-
-/* .id{
-    height: 40px;
-    margin-top: 10%;
-    margin-left: 40%;
-}
-.password{
-    margin-left: 40%;
-
-}
-.button{
-    padding-left: 20px;
-} */
-mat-label
-{
-    
+ 
+.full-width {
+  width: 100%;
 }
