@@ -13,11 +13,11 @@ services:
     restart: always
     network_mode: host
     depends_on:
-    - eurekaserver
+      - eurekaserver
     ports:
-    - 8092:8092
+      - 8092:8092
     expose:
-    - 8092
+      - 8092
 
   eurekaserver:
     image: eureka-service:latest
@@ -25,9 +25,9 @@ services:
     restart: always
     network_mode: host
     ports:
-    - 9091:9091
+      - 9091:9091
     expose:
-    - 9091
+      - 9091
 
   configserver:
       image: config-service:latest
@@ -35,9 +35,9 @@ services:
       restart: always
       network_mode: host
       ports:
-      - 8888:8888
+        - 8888:8888
       expose:
-      - 8888
+        - 8888
  
   documentcrawler:
     image: document-crawler-service:latest
@@ -119,9 +119,6 @@ services:
     build: knowledge-indexer-service/
     restart: always
     network_mode: host
-#    depends_on: neo4j!
-#      - eurekaserver
-#      - rabbitmq
     ports:
       - 8000:8000
     expose:
@@ -137,18 +134,14 @@ services:
       - 4200:4200
     restart: always
 
-
-
-
-
- taggingservice:
-  image: tagging-service:latest
-  build: tagging-service/
-  restart: always
-  network_mode: host
-  depends_on:
-    - eurekaserver
-  ports:
-    - 8070:8070
-  expose:
-    - 8070
+  taggingservice:
+    image: tagging-service:latest
+    build: tagging-service/
+    restart: always
+    network_mode: host
+    depends_on:
+      - eurekaserver
+    ports:
+      - 8070:8070
+    expose:
+      - 8070

@@ -85,14 +85,14 @@ public class RabbitMQListner {
         eva = new Evaluator();
 
     }
-
-    @RabbitListener(queues = "${javainuse.rabbitmq.queue}", containerFactory = "jsaFactory")
-    public void recievedMessage(Url urlx) throws IOException, ParseException {
-        System.out.println("Recieved Message From RabbitMQ: " + urlx.getUrl());
-        this.url=urlx;
-        System.out.println("\n\n\nchandu......:\n\n\n\n"+getScore());
-
-    }
+//
+//    @RabbitListener(queues = "${javainuse.rabbitmq.queue}", containerFactory = "jsaFactory")
+//    public void recievedMessage(Url urlx) throws IOException, ParseException {
+//        System.out.println("Recieved Message From RabbitMQ: " + urlx.getUrl());
+//        this.url=urlx;
+//        System.out.println("\n\n\nchandu......:\n\n\n\n"+getScore());
+//
+//    }
 
     public void htmlTag() {
         String htmlTag = docx.select("html").text();
