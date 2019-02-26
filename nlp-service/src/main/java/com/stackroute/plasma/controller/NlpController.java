@@ -24,10 +24,13 @@ public class NlpController {
     NlpService nlpService;
     NlpModel nlpModel = new NlpModel();
     List<String> temp;
-    UserQuery userQuery = new UserQuery();
+    UserQuery userQuery ;
+    int i=0;
 @PostMapping("/query")
-public ResponseEntity<?> extractedQuery(@RequestBody final String query) {
+public ResponseEntity<?> extractedQuery(@RequestBody  String query) {
     temp = new ArrayList<>();
+    userQuery = new UserQuery();
+    userQuery.setUser_id(i++);
     userQuery.setUser_query(query);
     System.out.println(userQuery.getUser_query());
     //nlpRepository.save(userQuery);

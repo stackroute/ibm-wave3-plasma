@@ -8,16 +8,13 @@ import { catchError } from 'rxjs/operators';
 @Injectable()
   export class UserLoginService {
     response: any;
-  private loginUrl = 'http://localhost:8133/api/user';  // URL to web api
+  private loginUrl = 'http://localhost:8133/api/user';
   private errorStatus: string;
   private errorBody: string;
   constructor(private http: HttpClient) { }
   login(user: UserLogin) {
 
-    // this.http.get(this.loginUrl).subscribe(resp => {
-    //   console.log(resp);
-    //   this.response = resp;
-    //     });
+
     return this.http
     .post(this.loginUrl + '', user, {observe: 'response'})
     .pipe(catchError(this.handleError));
