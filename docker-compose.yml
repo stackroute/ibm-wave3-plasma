@@ -167,15 +167,14 @@ services:
       - 4200:4200
     restart: always
 
- taggingservice:
-  image: tagging-service:latest
-  build: tagging-service/
-  restart: always
-  network_mode: host
-  depends_on:
-    - eurekaserver
-  ports:
-    - 8070:8070
-  expose:
-    - 8070
-
+  taggingservice:
+    image: tagging-service:latest
+    build: tagging-service/
+    restart: always
+    network_mode: host
+    depends_on:
+     - eurekaserver
+    ports:
+     - 8070:8070
+    expose:
+     - 8070
