@@ -1,5 +1,6 @@
 
 import { SearchService } from '../../services/search.service';
+
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { SpeechRecognizerService } from '../../services/speech-recognizer.service';
 
@@ -15,6 +16,7 @@ export class WebSpeechComponent implements OnInit {
   finalTranscript = '';
   recognizing = false;
   notification: string;
+
 
 
   constructor(
@@ -49,7 +51,7 @@ export class WebSpeechComponent implements OnInit {
   private initRecognition() {
     this.speechRecognizer.onStart().subscribe(data => {
       this.recognizing = true;
-      // this.notification = "I am  listening...";
+
       this.notification = '';
       this.detectChanges();
     });

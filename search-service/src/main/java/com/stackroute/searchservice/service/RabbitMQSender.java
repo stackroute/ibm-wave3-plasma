@@ -23,6 +23,7 @@ public class RabbitMQSender {
 
     @Value("${javainuse2.rabbitmq.routingkey}")
     private String routingkey2;
+
     // String kafkaTopic = "java_in_use_topic";
 
     public void sender(SearchOutput searchOutput) {

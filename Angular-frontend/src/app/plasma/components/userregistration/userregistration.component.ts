@@ -19,6 +19,7 @@ export class UserregistrationComponent implements OnInit {
   private dateOfBirth: string;
   private gender: string;
   private confirmpassword: string;
+  private emailId: string;
 
   register(event: any) {
     this.regform = new Userregister();
@@ -29,15 +30,15 @@ export class UserregistrationComponent implements OnInit {
     this.regform.contact = this.contact;
     this.regform.dateOfBirth = this.dateOfBirth;
     this.regform.gender = this.gender;
-    // console.log(this.regform);
+    this.regform.emailId  = this.emailId;
     this.value = event.target.value;
     this.regserv.addregister(this.regform).subscribe(data => {
-      // console.log('data', data);
+
     });
 
   }
   constructor(private regserv: UserregistrationService, private http: HttpClient) {
-  //  console.log('name' , this.value);
+
   }
 
   ngOnInit() {

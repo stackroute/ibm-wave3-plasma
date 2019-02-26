@@ -15,7 +15,7 @@ constructor(private http: HttpClient ) {
  addregister(reg: Userregister) {
    this.url = 'http://localhost:8089/api/v1/user';
   this.http.get(this.url).subscribe(resp => {
-      // console.log(resp);
+
   this.response = resp;
       });
   return this.http

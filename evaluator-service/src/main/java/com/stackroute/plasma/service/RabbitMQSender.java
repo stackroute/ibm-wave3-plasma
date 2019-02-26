@@ -4,6 +4,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.stackroute.plasma.domain.Evaluator;
 import org.springframework.amqp.core.AmqpTemplate;
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -11,7 +12,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class RabbitMQSender {
     @Autowired
-    private AmqpTemplate amqpTemplate;
+    private RabbitTemplate rabbitTemplate;
    // ObjectMapper objectMapper = new ObjectMapper();
 
     @Value("${javainuse.rabbitmq.exchange}")
@@ -21,8 +22,11 @@ public class RabbitMQSender {
     private String routingkey1;
     // String kafkaTopic = "java_in_use_topic";
 
+
     public void send(Evaluator evaluator){
-        amqpTemplate.convertAndSend(exchange, routingkey1,evaluator);
-        System.out.println("Send msg = " + evaluator.getLevel());
+        rabbitTemplate.convertAndSend(exchange, routingkey1,evaluator);
+        //System.out.println("Send msg = " + evaluator.getLevel());
+
     }
 }
+    

@@ -1,3 +1,4 @@
+import { CardComponent } from './plasma/components/card/card.component';
 import { UserLoginComponent } from './plasma/components/user-login/user-login.component';
 import { HeaderComponent } from './plasma/components/header/header.component';
 import { WebSpeechComponent } from './plasma/components/web-speech/web-speech.component';
@@ -31,7 +32,12 @@ const routes: Routes = [
   {
     path: 'login',
     component: UserLoginComponent
+  },
+  {
+    path: 'card',
+    component: CardComponent
   }
+
 
 ];
 @NgModule({
