@@ -1,11 +1,39 @@
 version: "2"
 services:
+
+  mysql:
+    image: mysql:5.7
+    ports:
+      - 3306:3306
+    container_name: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: PlasmaDB
+    #    volumes:
+    #      - '/opt/datasql:/var/lib/mysql'
+    network_mode: host
+
   rabbitmq:
     image: rabbitmq:management
     ports:
       - 15673:15673
       - 5673:5673
     network_mode: host
+
+  neo4j:
+    image: neo4j:3.5
+#    build: ./neo4j
+    ports:
+      - 7474:7474
+      - 7687:7687
+    network_mode: host
+    volumes:
+      - ./neo4j/import:/import
+      - ./neo4j/data:/data
+      - ./neo4j/plugins:/plugins
+    expose:
+       - 7474
+       - 7687
 
   apigateway:
     image: zuul-service
@@ -64,7 +92,6 @@ services:
       - 8090:8090
     expose:
       - 8090
- 
 
   nlpservice:
     image: nlp-service:latest
@@ -97,10 +124,11 @@ services:
     network_mode: host
     depends_on:
       - eurekaserver
+      - mysql
     ports:
-      - 8132:8132
+      - 8133:8133
     expose:
-      - 8132
+      - 8133
 
   userregisterservice:
     image: user-register-service:latest
@@ -119,9 +147,11 @@ services:
     build: knowledge-indexer-service/
     restart: always
     network_mode: host
-#    depends_on: neo4j!
-#      - eurekaserver
-#      - rabbitmq
+    depends_on:
+      - neo4j
+      - eurekaserver
+      - rabbitmq
+      - configserver
     ports:
       - 8000:8000
     expose:
@@ -137,18 +167,15 @@ services:
       - 4200:4200
     restart: always
 
-
-
-
-
- taggingservice:
-  image: tagging-service:latest
-  build: tagging-service/
-  restart: always
-  network_mode: host
-  depends_on:
+  taggingservice:
+   image: tagging-service:latest
+   build: tagging-service/
+   restart: always
+   network_mode: host
+   depends_on:
     - eurekaserver
-  ports:
+   ports:
     - 8070:8070
-  expose:
+   expose:
     - 8070
+

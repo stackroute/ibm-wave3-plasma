@@ -17,6 +17,7 @@ export class WebSpeechComponent implements OnInit {
   notification: string;
 
 
+
   constructor(
     private changeDetector: ChangeDetectorRef,
     private speechRecognizer: SpeechRecognizerService,

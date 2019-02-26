@@ -7,5 +7,5 @@ export class Userregister {
         emailId: string;
         setPassword: string;
         confirmpassword: string;
-  // addregister: any;
+
 }

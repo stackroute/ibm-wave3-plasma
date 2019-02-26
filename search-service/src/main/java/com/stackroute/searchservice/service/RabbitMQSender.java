@@ -22,7 +22,7 @@ public class RabbitMQSender {
     // String kafkaTopic = "java_in_use_topic";
 
     public void send(SearchOutput[] searchOutput) throws JsonProcessingException {
-        amqpTemplate.convertAndSend(exchange, routingkey2, objectMapper.writeValueAsString(searchOutput));
+        amqpTemplate.convertAndSend(exchange, routingkey2, objectMapper.writeValueAsBytes(searchOutput));
         System.out.println("Send msg = " + searchOutput);
 
     }
