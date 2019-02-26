@@ -5,6 +5,7 @@ import com.stackroute.searchservice.domain.SearchInput;
 import com.stackroute.searchservice.domain.SearchOutput;
 import com.stackroute.searchservice.service.ApiService;
 //import com.stackroute.searchservice.service.RabbitMQSender;
+import com.stackroute.searchservice.service.RabbitMQSender;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -30,8 +31,8 @@ public class SearchController {
     @Autowired
     ApiService apiService;
 
-//    @Autowired
-//    RabbitMQSender rabbitMQSender;
+   @Autowired
+   RabbitMQSender rabbitMQSender;
 
 
     @PostMapping(value = "/search")
@@ -49,20 +50,19 @@ public class SearchController {
 
             searchOutput[k].setDomain(searchInput.getDomain());
             searchOutput[k].setConcept(searchInput.getConcepts()[j]);
-            searchOutput[k].setTimestamp(Timestamp.valueOf(LocalDateTime.of(LocalDate.now(), LocalTime.now())));
+            searchOutput[k].setTimestamp(Timestamp.valueOf(Timestamp.valueOf(LocalDateTime.of(LocalDate.now(), LocalTime.now())).toString()));
             singleConceptResult = apiService.getConceptsUrl(searchInput.getDomain() + searchInput.getConcepts()[j++],1,10);
             tempList.add(singleConceptResult);
             searchOutput[k].setUrls(singleConceptResult);
-
+            rabbitMQSender.sender(searchOutput[k]);
 
             //responseEntity = new ResponseEntity<List<String[]>>(tempList,HttpStatus.CREATED);
             //responseEntity = new ResponseEntity(searchOutput[k],HttpStatus.CREATED);
             k = k+1;
+
         }
 
         responseEntity = new ResponseEntity(searchOutput,HttpStatus.CREATED);
-       // rabbitMQSender.send(searchOutput);
-
         return responseEntity;
     }
 

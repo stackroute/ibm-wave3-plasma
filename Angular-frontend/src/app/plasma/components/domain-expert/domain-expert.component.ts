@@ -1,5 +1,6 @@
+import { DomainExpertService } from './../../services/domain-expert.service';
 import { Component, OnInit } from '@angular/core';
-import { SearchService } from '../../services/search.service';
+
 
 @Component({
   selector: 'app-domain-expert',
@@ -8,7 +9,7 @@ import { SearchService } from '../../services/search.service';
 })
 export class DomainExpertComponent implements OnInit {
 
-  constructor(private search: SearchService) {
+  constructor(private search: DomainExpertService) {
     console.log('Reading local json files');
     this.search.getTheData().subscribe(data => {
       console.log('is the data comming here ??', data);
@@ -19,7 +20,7 @@ export class DomainExpertComponent implements OnInit {
     private concepts: any [];
   ngOnInit() {
     this.search.getTheData().subscribe((data: any) => {
-      // console.log(data.concepts);
+
       this.concepts = data.concepts;
   });
   }

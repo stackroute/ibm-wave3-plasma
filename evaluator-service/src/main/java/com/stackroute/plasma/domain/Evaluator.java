@@ -25,8 +25,11 @@ public class Evaluator {
     private String domain;
     @JsonProperty("concept")
     private String concept;
+    @JsonProperty("title")
     private String title;
+    @JsonProperty("description")
     private String description;
+    @JsonProperty("keywords")
     private String keywords;
     @JsonProperty("url")
     private String url;

@@ -6,13 +6,14 @@ import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import org.springframework.stereotype.Component;
 
 import java.sql.Timestamp;
+import java.util.Arrays;
 
 @Component
 @JsonIdentityInfo(generator = ObjectIdGenerators.IntSequenceGenerator.class, property = "@id", scope = SearchOutput.class)
 public class SearchOutput {
 
     @JsonProperty("timestamp")
-    private Timestamp timestamp;
+    private String timestamp;
     @JsonProperty("domain")
     private String domain;
     @JsonProperty("concept")
@@ -25,7 +26,7 @@ public class SearchOutput {
     public SearchOutput() {
 
     }
-    public SearchOutput(Timestamp timestamp, String domain, String concept, String[] urls) {
+    public SearchOutput(String timestamp, String domain, String concept, String[] urls) {
         this.timestamp = timestamp;
         this.domain = domain;
         this.concept = concept;
@@ -35,11 +36,11 @@ public class SearchOutput {
 //url object sent
 
 
-    public Timestamp getTimestamp() {
+    public String getTimestamp() {
         return timestamp;
     }
 
-    public void setTimestamp(Timestamp timestamp) {
+    public void setTimestamp(String timestamp) {
         this.timestamp = timestamp;
     }
 
@@ -68,6 +69,13 @@ public class SearchOutput {
     }
 
 
-
-
+    @Override
+    public String toString() {
+        return "SearchOutput{" +
+                "timestamp=" + timestamp +
+                ", domain='" + domain + '\'' +
+                ", concept='" + concept + '\'' +
+                ", urls=" + Arrays.toString(urls) +
+                '}';
+    }
 }

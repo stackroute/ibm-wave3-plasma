@@ -44,7 +44,7 @@ public class RabbitMQConfig {
     }
 
 
-    public AmqpTemplate rabbitTemplate(ConnectionFactory connectionFactory) {
+    public RabbitTemplate rabbitTemplate(ConnectionFactory connectionFactory) {
         final RabbitTemplate rabbitTemplate = new RabbitTemplate(connectionFactory);
         rabbitTemplate.setMessageConverter(producerJsonMessageConverter());
         return rabbitTemplate;

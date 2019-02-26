@@ -1,0 +1,986 @@
+AbstractClass
+ AbstractFactory
+ Abstraction
+ ActivityDiagram
+ AcyclicDependency
+ AcyclicGraph
+ AfferentCoupling
+ aggregatefunctions
+ Aggregation
+ AgileDevelopment
+ Ajax
+ AlgorithmComplexity
+ AmazonAWS
+ AngularJS
+ annotations
+ AnonymousInnerClass
+ Ant
+ AntTasks
+ antrunmavenplugin
+ AOP
+ ApacheCommonsCollections
+ appinstances
+ appinstances
+ appmaster
+ appperformance
+ Append
+ appenginearchetype
+ appenginearchitecture
+ appengineconsole
+ appenginedeveloper
+ appenginedevserver
+ appengineeclipseplugin
+ appenginemavenplugin
+ appenginemavenplugin
+ appengineowner
+ appengineroles
+ appengineruntime
+ appenginesdk
+ appengineservices
+ appenginetaskqueuetest
+ appengineunittest
+ appengineviewer
+ appengine-api-stubs
+ appengine-api-stubs
+ appengine-maven-plugin
+ appengine-skeleton-archetype
+ appengine-testing
+ appengine-testing
+ Appletviewer
+ Appletviewer
+ archetypemavenplugin
+ ArchitecturePatterns
+ Array
+ ArrayList
+ AspectOrientedProgramming
+ Assert
+ Association
+ associations
+ associationsandjoins
+ AtomicInteger
+ AtomicLong
+ AtomicTypes
+ Attribute
+ auditmapping
+ Authentication
+ authentication
+ Authorization
+ Autoboxing
+ automaticgenerator
+ automaticscaling
+ B-Tree
+ B+ Tree
+ Bag
+ BasicJDKTools
+ basicscaling
+ BeanManagedPersistence
+ BehaviorDiagram
+ BestPractices
+ bi-directionalassociation
+ Big-ONotation
+ billablelimits
+ BinarySearch
+ BinarySearch
+ BinarySearchTree
+ BindingCompiler
+ BitArray
+ BlackBoxTesting
+ BlackboxTesting
+ Blocked
+ BloomFilter
+ branches
+ BubbleSort
+ BugTracking
+ BugTracking
+ Bugfix
+ Bugzilla
+ Build
+ BuildandDeployment
+ BuildFile
+ BuildLifecycle
+ BuildPhases
+ BuildPhases
+ BuildProfiles
+ buildprofiles
+ BuildTools
+ Builder
+ bulkoperations
+ Bytecode
+ CHeader Generator
+ C++
+ C++
+ C++
+ C++STL
+ C3PO
+ CachedThreadPool
+ caching
+ central
+ Class
+ Class
+ ClassDiagram
+ ClassFile
+ ClassLevelLock
+ Classpath
+ Clojure
+ CloudComputing
+ CodeComments
+ CodingConventions
+ Cohesion
+ collections
+ Collision
+ columntypes
+	Comments
+	commit
+	CommonClosure
+	CommonCoupling
+	CommonReuse
+	CommunicationDiagram
+	Comparable
+	Comparator
+	comparediff
+	Compile
+	compile
+	compilemavenplugin
+	CompileTimeDependency
+	Compiler
+	CompilerPlugin
+	ComponentDiagram
+	compositeidentity
+	CompositeStructureDiagram
+	Composition
+	Concurrency
+	ConcurrentMarkSweepGC
+	ConcurrentRandomNumbers
+	conflict
+	conflictresolve
+	ConnectionPool
+	connectionpool
+	Constant
+	Constructor
+	Constructor
+	Container
+	ContainerManagedPersistence
+	ContainerManagedPersistence
+	ContainerManagedSignon
+	ContainerManagedTransaction
+	ContainerManagedTransaction
+	ContentCoupling
+	Contention
+	ContinuousIntegration
+	ControlCoupling
+	CORBA
+	CORBA
+	CORBA
+	createmavenproject
+	CryptographicHash
+	CuckooHash
+	customdatatype
+	CVS
+	CyclicGraph
+	Daemon
+	DaemonThread
+	DataAccess
+	DataCoupling
+	DataStructures
+	Database
+	DatabaseConnection
+	DatabaseIndex
+	datastore
+	DBCP
+	Deadlock
+	Debugger
+	Decorator
+	deferredtasktest
+	Degree ofCoupling
+	Delete
+	DependencyInjection
+	DependencyInversion
+	DependencyManagement
+	Dependency Metrics
+	Dependency Scope
+	deploy
+	Deployment Descriptor
+	Deployment Diagram
+	Deprecation
+	Dequeue
+	Deserialization
+	Design By Contract
+	Design Guidelines
+	Design Pattern
+	Design Principles
+	developers
+	DevOps
+	devserver
+	Dictionaries
+	Directed Acyclic Graph
+	Disassembler
+	Disassembler
+	Disassembler
+	Distribution
+	Document
+	Documentation
+	Documentation
+	DoubleHashing
+	DoubleLinkedList
+	DTD
+	DurableSubscriber
+	Dynamic Collection
+	Dynamic Collection
+	E-Commerce
+	Ear
+	Ear
+	Eclipse
+	Efferent Coupling
+	EJB Container
+	EJB Context
+	EJB QL
+	EJBs
+	Elastic Capacity
+	Element
+	Encapsulation
+	encrypted column
+	endpoints-skeleton-archetype
+	EntityBeans
+	Enum
+	Enumerator
+	Equals
+	Erlang
+	ESB
+	Estimation
+	Exception
+	ExceptionHandler
+	Exponential
+	ExtremeProgramming
+	f1instance
+	f2instance
+	f4instance
+	f4_1ginstance
+	FactoryMethod
+	fetchbatch
+	fetchjoin
+	fetchselect
+	fetchsubselect
+	fetchtype
+	Fields
+	Final
+	Finalizer
+	Finalizer
+	Finally
+	FixedThread Pool
+	Force.com
+	FourthGeneration Language
+	Framework
+	free quotas
+	frontend instance class
+	frontend instance class
+	frontend server
+	Functional Programming
+	GAE SDK Plugin
+	GangOfFour
+	Garbage Collector
+	Generalization
+	Generalization
+	Generational Garbage Collector
+	Generics
+	Git
+	git
+	git blame
+	git branch
+	git checkout
+	git clone
+	git commit
+	git create
+	git merge
+	git origin
+	git process
+	git pull
+	git push
+	git rebase
+	git repository
+	git reset
+	git revert
+	git tag
+	github
+	Gmail
+	Go
+	Go
+	Go
+	go runtime
+	goals
+	googleappengine
+	googleblobstore
+	googlecloud sql
+	googlecloudstorage
+	GoogleGuavaCollections
+	googlepaas
+	Governance
+	Graph
+	GraphDatabase
+	Groovy
+	Groovy
+	Groovy
+	Groovy
+	groupby
+	guestbook-archetype
+	HardReference
+	HashCode
+	HashSet
+	Hash Set
+	HashMap
+	Hashtable
+	Haskell
+	hbm.xml
+	hbm2ddl
+	hbm2java
+	Heap
+	Heap
+	HeapDump
+	HeapSpace
+	hello-endpoints-archetype
+	hi-lo generator
+	Hibernate
+	hibernateapi
+	hibernateconfiguration
+	hibernate criteria
+	hibernate databases
+	hibernate detach
+	hibernate dialect
+	hibernate envers
+	hibernate events
+	hibernate identity
+	hibernate mapping
+	hibernate merge
+	hibernate no session issue
+	hibernate query
+	hibernate save
+	hibernate session
+	hibernate sessionfactory
+	hibernate tools
+	high replication datastore test
+	Home Interface
+	Hopscotch Hash
+	Horizontal Scaling
+	Hotfix
+	HotSpot JVM
+	HQL
+	HTML
+	HTTP
+	HTTPS
+	IaaS
+	IBM J9
+	IDE
+	Identity
+	identity column
+	IDL
+	idle instances
+	Idlj
+	Idlj
+	Idlj
+	Ignored Test Case
+	IIOP
+	images
+	Immutable
+	Immutable Objects
+	impedance mismatch
+	Imperative Programming
+	index
+	Inheritance
+	Inheritance
+	Inheritance
+	Inner Class
+	Insert
+	Insert
+	Instability
+	install
+	Instance
+	instance scaling
+	instance states
+	Intellij Idea
+	Interaction Diagram
+	Interface
+	Interface
+	Interface
+	Interface Segregation
+	Interpreted JVM Languages
+	Interpreter
+	Interrupt
+	Intrinsic Lock
+	iPlanet
+	Issue Tracking
+	Iterate
+	Iterator
+	J2EE
+	J2EE Application
+	J2EE Server
+	Jacl
+	Jacl
+	Jar
+	Jar Signature
+	Jarsigner
+	Java
+	Java
+	Java
+	Java
+	Java
+	Java
+	Java
+	Java
+	Java Applets
+	Java Archive
+	Java Classes
+	Java Collections Framework
+	Java Heap Dump Browser
+	Java Policy Files
+	Java Process Status
+	java runtime
+	java runtime
+	Java Web Application Development
+	Java Web Start
+	Javac
+	Javac
+	Javadoc
+	Javadoc
+	Javadoc
+	javadoc maven plugin
+	Javah
+	Javah
+	Javap
+	Javap
+	Javascript
+	JavaScript
+	Javascript
+	Javascript
+	Javaws
+	Javaws
+	JAX-WS
+	JAXB
+	JBOSS
+	JConsole
+	Jdb
+	Jdb
+	JDBC
+	JDK
+	JDK Security Tools
+	JDK Tools
+	Jetty
+	Jhat
+	Jhat
+	Jira
+	JIT Compiler
+	Jmap
+	Jmap
+	JMS
+	JMX
+	JNDI
+	JNI
+	Join
+	Join
+	JPA
+	JPA
+	JPA
+	jpa annotations
+	JPDA
+	Jps
+	Jps
+	jQuery
+	JRE
+	JRockit
+	JRuby
+	JRuby
+	JSF
+	JSP
+	JSP
+	Jstack
+	Jstack
+	Jstat
+	Jstat
+	JstatD
+	JstatD
+	JstatD
+	JTA
+	Junit
+	JUNIT
+	JVM
+	JVM
+	JVM
+	JVM
+	JVM
+	JVM Jstat Daemon
+	JVM Languages
+	JVM Languages
+	JVM Statistics
+	Jython
+	Jython
+	Keygen
+	Keystore
+	khan academy
+	lazy loading
+	level 1 cache
+	level 2 cache
+	Libraries
+	Licence Plugin
+	Lightweight Process
+	Linear
+	Linear Probing
+	Linear Search
+	Linked List
+	Liskov Substituion Principle
+	Lisp
+	List
+	list collection
+	LOB column
+	local
+	local git repository
+	Lock
+	Lock Objects
+	Logarithmic
+	Logic Programming
+	Logic Programming
+	Loose Coupling
+	mail
+	mailing list
+	Managed Operations
+	Management Automation
+	Manifest File
+	manual scaling
+	many-to-many
+	many-to-one
+	Map
+	Markup Language
+	Markup Language
+	Markup Language
+	Markup Language
+	Maven
+	Maven
+	Maven Junit Plugin
+	Maven Plugins
+	Maven Repository
+	memcache
+	memcache appengine test
+	Memory
+	Memory Consistency Errors
+	Memory Management
+	Memory Management
+	Memory Map
+	Mercurial
+	Mercury
+	merge
+	Merge Sort
+	Message Driven Beans
+	Message Driven Beans
+	Messaging
+	Metering
+	Methods
+	Metrics
+	Modeling
+	Modeling
+	Modifier
+	Modifier
+	Monitoring Tools
+	Monitoring Tools
+	Multi Processing
+	Multi Tasking
+	MultiDimensional Array
+	Multidimensional Collection
+	MultiMap
+	MultiSet
+	MultiThreading
+	Mutable
+	Mutex
+	MVC
+	N Log N
+	N+1 query problem
+	Native Programming
+	Natural Sort Order
+	Netbeans
+	Nightly Builds
+	Normalization
+	Notify
+	NUNIT
+	OAuth
+	Object
+	Object
+	object cache
+	Object Diagram
+	Object Orientation Concepts
+	Object Oriented Design
+	Old Generation
+	one-to-many
+	one-to-one
+	Open Close Principle
+	Open Source Components
+	OpenJDK
+	Operations on Collections
+	ORB
+	orbd
+	orbd
+	order by
+	order by clause
+	Ordered Collection
+	ORM
+	ORM
+	orm
+	orm inheritance
+	Out Of Memory Error
+	Out Of Memory Error
+	PaaS
+	package
+	Package Cohesion Principle
+	Package Coupling Principle
+	Package Diagram
+	pagespeed
+	Parallel GC
+	Parameterized Test
+	Parameters
+	Parameters
+	Parameters
+	Pass By Reference
+	Pass By Reference
+	Pass By Value
+	Patch
+	Pay Per Use
+	Peek
+	Peek
+	Peek
+	pending latency
+	Perfect Hash Function
+	Permanent Generation
+	PermGenSpace
+	PermGenSpace
+	persistent objects
+	PHP
+	PHP
+	PHP
+	php runtime
+	Pipes and Filter
+	plugins
+	Pointer
+	Policytool
+	Polylogarithmic
+	polymorphic queries
+	Polymorphism
+	Polymorphism
+	Polynomial
+	POM
+	POM
+	Pop
+	Pop
+	Pop
+	prepare
+	Primitive Types
+	Primitive Types
+	Primitive Types
+	Priority Queue
+	Private
+	Programming in Java
+	Programming Language
+	Programming Paradigm
+	project dependencies
+	Project Object Model
+	project version
+	Prolog
+	Properties
+	Property Graph
+	Protected
+	Provided Dependency
+	Provisioning
+	Proxy
+	Pub Sub
+	Public
+	Publisher
+	Push
+	Push
+	Push
+	Python
+	Python
+	Python
+	python runtime
+	Quadratic
+	Quadratic Probing
+	Quality Engineering
+	query
+	query cache
+	Queue
+	Queue
+	Quick Sort
+	Quota
+	quotas and limits
+	Race Condition
+	Rackspace
+	Radix Tree
+	Realization
+	Receiver
+	Refactoring
+	Reference
+	Regression Testing
+	Regression Testing
+	Relationships
+	Release Management
+	releases
+	remote
+	remote git repository
+	Remote Interface
+	Remote Object Registry
+	Remote Procedure Call
+	Remove
+	Reporting
+	Repository
+	REST
+	Return
+	Reuse/Release Equivalence
+	Rhino
+	Rhino
+	RMI
+	RMI Daemon
+	RMI Tools
+	Rmic
+	Rmic
+	Rmic
+	Rmid
+	Rmid
+	Rmiregistry
+	rollback
+	rollback
+	rovio
+	row value constructor
+	Ruby
+	Ruby
+	Ruby
+	Runnable
+	Runnable State
+	SaaS
+	safety limits
+	Salesforce.com
+	Salesforce.com
+	Sar
+	Sar
+	Scala
+	Scala
+	Scale Out
+	Scale Up
+	Scheduled Thread Pool
+	Schema Generator
+	Schema Generator
+	Schemagen
+	Schemagen
+	schemaless datastore
+	Scheme
+	SCM
+	Scrum
+	SDLC
+	Search
+	Search Algorithms
+	Security
+	Security Certificate
+	Select
+	Selection Sort
+	Self Balancing Binary Search Tree
+	Self Service Provisioning
+	Semaphore
+	Sender
+	Sequence Diagram
+	sequence generator
+	Sequences
+	Serial GC
+	Serializable
+	Serialization
+	Serialver
+	Serialver
+	SerialVersionUID
+	servertool
+	servertool
+	servertool
+	Servlet
+	Servlet
+	Servlet Container
+	Session Beans
+	session close
+	Session Facade Design Pattern
+	Session Facade Design Pattern
+	session flush
+	session in view
+	session open
+	Set
+	set collection
+	Shared Memory
+	show_sql
+	shutdown
+	Simplicity
+	Single Dimensional Array
+	Single Responsibility
+	single table inheritance
+	Single Thread Executor
+	Singleton
+	site
+	site-deploy
+	Skeleton Class
+	snapchat
+	SOA
+	SOAP
+	Soft Reference
+	Software Bug
+	Software Development
+	Software Engineering
+	Software Testing
+	SOLID Principle
+	Sort
+	Sort Algorithms
+	Sorted Set
+	Specification
+	Spring Batch
+	Spring Framework
+	Spring Framework
+	Spring Framework
+	Spring JDBC Template
+	Spring MVC
+	SQL
+	SQL Query
+	Stable Abstraction
+	Stable Dependency
+	Stack
+	Stack
+	Stack Trace
+	StackOverflowError
+	Stamp Coupling
+	startup
+	Starvation
+	State
+	Stateful Session Beans
+	Stateless Session Beans
+	Statemachine Diagram
+	Static
+	Static Collection
+	Static Collection
+	Structural Diagram
+	Stubs
+	Subclass
+	subquery
+	Subscriber
+	subversion
+	subversion repository
+	Superclass
+	surefire maven plugin
+	Survivor Generation
+	SVN
+	svn checkout
+	svn client
+	svn tools
+	svnadmin
+	svnlook
+	Synchronization
+	Synchronized
+	Synchronized
+	table generator
+	table per class
+	table per concrete class
+	tags
+	Task Queue
+	task queue
+	Tcl
+	Tenured Generation
+	Terminated
+	test
+	Test Case
+	Test Case Setup
+	Test Case TearDown
+	Test Dependency
+	Test Driven Development
+	Test Driven Development
+	Test NG
+	Test Plan
+	Test Result
+	Test Runner
+	Test Scenario
+	Test Suite
+	Testing
+	Testing
+	Testing Process
+	Third Generation Language
+	Thread
+	Thread
+	Thread Dump
+	Thread Lifecycle
+	Thread Local Storage
+	Thread Operations
+	Thread Pool
+	Thread Priority
+	Thread Safety
+	Timed Waiting
+	Timer Task
+	Timing Diagram
+	Tomcat
+	Topic
+	TopLink
+	traffic splitting
+	Transaction
+	Transaction Isolation Level
+	transactions
+	transient fields
+	transient objects
+	Tree Set
+	Trie
+	Troubleshooting Tools
+	trunk
+	Try Catch
+	Types of Testing
+	UML
+	UML Diagram
+	unidirectional association
+	Unit Test Case
+	Unit Testing
+	Unit Testing
+	Unordered Collection
+	Update
+	update
+	url fetch
+	Use Case Diagram
+	Utility Pricing
+	Vector
+	Version Control
+	Vertical Scaling
+	Virtual Machine
+	Virtualization
+	VMWare
+	Volatile
+	Volatile
+	Wait
+	Waiting
+	War
+	War
+	Waterfall
+	Weak Reference
+	Web App
+	Web Application
+	Web Application Development
+	Web Container
+	Web Container
+	Web Server
+	Web Server
+	Web Service
+	Web Service Tools
+	Web Services
+	Weblogic
+	Websphere
+	White Box Testing
+	Whitebox Testing
+	Windows Azure
+	working copy
+	working copy
+	WSDL
+	WSDL Generator
+	Wsgen
+	Wsgen
+	Wsimport
+	Wsimport
+	Xjc
+	XML
+	XML Binding
+	XML Schema
+	XPath
+	XSD
+	XSL
+	XSLT
+	Yahoo Mail
+	Yield
+	Young Generation
+	Zoho

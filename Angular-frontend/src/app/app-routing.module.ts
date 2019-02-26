@@ -24,16 +24,12 @@ const routes: Routes = [
     path: 'header',
     component: HeaderComponent
   },
-
-  { path: 'login',
-  component: UserLoginComponent
-  }, 
   {
-    path: 'userregistration',
+   path: 'signup',
     component: UserregistrationComponent
   },
   {
-    path: 'user-login',
+    path: 'login',
     component: UserLoginComponent
   }
 

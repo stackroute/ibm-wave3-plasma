@@ -20,6 +20,7 @@
 //
 //import javax.ws.rs.core.MediaType;
 //import java.util.ArrayList;
+//import java.util.Collections;
 //import java.util.List;
 //
 //import static org.mockito.Mockito.when;
@@ -60,7 +61,7 @@
 //
 //    @Test
 //    public void getContent() throws Exception {
-//        when(documentService.getHtml()).thenReturn((List<String>) url);
+//        when(documentService.getHtml()).thenReturn(Collections.singletonList((url)));
 //        mockMvc.perform(MockMvcRequestBuilders.get("/api/v1/doc")
 //                .contentType(MediaType.APPLICATION_JSON).content(asJsonString(url)))
 //                .andExpect(MockMvcResultMatchers.status().isOk())
