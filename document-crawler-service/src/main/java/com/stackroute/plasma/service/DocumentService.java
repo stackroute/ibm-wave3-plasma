@@ -12,6 +12,6 @@ public interface DocumentService {
 //   Document getHtmlContent() throws IOException;
 
 //Url getDocument() throws IOException;
-   List<Url> getHtml() throws IOException;
+   String getHtml(String singleUrl) throws IOException;
 
 }
