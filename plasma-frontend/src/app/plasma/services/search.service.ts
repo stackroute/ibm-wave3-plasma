@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
@@ -10,12 +10,16 @@ export class SearchService {
 constructor(private http: HttpClient) {
 
 }
-
+ options = {
+   headers: new HttpHeaders({
+     'Content-Type': 'text/plain'
+   })
+ };
 
 data(finalTranscript: String) {
   console.log(this.nlpserviceurl, finalTranscript);
   return this.http
-  .post( `${this.nlpserviceurl}` , finalTranscript);
+  .post(`${this.nlpserviceurl}`, JSON.stringify(finalTranscript), this.options);
 
 }
 

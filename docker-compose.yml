@@ -171,10 +171,10 @@ services:
     expose:
       - 8086
 
-  Angular-frontend:
-    build: Angular-frontend/
-    image: plasma-front-end
-    container_name: plasma-front-end
+  plasmafrontend:
+    build: plasma-frontend/
+    image: plasma-frontend:latest
+    container_name: plasma-frontend
     network_mode: "host"
     hostname: localhost
     ports:
