@@ -17,15 +17,14 @@
           <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
           <mat-datepicker #picker></mat-datepicker>
         </mat-form-field>
-        <section class="example-section">
-            <label class="example-margin">Gender:</label>
+            <mat-label>Gender: </mat-label>
             <mat-radio-group [(ngModel)]="gender">
-              <mat-radio-button class="example-margin" name="gender" value="M">Male</mat-radio-button>
-              <mat-radio-button class="example-margin" name="gender" value="F">Female</mat-radio-button>
-              <mat-radio-button class="example-margin" name="gender" value="Other">Other</mat-radio-button>
+              <mat-radio-button class="example-margin" [(ngModel)]="gender" name="gender" value="M">Male</mat-radio-button>
+              <mat-radio-button class="example-margin" [(ngModel)]="gender" name="gender" value="F">Female</mat-radio-button>
+              <mat-radio-button class="example-margin" [(ngModel)]="gender" name="gender" value="Other">Other</mat-radio-button>
             </mat-radio-group>
-          </section>
-          <mat-form-field class="full-width">
+        
+            <mat-form-field class="full-width">
               <mat-label>Contact</mat-label>
               <input  matInput  placeholder="Contact" [(ngModel)]="contact" name="contact">
            </mat-form-field>
@@ -45,4 +44,5 @@
   </mat-card-content>
   <mat-card-actions>
     <button mat-raised-button (click)="register($event)" color="accent">REGISTER</button>
+    <a [routerLink]="['/login']" class="btn btn-link"> Cancel</a>
   </mat-card-actions>
