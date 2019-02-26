@@ -1,9 +1,6 @@
- 
- <!-- <header>
-  <div class="topnav">
-  
-  </div>
-  </header> -->
+
+
+
   <section> 
   <figure>
     <img src="./assets/icon.png">
@@ -11,7 +8,7 @@
 
   
   <div class="center2">
-    <button  mat-fab (click)="startButton($event)">
+    <button class="mic" mat-fab (click)="startButton($event)">
       <mat-icon *ngIf="!recognizing">mic</mat-icon>
       <mat-icon *ngIf="recognizing">stop</mat-icon>
     </button>
@@ -24,7 +21,7 @@
   </div>
   <div class="go">
 
-    <button mat-mini-fab (click)="onClickMe()" >GO</button>
+    <button class="go1" mat-mini-fab (click)="onClickMe()" >GO</button>
 
   </div>
 
@@ -33,7 +30,7 @@
     </div>
   </section>
   
-  
+
 
 
 
