@@ -1,3 +1,4 @@
+import { CardComponent } from './plasma/components/card/card.component';
 import { UserLoginComponent } from './plasma/components/user-login/user-login.component';
 import { UserLoginService } from './plasma/services/user-login.service';
 
@@ -25,7 +26,8 @@ import { UserregistrationComponent } from './plasma/components/userregistration/
     DomainExpertComponent,
     HeaderComponent,
     UserregistrationComponent,
-    UserLoginComponent
+    UserLoginComponent,
+    CardComponent
   ],
   imports: [
     BrowserModule,

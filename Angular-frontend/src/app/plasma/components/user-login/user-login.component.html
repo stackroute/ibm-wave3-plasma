@@ -1,7 +1,8 @@
-<form>
+<section class = "image">
+   <form>
    <!-- (ngSubmit)="login()"> -->
  <mat-toolbar>
-    <span>LOGIN</span>
+    <span>Login</span>
   </mat-toolbar>
      <mat-card-content>
         <form class="my-form">
@@ -11,14 +12,30 @@
            </mat-form-field>
            <mat-form-field class="full-width">
               <mat-label>Password</mat-label>
-              <input  matInput  placeholder="Password" [(ngModel)] = "password" name="password">
+              <input  matInput  placeholder="Password" [(ngModel)] = "password" type = "password" name="password">
            </mat-form-field>
-           <mat-card-actions>
+<<<<<<< HEAD
+           <!-- <mat-card-actions>
            <button mat-button color="accent" (click)="login($event)"  type="submit">Login</button>
-        </mat-card-actions>
+        </mat-card-actions> -->
          </form>
      </mat-card-content>
      <mat-card-actions>
-        <button mat-raised-button (click)="login()" color="accent">LOGIN</button>
-        <a [routerLink]="['/signup']" class="btn btn-link">Register</a>
+         <button mat-raised-button  (click)="login($event)"  color="accent"  type="submit">Login</button>
+        <!-- <button mat-raised-button (click)="login()" color="accent">LOGIN</button> -->
+        <button mat-raised-button color="accent"><a [routerLink]="['/signup']" class="btn btn-link">Register</a></button>
+        <!-- <img src = './assets/two.jpg'> -->
+        <div class = "code">
+        <mat-card *ngIf="statusCode" class="statusCode">{{statusCode}}</mat-card>
+        </div>
      </mat-card-actions>
+     </form></section>
+=======
+           <mat-card-actions>
+           <button mat-raised-button color="accent" (click)="login($event)"  type="submit">Login</button>
+           <a [routerLink]="['/signup']" class="btn btn-link">Register</a>
+        </mat-card-actions>
+         </form>
+
+         
+>>>>>>> 29b6718643719c481b8aac55fdd0691b21b0e7cc
