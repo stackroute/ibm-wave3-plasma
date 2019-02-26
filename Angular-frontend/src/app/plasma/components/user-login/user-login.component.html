@@ -1,3 +1,6 @@
+<section class = "image">
+   <form>
+   <!-- (ngSubmit)="login()"> -->
  <mat-toolbar>
     <span>LOGIN</span>
   </mat-toolbar>
@@ -5,14 +8,24 @@
         <form class="my-form">
            <mat-form-field class="full-width">
               <mat-label>Email</mat-label>
-              <input  matInput  placeholder="Email" name="email">
+              <input  matInput  placeholder="Email" [(ngModel)] = "userId" name="email">
            </mat-form-field>
            <mat-form-field class="full-width">
               <mat-label>Password</mat-label>
-              <input  matInput  placeholder="Password" name="password">
+              <input  matInput  placeholder="Password" [(ngModel)] = "password" type = "password" name="password">
            </mat-form-field>
-        </form>
+           <!-- <mat-card-actions>
+           <button mat-button color="accent" (click)="login($event)"  type="submit">Login</button>
+        </mat-card-actions> -->
+         </form>
      </mat-card-content>
      <mat-card-actions>
-        <button mat-raised-button (click)="login()" color="accent">LOGIN</button>
+         <button mat-raised-button  (click)="login($event)"  color="accent"  type="submit">Login</button>
+        <!-- <button mat-raised-button (click)="login()" color="accent">LOGIN</button> -->
+        <button mat-raised-button color="accent"><a [routerLink]="['/signup']" class="btn btn-link">Register</a></button>
+        <!-- <img src = './assets/two.jpg'> -->
+        <div class = "code">
+        <mat-card *ngIf="statusCode" class="statusCode">{{statusCode}}</mat-card>
+        </div>
      </mat-card-actions>
+     </form></section>

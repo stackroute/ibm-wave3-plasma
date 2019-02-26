@@ -16,7 +16,6 @@ public class SearchOutput {
     private String domain;
     @JsonProperty("concept")
     private String concept;
-   // private List<String[]> urls;
    @JsonProperty("urls")
     private String[] urls;
 
@@ -35,8 +34,6 @@ public class SearchOutput {
         this.concept = concept;
         this.urls = urls;
     }
-
-//url object sent
 
     public SearchOutput() {
     }
@@ -64,6 +61,5 @@ public class SearchOutput {
     public void setConcept(String concept) {
         this.concept = concept;
     }
-
 
 }

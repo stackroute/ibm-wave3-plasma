@@ -1,5 +1,3 @@
-
-
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 @Injectable({
@@ -7,7 +5,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class SearchService {
   console: any;
-  private nlpserviceurl: String = 'http://localhost:8098/api/v1/query';
+  private nlpserviceurl: String = 'http://localhost:8095/api/v1/query';
 
 constructor(private http: HttpClient) {
 

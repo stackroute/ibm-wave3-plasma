@@ -2,9 +2,27 @@
   font-size: 1.25rem;
   cursor: pointer;
 }
-.spacer {
+ .spacer {
   flex: 1 1 auto;
+} 
+.navbar-header
+{
+margin-top: 0px;
+margin-left: 0px;
+margin-right: 0px;
+width: 100%;
+color: white;
 }
-.primary-color{
-  color:green!important;
+
+header{
+  margin: 0;
+}
+
+
+mat-toolbar{
+  background-color: black;
+}
+img{
+  width:75px;
+  height:80px;
 }

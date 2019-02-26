@@ -1,5 +1,5 @@
-
-import { SearchService } from '../../services/search.service';
+// tslint:disable-next-line:import-spacing
+import{ SearchService } from '../../services/search.service';
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { SpeechRecognizerService } from '../../services/speech-recognizer.service';
 

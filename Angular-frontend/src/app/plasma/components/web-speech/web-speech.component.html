@@ -1,9 +1,9 @@
  
- <header>
+ <!-- <header>
   <div class="topnav">
   
   </div>
-  </header>
+  </header> -->
   <section> 
   <figure>
     <img src="./assets/icon.png">
@@ -24,11 +24,10 @@
   </div>
   <div class="go">
 
-    <button md-button color="primary" (click)="onClickMe()" >GO</button>
-    <!-- <a mat-button (click)="onClickMe()" routerLink="/card">GO</a> -->
-  
-    
+    <button mat-mini-fab (click)="onClickMe()" >GO</button>
+
   </div>
+
   <div class = "center3">
     <mat-card *ngIf="notification" class="notification">{{notification}}</mat-card>
     </div>

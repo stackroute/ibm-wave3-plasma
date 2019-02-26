@@ -2,8 +2,29 @@
   min-width: 150px;
   max-width: 500px;
   width: 100%;
+  
 }
  
 .full-width {
   width: 100%;
+}
+.image
+{
+  background-image:'./assets/two.jpg';
+}
+
+section{
+  margin-left: 300px;
+}
+mat-toolbar
+{
+  margin-top: 30px;
+  width: 50%;
+}
+button{
+  margin-left: 10px;
+}
+a{
+  color: white;
+  text-decoration: none;
 }
