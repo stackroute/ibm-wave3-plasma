@@ -20,29 +20,46 @@ import java.util.Map;
 public class RabbitMQConfig {
 
 
-//    @Value("${javainuse.rabbitmq.queue}")
-//    String queueName;
-//
-//    @Value("${javainuse.rabbitmq.exchange}")
-//    String exchange;
-//
-//    @Value("${javainuse.rabbitmq.routingkey}")
-//    private String routingkey;
-//
-//    @Bean
-//    Queue queue() {
-//        return new Queue(queueName, false);
-//    }
-//
-//    @Bean
-//    DirectExchange exchange() {
-//        return new DirectExchange(exchange);
-//    }
-//
-//    @Bean
-//    Binding binding(Queue queue, DirectExchange exchange) {
-//        return BindingBuilder.bind(queue).to(exchange).with(routingkey);
-//    }
+    @Value("${javainuse.rabbitmq.queue}")
+    String queueName;
+
+    @Value("${javainuse.rabbitmq.exchange}")
+    String exchange;
+
+    @Value("${javainuse.rabbitmq.routingkey}")
+    private String routingkey;
+
+    @Bean
+    Queue queue() {
+        return new Queue(queueName, true);
+    }
+
+    @Bean
+    DirectExchange exchange() {
+        return new DirectExchange(exchange);
+    }
+
+    @Bean
+    Binding binding(Queue queue, DirectExchange exchange) {
+        return BindingBuilder.bind(queue).to(exchange).with(routingkey);
+    }
+
+    @Bean
+    public MessageConverter jsonMessageConverter() {
+        return new Jackson2JsonMessageConverter();
+    }
+
+
+    public RabbitTemplate rabbitTemplate(ConnectionFactory connectionFactory) {
+        final RabbitTemplate rabbitTemplate = new RabbitTemplate(connectionFactory);
+        rabbitTemplate.setMessageConverter(jsonMessageConverter());
+        return rabbitTemplate;
+    }
+
+
+
+
+
 
 //    @Bean
 //    public MessageConverter jsonMessageConverter() {
