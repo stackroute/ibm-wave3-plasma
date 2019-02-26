@@ -141,14 +141,14 @@ services:
 
 
 
- taggingservice:
-  image: tagging-service:latest
-  build: tagging-service/
-  restart: always
-  network_mode: host
-  depends_on:
+  taggingservice:
+   image: tagging-service:latest
+   build: tagging-service/
+   restart: always
+   network_mode: host
+   depends_on:
     - eurekaserver
-  ports:
+   ports:
     - 8070:8070
-  expose:
+   expose:
     - 8070

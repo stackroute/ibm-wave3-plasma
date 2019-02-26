@@ -13,7 +13,6 @@ public class PipelineConfig {
     private static String propertiesName = "tokenize, ssplit, pos, lemma";
     private  static StanfordCoreNLP stanfordCoreNLP;
 
-
     public PipelineConfig() {
     }
 
