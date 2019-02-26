@@ -22,17 +22,20 @@ services:
 
   neo4j:
     image: neo4j:3.5
-#    build: ./neo4j
+    container_name: neo4j
     ports:
       - 7474:7474
       - 7687:7687
     network_mode: host
+    restart: always
     volumes:
-      - ./neo4j/import:/import
-      - ./neo4j/data:/data
-      - ./neo4j/plugins:/plugins
-#    expose:
-#      -[7474, 7687]
+      - ../neo4j/import:/import
+      - ../neo4j/data:/data
+      - ../neo4j/plugins:/plugins
+    environment:
+      - NEO4J_AUTH=neo4j/Neo4j
+    expose:
+      - 7474
 
   apigateway:
     image: zuul-service
@@ -192,4 +195,3 @@ services:
      - 8070:8070
     expose:
      - 8070
-
