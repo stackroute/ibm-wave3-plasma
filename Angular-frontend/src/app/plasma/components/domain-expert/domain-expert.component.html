@@ -1,14 +1,20 @@
-
-<div class="example-container">
-    <mat-label>Domain</mat-label>
- <mat-form-field>
-   <input [(ngModel)] = "domain" matInput aria-required="true">
- </mat-form-field>
- <mat-label>Concepts</mat-label>
- <mat-form-field>
-   <mat-select  multiple aria-required="Concepts">
-     <mat-option *ngFor="let data of concepts" [value]="concepts">{{data}}</mat-option>
-   </mat-select>
- </mat-form-field>
-</div>
-<button  (click)= "send($event)" mat-button >Add</button>
+ <mat-toolbar>
+    <span>Admin</span>
+  </mat-toolbar>
+     <mat-card-content>
+        <form class="my-form">
+           <mat-form-field class="full-width">
+            <mat-label>Domain</mat-label>
+              <input matInput [(ngModel)] ="domain" name="domain">
+            </mat-form-field>
+              <mat-form-field class="full-width">
+                <mat-label>Concepts</mat-label>
+                <mat-select  multiple aria-required="Concepts">
+                  <mat-option *ngFor="let data of concepts" [value]="concepts">{{data}}</mat-option>
+                </mat-select>
+              </mat-form-field>
+        </form>
+     </mat-card-content>
+     <mat-card-actions>
+        <button mat-raised-button (click)="onClick()" color="accent">Add</button>
+     </mat-card-actions>

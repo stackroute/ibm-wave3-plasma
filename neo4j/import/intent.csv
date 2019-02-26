@@ -68,12 +68,12 @@ JAVA:INT:66,expression,JAVA:INT:5,term,intent,counterIndicatorOf,7
 JAVA:INT:67,snippets,JAVA:INT:5,term,intent,counterIndicatorOf,5
 JAVA:INT:68,guidance,JAVA:INT:5,term,intent,counterIndicatorOf,7
 JAVA:INT:69,source,JAVA:INT:5,term,intent,counterIndicatorOf,4
-JAVA:INT:70,rectify,JAVA:INT:6,term,intent,IndicatorOf,7
-JAVA:INT:71,fix,JAVA:INT:6,term,intent,IndicatorOf,7
-JAVA:INT:72,service,JAVA:INT:6,term,intent,IndicatorOf,6
-JAVA:INT:73,improve,JAVA:INT:6,term,intent,IndicatorOf,5
-JAVA:INT:74,support,JAVA:INT:6,term,intent,IndicatorOf,6
-JAVA:INT:75,repair,JAVA:INT:6,term,intent,IndicatorOf,7
+JAVA:INT:70,rectify,JAVA:INT:6,term,intent,indicatorOf,7
+JAVA:INT:71,fix,JAVA:INT:6,term,intent,indicatorOf,7
+JAVA:INT:72,service,JAVA:INT:6,term,intent,indicatorOf,6
+JAVA:INT:73,improve,JAVA:INT:6,term,intent,indicatorOf,5
+JAVA:INT:74,support,JAVA:INT:6,term,intent,indicatorOf,6
+JAVA:INT:75,repair,JAVA:INT:6,term,intent,indicatorOf,7
 JAVA:INT:76,note,JAVA:INT:36,term,term ,indicatorOf,8
 JAVA:INT:77,implementation,JAVA:INT:36,term,term,indicatorOf,8
 JAVA:INT:78,give us example,JAVA:INT:36,term,term,indicatorOf,7

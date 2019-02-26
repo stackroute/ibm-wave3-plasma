@@ -1,27 +1,24 @@
-<mat-card>
-<form [formGroup]="user" (ngSubmit)="login()">
-    <table>
-    <mat-label>Login</mat-label>
-    <tr>
-  <mat-form-field appearance="outline" class="id">
-    <input matInput placeholder="Enter your email id" type="text"
-      formControlName="userId" required />
-  
-  </mat-form-field>
-  </tr>
-
-
-  <mat-label>Password</mat-label>
-  <tr>
-  <mat-form-field appearance="outline" class="password">
-    <input matInput placeholder="Enter your password" type="password"
-      formControlName="password" required />
-     
-  </mat-form-field>
-</tr>
-</table>
-</form>
-  <button mat-button color="primary" type="submit" [disabled]="!user.valid">Login</button>
-</mat-card>
-
-
+<form>
+   <!-- (ngSubmit)="login()"> -->
+ <mat-toolbar>
+    <span>LOGIN</span>
+  </mat-toolbar>
+     <mat-card-content>
+        <form class="my-form">
+           <mat-form-field class="full-width">
+              <mat-label>Email</mat-label>
+              <input  matInput  placeholder="Email" [(ngModel)] = "userId" name="email">
+           </mat-form-field>
+           <mat-form-field class="full-width">
+              <mat-label>Password</mat-label>
+              <input  matInput  placeholder="Password" [(ngModel)] = "password" name="password">
+           </mat-form-field>
+           <mat-card-actions>
+           <button mat-button color="accent" (click)="login($event)"  type="submit">Login</button>
+        </mat-card-actions>
+         </form>
+     </mat-card-content>
+     <mat-card-actions>
+        <button mat-raised-button (click)="login()" color="accent">LOGIN</button>
+        <a [routerLink]="['/signup']" class="btn btn-link">Register</a>
+     </mat-card-actions>

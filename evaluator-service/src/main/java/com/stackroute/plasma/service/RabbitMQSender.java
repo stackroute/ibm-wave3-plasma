@@ -22,7 +22,9 @@ public class RabbitMQSender {
     // String kafkaTopic = "java_in_use_topic";
 
     public void send(Evaluator evaluator) throws JsonProcessingException {
-        amqpTemplate.convertAndSend(exchange, routingkey1, objectMapper.writeValueAsBytes(evaluator));
+        amqpTemplate.convertAndSend(exchange, routingkey1, objectMapper.writeValueAsString(evaluator));
         System.out.println("Send msg = " + evaluator.getLevel());
+
     }
 }
+    
