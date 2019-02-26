@@ -31,9 +31,8 @@ services:
       - ./neo4j/import:/import
       - ./neo4j/data:/data
       - ./neo4j/plugins:/plugins
-    expose:
-       - 7474
-       - 7687
+#    expose:
+#      -[7474, 7687]
 
   apigateway:
     image: zuul-service
@@ -153,9 +152,24 @@ services:
       - rabbitmq
       - configserver
     ports:
-      - 8000:8000
+      - 8085:8085
     expose:
-      - 8000
+      - 8085
+
+  knowledgequeryservice:
+    image: knowledge-query-service:latest
+    build: knowledge-query-service/
+    restart: always
+    network_mode: host
+    depends_on:
+      - neo4j
+      - eurekaserver
+      - rabbitmq
+      - configserver
+    ports:
+      - 8086:8086
+    expose:
+      - 8086
 
   Angular-frontend:
     build: Angular-frontend/

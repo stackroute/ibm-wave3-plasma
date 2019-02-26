@@ -5,10 +5,33 @@
 }
  .spacer {
   flex: 1 1 auto;
+<<<<<<< HEAD
+=======
+
+} 
+.navbar-header
+{
+margin-top: 0px;
+margin-left: 0px;
+margin-right: 0px;
+width: 100%;
+color: white;
+}
+
+header{
+  margin: 0;
+}
+
+
+mat-toolbar{
+  background-color: black;
+  opacity: 0.7;
+>>>>>>> aa9ba942b1e0f09c96d7a72a7d8f8505a50dba16
 }
 img{
   width:60px;
   height:50px;
+<<<<<<< HEAD
 }
 
 mat-toolbar
@@ -16,4 +39,13 @@ mat-toolbar
   background-color: black;
   opacity: 0.8;
   color: white;
+=======
+  padding-top: 10px;
+
+}
+img{
+  width: 75px;
+  height: 80px;
+
+>>>>>>> aa9ba942b1e0f09c96d7a72a7d8f8505a50dba16
 }

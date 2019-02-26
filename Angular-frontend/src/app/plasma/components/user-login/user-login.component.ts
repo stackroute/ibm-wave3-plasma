@@ -13,7 +13,11 @@ import { Router } from '@angular/router';
   styleUrls: ['./user-login.component.css']
 })
 export class UserLoginComponent {
-    value: string;
+
+
+  value: string;
+
+
 @Input()
 user: UserLogin;
 private userId: string;
@@ -24,16 +28,12 @@ private password: string;
     this.user = new UserLogin();
     this.user.userId = this.userId;
     this.user.password = this.password;
-    // this.value = event.target.value;
+
      console.log(this.user);
     console.log(this.value);
     this.loginService.login(this.user).subscribe(res => {
       console.log('Res: ', res);
-      // if (res.message === 'User successfully logged in') {
-      //   this.router.navigate(['/home']);
-      //   this.loginService.setCookie('token', res.token, 1);
-      // } else {
-      //   window.alert('Invalid credentials');
+
        },
        err => {
         const errorStatus = err;
@@ -41,7 +41,7 @@ private password: string;
         if (this.statusCode === 401) {
           console.log('user does not exist');
           this.snackBar.open('User doesnot exist !!!', '');
-          // this.statusCode = 0;
+
         }
     });
   }
