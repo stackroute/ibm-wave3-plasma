@@ -6,7 +6,11 @@ import com.stackroute.plasma.domain.SearchOutput;
 import com.stackroute.plasma.domain.Url;
 import com.stackroute.plasma.service.DocumentService;
 //import com.stackroute.plasma.service.RabbitMQSender;
+
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
+
+import com.stackroute.plasma.service.RabbitMQSender;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -23,13 +27,21 @@ public class DocumentController {
     private Url url;
 
 
+    @Autowired
+    public DocumentController(DocumentService documentService)
+    {
+        this.documentService = documentService;
+    }
 
-    @GetMapping("doc")
+
+
+
+
+    @GetMapping("/doc")
     public ResponseEntity<?> getContent() throws IOException {
 
+        return new ResponseEntity(documentService.getHtml(), HttpStatus.OK);
 
-        //rabbitMQSender.send((documentService.getHtml()));
-        //return new ResponseEntity(documentService.getHtml(), HttpStatus.OK);
     }
 
 

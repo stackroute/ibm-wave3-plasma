@@ -19,8 +19,6 @@
               <mat-label>Password</mat-label>
               <input  matInput  placeholder="Password" [(ngModel)] = "password" type = "password" name="password">
            </mat-form-field>
-<<<<<<< HEAD
-=======
 
          
          </form>
@@ -30,17 +28,11 @@
         
         <button mat-raised-button color="accent"><a [routerLink]="['/signup']" class="btn btn-link">Register</a></button>
         
-        <div class = "code">
-        <mat-card *ngIf="statusCode" class="statusCode">{{statusCode}}</mat-card>
-        </div>
+        
      </mat-card-actions>
      </form></section>
 
->>>>>>> aa9ba942b1e0f09c96d7a72a7d8f8505a50dba16
-           <mat-card-actions>
-           <button mat-raised-button color="accent" (click)="login($event)"  type="submit">Login</button>
-           <button mat-raised-button color="accent" ><a [routerLink]="['/signup']" class="btn btn-link">Register</a></button>
-        </mat-card-actions>
-         </form>
+         
+      
 
          
