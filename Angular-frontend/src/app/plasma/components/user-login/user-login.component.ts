@@ -2,6 +2,7 @@ import { UserLogin } from './../../tsclasses/user-login';
 import { UserLoginService } from './../../services/user-login.service';
 import { Validators, FormBuilder } from '@angular/forms';
 import { Component, Input } from '@angular/core';
+import { MatSnackBar } from '@angular/material';
 import { Router } from '@angular/router';
 
 
@@ -13,13 +14,16 @@ import { Router } from '@angular/router';
 })
 export class UserLoginComponent {
 
+
   value: string;
+
+
 @Input()
 user: UserLogin;
 private userId: string;
 private password: string;
   statusCode: number;
-  constructor(private fb: FormBuilder, private loginService: UserLoginService, private router: Router) {}
+  constructor(private fb: FormBuilder, private loginService: UserLoginService, private router: Router, private snackBar: MatSnackBar) {}
   login(event: any) {
     this.user = new UserLogin();
     this.user.userId = this.userId;
@@ -36,7 +40,8 @@ private password: string;
         this.statusCode = parseInt(errorStatus, 10);
         if (this.statusCode === 401) {
           console.log('user does not exist');
-          this.statusCode = 0;
+          this.snackBar.open('User doesnot exist !!!', '');
+
         }
     });
   }

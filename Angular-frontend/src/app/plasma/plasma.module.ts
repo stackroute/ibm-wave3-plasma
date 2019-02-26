@@ -1,3 +1,4 @@
+import { CardComponent } from './components/card/card.component';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
@@ -41,6 +42,7 @@ import { NgModule } from '@angular/core';
     WebSpeechComponent,
     DomainExpertComponent,
     UserLoginComponent,
+    CardComponent
   ]
 })
 export class PlasmaModule { }

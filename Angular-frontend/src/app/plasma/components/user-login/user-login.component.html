@@ -1,7 +1,13 @@
+
 <form>
    
+
+<section class = "image">
+   <form>
+
+
  <mat-toolbar>
-    <span>LOGIN</span>
+    <span>Login</span>
   </mat-toolbar>
      <mat-card-content>
         <form class="my-form">
@@ -11,8 +17,23 @@
            </mat-form-field>
            <mat-form-field class="full-width">
               <mat-label>Password</mat-label>
-              <input  matInput  placeholder="Password" [(ngModel)] = "password" name="password">
+              <input  matInput  placeholder="Password" [(ngModel)] = "password" type = "password" name="password">
            </mat-form-field>
+
+         
+         </form>
+     </mat-card-content>
+     <mat-card-actions>
+         <button mat-raised-button  (click)="login($event)"  color="accent"  type="submit">Login</button>
+        
+        <button mat-raised-button color="accent"><a [routerLink]="['/signup']" class="btn btn-link">Register</a></button>
+        
+        <div class = "code">
+        <mat-card *ngIf="statusCode" class="statusCode">{{statusCode}}</mat-card>
+        </div>
+     </mat-card-actions>
+     </form></section>
+
            <mat-card-actions>
            <button mat-raised-button color="accent" (click)="login($event)"  type="submit">Login</button>
            <a [routerLink]="['/signup']" class="btn btn-link">Register</a>

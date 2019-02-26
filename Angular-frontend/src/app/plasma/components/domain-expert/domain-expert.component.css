@@ -7,3 +7,11 @@
 .full-width {
   width: 100%;
 }
+
+section{
+  margin-left: 350px;
+}
+
+mat-toolbar{
+  width:60%;
+}
