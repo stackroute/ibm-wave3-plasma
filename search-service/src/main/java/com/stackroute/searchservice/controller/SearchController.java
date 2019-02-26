@@ -8,10 +8,7 @@ import com.stackroute.searchservice.service.ApiService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.sql.Timestamp;
 import java.time.LocalDate;
@@ -20,8 +17,9 @@ import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 
+@CrossOrigin(value = "*")
 @RestController
-@RequestMapping("api/v1")
+@RequestMapping("/api/v1")
 public class SearchController {
 
 
