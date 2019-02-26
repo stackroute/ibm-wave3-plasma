@@ -1,3 +1,4 @@
+// tslint:disable-next-line:import-spacing
 import{ SearchService } from '../../services/search.service';
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { SpeechRecognizerService } from '../../services/speech-recognizer.service';
@@ -14,6 +15,7 @@ export class WebSpeechComponent implements OnInit {
   finalTranscript = '';
   recognizing = false;
   notification: string;
+
 
 
   constructor(
