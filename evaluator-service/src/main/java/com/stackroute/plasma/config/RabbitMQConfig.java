@@ -26,10 +26,10 @@ public class RabbitMQConfig {
     private String routingkey1;
 
 //Receiving message rabbitMQ
-    @Bean
-    public MessageConverter jsonMessageConverter(){
-        return new Jackson2JsonMessageConverter();
-    }
+@Bean
+public MessageConverter consumerJsonMessageConverter(){
+    return new Jackson2JsonMessageConverter();
+}
 
     @Bean
     public SimpleRabbitListenerContainerFactory jsaFactory(ConnectionFactory connectionFactory,
@@ -37,14 +37,14 @@ public class RabbitMQConfig {
         SimpleRabbitListenerContainerFactory factory =
                 new SimpleRabbitListenerContainerFactory();
         configurer.configure(factory, connectionFactory);
-        factory.setMessageConverter(jsonMessageConverter());
+        factory.setMessageConverter(consumerJsonMessageConverter());
         return factory;
     }
 
  //Sending message to rabbitMQ
     @Bean
     Queue queue() {
-        return new Queue(queueName1, false);
+        return new Queue(queueName1, true);
     }
 
     @Bean
@@ -58,17 +58,16 @@ public class RabbitMQConfig {
     }
 
     @Bean
-    public MessageConverter producerJsonMessageConverter() {
+    public MessageConverter jsonMessageConverter() {
         return new Jackson2JsonMessageConverter();
     }
 
 
-    public AmqpTemplate rabbitTemplate(ConnectionFactory connectionFactory) {
+    public RabbitTemplate rabbitTemplate(ConnectionFactory connectionFactory) {
         final RabbitTemplate rabbitTemplate = new RabbitTemplate(connectionFactory);
-        rabbitTemplate.setMessageConverter(producerJsonMessageConverter());
+        rabbitTemplate.setMessageConverter(jsonMessageConverter());
         return rabbitTemplate;
     }
-
 
 
 }

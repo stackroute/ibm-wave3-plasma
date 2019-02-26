@@ -22,14 +22,9 @@ public class RabbitMQSender {
     @Value("${javainuse.rabbitmq.routingkey}")
     private String routingkey;
     // String kafkaTopic = "java_in_use_topic";
-    ObjectMapper objectMapper = new ObjectMapper();
-    public void send(List<Url> url) {
-        try {
-            amqpTemplate.convertAndSend(exchange, routingkey, objectMapper.writeValueAsBytes(url));
-        } catch (JsonProcessingException e) {
-            e.printStackTrace();
-        }
+    //ObjectMapper objectMapper = new ObjectMapper();
+    public void send(Url url) {
+        amqpTemplate.convertAndSend(exchange, routingkey, url);
         System.out.println("Send msg = " + url);
-
     }
 }

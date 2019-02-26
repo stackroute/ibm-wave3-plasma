@@ -10,6 +10,6 @@ import java.util.List;
 @Repository
 public interface TermRepository extends Neo4jRepository<Term,Long> {
 
-    @Query("MATCH (Node) RETURN Node")
-    List<Term> getAllNodes();
+    @Query("MATCH (n:IntentGraph) where n.type=\"term\" RETURN n")
+    List<Term> getAllTerms();
 }

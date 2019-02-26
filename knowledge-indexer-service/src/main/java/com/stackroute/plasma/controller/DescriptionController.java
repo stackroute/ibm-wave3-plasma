@@ -2,6 +2,7 @@ package com.stackroute.plasma.controller;
 
 import com.stackroute.plasma.model.Description;
 import com.stackroute.plasma.service.DescriptionService;
+import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import java.sql.Timestamp;
@@ -9,6 +10,7 @@ import java.sql.Timestamp;
 
 @RestController
 @RequestMapping("api/v1")
+@Api(description="CUD operations for description node")
 public class DescriptionController {
 
     @Autowired

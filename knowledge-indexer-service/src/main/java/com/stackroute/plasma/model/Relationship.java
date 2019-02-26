@@ -9,7 +9,7 @@ public class Relationship {
     @Property
     private String level;
     @Property
-    private String confidenceScore;
+    private long confidenceScore;
 
     @StartNode
     private Description description;
