@@ -18,5 +18,6 @@ public class NlpModel {
     }
 
     public NlpModel() {
+
     }
 }
