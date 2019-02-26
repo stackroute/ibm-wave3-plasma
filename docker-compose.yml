@@ -148,7 +148,7 @@ services:
     network_mode: host
     depends_on:
       - eurekaserver
-      - mongodb:latest
+      - mongo
     ports:
       - 8089:8089
     expose:
