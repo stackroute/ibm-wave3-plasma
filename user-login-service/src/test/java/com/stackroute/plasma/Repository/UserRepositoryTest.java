@@ -29,7 +29,7 @@ public class UserRepositoryTest {
     }
 
     @Test
-    public void saveUserTest()
+  public void saveUserTest()
     {
         userRepository.save(user);
         User fetchUser = userRepository.findById(user.getUserId()).get();

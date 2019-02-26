@@ -7,11 +7,6 @@ import java.sql.Timestamp;
 import java.util.List;
 
 public interface DescriptionService {
-
-    public List<Concept> getC();
-    public List<Description> getD();
-
-
     public Description create(Description description);
     public Description update(Description description);
     public Description delete(long id);

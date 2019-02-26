@@ -13,11 +13,8 @@ import java.util.List;
 @Repository
 public interface DescriptionRepository extends Neo4jRepository<Description,Long> {
 
-    @Query("match (n:Description) return n")
-    List<Description> get();
-
     /* Creates the description node */
-    @Query("CREATE (d:Description) SET d.id={id}, d.timestamp={timestamp},d.description={description},d.concept={concept},d.domain={domain}," +
+    @Query("CREATE (d:Description) SET d.id={id}, d.timestamp={timestamp},d.concept={concept},d.domain={domain},d.description={description}," +
             "d.title={title},d.url={url},d.keywords={keywords} RETURN d")
     Description create(@Param("id") long id,
                        @Param("timestamp") String timestamp,

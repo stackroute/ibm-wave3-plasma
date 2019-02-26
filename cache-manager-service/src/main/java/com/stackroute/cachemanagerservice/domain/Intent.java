@@ -1,32 +1,70 @@
 package com.stackroute.cachemanagerservice.domain;
 
+import lombok.*;
 import org.neo4j.ogm.annotation.*;
 import org.neo4j.ogm.annotation.Relationship;
 
 import java.util.List;
 
+
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 @NodeEntity
 public class Intent {
 
     @Id //@GeneratedValue
-    private long id;
+    private long Id;
 
     @Property
     private String name;
 
-    @Relationship(type = "CHILD_OF", direction = Relationship.INCOMING)
-    private List<Relationship> relationship;
-    //private Relationship relationship;
+    @Property
+    private String weight;
+
+    @Property
+    private String id;
+
+    @Property
+    private String type;
+
+    @Property
+    private String parenttype;
+
+    @Property
+    private String parentid;
+
+    @Property
+    private String relation;
+
+    /*@Relationship(type = "counterIndicatorOf", direction = Relationship.INCOMING)
+    private List<Relationship> relationship;*/
 
     public long getId() {
-        return id;
+        return Id;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public String getParenttype() {
+        return parenttype;
+    }
+
+    public String getParentid() {
+        return parentid;
+    }
+
+    public String getRelation() {
+        return relation;
     }
 
     public String getName() {
         return name;
     }
 
-    public List<Relationship> getRelationship() {
-        return relationship;
+    public String getWeight() {
+        return weight;
     }
 }
