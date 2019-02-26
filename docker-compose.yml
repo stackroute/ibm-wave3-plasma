@@ -31,9 +31,8 @@ services:
       - ./neo4j/import:/import
       - ./neo4j/data:/data
       - ./neo4j/plugins:/plugins
-    expose:
-      -7474
-      -7687
+#    expose:
+#      -[7474, 7687]
 
   apigateway:
     image: zuul-service
