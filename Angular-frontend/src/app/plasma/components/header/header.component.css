@@ -21,8 +21,10 @@ header{
 
 mat-toolbar{
   background-color: black;
+  opacity: 0.7;
 }
 img{
-  width:75px;
-  height:80px;
+  width:60px;
+  height:50px;
+  padding-top: 10px;
 }
