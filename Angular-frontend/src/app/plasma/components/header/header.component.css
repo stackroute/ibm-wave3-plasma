@@ -5,3 +5,7 @@
 .spacer {
   flex: 1 1 auto;
 }
+img{
+  width: 75px;
+  height: 80px;
+}
