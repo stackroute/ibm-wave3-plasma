@@ -18,11 +18,10 @@ import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 
-<<<<<<< HEAD
+
 @CrossOrigin(value = "*")
-=======
-@CrossOrigin("*")
->>>>>>> 3f8ca5a7c66d3bb6c9b9158959e6ca63b3b6da5e
+
+//@CrossOrigin("*")
 @RestController
 @RequestMapping("/api/v1")
 public class SearchController {
