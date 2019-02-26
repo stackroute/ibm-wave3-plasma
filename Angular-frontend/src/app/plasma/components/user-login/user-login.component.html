@@ -14,11 +14,9 @@
               <input  matInput  placeholder="Password" [(ngModel)] = "password" name="password">
            </mat-form-field>
            <mat-card-actions>
-           <button mat-button color="accent" (click)="login($event)"  type="submit">Login</button>
+           <button mat-raised-button color="accent" (click)="login($event)"  type="submit">Login</button>
+           <a [routerLink]="['/signup']" class="btn btn-link">Register</a>
         </mat-card-actions>
          </form>
-     </mat-card-content>
-     <mat-card-actions>
-        <button mat-raised-button (click)="login()" color="accent">LOGIN</button>
-        <a [routerLink]="['/signup']" class="btn btn-link">Register</a>
-     </mat-card-actions>
+
+         
