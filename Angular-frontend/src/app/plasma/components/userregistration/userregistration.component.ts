@@ -20,7 +20,7 @@ export class UserregistrationComponent implements OnInit {
   private gender: string;
   private confirmpassword: string;
   private emailId: string;
-
+  private male: string;
   register(event: any) {
     this.regform = new Userregister();
     this.regform.name = this.name;
@@ -41,6 +41,9 @@ export class UserregistrationComponent implements OnInit {
 
   }
 
+  onChange(event: any) {
+    console.log(event);
+  }
   ngOnInit() {
   }
 
