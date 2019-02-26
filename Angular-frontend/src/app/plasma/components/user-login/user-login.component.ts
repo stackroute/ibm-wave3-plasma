@@ -29,6 +29,7 @@ private password: string;
     console.log(this.value);
     this.loginService.login(this.user).subscribe(res => {
       console.log('Res: ', res);
+      this.snackBar.open('User Succesfully logged in !!!', '');
       // if (res.message === 'User successfully logged in') {
       //   this.router.navigate(['/home']);
       //   this.loginService.setCookie('token', res.token, 1);
