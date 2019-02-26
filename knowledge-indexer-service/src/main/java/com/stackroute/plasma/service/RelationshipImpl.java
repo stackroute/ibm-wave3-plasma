@@ -19,7 +19,7 @@ public class RelationshipImpl implements RelationshipService {
     }*/
 
     @Override
-    public Relationship create(String concept, String confidenceScore, String level) {
+    public Relationship create(String concept, long confidenceScore, String level) {
         return relationshipRespository.create(concept,confidenceScore, level);
     }
 

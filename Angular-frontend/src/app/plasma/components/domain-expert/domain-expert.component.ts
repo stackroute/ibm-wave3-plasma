@@ -25,7 +25,7 @@ export class DomainExpertComponent implements OnInit {
   // toppingList: string[] = ['Extra cheese', 'Mushroom', 'Onion', 'Pepperoni', 'Sausage', 'Tomato'];
   selected = -1;
   concept: any[] = [];
-  
+
    onChange(event) {
     console.log(event);
     this.concept.push(event);
