@@ -1,11 +1,12 @@
 package com.stackroute.plasma.domain;
 
 
-import io.swagger.annotations.ApiModelProperty;
+//import io.swagger.annotations.ApiModelProperty;
 import lombok.*;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.Date;
 
 
 @Document(collection = "Users")
@@ -15,25 +16,27 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @AllArgsConstructor
 @NoArgsConstructor
 public class User {
-    @Id
-    private String id;
+
+    //@Id
+    //private String id;
     private String name;
     private String dateOfBirth;
     private String gender;
-    private String contact;
+    private Integer contact;
+    @Id
     private String emailId;
     private String setPassword;
-    private String confirmpassword;
+    //private String confirmpassword;
 
-    public String getId() {
+    /*public String getId() {
         return id;
-    }
+    }*/
 
-    public void setId(String id) {
-        this.id = id;
-    }
+    //public void setId(String id) {
+      //  this.id = id;
+    //}
 
-    public String getName() {
+    /*public String getName() {
         return name;
     }
 
@@ -87,5 +90,5 @@ public class User {
 
     public void setConfirmpassword(String confirmpassword) {
         this.confirmpassword = confirmpassword;
-    }
+    }*/
 }

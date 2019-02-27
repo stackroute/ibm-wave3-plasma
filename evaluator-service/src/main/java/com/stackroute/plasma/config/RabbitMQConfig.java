@@ -14,8 +14,6 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class RabbitMQConfig {
 
-
-
     @Value("${javainuse1.rabbitmq.queue}")
     String queueName1;
 
@@ -25,11 +23,11 @@ public class RabbitMQConfig {
     @Value("${javainuse1.rabbitmq.routingkey}")
     private String routingkey1;
 
-//Receiving message rabbitMQ
-@Bean
-public MessageConverter consumerJsonMessageConverter(){
-    return new Jackson2JsonMessageConverter();
-}
+    //Receiving message rabbitMQ
+    @Bean
+    public MessageConverter consumerJsonMessageConverter(){
+        return new Jackson2JsonMessageConverter();
+    }
 
     @Bean
     public SimpleRabbitListenerContainerFactory jsaFactory(ConnectionFactory connectionFactory,
@@ -41,7 +39,7 @@ public MessageConverter consumerJsonMessageConverter(){
         return factory;
     }
 
- //Sending message to rabbitMQ
+     //Sending message to rabbitMQ
     @Bean
     Queue queue() {
         return new Queue(queueName1, true);

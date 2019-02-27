@@ -7,7 +7,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, FormGroup, ReactiveFormsModule } from '@angular/forms';
-
+import { ShowHidePasswordModule } from 'ngx-show-hide-password';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
@@ -39,6 +39,7 @@ import { UserregistrationComponent } from './plasma/components/userregistration/
     WebSpeechModule,
     RouterModule,
     ReactiveFormsModule,
+    ShowHidePasswordModule,
 
   ],
   providers: [UserLoginService],

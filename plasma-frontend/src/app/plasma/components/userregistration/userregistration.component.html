@@ -5,43 +5,105 @@
   </mat-toolbar>
 <mat-card-content>
     <form class="my-form">
-        <mat-form-field class="full-width">
-            <mat-label>Id</mat-label>
-            <input  matInput  placeholder="Id" [(ngModel)]="id" name="id">
-         </mat-form-field>
+        <!-- <mat-form-field class="full-width"> -->
+            <!-- <mat-label>Id</mat-label> -->
+            <!-- <input  matInput  placeholder="Id" [(ngModel)]="id" name="id"> -->
+         <!-- </mat-form-field> -->
        <mat-form-field class="full-width">
               <mat-label>Name</mat-label>
-              <input  matInput  placeholder="Name" [(ngModel)]="name" name="name">
+              <input  matInput  placeholder="Name" [(ngModel)]="name" name="name" required>
            </mat-form-field>
            <mat-form-field class="full-width">
               <mat-label>Date of Birth</mat-label>
-          <input matInput [matDatepicker]="picker" placeholder="Choose a date" [(ngModel)]="dateOfBirth" name="dateOfBirth">
+         <input matInput [matDatepicker]="picker" placeholder="Choose a date" [(ngModel)]="dateOfBirth" name="dateOfBirth">
           <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-          <mat-datepicker #picker></mat-datepicker>
+          <mat-datepicker #picker></mat-datepicker> 
         </mat-form-field>
+            <!-- <input matInput  [matDatepicker]="dp3"  placeholder="DOB" [(ngModel)]="dateOfBirth" >
+            <mat-datepicker-toggle matSuffix [for]="dp3" ></mat-datepicker-toggle>
+            <mat-datepicker #dp3 ></mat-datepicker>
+          </mat-form-field> -->
+
+          <!-- Gender -->
+          
             <mat-label>Gender: </mat-label>
-            <mat-radio-group [(ngModel)]="gender">
-              <mat-radio-button class="example-margin" [(ngModel)]="gender" name="gender" value="M">Male</mat-radio-button>
-              <mat-radio-button class="example-margin" [(ngModel)]="gender" name="gender" value="F">Female</mat-radio-button>
-              <mat-radio-button class="example-margin" [(ngModel)]="gender" name="gender" value="Other">Other</mat-radio-button>
+            <mat-radio-group>
+              <mat-radio-button class="example-margin" value="M" (change)="onChange('Male')">Male</mat-radio-button>
+              <mat-radio-button class="example-margin" value="F" (change)="onChange('Female')">Female</mat-radio-button>
+              <mat-radio-button class="example-margin" value="Other" (change)="onChange('Other')">Other</mat-radio-button>
             </mat-radio-group>
-        
+          
+
+          <!-- Contact -->
             <mat-form-field class="full-width">
               <mat-label>Contact</mat-label>
-              <input  matInput  placeholder="Contact" [(ngModel)]="contact" name="contact">
+              <input  matInput maxlength="10" type="number" placeholder="Contact" [(ngModel)]="contact" name="contact">
            </mat-form-field>
-           <mat-form-field class="full-width">
+
+
+           <!-- Email Input -->
+           <mat-form-field class="full-width" required>
               <mat-label>Email</mat-label>
-              <input  matInput  placeholder="Email" [(ngModel)]="emailId" name="emailId">
-           </mat-form-field>
-           <mat-form-field class="full-width">
+              <!-- <input  matInput  placeholder="Email" [(ngModel)]="emailId" name="emailId"> -->
+               <!-- <input matInput placeholder="Email" [formControl]="emailFormControl"
+               [errorStateMatcher]="matcher" [(ngModel)]="emailId" name="emailId"  required>
+                <mat-hint>Errors appear instantly!</mat-hint>
+                <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+                  Please enter a valid email address
+                </mat-error>
+                <mat-error *ngIf="emailFormControl.hasError('required')">
+                  Email is <strong>required</strong>
+                </mat-error>
+              -->
+
+               <input matInput placeholder="Email" [formControl]="emailFormControl"
+                         [errorStateMatcher]="matcher" [(ngModel)]="emailId" name="emaiId" required>
+                  <mat-hint>Errors appear instantly!</mat-hint>
+                   <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+                    Please enter a valid email address
+                  </mat-error>
+                   <mat-error *ngIf="emailFormControl.hasError('required')">
+                    Email is <strong>required</strong>
+                  </mat-error>  
+              </mat-form-field>
+
+           <!-- Password -->
+             <mat-form-field class="full-width">
               <mat-label>Set Password</mat-label>
-              <input  matInput  placeholder="Set Password" [(ngModel)]="setPassword" name="setPassword">
-           </mat-form-field>
+              <input  matInput type="password" id="mysecretpassword" placeholder="Set Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"  [(ngModel)]="setPassword" name="setPassword" showHideInput required>
+              <i matSuffix
+              class="material-icons"
+              showHideTrigger="mysecretpassword"
+              [showHideStatus]="{ materialIcon: true, id: 'mysecretpassword' }" 
+            ></i>
+           </mat-form-field>   
+           <!--
            <mat-form-field class="full-width">
               <mat-label>Confirm Password</mat-label>
               <input  matInput  placeholder="Confirm Password" [(ngModel)]="confirmpassword" name="confirmpassword">
-           </mat-form-field>
+           </mat-form-field> -->
+
+          <!-- <mat-form-field class="full-width">
+              <mat-label>Enter Password</mat-label>
+            <input matInput id="mysecretpassword" type="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" placeholder="Password" (change)="onChangePass($event)" showHideInput>
+            <i matSuffix
+              class="material-icons"
+              showHideTrigger="mysecretpassword"
+              [showHideStatus]="{ materialIcon: true, id: 'mysecretpassword' }" 
+            ></i>
+          </mat-form-field>   -->
+          
+
+          <!-- <mat-form-field>
+              <mat-label>Confirm Password</mat-label>
+            <input matInput id="mysecretpassword" type="password" placeholder="Password" [(ngModel)]="setPassword" [(ngModel)]="confirmpassword" matInput showHideInput>
+            <i matSuffix
+              class="material-icons"
+              showHideTrigger="mysecretpassword"
+              [showHideStatus]="{ materialIcon: true, id: 'mysecretpassword' }"
+            ></i>
+          </mat-form-field> -->
+
     </form>
   </mat-card-content>
   <mat-card-actions>

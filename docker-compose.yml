@@ -195,3 +195,12 @@ services:
      - 8070:8070
     expose:
      - 8070
+
+
+  redis:
+    container_name: redis
+    image: redis
+    ports:
+      - "6380:6380"
+    volumes:
+      - ../data/redis:/data
