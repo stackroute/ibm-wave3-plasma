@@ -1,6 +1,5 @@
 package com.stackroute.plasma.service;
 
-import com.stackroute.plasma.model.Concept;
 import com.stackroute.plasma.model.Description;
 
 import java.sql.Timestamp;

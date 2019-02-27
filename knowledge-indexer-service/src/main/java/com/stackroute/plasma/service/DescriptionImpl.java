@@ -1,8 +1,6 @@
 package com.stackroute.plasma.service;
 
-import com.stackroute.plasma.model.Concept;
 import com.stackroute.plasma.model.Description;
-import com.stackroute.plasma.repository.ConceptRepository;
 import com.stackroute.plasma.repository.DescriptionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,9 +13,6 @@ public class DescriptionImpl implements DescriptionService{
 
     @Autowired
     DescriptionRepository descriptionRepository;
-
-    @Autowired
-    ConceptRepository conceptRepository;
 
     @Override
     public Description create(Description description) {
