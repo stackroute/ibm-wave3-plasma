@@ -40,6 +40,17 @@ public class RabbitMQConfig {
     }
 
     //Sending message to rabbitMQ
+
+    @Bean
+    Queue queue() {
+        return new Queue(queueName1, true);
+    }
+
+    @Bean
+    DirectExchange exchange() {
+        return new DirectExchange(exchange);
+    }
+
     @Bean
     Binding binding(Queue queue, DirectExchange exchange) {
         return BindingBuilder.bind(queue).to(exchange).with(routingkey1);

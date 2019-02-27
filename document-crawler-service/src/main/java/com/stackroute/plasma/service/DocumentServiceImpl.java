@@ -150,7 +150,7 @@ public DocumentServiceImpl() {
 
             System.out.println();
             url.setTimestamp(Timestamp.valueOf(LocalDateTime.of(LocalDate.now(), LocalTime.now())).toString());
-            ;
+
 
 
             url.setTimestamp(Timestamp.valueOf(LocalDateTime.of(LocalDate.now(), LocalTime.now())).toString());
