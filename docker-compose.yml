@@ -48,7 +48,7 @@ services:
       - ./neo4j/data:/data
       - ./neo4j/plugins:/plugins
     environment:
-      - NEO4J_AUTH=neo4j/Neo4j
+      - NEO4J_AUTH=neo4j/neo4j
     expose:
       - 7474
 
@@ -173,9 +173,9 @@ services:
       - rabbitmq
       - configserver
     ports:
-      - 8085:8085
+      - 8097:8097
     expose:
-      - 8085
+      - 8097
 
   knowledgequeryservice:
     image: knowledge-query-service:latest

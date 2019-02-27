@@ -6,7 +6,7 @@ import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import lombok.NoArgsConstructor;
 
 
-import java.io.Serializable;
+//import java.io.Serializable;
 
 //import java.sql.Timestamp;
 
@@ -14,7 +14,7 @@ import java.sql.Timestamp;
 
 //@NoArgsConstructor
 @JsonIdentityInfo(generator = ObjectIdGenerators.IntSequenceGenerator.class, property = "@id", scope = Url.class)
-public class Url implements Serializable {
+public class Url {
 
     @JsonProperty("url")
     private String url;

@@ -15,7 +15,7 @@ import java.util.List;
 public class RabbitMQSender {
 
     @Autowired
-    private RabbitTemplate rabbitTemplate;
+    RabbitTemplate rabbitTemplate;
 
     @Value("${javainuse.rabbitmq.exchange}")
     private String exchange;
