@@ -1,6 +1,5 @@
 package com.stackroute.plasma.repository;
 
-import com.stackroute.plasma.model.Concept;
 import com.stackroute.plasma.model.Description;
 import org.springframework.data.neo4j.annotation.Query;
 import org.springframework.data.neo4j.repository.Neo4jRepository;
