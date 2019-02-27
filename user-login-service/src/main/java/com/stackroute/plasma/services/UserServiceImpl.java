@@ -11,6 +11,7 @@ public class UserServiceImpl implements UserService {
 
 
     private UserRepository userRepository;
+    public User user;
 
     @Autowired
     public UserServiceImpl(UserRepository userRepository) {
@@ -30,8 +31,9 @@ public class UserServiceImpl implements UserService {
 
 
     @Override
-    public User findByUserIdAndPassword(String managerId, String password) {
-        return userRepository.findByUserIdAndPassword(managerId,password);
+    public User findByUserIdAndPassword(String userId, String password) {
+
+        return userRepository.findByUserIdAndPassword(userId,password);
     }
 
 }

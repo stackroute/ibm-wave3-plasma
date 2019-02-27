@@ -1,0 +1,384 @@
+AbstractClass AbstractFactory Abstraction ActivityDiagram AcyclicDependency AcyclicGraph AfferentCoupling aggregatefunctions Aggregation
+AgileDevelopment Ajax AlgorithmComplexity AmazonAWS AngularJS annotations AnonymousInnerClass Ant AntTasks antrunmavenplugin AOP
+ApacheCommonsCollections appinstances appinstances appmaster appperformance Append appenginearchetype appenginearchitecture appengineconsole
+appenginedeveloper appenginedevserver appengineeclipseplugin appenginemavenplugin appenginemavenplugin appengineowner appengineroles
+appengineruntime appenginesdk appengineservices appenginetaskqueuetest appengineunittest appengineviewer appengine-api-stubs
+appengine-api-stubs appengine-maven-plugin appengine-skeleton-archetype appengine-testing appengine-testing Appletviewer Appletviewer archetypemavenplugin
+ArchitecturePatterns Array ArrayList AspectOrientedProgramming Assert Association associations associationsandjoins AtomicInteger AtomicLong
+AtomicTypes Attribute auditmapping Authentication authentication Authorization Autoboxing automaticgenerator automaticscaling B-Tree B+ Tree
+BagBasicJDKTools basicscaling BeanManagedPersistence BehaviorDiagram BestPractices bi-directionalassociation Big-ONotation billablelimits
+BinarySearch BinarySearch BinarySearchTree BindingCompiler BitArray BlackBoxTesting BlackboxTesting Blocked BloomFilter branches BubbleSort
+BugTracking BugTracking Bugfix Bugzilla Build BuildandDeployment BuildFile BuildLifecycle BuildPhases BuildProfiles buildprofiles BuildTools
+Builder bulkoperations Bytecode CHeader Generator C++ C++ C++ C++STL C3PO CachedThreadPool caching central Class Class ClassDiagram
+ClassFile ClassLevelLock Classpath Clojure loudComputing CodeComments CodingConventions Cohesion collections Collision columntypes Comments
+commit CommonClosure CommonCoupling CommonReuse CommunicationDiagram Comparable Comparator comparediff Compile compile compilemavenplugin
+CompileTimeDependency Compiler CompilerPlugin ComponentDiagram compositeidentity CompositeStructureDiagram Composition Concurrency
+ConcurrentMarkSweepGC ConcurrentRandomNumbers conflict conflictresolve ConnectionPool connectionpool Constant Constructor Constructor Container
+ContainerManagedPersistence ContainerManagedPersistence ContainerManagedSignon ContainerManagedTransaction ContainerManagedTransaction
+ContentCoupling Contention ContinuousIntegration ControlCoupling CORBA createmavenproject CryptographicHash CuckooHash customdatatype CVS
+CyclicGraph Daemon DaemonThread DataAccess DataCoupling DataStructures Database DatabaseConnection DatabaseIndex datastore DBCP Deadlock
+Debugger Decorator deferredtasktest DegreeofCoupling Delete DependencyInjection DependencyInversion DependencyManagement Dependency Metrics
+Dependency Scope deploy DeploymentDescriptor DeploymentDiagram Deprecation Dequeue Deserialization DesignByContract DesignGuidelines DesignPattern
+DesignPrinciples developers DevOps devserver Dictionaries DirectedAcyclicGraph Disassembler Distribution Document Documentation DoubleHashing
+DoubleLinkedList DTD DurableSubscriber DynaminCollection E-Commerce Ear Eclipse EfferentCoupling EJBContainer EJBContext EJBQL EJBs ElasticCapacity
+Element Encapsulation encryptedcolumn endpoints-skeleton-archetype EntityBeans Enum Enumerator Equals Erlang ESB Estimation Exception ExceptionHandler
+Exponential ExtremeProgramming f1instance f2instance f4instance f4_1ginstance FactoryMethod fetchbatch fetchjoin fetchselect fetchsubselect
+fetchtype Fields Final Finalizer Finalizer Finally FixedThreadPool Force.com FourthGenerationLanguage Framework freequotas frontendinstanceclass
+frontendinstanceclass frontendserver FunctionalProgramming GAESDKPlugin GangOfFour GarbageCollector Generalization Generalization
+Generational Garbage Collector Generics Git git gitblame gitbranch gitcheckout gitclone gitcommit gitcreate gitmerge gitorigin gitprocess
+gitpull gitpush gitrebase gitrepository gitreset gitrevert gittag github Gmail Go Go Go goruntime goals googleappengine googleblobstore
+googlecloudsql googlecloudstorage GoogleGuavaCollections googlepaas Governance Graph GraphDatabase Groovy Groovy groupby guestbook-archetype
+HardReference HashCode HashSet HashSet HashMap Hashtable Haskell hbm.xml hbm2ddl hbm2java Heap Heap HeapDump HeapSpace hello-endpoints-archetype
+hi-logenerator Hibernate hibernateapi hibernateconfiguration hibernatecriteria hibernatedatabases hibernatedetach hibernatedialect
+hibernateenvers hibernate events hibernateidentity hibernatemapping hibernatemerge hibernatenosessionissue hibernatequery hibernatesave
+hibernatesession hibernatesessionfactory hibernatetools highreplicationdatastoretest HomeInterface HopscotchHash HorizontalScaling Hotfix
+HotSpotJVM HQL HTML HTTP HTTPS IaaS IBM J9 IDE Identity identitycolumn IDL idleinstances Idlj IgnoredTestCase IIOP images Immutable
+ImmutableObjects impedance mismatch ImperativeProgramming index Inheritance Inheritance Inheritance InnerClass Insert Insert Instability install
+Instance instance scaling instancestates IntellijIdea InteractionDiagram Interface Interface Interface InterfaceSegregation InterpretedJVMLanguages
+Interpreter Interrupt IntrinsicLock iPlanet IssueTracking Iterate Iterator J2EE J2EEApplication J2EEServer Jacl Jacl Jar JarSignature
+Jarsigner Java JavaApplets JavaArchive JavaClasses JavaCollectionsFramework JavaHeapDumpBrowser JavaPolicyFiles JavaProcessStatus
+javaruntime javaruntime JavaWebApplicationDevelopment JavaWebStart Javac Javac Javadoc Javadoc javadocmavenplugin Javah Javah Javap
+Javap Javascript JavaScript Javascript Javascript Javaws Javaws JAX-WS JAXB JBOSS JConsole Jdb Jdb JDBC JDK JDKSecurityTools JDKTools
+JetJava java Java Javaty Jhat Jira JITCompiler Jmap Jmap JMS JMX JNDI JNI Join Join JPA JPA JPA jpaannotations JPDA Jps Jps jQuery JRE
+JRockit JRuby JRuby JSF JSP JSP Jstack Jstack Jstat Jstat JstatD JstatD JstatD JTA Junit JUNIT JVM JVM JVMJstatDaemon JVMLanguages JVMLanguages
+JVMStatistics Jython Jython Keygen Keystore khanacademy lazyloading level1cache level2cache Libraries LicencePlugin LightweightProcess
+Linear LinearProbing LinearSearch LinkedList LiskovSubstituionPrinciple Lisp List listcollection LOBcolumn local localgitrepository Lock
+LockObjects Logarithmic LogicProgramming LogicProgramming LooseCoupling mail mailinglist ManagedOperations ManagementAutomation
+ManifestFile manual scaling many-to-many many-to-one Map MarkupLanguage MarkupLanguage MarkupLanguage MarkupLanguage Maven Maven MavenJunitPlugin
+MavenPlugins Maven Repository memcache memcacheappenginetest Memory MemoryConsistencyErrors MemoryManagement MemoryManagement MemoryMap
+Mercurial Mercury merge MergeSort MessageDrivenBeans MessageDrivenBeans Messaging Metering Methods Metrics Modeling Modeling Modifier Modifier
+MonitoringTools Monitoring Tools MultiProcessing MultiTasking MultiDimensionalArray MultidimensionalCollection MultiMap MultiSet MultiThreading
+Mutable Mutex MVC NLogN N+1queryproblem NativeProgramming NaturalSortOrder Netbeans NightlyBuilds Normalization Notify NUNIT OAuth Object
+Object objectcache ObjectDiagram ObjectOrientationConcepts ObjectOrientedDesign OldGeneration one-to-many one-to-one OpenClosePrinciple OpenSourceComponents
+OpenJDK Operations on Collections ORB orbd orbd orderby orderbyclause OrderedCollection ORM ORM orm orminheritance OutOfMemoryError
+OutOfMemoryError PaaS package PackageCohesionPrinciple PackageCouplingPrinciple PackageDiagram pagespeed ParallelGC ParameterizedTest
+Parameters Parameters Parameters PassByReference PassByReference PassByValue Patch PayPerUse Peek Peek Peek pendinglatency PerfectHashFunction
+PermanentGeneration PermGenSpace PermGenSpace persistentobjects PHP PHP PHP phpruntime PipesandFilter plugins Pointer Policytool
+	Polylogarithmic
+	polymorphic queries
+	Polymorphism
+	Polymorphism
+	Polynomial
+	POM
+	POM
+	Pop
+	Pop
+	Pop
+	prepare
+	Primitive Types
+	Primitive Types
+	Primitive Types
+	Priority Queue
+	Private
+	Programming in Java
+	Programming Language
+	Programming Paradigm
+	project dependencies
+	Project Object Model
+	project version
+	Prolog
+	Properties
+	Property Graph
+	Protected
+	Provided Dependency
+	Provisioning
+	Proxy
+	Pub Sub
+	Public
+	Publisher
+	Push
+	Push
+	Push
+	Python
+	Python
+	Python
+	python runtime
+	Quadratic
+	Quadratic Probing
+	Quality Engineering
+	query
+	query cache
+	Queue
+	Queue
+	Quick Sort
+	Quota
+	quotas and limits
+	Race Condition
+	Rackspace
+	Radix Tree
+	Realization
+	Receiver
+	Refactoring
+	Reference
+	Regression Testing
+	Regression Testing
+	Relationships
+	Release Management
+	releases
+	remote
+	remote git repository
+	Remote Interface
+	Remote Object Registry
+	Remote Procedure Call
+	Remove
+	Reporting
+	Repository
+	REST
+	Return
+	Reuse/Release Equivalence
+	Rhino
+	Rhino
+	RMI
+	RMI Daemon
+	RMI Tools
+	Rmic
+	Rmic
+	Rmic
+	Rmid
+	Rmid
+	Rmiregistry
+	rollback
+	rollback
+	rovio
+	row value constructor
+	Ruby
+	Ruby
+	Ruby
+	Runnable
+	Runnable State
+	SaaS
+	safety limits
+	Salesforce.com
+	Salesforce.com
+	Sar
+	Sar
+	Scala
+	Scala
+	Scale Out
+	Scale Up
+	Scheduled Thread Pool
+	Schema Generator
+	Schema Generator
+	Schemagen
+	Schemagen
+	schemaless datastore
+	Scheme
+	SCM
+	Scrum
+	SDLC
+	Search
+	Search Algorithms
+	Security
+	Security Certificate
+	Select
+	Selection Sort
+	Self Balancing Binary Search Tree
+	Self Service Provisioning
+	Semaphore
+	Sender
+	Sequence Diagram
+	sequence generator
+	Sequences
+	Serial GC
+	Serializable
+	Serialization
+	Serialver
+	Serialver
+	SerialVersionUID
+	servertool
+	servertool
+	servertool
+	Servlet
+	Servlet
+	Servlet Container
+	Session Beans
+	session close
+	Session Facade Design Pattern
+	Session Facade Design Pattern
+	session flush
+	session in view
+	session open
+	Set
+	set collection
+	Shared Memory
+	show_sql
+	shutdown
+	Simplicity
+	Single Dimensional Array
+	Single Responsibility
+	single table inheritance
+	Single Thread Executor
+	Singleton
+	site
+	site-deploy
+	Skeleton Class
+	snapchat
+	SOA
+	SOAP
+	Soft Reference
+	Software Bug
+	Software Development
+	Software Engineering
+	Software Testing
+	SOLID Principle
+	Sort
+	Sort Algorithms
+	Sorted Set
+	Specification
+	Spring Batch
+	Spring Framework
+	Spring Framework
+	Spring Framework
+	Spring JDBC Template
+	Spring MVC
+	SQL
+	SQL Query
+	Stable Abstraction
+	Stable Dependency
+	Stack
+	Stack
+	Stack Trace
+	StackOverflowError
+	Stamp Coupling
+	startup
+	Starvation
+	State
+	Stateful Session Beans
+	Stateless Session Beans
+	Statemachine Diagram
+	Static
+	Static Collection
+	Static Collection
+	Structural Diagram
+	Stubs
+	Subclass
+	subquery
+	Subscriber
+	subversion
+	subversion repository
+	Superclass
+	surefire maven plugin
+	Survivor Generation
+	SVN
+	svn checkout
+	svn client
+	svn tools
+	svnadmin
+	svnlook
+	Synchronization
+	Synchronized
+	Synchronized
+	table generator
+	table per class
+	table per concrete class
+	tags
+	Task Queue
+	task queue
+	Tcl
+	Tenured Generation
+	Terminated
+	test
+	Test Case
+	Test Case Setup
+	Test Case TearDown
+	Test Dependency
+	Test Driven Development
+	Test Driven Development
+	Test NG
+	Test Plan
+	Test Result
+	Test Runner
+	Test Scenario
+	Test Suite
+	Testing
+	Testing
+	Testing Process
+	Third Generation Language
+	Thread
+	Thread
+	Thread Dump
+	Thread Lifecycle
+	Thread Local Storage
+	Thread Operations
+	Thread Pool
+	Thread Priority
+	Thread Safety
+	Timed Waiting
+	Timer Task
+	Timing Diagram
+	Tomcat
+	Topic
+	TopLink
+	traffic splitting
+	Transaction
+	Transaction Isolation Level
+	transactions
+	transient fields
+	transient objects
+	Tree Set
+	Trie
+	Troubleshooting Tools
+	trunk
+	Try Catch
+	Types of Testing
+	UML
+	UML Diagram
+	unidirectional association
+	Unit Test Case
+	Unit Testing
+	Unit Testing
+	Unordered Collection
+	Update
+	update
+	url fetch
+	Use Case Diagram
+	Utility Pricing
+	Vector
+	Version Control
+	Vertical Scaling
+	Virtual Machine
+	Virtualization
+	VMWare
+	Volatile
+	Volatile
+	Wait
+	Waiting
+	War
+	War
+	Waterfall
+	Weak Reference
+	Web App
+	Web Application
+	Web Application Development
+	Web Container
+	Web Container
+	Web Server
+	Web Server
+	Web Service
+	Web Service Tools
+	Web Services
+	Weblogic
+	Websphere
+	White Box Testing
+	Whitebox Testing
+	Windows Azure
+	working copy
+	working copy
+	WSDL
+	WSDL Generator
+	Wsgen
+	Wsgen
+	Wsimport
+	Wsimport
+	Xjc
+	XML
+	XML Binding
+	XML Schema
+	XPath
+	XSD
+	XSL
+	XSLT
+	Yahoo Mail
+	Yield
+	Young Generation
+	Zoho

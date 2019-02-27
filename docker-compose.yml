@@ -1,11 +1,48 @@
 version: "2"
 services:
+
+  mysql:
+    image: mysql:5.7
+    ports:
+      - 3306:3306
+    container_name: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: PlasmaDB
+    #    volumes:
+    #      - '/opt/datasql:/var/lib/mysql'
+    network_mode: host
+
+  mongo:
+    image: mongo:3.4-jessie
+    ports:
+      - 27017:27017
+    container_name: mongo
+    network_mode: host
+
   rabbitmq:
     image: rabbitmq:management
     ports:
       - 15673:15673
       - 5673:5673
     network_mode: host
+
+  neo4j:
+    image: neo4j:3.5
+    container_name: neo4j
+    ports:
+      - 7474:7474
+      - 7687:7687
+    network_mode: host
+    restart: always
+    volumes:
+      - ../neo4j/import:/import
+      - ../neo4j/data:/data
+      - ../neo4j/plugins:/plugins
+    environment:
+      - NEO4J_AUTH=neo4j/Neo4j
+    expose:
+      - 7474
 
   apigateway:
     image: zuul-service
@@ -60,11 +97,11 @@ services:
     depends_on:
       - eurekaserver
       - rabbitmq
+      - mongo
     ports:
       - 8090:8090
     expose:
       - 8090
- 
 
   nlpservice:
     image: nlp-service:latest
@@ -73,6 +110,7 @@ services:
     network_mode: host
     depends_on:
       - eurekaserver
+      - mongo
     ports:
       - 8098:8098
     expose:
@@ -97,6 +135,7 @@ services:
     network_mode: host
     depends_on:
       - eurekaserver
+      - mysql
     ports:
       - 8132:8132
     expose:
@@ -109,6 +148,7 @@ services:
     network_mode: host
     depends_on:
       - eurekaserver
+      - mongo
     ports:
       - 8089:8089
     expose:
@@ -119,15 +159,38 @@ services:
     build: knowledge-indexer-service/
     restart: always
     network_mode: host
+<<<<<<< HEAD
+=======
+    depends_on:
+      - neo4j
+      - eurekaserver
+      - rabbitmq
+      - configserver
     ports:
-      - 8000:8000
+      - 8085:8085
     expose:
-      - 8000
+      - 8085
 
-  Angular-frontend:
-    build: Angular-frontend/
-    image: plasma-front-end
-    container_name: plasma-front-end
+  knowledgequeryservice:
+    image: knowledge-query-service:latest
+    build: knowledge-query-service/
+    restart: always
+    network_mode: host
+    depends_on:
+      - neo4j
+      - eurekaserver
+      - rabbitmq
+      - configserver
+>>>>>>> 6e6e4cc9c1dce1c2374e7516e973c204b1e195dd
+    ports:
+      - 8086:8086
+    expose:
+      - 8086
+
+  plasmafrontend:
+    build: plasma-frontend/
+    image: plasma-frontend:latest
+    container_name: plasma-frontend
     network_mode: "host"
     hostname: localhost
     ports:
@@ -140,8 +203,16 @@ services:
     restart: always
     network_mode: host
     depends_on:
+<<<<<<< HEAD
       - eurekaserver
     ports:
       - 8070:8070
     expose:
       - 8070
+=======
+     - eurekaserver
+    ports:
+     - 8087:8087
+    expose:
+     - 8087
+>>>>>>> 6e6e4cc9c1dce1c2374e7516e973c204b1e195dd

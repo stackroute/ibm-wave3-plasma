@@ -1,6 +1,7 @@
 package com.stackroute.plasma.service;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.stackroute.plasma.domain.SearchOutput;
 import com.stackroute.plasma.domain.Url;
 import org.jsoup.Jsoup;
@@ -19,12 +20,23 @@ import java.util.List;
 
 @Service
 public class DocumentServiceImpl implements DocumentService {
+
     @JsonIgnore
+<<<<<<< HEAD
     String docString;
+=======
+    Document doc;
+    Url url;
+
+    SearchOutput searchOutputt;
+    List<Url> list;
+    ObjectMapper objectMapper = new ObjectMapper();
+>>>>>>> 6e6e4cc9c1dce1c2374e7516e973c204b1e195dd
     public DocumentServiceImpl() {
 
     }
 
+<<<<<<< HEAD
     @Override
     public String getHtml(String singleUrl) throws IOException {
 
@@ -43,3 +55,66 @@ public class DocumentServiceImpl implements DocumentService {
 
 
 
+=======
+    @Autowired
+    RabbitMQSender rabbitMQSender;
+
+   // @Autowired
+//    public DocumentServiceImpl(SearchOutput searchOutput) {
+//        //url=new Url();
+//        this.searchOutput = searchOutput;
+//        searchOutput.setUrls(new String[]{"https://www.youtube.com/watch?v=szYzBC89CPE", "https://beginnersbook.com/2013/03/oops-in-java-encapsulation-inheritance-polymorphism-abstraction/",
+//                "https://www.youtube.com/watch?v=PM47JJe_8xI",
+//                "https://dzone.com/articles/java-encapsulation-for-adults",
+//                "https://howtodoinjava.com/oops/encapsulation-in-java-and-its-relation-with-abstraction/",
+//                "https://www.guru99.com/java-oops-encapsulation.html",
+//                "https://programmingstack.com/java-encapsulation.html",
+//                "https://quizlet.com/177452001/java-encapsulation-flash-cards/",
+//                "https://www.coursehero.com/file/14011464/Java-encapsulation-inheritance-polymorphism/",
+//                "https://quizlet.com/332830793/java-encapsulationscope-quiz-flash-cards/"});
+//        searchOutput.setTimestamp(Timestamp.valueOf(LocalDateTime.of(LocalDate.now(), LocalTime.now())).toString());
+//        searchOutput.setDomain("java");
+//        searchOutput.setConcept("abstraction");
+//    }
+
+
+    @RabbitListener(queues = "${javainuse2.rabbitmq.queue}", containerFactory = "jsaFactory")
+    public void recievedMessage(SearchOutput searchOutput) throws IOException {
+            this.searchOutputt = searchOutput;
+
+
+
+        System.out.println("Recieved Message From RabbitMQ: " + searchOutput.getConcept() +searchOutput.getUrls());
+        System.out.println("check url----------------"+ searchOutputt.getUrls()+"8888888888"+searchOutputt.getConcept());
+       // this.searchOutput = searchOutput;
+//    }
+    }
+
+    @Override
+    public List<Url> getHtml() throws IOException {
+
+        System.out.println("check inside document url----------------"+ searchOutputt.getUrls()+searchOutputt.getConcept());
+        list = new ArrayList<>();
+//        searchOutput.setTimestamp(Timestamp.valueOf(LocalDateTime.of(LocalDate.now(), LocalTime.now())).toString());
+//        searchOutput.setDomain("java");
+//        searchOutput.setConcept("abstraction");
+        for (String urlx : searchOutputt.getUrls()) {
+            url = new Url();
+            //System.out.println("hello");
+           // System.out.println(searchOutput.getUrls());
+
+            Document doc = Jsoup.connect(urlx).get();
+
+            url.setConcept(searchOutputt.getConcept());
+            url.setDomain(searchOutputt.getDomain());
+            url.setUrl(urlx);
+            url.setDoc(doc.toString());
+            url.setTimestamp(Timestamp.valueOf(LocalDateTime.of(LocalDate.now(), LocalTime.now())).toString());
+            rabbitMQSender.send(url);
+            list.add(url);
+        }
+
+        return list;
+    }
+}
+>>>>>>> 6e6e4cc9c1dce1c2374e7516e973c204b1e195dd

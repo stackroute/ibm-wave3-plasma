@@ -6,11 +6,15 @@ import org.neo4j.ogm.annotation.*;
 import java.util.ArrayList;
 import java.util.List;
 
-@RelationshipEntity(type = "CHILD_OF")  //" 'CHILD OF' "
+@RelationshipEntity(type="counterIndicatorOf")
+//@RelationshipEntity
 public class Relationship {
 
     @Id @GeneratedValue
     private long id;
+
+    @Property
+    private int weight;
 
     private List<String> relationship = new ArrayList<>();
 

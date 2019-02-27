@@ -1,5 +1,8 @@
 package com.stackroute.plasma.service;
 
+import com.stackroute.plasma.model.UserQuery;
+import com.stackroute.plasma.repository.NlpRepository;
+import com.stackroute.plasma.viewmodel.QueryPojo;
 import edu.stanford.nlp.ling.CoreLabel;
 import edu.stanford.nlp.pipeline.CoreDocument;
 import edu.stanford.nlp.pipeline.StanfordCoreNLP;
@@ -13,13 +16,21 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
-//import java.util.stream.Collectors;
+
 
 @Service
 public class NlpServiceImpl implements NlpService{
 
+    @Autowired
+    NlpRepository nlpRepository;
+
+    @Override
+    public UserQuery save(UserQuery userQuery) {
+        return nlpRepository.save(userQuery);
+    }
+
     private final static HashSet<String> stopWordSet = new HashSet<>();
-   // List<String> extractedString = new ArrayList<>();
+
     List<String> extractedString;
     @Autowired
     StanfordCoreNLP stanfordCoreNLP;
@@ -33,11 +44,12 @@ public class NlpServiceImpl implements NlpService{
 
     public NlpServiceImpl() {
     }
-    //method for reading csv file
+
+
     public HashSet<String> readStopWordCsvFile() {
 
         try {
-            BufferedReader bufferedReader = new BufferedReader(new FileReader("/home/sunil/Desktop/plasma/ibm-wave3-plasma/nlp-service/src/main/java/com/stackroute/plasma/dictionary/stopwords.csv"));
+            BufferedReader bufferedReader = new BufferedReader(new FileReader("./dictionary/stopwords.csv"));
             String stopWordLine = "";
             stopWordLine = stopWordLine + bufferedReader.readLine() + " ";
             while (bufferedReader.readLine() != null){
@@ -58,6 +70,7 @@ public class NlpServiceImpl implements NlpService{
     }
 
     public List<String> queryConverter(String query) {
+
         extractedString = new ArrayList<>();
         CoreDocument coreDocument = new CoreDocument(query);
         stanfordCoreNLP.annotate(coreDocument);
@@ -66,7 +79,8 @@ public class NlpServiceImpl implements NlpService{
 
         HashSet<String> word;
         word = readStopWordCsvFile();
-        //System.out.println(coreLabels);
+        System.out.println("stopwords check");
+        System.out.println(word);
         for (CoreLabel coreLabel: coreLabels
         ) {
             lemma = coreLabel.lemma();

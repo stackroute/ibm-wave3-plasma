@@ -14,47 +14,11 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class RabbitMQConfig {
 
-    @Value("${javainuse1.rabbitmq.queue}")
-    String queueName1;
-
-    @Value("${javainuse.rabbitmq.exchange}")
-    String exchange;
-
-    @Value("${javainuse1.rabbitmq.routingkey}")
-    private String routingkey1;
-
-    @Bean
-    Queue queue() {
-        return new Queue(queueName1, false);
-    }
-
-    @Bean
-    DirectExchange exchange() {
-        return new DirectExchange(exchange);
-    }
-
-    @Bean
-    Binding binding(Queue queue, DirectExchange exchange) {
-        return BindingBuilder.bind(queue).to(exchange).with(routingkey1);
-    }
-
-    @Bean
-    public MessageConverter producerJsonMessageConverter() {
-        return new Jackson2JsonMessageConverter();
-    }
-
-
-    public AmqpTemplate rabbitTemplate(ConnectionFactory connectionFactory) {
-        final RabbitTemplate rabbitTemplate = new RabbitTemplate(connectionFactory);
-        rabbitTemplate.setMessageConverter(producerJsonMessageConverter());
-        return rabbitTemplate;
-    }
-
-
+    //Receiving message rabbitMQ
     @Bean
     public MessageConverter consumerJsonMessageConverter(){
-        return new Jackson2JsonMessageConverter();
-    }
+    return new Jackson2JsonMessageConverter();
+}
 
     @Bean
     public SimpleRabbitListenerContainerFactory jsaFactory(ConnectionFactory connectionFactory,
@@ -65,4 +29,32 @@ public class RabbitMQConfig {
         factory.setMessageConverter(consumerJsonMessageConverter());
         return factory;
     }
+
+    //Sending message to rabbitMQ
+    @Value("${javainuse1.rabbitmq.queue}")
+    String queueName1;
+
+    @Value("${javainuse.rabbitmq.exchange}")
+    String exchange;
+
+    @Value("${javainuse1.rabbitmq.routingkey}")
+    private String routingkey1;
+
+    @Bean
+    Binding binding(Queue queue, DirectExchange exchange) {
+        return BindingBuilder.bind(queue).to(exchange).with(routingkey1);
+    }
+
+    @Bean
+    public MessageConverter jsonMessageConverter() {
+        return new Jackson2JsonMessageConverter();
+    }
+
+    public RabbitTemplate rabbitTemplate(ConnectionFactory connectionFactory) {
+        final RabbitTemplate rabbitTemplate = new RabbitTemplate(connectionFactory);
+        rabbitTemplate.setMessageConverter(jsonMessageConverter());
+        return rabbitTemplate;
+    }
+
+
 }

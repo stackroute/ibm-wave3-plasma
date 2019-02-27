@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface RelationshipRepository extends Neo4jRepository<Relationship,Long> {
 
-    @Query("MATCH p=()-[r:CHILD_OF]->() RETURN p")
+    @Query("MATCH p=()-[r:counterIndicatorOf]->() RETURN r")
     List<Relationship> getAllRelations();
 
 }

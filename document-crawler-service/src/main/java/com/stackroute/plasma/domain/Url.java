@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 //import java.sql.Timestamp;
 import java.sql.Timestamp;
 
-@NoArgsConstructor
+//@NoArgsConstructor
 @JsonIdentityInfo(generator = ObjectIdGenerators.IntSequenceGenerator.class, property = "@id", scope = Url.class)
 public class Url {
 
@@ -21,9 +21,12 @@ public class Url {
     @JsonProperty("doc")
     private String doc;
     @JsonProperty("timestamp")
-    private Timestamp timestamp;
+    private String timestamp;
 
-    public Url(String url, String concept, String domain, String doc, Timestamp timestamp) {
+    public Url() {
+    }
+
+    public Url(String url, String concept, String domain, String doc, String timestamp) {
         this.url = url;
         this.concept = concept;
         this.domain = domain;
@@ -31,11 +34,11 @@ public class Url {
         this.timestamp = timestamp;
     }
 
-    public Timestamp getTimestamp() {
+    public String getTimestamp() {
         return timestamp;
     }
 
-    public void setTimestamp(Timestamp timestamp) {
+    public void setTimestamp(String timestamp) {
         this.timestamp = timestamp;
     }
 

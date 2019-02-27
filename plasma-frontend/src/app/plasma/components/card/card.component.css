@@ -1,0 +1,61 @@
+.container{
+  display:flex;
+ }
+ .product--blue{
+  box-shadow: 1px 5px 15px #CCC;
+  width: 24.7em;
+  height: 400px;
+  border-radius: 3px;
+  padding: 2em;
+  margin: 1em;
+  overflow: auto;
+  position: relative;
+  flex: auto;
+ }
+ mat-card-header{
+  margin :auto;
+  object-fit: cover; /*this makes de image in src fit to the size of specified below*/
+  width: 67%; 
+  height: 100%;
+ }
+ mat-card-title{
+  position: absolute;font-size: 15px;
+  left: 3px;;
+  top: 10px;
+ }
+ mat-card-actions{
+  position:absolute;
+  bottom: 10px;
+ }
+ .row{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  padding-bottom: 50px;
+  padding-left: 14.5px;
+ }
+ mat-card-action button {
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  color: black;
+  border-radius: 3px;
+  padding: 1em 3em;
+  margin: 1em 0 0 0;
+  background: none;
+  cursor: pointer;
+ }
+ mat-card-action button:hover {
+ background: white;
+   color: #2B2D42;
+ }
+ mat-card-action button:before {
+  font-family: FontAwesome;
+  content: '\f07A';
+  color: #FFF;
+  position: absolute;
+  font-size: 1.5em;
+  margin: 0 -1.5em;
+ }
+ mat-card-action button:hover:before {
+  color: #2B2D42;
+ }
