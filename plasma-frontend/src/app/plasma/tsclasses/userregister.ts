@@ -1,11 +1,11 @@
 export class Userregister {
-
+        id: string;
         name: string;
         dateOfBirth: string;
         gender: string;
-        contact: Number;
+        contact: string;
         emailId: string;
         setPassword: string;
-       // confirmpassword: string;
+        confirmpassword: string;
 
 }

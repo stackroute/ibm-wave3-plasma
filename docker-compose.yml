@@ -7,8 +7,8 @@ services:
       - 3306:3306
     container_name: mysql
     environment:
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: PlasmaDB
+      MYSQL_ROOT_PASSWORD: Root@123
+      MYSQL_DATABASE: plasmaDB
     #    volumes:
     #      - '/opt/datasql:/var/lib/mysql'
     network_mode: host
@@ -192,7 +192,7 @@ services:
     expose:
       - 8086
 
-  plasmafrontend:
+  plasmaFrontend:
     build: plasma-frontend/
     image: plasma-frontend:latest
     container_name: plasma-frontend

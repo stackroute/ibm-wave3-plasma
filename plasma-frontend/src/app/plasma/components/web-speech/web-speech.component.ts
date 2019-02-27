@@ -1,3 +1,4 @@
+import { CardService } from './../../services/card.service';
 
 import { SearchService } from '../../services/search.service';
 
@@ -25,7 +26,8 @@ export class WebSpeechComponent implements OnInit {
     private changeDetector: ChangeDetectorRef,
     private speechRecognizer: SpeechRecognizerService,
     private searchService: SearchService,
-    private router: Router
+    private router: Router,
+    private Cardservice: CardService
   ) { }
 
   ngOnInit() {
@@ -36,6 +38,9 @@ export class WebSpeechComponent implements OnInit {
 
   onClickMe() {
     console.log('transcript valus is ', this.finalTranscript);
+    this.Cardservice.getdoc().subscribe(resp => {
+      console.log('response from call', resp);
+    });
    this.searchService.data(this.finalTranscript).subscribe(data => {
      console.log(data);
    });
