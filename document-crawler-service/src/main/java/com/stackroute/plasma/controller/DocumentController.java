@@ -5,7 +5,7 @@ package com.stackroute.plasma.controller;
 import com.stackroute.plasma.domain.Url;
 import com.stackroute.plasma.service.DocumentService;
 //import com.stackroute.plasma.service.RabbitMQSender;
-import com.stackroute.plasma.service.RabbitMQSender;
+//import com.stackroute.plasma.service.RabbitMQSender;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

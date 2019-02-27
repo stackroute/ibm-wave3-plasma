@@ -31,8 +31,8 @@ public class DocumentServiceImpl implements DocumentService {
 
     }
 
-    @Autowired
-    RabbitMQSender rabbitMQSender;
+//    @Autowired
+//    RabbitMQSender rabbitMQSender;
 
     @Autowired
     public DocumentServiceImpl(SearchOutput searchOutput) {
@@ -82,7 +82,7 @@ public class DocumentServiceImpl implements DocumentService {
             url.setUrl(urlx);
             url.setDoc(doc.toString());
             url.setTimestamp(Timestamp.valueOf(LocalDateTime.of(LocalDate.now(), LocalTime.now())).toString());
-            rabbitMQSender.send(url);
+            //rabbitMQSender.send(url);
             list.add(url);
         }
 
