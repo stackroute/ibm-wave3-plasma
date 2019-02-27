@@ -12,7 +12,7 @@ import org.springframework.context.annotation.Configuration;
 public class RabbitMQConfig {
 
     @Bean
-    public MessageConverter jsonMessageConverter(){
+    public MessageConverter consumerJsonMessageConverter(){
         return new Jackson2JsonMessageConverter();
     }
 
@@ -22,7 +22,7 @@ public class RabbitMQConfig {
         SimpleRabbitListenerContainerFactory factory =
                 new SimpleRabbitListenerContainerFactory();
         configurer.configure(factory, connectionFactory);
-        factory.setMessageConverter(jsonMessageConverter());
+        factory.setMessageConverter(consumerJsonMessageConverter());
         return factory;
     }
 

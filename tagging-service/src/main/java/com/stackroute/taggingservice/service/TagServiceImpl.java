@@ -49,7 +49,7 @@ public class TagServiceImpl implements TagService {
 
     public ArrayList<String> readIntentFile() {
         try {
-            BufferedReader bufferedReader = new BufferedReader(new FileReader("/home/sunil/Desktop/plasma/v1.0.1/ibm-wave3-plasma/tagging-service/src/main/java/com/stackroute/taggingservice/dictionary/intent.csv"));
+            BufferedReader bufferedReader = new BufferedReader(new FileReader("./dictionary/intent.csv"));
             String intent_word = "";
             try {
                 intent_word = intent_word + bufferedReader.readLine() + "";
@@ -72,7 +72,7 @@ public class TagServiceImpl implements TagService {
 
     public List<String> readBasicFile() {
         try {
-            BufferedReader bufferedReader = new BufferedReader(new FileReader("/home/sunil/Desktop/plasma/v1.0.1/ibm-wave3-plasma/tagging-service/src/main/java/com/stackroute/taggingservice/dictionary/basic.csv"));
+            BufferedReader bufferedReader = new BufferedReader(new FileReader("./dictionary/basic.csv"));
             String basic_word = "";
             try {
                 basic_word = basic_word + bufferedReader.readLine() + "";
@@ -95,7 +95,7 @@ public class TagServiceImpl implements TagService {
 
     public List<String> readTutorialFile() {
         try {
-            BufferedReader bufferedReader = new BufferedReader(new FileReader("/home/sunil/Desktop/plasma/v1.0.1/ibm-wave3-plasma/tagging-service/src/main/java/com/stackroute/taggingservice/dictionary/tutorials.csv"));
+            BufferedReader bufferedReader = new BufferedReader(new FileReader("./dictionary/tutorials.csv"));
             String tutorial_word = "";
             try {
                 tutorial_word = tutorial_word + bufferedReader.readLine() + "";
@@ -118,7 +118,7 @@ public class TagServiceImpl implements TagService {
 
     public List<String> readReferenceFile() {
         try {
-            BufferedReader bufferedReader = new BufferedReader(new FileReader("/home/sunil/Desktop/plasma/v1.0.1/ibm-wave3-plasma/tagging-service/src/main/java/com/stackroute/taggingservice/dictionary/reference.csv"));
+            BufferedReader bufferedReader = new BufferedReader(new FileReader("./dictionary/reference.csv"));
             String reference_word = "";
             try {
                 reference_word = reference_word + bufferedReader.readLine() + "";
@@ -141,7 +141,7 @@ public class TagServiceImpl implements TagService {
 
     public ArrayList<String> readConceptFile() {
         try {
-            BufferedReader bufferedReader = new BufferedReader(new FileReader("/home/sunil/Desktop/plasma/v1.0.1/ibm-wave3-plasma/tagging-service/src/main/java/com/stackroute/taggingservice/dictionary/concept.csv"));
+            BufferedReader bufferedReader = new BufferedReader(new FileReader("./dictionary/concept.csv"));
             String concept_word = "";
             try {
                 concept_word = concept_word + bufferedReader.readLine() + "";
@@ -164,7 +164,7 @@ public class TagServiceImpl implements TagService {
 
     public List<String> readTroubleShootingFile() {
         try {
-            BufferedReader bufferedReader = new BufferedReader(new FileReader("/home/sunil/Desktop/plasma/v1.0.1/ibm-wave3-plasma/tagging-service/src/main/java/com/stackroute/taggingservice/dictionary/trouleshooting.csv"));
+            BufferedReader bufferedReader = new BufferedReader(new FileReader("./dictionary/trouleshooting.csv"));
             String trouble_word = "";
             try {
                 trouble_word = trouble_word + bufferedReader.readLine() + "";
@@ -188,7 +188,7 @@ public class TagServiceImpl implements TagService {
 
     public List<String> readGettingStartedFile() {
         try {
-            BufferedReader bufferedReader = new BufferedReader(new FileReader("/home/sunil/Desktop/plasma/v1.0.1/ibm-wave3-plasma/tagging-service/src/main/java/com/stackroute/taggingservice/dictionary/gettingstarted.csv"));
+            BufferedReader bufferedReader = new BufferedReader(new FileReader("./dictionary/gettingstarted.csv"));
             String started_word = "";
             try {
                 started_word = started_word + bufferedReader.readLine() + "";
@@ -211,7 +211,7 @@ public class TagServiceImpl implements TagService {
 
     public List<String> readExampleFile() {
         try {
-            BufferedReader bufferedReader = new BufferedReader(new FileReader("/home/sunil/Desktop/plasma/v1.0.1/ibm-wave3-plasma/tagging-service/src/main/java/com/stackroute/taggingservice/dictionary/example.csv"));
+            BufferedReader bufferedReader = new BufferedReader(new FileReader("./dictionary/example.csv"));
             String example_word = "";
             try {
                 example_word = example_word + bufferedReader.readLine() + "";

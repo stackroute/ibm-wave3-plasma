@@ -1,6 +1,9 @@
-package com.stackroute.plasma.config;
+package com.stackroute.taggingservice.config;
 
-import org.springframework.amqp.core.*;
+import org.springframework.amqp.core.Binding;
+import org.springframework.amqp.core.BindingBuilder;
+import org.springframework.amqp.core.DirectExchange;
+import org.springframework.amqp.core.Queue;
 import org.springframework.amqp.rabbit.config.SimpleRabbitListenerContainerFactory;
 import org.springframework.amqp.rabbit.connection.ConnectionFactory;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
@@ -31,18 +34,18 @@ public class RabbitMQConfig {
     }
 
     //Sending message to rabbitMQ
-    @Value("${javainuse1.rabbitmq.queue}")
-    String queueName1;
+    @Value("${javainuse5.rabbitmq.queue}")
+    String queueName5;
 
     @Value("${javainuse.rabbitmq.exchange}")
     String exchange;
 
-    @Value("${javainuse1.rabbitmq.routingkey}")
-    private String routingkey1;
+    @Value("${javainuse5.rabbitmq.routingkey}")
+    private String routingkey5;
 
     @Bean
     Binding binding(Queue queue, DirectExchange exchange) {
-        return BindingBuilder.bind(queue).to(exchange).with(routingkey1);
+        return BindingBuilder.bind(queue).to(exchange).with(routingkey5);
     }
 
     @Bean

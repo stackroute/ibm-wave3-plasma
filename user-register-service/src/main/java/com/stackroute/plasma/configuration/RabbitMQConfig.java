@@ -1,6 +1,9 @@
-package com.stackroute.plasma.config;
+package com.stackroute.plasma.configuration;
 
-import org.springframework.amqp.core.*;
+import org.springframework.amqp.core.Binding;
+import org.springframework.amqp.core.BindingBuilder;
+import org.springframework.amqp.core.DirectExchange;
+import org.springframework.amqp.core.Queue;
 import org.springframework.amqp.rabbit.config.SimpleRabbitListenerContainerFactory;
 import org.springframework.amqp.rabbit.connection.ConnectionFactory;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
@@ -14,35 +17,20 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class RabbitMQConfig {
 
-    //Receiving message rabbitMQ
-    @Bean
-    public MessageConverter consumerJsonMessageConverter(){
-    return new Jackson2JsonMessageConverter();
-}
-
-    @Bean
-    public SimpleRabbitListenerContainerFactory jsaFactory(ConnectionFactory connectionFactory,
-                                                           SimpleRabbitListenerContainerFactoryConfigurer configurer) {
-        SimpleRabbitListenerContainerFactory factory =
-                new SimpleRabbitListenerContainerFactory();
-        configurer.configure(factory, connectionFactory);
-        factory.setMessageConverter(consumerJsonMessageConverter());
-        return factory;
-    }
 
     //Sending message to rabbitMQ
-    @Value("${javainuse1.rabbitmq.queue}")
-    String queueName1;
+    @Value("${javainuse3.rabbitmq.queue}")
+    String queueName3;
 
     @Value("${javainuse.rabbitmq.exchange}")
     String exchange;
 
-    @Value("${javainuse1.rabbitmq.routingkey}")
-    private String routingkey1;
+    @Value("${javainuse3.rabbitmq.routingkey}")
+    private String routingkey3;
 
     @Bean
     Binding binding(Queue queue, DirectExchange exchange) {
-        return BindingBuilder.bind(queue).to(exchange).with(routingkey1);
+        return BindingBuilder.bind(queue).to(exchange).with(routingkey3);
     }
 
     @Bean
