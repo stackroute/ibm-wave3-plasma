@@ -10,14 +10,15 @@
 
   mat-toolbar
   {
-    width:55%;
-    margin-top: 10%;
+    width:50%;
+    /* margin-top: 10%; */
    
     
   }
 section
   {
-    padding-left:300px;
+    padding-left:250px;
+
   
   }
 

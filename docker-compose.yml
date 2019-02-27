@@ -44,9 +44,9 @@ services:
     network_mode: host
     restart: always
     volumes:
-      - ../neo4j/import:/import
-      - ../neo4j/data:/data
-      - ../neo4j/plugins:/plugins
+      - ./neo4j/import:/import
+      - ./neo4j/data:/data
+      - ./neo4j/plugins:/plugins
     environment:
       - NEO4J_AUTH=neo4j/Neo4j
     expose:
@@ -58,11 +58,11 @@ services:
     restart: always
     network_mode: host
     depends_on:
-    - eurekaserver
+      - eurekaserver
     ports:
-    - 8092:8092
+      - 8092:8092
     expose:
-    - 8092
+      - 8092
 
   eurekaserver:
     image: eureka-service:latest
@@ -70,9 +70,9 @@ services:
     restart: always
     network_mode: host
     ports:
-    - 9091:9091
+      - 9091:9091
     expose:
-    - 9091
+      - 9091
 
   configserver:
       image: config-service:latest
@@ -80,9 +80,9 @@ services:
       restart: always
       network_mode: host
       ports:
-      - 8888:8888
+        - 8888:8888
       expose:
-      - 8888
+        - 8888
  
   documentcrawler:
     image: document-crawler-service:latest

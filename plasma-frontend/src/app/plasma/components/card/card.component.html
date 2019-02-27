@@ -1,33 +1,19 @@
-<!-- <p>
-  card works!
-</p> -->
-<section class="container">
-<mat-card class="example-card">
-  <mat-card-header>
-    <!-- <div mat-card-avatar class="example-header-image"></div> -->
-    <mat-card-title>Domain</mat-card-title>
-    <mat-card-subtitle>concept</mat-card-subtitle>
+<div class="row" fxLayout.xs="column">
+  <div fxLayout="" fxLayoutGap="32px" fxLayoutAlign="flex-start" *ngFor='let o of products'>
+      <div fxFlex="20%">
+  <mat-card class='product--blue'>
+    <mat-card-header>
+        <img mat-card-image src="{{o.Image_URL}}" alt="{{o.Brand}}">
+        <mat-card-title>
+            <p>{{o.Brand}}</p>
+        </mat-card-title>
+        <mat-card-actions align="center">
+            <button mat-raised-button (click)="buy()">Buy</button>
+           <button mat-raised-button (click)="openDialog(o)">Details</button>
+              <button mat-raised-button (click)="AddToCart(o)">AddToCart</button>
+        </mat-card-actions>
   </mat-card-header>
-   <img mat-card-image src="./assets/one.jpg" alt="plain image">
-</mat-card> 
-
-
-<mat-card class="example-card1">
-  <mat-card-header>
-    <!-- <div mat-card-avatar class="example-header-image"></div> -->
-    <mat-card-title>Domain</mat-card-title>
-    <mat-card-subtitle>CONCEPT</mat-card-subtitle>
-  </mat-card-header>
-    <img mat-card-image src="./assets/one.jpg" alt="plane image"> 
-</mat-card>
-
-
-<mat-card class="example-card2">
-  <mat-card-header>
-    <!-- <div mat-card-avatar class="example-header-image"></div> -->
-    <mat-card-title>Domain</mat-card-title>
-    <mat-card-subtitle>CONCEPT</mat-card-subtitle>
-  </mat-card-header>
-    <img mat-card-image src="./assets/one.jpg" alt="plane image"> 
-</mat-card>
-</section>
+ </mat-card>
+ </div>
+  </div>
+ </div>

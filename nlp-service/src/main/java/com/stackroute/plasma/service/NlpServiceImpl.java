@@ -1,5 +1,6 @@
 package com.stackroute.plasma.service;
 
+import com.stackroute.plasma.model.NlpModel;
 import com.stackroute.plasma.model.UserQuery;
 import com.stackroute.plasma.repository.NlpRepository;
 import com.stackroute.plasma.viewmodel.QueryPojo;
@@ -24,13 +25,14 @@ public class NlpServiceImpl implements NlpService{
     @Autowired
     NlpRepository nlpRepository;
 
+    RabbitMQSender rabbitMQSender;
     @Override
     public UserQuery save(UserQuery userQuery) {
         return nlpRepository.save(userQuery);
     }
 
     private final static HashSet<String> stopWordSet = new HashSet<>();
-
+    NlpModel nlpModel = new NlpModel();
     List<String> extractedString;
     @Autowired
     StanfordCoreNLP stanfordCoreNLP;
@@ -85,9 +87,12 @@ public class NlpServiceImpl implements NlpService{
         ) {
             lemma = coreLabel.lemma();
             if (!(word.contains(lemma))) {
+                //rabbitMQSender.sender();
                 extractedString.add(lemma);
             }
         }
+        NlpModel nlpModel = new NlpModel(extractedString);
+        rabbitMQSender.sender(nlpModel);
         return extractedString;
     }
 }

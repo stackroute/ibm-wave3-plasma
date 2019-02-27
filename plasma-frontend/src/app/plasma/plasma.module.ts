@@ -1,3 +1,4 @@
+import { FooterComponent } from './components/footer/footer.component';
 import { CardComponent } from './components/card/card.component';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -18,20 +19,19 @@ import { NgModule } from '@angular/core';
 
 @NgModule({
   declarations: [
-
     HeaderComponent,
-
     WebSpeechComponent,
-    UserregistrationComponent
+    DomainExpertComponent,
+    UserregistrationComponent,
+    FooterComponent,
+    CardComponent
     ],
   imports: [
    BrowserModule,
-
    BrowserAnimationsModule,
    AppRoutingModule,
    FormsModule,
    HttpClientModule,
-
    CommonModule,
    PlasmaMaterialModule,
 
@@ -42,7 +42,8 @@ import { NgModule } from '@angular/core';
     WebSpeechComponent,
     DomainExpertComponent,
     UserLoginComponent,
-    CardComponent
+    CardComponent,
+    FooterComponent
   ]
 })
 export class PlasmaModule { }

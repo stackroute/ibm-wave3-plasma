@@ -1,5 +1,5 @@
 
-
+<app-header></app-header>
 
   <section> 
   <figure>
@@ -16,12 +16,18 @@
   
   
   <div class="search">
-  <input  style="width: 200px; height: 30px;" value={{finalTranscript}}  type="search" placeholder="Search" aria-label="Search">
-  
+  <!-- <input  style="width: 300px; height: 40px;" value={{finalTranscript}}  type="search" placeholder="Search" aria-label="Search">
+   -->
+    <mat-form-field >
+      <input matInput  value={{finalTranscript}} type="search"  placeholder="Search here" aria-label="Search">
+      
+    </mat-form-field>
+
   </div>
   <div class="go">
 
-    <button class="go1" mat-mini-fab (click)="onClickMe()" >GO</button>
+    <button class="go1" mat-mini-fab (click)="onClickMe()" routerLink = 'card' >GO</button>
+  
 
   </div>
 
@@ -30,7 +36,7 @@
     </div>
   </section>
   
-
+  
 
 
 
