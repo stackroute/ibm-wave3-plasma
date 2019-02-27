@@ -61,11 +61,10 @@
 //
 //    @Test
 //    public void getContent() throws Exception {
-<<<<<<< HEAD
+
 //        when(documentService.getHtml()).thenReturn(Collections.singletonList(url));
-=======
 //        when(documentService.getHtml()).thenReturn(Collections.singletonList((url)));
->>>>>>> 6e6e4cc9c1dce1c2374e7516e973c204b1e195dd
+
 //        mockMvc.perform(MockMvcRequestBuilders.get("/api/v1/doc")
 //                .contentType(MediaType.APPLICATION_JSON).content(asJsonString(url)))
 //                .andExpect(MockMvcResultMatchers.status().isOk())
