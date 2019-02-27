@@ -25,9 +25,9 @@ public class DocumentServiceImpl implements DocumentService {
     Document doc;
     Url url;
 
-    SearchOutput searchOutput;
+    SearchOutput searchOutputt;
     List<Url> list;
-
+    ObjectMapper objectMapper = new ObjectMapper();
     public DocumentServiceImpl() {
 
     }
@@ -54,12 +54,13 @@ public class DocumentServiceImpl implements DocumentService {
 //    }
 
 
-    @RabbitListener(queues = "${javainuse2.rabbitmq.queue}")
+    @RabbitListener(queues = "${javainuse2.rabbitmq.queue}", containerFactory = "jsaFactory")
     public void recievedMessage(SearchOutput searchOutput) throws IOException {
+            this.searchOutputt = searchOutput;
 
 
 
-        System.out.println("Recieved Message From RabbitMQ: " + searchOutput.toString());
+        System.out.println("Recieved Message From RabbitMQ: " + searchOutput.getConcept());
        // this.searchOutput = searchOutput;
 //    }
     }
@@ -72,15 +73,15 @@ public class DocumentServiceImpl implements DocumentService {
 //        searchOutput.setTimestamp(Timestamp.valueOf(LocalDateTime.of(LocalDate.now(), LocalTime.now())).toString());
 //        searchOutput.setDomain("java");
 //        searchOutput.setConcept("abstraction");
-        for (String urlx : searchOutput.getUrls()) {
+        for (String urlx : searchOutputt.getUrls()) {
             url = new Url();
             //System.out.println("hello");
            // System.out.println(searchOutput.getUrls());
 
             Document doc = Jsoup.connect(urlx).get();
 
-            url.setConcept(searchOutput.getConcept());
-            url.setDomain(searchOutput.getDomain());
+            url.setConcept(searchOutputt.getConcept());
+            url.setDomain(searchOutputt.getDomain());
             url.setUrl(urlx);
             url.setDoc(doc.toString());
             url.setTimestamp(Timestamp.valueOf(LocalDateTime.of(LocalDate.now(), LocalTime.now())).toString());
