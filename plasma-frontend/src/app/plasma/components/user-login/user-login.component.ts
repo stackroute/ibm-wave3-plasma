@@ -33,7 +33,6 @@ private password: string;
     console.log(this.value);
     this.loginService.login(this.user).subscribe(res => {
       console.log('Res: ', res);
-
        },
        err => {
         const errorStatus = err;

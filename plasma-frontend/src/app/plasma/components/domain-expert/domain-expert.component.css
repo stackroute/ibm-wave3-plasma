@@ -9,9 +9,13 @@
 }
 
 section{
-  margin-left: 350px;
+  margin-left: 600px;
 }
 
 mat-toolbar{
-  width:60%;
+  margin-top: 10%;
+  width:53%;
+}
+button{
+  margin-left: 240px;
 }
