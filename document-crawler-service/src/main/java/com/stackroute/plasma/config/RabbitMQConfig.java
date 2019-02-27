@@ -56,9 +56,22 @@ public class RabbitMQConfig {
         return rabbitTemplate;
     }
 
+    //for receiver
+    @Bean
+    public MessageConverter consumerJsonMessageConverter(){
+        return new Jackson2JsonMessageConverter();
+    }
 
-
-
+    @Bean
+    public SimpleRabbitListenerContainerFactory jsaFactory(ConnectionFactory connectionFactory,
+                                                           SimpleRabbitListenerContainerFactoryConfigurer configurer) {
+        SimpleRabbitListenerContainerFactory factory =
+                new SimpleRabbitListenerContainerFactory();
+        configurer.configure(factory, connectionFactory);
+        factory.setMessageConverter(consumerJsonMessageConverter());
+        return factory;
+    }
+}
 
 
 //    @Bean
@@ -98,22 +111,6 @@ public class RabbitMQConfig {
 //        return classMapper;
 //    }
 
-
-    @Bean
-    public MessageConverter consumerJsonMessageConverter(){
-        return new Jackson2JsonMessageConverter();
-    }
-
-    @Bean
-    public SimpleRabbitListenerContainerFactory jsaFactory(ConnectionFactory connectionFactory,
-                                                           SimpleRabbitListenerContainerFactoryConfigurer configurer) {
-        SimpleRabbitListenerContainerFactory factory =
-                new SimpleRabbitListenerContainerFactory();
-        configurer.configure(factory, connectionFactory);
-        factory.setMessageConverter(consumerJsonMessageConverter());
-        return factory;
-    }
-
 //    @Bean
 //    public SimpleRabbitListenerContainerFactory jsaFactory(ConnectionFactory connectionFactory,
 //                                                           SimpleRabbitListenerContainerFactoryConfigurer configurer) {
@@ -122,6 +119,6 @@ public class RabbitMQConfig {
 //        configurer.configure(factory, connectionFactory);
 //        factory.setMessageConverter(jsonMessageConverter());
 //        return factory;
-}
+
 
 
