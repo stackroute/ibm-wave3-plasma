@@ -1,8 +1,9 @@
 package com.stackroute.plasma.model;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class NlpModel {
+public class NlpModel implements Serializable {
     List<String> tokenized_lematized ;
 
     public List<String> getTokenized_lematized() {

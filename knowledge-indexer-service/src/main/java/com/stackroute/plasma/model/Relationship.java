@@ -11,9 +11,9 @@ public class Relationship {
     @Property
     private long confidenceScore;
 
-    @StartNode
+   /* @StartNode
     private Description description;
     @EndNode
-    private Concept concept;
+    private Concept concept;*/
 
 }

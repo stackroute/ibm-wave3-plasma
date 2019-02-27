@@ -19,7 +19,7 @@ public class RabbitMQSender {
 
     // String kafkaTopic = "java_in_use_topic";
 
-    public void sender(List<String> nlpModel) {
+    public void sender(NlpModel nlpModel) {
 //        ObjectMapper mapper = new ObjectMapper();
 //        String json = mapper.writeValueAsString(searchOutput);
 //        System.out.println(json);
