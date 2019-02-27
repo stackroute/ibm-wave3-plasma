@@ -47,6 +47,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
+<<<<<<< HEAD
   declarations: [
     AppComponent,
   ],
@@ -67,5 +68,26 @@ import { HttpClientModule } from '@angular/common/http';
     AppComponent
   ]
 >>>>>>> 7ea6108266fc9dffab5225da806139e40eb1bb6e
+=======
+declarations: [
+  AppComponent,
+],
+imports: [
+  BrowserModule,
+  BrowserAnimationsModule,
+  AppRoutingModule,
+  FormsModule,
+  HttpClientModule,
+  PlasmaMaterialModule,
+  RouterModule,
+  ReactiveFormsModule,
+  PlasmaModule
+
+],
+providers: [UserLoginService, CardService],
+bootstrap: [
+  AppComponent
+]
+>>>>>>> fc029eb33221f190f8ddc763ee9d6bbcce5647b9
 })
 export class AppModule { }

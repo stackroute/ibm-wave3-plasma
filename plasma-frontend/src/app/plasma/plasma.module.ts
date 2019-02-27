@@ -53,6 +53,36 @@ import { NgModule } from '@angular/core';
 
 
 @NgModule({
+<<<<<<< HEAD
+ declarations: [
+   HeaderComponent,
+   DomainExpertComponent,
+   UserregistrationComponent,
+   FooterComponent,
+   CardComponent,
+   UserLoginComponent
+   ],
+ imports: [
+  BrowserModule,
+  BrowserAnimationsModule,
+  AppRoutingModule,
+  FormsModule,
+  HttpClientModule,
+  CommonModule,
+  PlasmaMaterialModule,
+  WebSpeechModule
+
+ ],
+ providers: [UserLoginService],
+ exports: [
+   HeaderComponent,
+   DomainExpertComponent,
+   UserLoginComponent,
+   CardComponent,
+   FooterComponent,
+   UserregistrationComponent
+ ]
+=======
   declarations: [
     HeaderComponent,
     DomainExpertComponent,
