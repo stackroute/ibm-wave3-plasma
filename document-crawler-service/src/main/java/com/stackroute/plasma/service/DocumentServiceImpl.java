@@ -60,7 +60,8 @@ public class DocumentServiceImpl implements DocumentService {
 
 
 
-        System.out.println("Recieved Message From RabbitMQ: " + searchOutput.getConcept());
+        System.out.println("Recieved Message From RabbitMQ: " + searchOutput.getConcept() +searchOutput.getUrls());
+        System.out.println("check url----------------"+ searchOutputt.getUrls()+"8888888888"+searchOutputt.getConcept());
        // this.searchOutput = searchOutput;
 //    }
     }
@@ -68,7 +69,7 @@ public class DocumentServiceImpl implements DocumentService {
     @Override
     public List<Url> getHtml() throws IOException {
 
-
+        System.out.println("check inside document url----------------"+ searchOutputt.getUrls()+searchOutputt.getConcept());
         list = new ArrayList<>();
 //        searchOutput.setTimestamp(Timestamp.valueOf(LocalDateTime.of(LocalDate.now(), LocalTime.now())).toString());
 //        searchOutput.setDomain("java");
