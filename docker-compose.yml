@@ -90,6 +90,7 @@ services:
     depends_on:
       - eurekaserver
       - rabbitmq
+      - mongodb
     ports:
       - 8090:8090
     expose:
@@ -102,6 +103,7 @@ services:
     network_mode: host
     depends_on:
       - eurekaserver
+      - mongodb:latest
     ports:
       - 8098:8098
     expose:
@@ -128,9 +130,9 @@ services:
       - eurekaserver
       - mysql
     ports:
-      - 8133:8133
+      - 8132:8132
     expose:
-      - 8133
+      - 8132
 
   userregisterservice:
     image: user-register-service:latest
@@ -139,6 +141,7 @@ services:
     network_mode: host
     depends_on:
       - eurekaserver
+      - mongodb:latest
     ports:
       - 8089:8089
     expose:
@@ -192,6 +195,6 @@ services:
     depends_on:
      - eurekaserver
     ports:
-     - 8070:8070
+     - 8087:8087
     expose:
-     - 8070
+     - 8087

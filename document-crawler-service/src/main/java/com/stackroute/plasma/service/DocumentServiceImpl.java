@@ -20,6 +20,7 @@ import java.util.List;
 
 @Service
 public class DocumentServiceImpl implements DocumentService {
+
     @JsonIgnore
     Document doc;
     Url url;
@@ -34,46 +35,47 @@ public class DocumentServiceImpl implements DocumentService {
     @Autowired
     RabbitMQSender rabbitMQSender;
 
-    @Autowired
-    public DocumentServiceImpl(SearchOutput searchOutput) {
-        //url=new Url();
-        this.searchOutput = searchOutput;
-        searchOutput.setUrls(new String[]{"https://www.youtube.com/watch?v=szYzBC89CPE", "https://beginnersbook.com/2013/03/oops-in-java-encapsulation-inheritance-polymorphism-abstraction/",
-                "https://www.youtube.com/watch?v=PM47JJe_8xI",
-                "https://dzone.com/articles/java-encapsulation-for-adults",
-                "https://howtodoinjava.com/oops/encapsulation-in-java-and-its-relation-with-abstraction/",
-                "https://www.guru99.com/java-oops-encapsulation.html",
-                "https://programmingstack.com/java-encapsulation.html",
-                "https://quizlet.com/177452001/java-encapsulation-flash-cards/",
-                "https://www.coursehero.com/file/14011464/Java-encapsulation-inheritance-polymorphism/",
-                "https://quizlet.com/332830793/java-encapsulationscope-quiz-flash-cards/"});
-        searchOutput.setTimestamp(Timestamp.valueOf(LocalDateTime.of(LocalDate.now(), LocalTime.now())).toString());
-        searchOutput.setDomain("java");
-        searchOutput.setConcept("abstraction");
-    }
+   // @Autowired
+//    public DocumentServiceImpl(SearchOutput searchOutput) {
+//        //url=new Url();
+//        this.searchOutput = searchOutput;
+//        searchOutput.setUrls(new String[]{"https://www.youtube.com/watch?v=szYzBC89CPE", "https://beginnersbook.com/2013/03/oops-in-java-encapsulation-inheritance-polymorphism-abstraction/",
+//                "https://www.youtube.com/watch?v=PM47JJe_8xI",
+//                "https://dzone.com/articles/java-encapsulation-for-adults",
+//                "https://howtodoinjava.com/oops/encapsulation-in-java-and-its-relation-with-abstraction/",
+//                "https://www.guru99.com/java-oops-encapsulation.html",
+//                "https://programmingstack.com/java-encapsulation.html",
+//                "https://quizlet.com/177452001/java-encapsulation-flash-cards/",
+//                "https://www.coursehero.com/file/14011464/Java-encapsulation-inheritance-polymorphism/",
+//                "https://quizlet.com/332830793/java-encapsulationscope-quiz-flash-cards/"});
+//        searchOutput.setTimestamp(Timestamp.valueOf(LocalDateTime.of(LocalDate.now(), LocalTime.now())).toString());
+//        searchOutput.setDomain("java");
+//        searchOutput.setConcept("abstraction");
+//    }
 
 
     @RabbitListener(queues = "${javainuse2.rabbitmq.queue}")
     public void recievedMessage(SearchOutput searchOutput) throws IOException {
 
 
+
         System.out.println("Recieved Message From RabbitMQ: " + searchOutput.toString());
        // this.searchOutput = searchOutput;
+//    }
     }
-
 
     @Override
     public List<Url> getHtml() throws IOException {
 
 
         list = new ArrayList<>();
-        searchOutput.setTimestamp(Timestamp.valueOf(LocalDateTime.of(LocalDate.now(), LocalTime.now())).toString());
-        searchOutput.setDomain("java");
-        searchOutput.setConcept("abstraction");
+//        searchOutput.setTimestamp(Timestamp.valueOf(LocalDateTime.of(LocalDate.now(), LocalTime.now())).toString());
+//        searchOutput.setDomain("java");
+//        searchOutput.setConcept("abstraction");
         for (String urlx : searchOutput.getUrls()) {
             url = new Url();
-            System.out.println("hello");
-            System.out.println(searchOutput.getUrls());
+            //System.out.println("hello");
+           // System.out.println(searchOutput.getUrls());
 
             Document doc = Jsoup.connect(urlx).get();
 
@@ -87,8 +89,5 @@ public class DocumentServiceImpl implements DocumentService {
         }
 
         return list;
-
     }
-
-
 }
