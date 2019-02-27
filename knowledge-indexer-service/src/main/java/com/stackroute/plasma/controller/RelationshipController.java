@@ -22,13 +22,13 @@ public class RelationshipController {
     @Autowired
     RabbitMQListener rabbitMQListener;
 
-    @GetMapping("/create")
-    public Relationship create(){
+    @GetMapping("/")
+    public void create(){
         Evaluator evaluator=rabbitMQListener.getEvaluator();
         /*Relationship relationship=new Relationship();
         relationship.setConfidenceScore(evaluator.getConfidenceScore());
         relationship.setLevel(evaluator.getLevel());*/
-        return relationshipService.create(evaluator.getConcept(),evaluator.getConfidenceScore(),evaluator.getLevel());
+        relationshipService.create(evaluator.getConcept(),evaluator.getConfidenceScore(),evaluator.getLevel());
     }
 
     /*

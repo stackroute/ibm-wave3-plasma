@@ -27,7 +27,7 @@ public class DescriptionController {
         System.out.println(evaluator);
     }*/
 
-    @GetMapping("/")
+    @GetMapping("/descr")
     public Description create(){
         Evaluator evaluator=rabbitMQListener.getEvaluator();
         Description description = new Description();
