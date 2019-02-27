@@ -19,8 +19,8 @@ public class RelationshipImpl implements RelationshipService {
     }*/
 
     @Override
-    public Relationship create(String concept, long confidenceScore, String level) {
-        return relationshipRespository.create(concept,confidenceScore, level);
+    public void create(String concept, long confidenceScore, String level) {
+        relationshipRespository.create(concept,confidenceScore,level);
     }
 
     @Override
