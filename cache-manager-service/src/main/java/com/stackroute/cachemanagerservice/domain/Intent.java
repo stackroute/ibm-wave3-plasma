@@ -37,34 +37,60 @@ public class Intent {
     @Property
     private String relation;
 
-    /*@Relationship(type = "counterIndicatorOf", direction = Relationship.INCOMING)
-    private List<Relationship> relationship;*/
+    @Relationship(type = "counterIndicatorOf", direction = Relationship.INCOMING)
+    private List<Relationship> relationship;
 
     public long getId() {
         return Id;
-    }
+    /*@Relationship(type = "counterIndicatorOf", direction = Relationship.INCOMING)
+    private List<Relationship> relationship;*/
 
-    public String getType() {
-        return type;
-    }
-
-    public String getParenttype() {
-        return parenttype;
-    }
-
-    public String getParentid() {
-        return parentid;
-    }
-
-    public String getRelation() {
-        return relation;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public String getWeight() {
-        return weight;
+//    public long getId() {
+//        return Id;
+//    }
+//
+//    public String getType() {
+//        return type;
+//    }
+//
+//    public String getParenttype() {
+//        return parenttype;
+//    }
+//
+//    public String getParentid() {
+//        return parentid;
+//    }
+//
+//    public String getRelation() {
+//        return relation;
+//    }
+//
+//    public String getType() {
+//        return type;
+//    }
+//
+//    public String getParenttype() {
+//        return parenttype;
+//    }
+//
+//    public String getParentid() {
+//        return parentid;
+//    }
+//
+//    public String getRelation() {
+//        return relation;
+//    }
+//
+//    public String getWeight() {
+//        return weight;
+//    }
+//
+//    public String getName() {
+//        return name;
+//    }
+//
+//    public String getWeight() {
+//        return weight;
+//    }
     }
 }
