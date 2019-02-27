@@ -1,10 +1,5 @@
 package com.stackroute.plasma.controller;
-<<<<<<< HEAD
-=======
 
-
-
->>>>>>> 6e6e4cc9c1dce1c2374e7516e973c204b1e195dd
 import com.stackroute.plasma.domain.SearchOutput;
 import com.stackroute.plasma.domain.Url;
 import com.stackroute.plasma.service.DocumentService;
@@ -14,12 +9,7 @@ import com.stackroute.plasma.service.RabbitMQSender;
 
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 
-import com.stackroute.plasma.service.RabbitMQSender;
-<<<<<<< HEAD
-import org.springframework.amqp.rabbit.annotation.RabbitListener;
-=======
 
->>>>>>> 6e6e4cc9c1dce1c2374e7516e973c204b1e195dd
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -38,15 +28,14 @@ public class DocumentController {
     @Autowired
     private DocumentService documentService;
     private ResponseEntity<?> responseEntity;
-<<<<<<< HEAD
+
     String docString;
     @Autowired
     SearchOutput[] searchOutput = new SearchOutput[102];
-=======
+
     private Url url;
 
 
->>>>>>> 6e6e4cc9c1dce1c2374e7516e973c204b1e195dd
     @Autowired
     public DocumentController(DocumentService documentService)
     {
@@ -60,11 +49,9 @@ public class DocumentController {
         this.searchOutput = searchOutput;
     }
 
-<<<<<<< HEAD
-=======
 
 
->>>>>>> 6e6e4cc9c1dce1c2374e7516e973c204b1e195dd
+
     @GetMapping("/doc")
     public ResponseEntity<?> getContent() throws IOException {
         int k=0;
@@ -78,18 +65,17 @@ public class DocumentController {
                 url.setConcept(searchOutput[k].getConcept());
                 url.setDoc(docString);
                 url.setDomain(searchOutput[k].getDomain());
-                url.setTimestamp(Timestamp.valueOf(LocalDateTime.of(LocalDate.now(), LocalTime.now())));
-                //send here the url to rabbit mq
-                rabbitMQSender.send(url);
+//                url.setTimestamp(Timestamp.valueOf(LocalDateTime.of(LocalDate.now(), LocalTime.now())));
+//                //send here the url to rabbit mq
+//                rabbitMQSender.send(url);
             }
         }
 
-<<<<<<< HEAD
-        return new ResponseEntity<>(null,HttpStatus.CREATED);
-=======
-        return new ResponseEntity(documentService.getHtml(), HttpStatus.OK);
 
->>>>>>> 6e6e4cc9c1dce1c2374e7516e973c204b1e195dd
+        return new ResponseEntity<>(null,HttpStatus.CREATED);
+
+
+
     }
 
 }

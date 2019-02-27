@@ -19,21 +19,19 @@ import { NgModule } from '@angular/core';
 
 @NgModule({
   declarations: [
-
     HeaderComponent,
-
     WebSpeechComponent,
+    DomainExpertComponent,
     UserregistrationComponent,
-    FooterComponent
+    FooterComponent,
+    CardComponent
     ],
   imports: [
    BrowserModule,
-
    BrowserAnimationsModule,
    AppRoutingModule,
    FormsModule,
    HttpClientModule,
-
    CommonModule,
    PlasmaMaterialModule,
 
