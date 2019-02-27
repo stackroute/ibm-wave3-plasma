@@ -86,7 +86,6 @@ public class RabbitMQListner implements EvaluatorService{
         eva = new Evaluator();
 
     }
-
     //Receving Message from RabbitMQ
     @RabbitListener(queues = "${javainuse.rabbitmq.queue}", containerFactory = "jsaFactory")
     public void recievedMessage(Url urlx) throws IOException, ParseException {

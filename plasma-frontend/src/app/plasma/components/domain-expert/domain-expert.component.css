@@ -9,17 +9,13 @@
 }
 
 section{
-  margin-left: 350px;
+  margin-left: 550px;
 }
 
 mat-toolbar{
-  width:57%;
-  align-self: center;
-}
-mat-form-field{
-  width:58%;
-  align-self: center;
+
+  width:53%;
 }
 button{
-  margin-left: 90px;
+  margin-left: 240px;
 }

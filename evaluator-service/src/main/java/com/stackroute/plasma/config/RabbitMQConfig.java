@@ -14,8 +14,23 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class RabbitMQConfig {
 
+    //Receiving message rabbitMQ
+    @Bean
+    public MessageConverter consumerJsonMessageConverter(){
+    return new Jackson2JsonMessageConverter();
+}
 
+    @Bean
+    public SimpleRabbitListenerContainerFactory jsaFactory(ConnectionFactory connectionFactory,
+                                                           SimpleRabbitListenerContainerFactoryConfigurer configurer) {
+        SimpleRabbitListenerContainerFactory factory =
+                new SimpleRabbitListenerContainerFactory();
+        configurer.configure(factory, connectionFactory);
+        factory.setMessageConverter(consumerJsonMessageConverter());
+        return factory;
+    }
 
+    //Sending message to rabbitMQ
     @Value("${javainuse1.rabbitmq.queue}")
     String queueName1;
 
@@ -25,26 +40,10 @@ public class RabbitMQConfig {
     @Value("${javainuse1.rabbitmq.routingkey}")
     private String routingkey1;
 
-//Receiving message rabbitMQ
-    @Bean
-    public MessageConverter jsonMessageConverter(){
-        return new Jackson2JsonMessageConverter();
-    }
 
-    @Bean
-    public SimpleRabbitListenerContainerFactory jsaFactory(ConnectionFactory connectionFactory,
-                                                           SimpleRabbitListenerContainerFactoryConfigurer configurer) {
-        SimpleRabbitListenerContainerFactory factory =
-                new SimpleRabbitListenerContainerFactory();
-        configurer.configure(factory, connectionFactory);
-        factory.setMessageConverter(jsonMessageConverter());
-        return factory;
-    }
-
- //Sending message to rabbitMQ
     @Bean
     Queue queue() {
-        return new Queue(queueName1, false);
+        return new Queue(queueName1, true);
     }
 
     @Bean
@@ -52,23 +51,22 @@ public class RabbitMQConfig {
         return new DirectExchange(exchange);
     }
 
+
     @Bean
     Binding binding(Queue queue, DirectExchange exchange) {
         return BindingBuilder.bind(queue).to(exchange).with(routingkey1);
     }
 
     @Bean
-    public MessageConverter producerJsonMessageConverter() {
+    public MessageConverter jsonMessageConverter() {
         return new Jackson2JsonMessageConverter();
     }
 
-
     public RabbitTemplate rabbitTemplate(ConnectionFactory connectionFactory) {
         final RabbitTemplate rabbitTemplate = new RabbitTemplate(connectionFactory);
-        rabbitTemplate.setMessageConverter(producerJsonMessageConverter());
+        rabbitTemplate.setMessageConverter(jsonMessageConverter());
         return rabbitTemplate;
     }
-
 
 
 }

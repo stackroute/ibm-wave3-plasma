@@ -13,19 +13,32 @@
               <mat-label>Name</mat-label>
               <input  matInput  placeholder="Name" [(ngModel)]="name" name="name">
            </mat-form-field>
-           <mat-form-field class="full-width">
+           <mat-form-field class="full-width" >
               <mat-label>Date of Birth</mat-label>
-          <input matInput [matDatepicker]="picker" placeholder="Choose a date" [(ngModel)]="dateOfBirth" name="dateOfBirth">
-          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-          <mat-datepicker #picker></mat-datepicker>
+           <!-- <input matInput [matDatepicker]="picker" placeholder="Choose a date" [(ngModel)]="dateOfBirth"  required> -->
+           <input matInput [matDatepicker]="picker" placeholder="Choose a date" [(ngModel)]="dateOfBirth" name="DOB">
+           <mat-datepicker-toggle matSuffix [for]="picker" >
+              </mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            
         </mat-form-field>
             <mat-label>Gender: </mat-label>
-            <mat-radio-group [(ngModel)]="gender">
-              <mat-radio-button class="example-margin" [(ngModel)]="gender" name="gender" value="M">Male</mat-radio-button>
-              <mat-radio-button class="example-margin" [(ngModel)]="gender" name="gender" value="F">Female</mat-radio-button>
-              <mat-radio-button class="example-margin" [(ngModel)]="gender" name="gender" value="Other">Other</mat-radio-button>
+            <mat-radio-group [(ngModel)]="gender" >
+              <mat-radio-button class="example-margin" name="male" value="M" (change)="onChange('male')">Male</mat-radio-button>
+              <mat-radio-button class="example-margin" name="female" value="F"(change)="onChange('female')">Female</mat-radio-button>
+              <mat-radio-button class="example-margin" name="other" value="Other" (change)="onChange('other')">Other</mat-radio-button> 
             </mat-radio-group>
-        
+            <!-- <mat-select  placeholder="gender"> -->
+                <!-- <mat-label>Gender: </mat-label>
+                <mat-radio-group [(ngModel)]="gender">
+                    <mat-radio-button class="example-margin" [(ngModel)]="gender" name="gender" value="M">Male</mat-radio-button>
+                    <mat-radio-button class="example-margin" [(ngModel)]="gender" name="gender" value="F">Female</mat-radio-button>
+                    <mat-radio-button class="example-margin" [(ngModel)]="gender" name="gender" value="Other">Other</mat-radio-button>
+                  </mat-radio-group> -->
+                <!-- <mat-option  *ngFor="let data of genderlist; let i =index" [value]="data">
+                  <mat-checkbox [checked] = "selected === i" (change)="onChange(data);gender=data"> {{data}}</mat-checkbox>
+                </mat-option>
+              </mat-select> -->
             <mat-form-field class="full-width">
               <mat-label>Contact</mat-label>
               <input  matInput  placeholder="Contact" [(ngModel)]="contact" name="contact">

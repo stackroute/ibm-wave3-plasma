@@ -24,6 +24,7 @@ public class NlpServiceImpl implements NlpService{
     @Autowired
     NlpRepository nlpRepository;
 
+    RabbitMQSender rabbitMQSender;
     @Override
     public UserQuery save(UserQuery userQuery) {
         return nlpRepository.save(userQuery);
@@ -49,7 +50,7 @@ public class NlpServiceImpl implements NlpService{
     public HashSet<String> readStopWordCsvFile() {
 
         try {
-            BufferedReader bufferedReader = new BufferedReader(new FileReader("/home/sunil/Desktop/plasma/ibm-wave3-plasma/nlp-service/src/main/java/com/stackroute/plasma/dictionary/stopwords.csv"));
+            BufferedReader bufferedReader = new BufferedReader(new FileReader("./dictionary/stopwords.csv"));
             String stopWordLine = "";
             stopWordLine = stopWordLine + bufferedReader.readLine() + " ";
             while (bufferedReader.readLine() != null){
@@ -70,6 +71,7 @@ public class NlpServiceImpl implements NlpService{
     }
 
     public List<String> queryConverter(String query) {
+
         extractedString = new ArrayList<>();
         CoreDocument coreDocument = new CoreDocument(query);
         stanfordCoreNLP.annotate(coreDocument);
@@ -78,6 +80,8 @@ public class NlpServiceImpl implements NlpService{
 
         HashSet<String> word;
         word = readStopWordCsvFile();
+        System.out.println("stopwords check");
+        System.out.println(word);
         for (CoreLabel coreLabel: coreLabels
         ) {
             lemma = coreLabel.lemma();
@@ -85,6 +89,7 @@ public class NlpServiceImpl implements NlpService{
                 extractedString.add(lemma);
             }
         }
+//        rabbitMQSender.sender(extractedString);
         return extractedString;
     }
 }

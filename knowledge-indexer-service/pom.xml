@@ -8,6 +8,13 @@
 		<version>0.0.1-SNAPSHOT</version>
 		<relativePath>../pom.xml</relativePath>
 	</parent>
+	<!--
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.1.2.RELEASE</version>
+	</parent>
+	-->
 	<artifactId>knowledge-indexer-service</artifactId>
 	<name>knowledge-indexer-service</name>
 	<description>Microservice for mapping description node to Domain ontology(Knowledge Graph) using Neo4j - Command responsibility</description>
