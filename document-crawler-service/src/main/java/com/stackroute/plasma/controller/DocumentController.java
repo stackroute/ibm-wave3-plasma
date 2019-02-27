@@ -8,7 +8,9 @@ package com.stackroute.plasma.controller;
 import com.stackroute.plasma.domain.SearchOutput;
 import com.stackroute.plasma.domain.Url;
 import com.stackroute.plasma.service.DocumentService;
-//import com.stackroute.plasma.service.RabbitMQSender;
+import com.stackroute.plasma.service.RabbitMQSender;
+import com.stackroute.plasma.service.RabbitMQSender;
+
 
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 

@@ -7,20 +7,18 @@
         <form class="my-form">
            <mat-form-field class="full-width">
             <mat-label>Domain</mat-label>
-              <input matInput [(ngModel)] ="domain" name="domain">
+              <input matInput [(ngModel)] ="domainName" name="domain">
             </mat-form-field>
-              <mat-form-field class="full-width">
-                <mat-label>Concepts</mat-label>
-
+            <mat-form-field class="full-width">
+               <mat-label>Concepts</mat-label>
                   <mat-select  placeholder="Concept"  multiple>
-                     <mat-option  *ngFor="let data of concepts" [value]="data" (click)="onChange(data)" >{{data}}</mat-option>
-                  </mat-select>
-
-              </mat-form-field>
+                   <mat-option  *ngFor="let data of conceptsAll" [value]="data" (click)="onChange(data)" >{{data}}</mat-option>
+               </mat-select>
+            </mat-form-field>
         </form>
      </mat-card-content>
      <mat-card-actions>
-        <button mat-raised-button (click)="onClick()" color="accent">Add</button>
+        <button mat-raised-button (click)="send($event)" color="accent">Add</button>
      </mat-card-actions>
     </section>
     

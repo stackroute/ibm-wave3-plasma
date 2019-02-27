@@ -37,6 +37,7 @@ public class DocumentServiceImpl implements DocumentService {
     }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     @Override
     public String getHtml(String singleUrl) throws IOException {
 
@@ -58,6 +59,10 @@ public class DocumentServiceImpl implements DocumentService {
 =======
     @Autowired
     RabbitMQSender rabbitMQSender;
+=======
+//    @Autowired
+//    RabbitMQSender rabbitMQSender;
+>>>>>>> 1480c1fcc4952afc5ca1beb45a0ef959743f295e
 
    // @Autowired
 //    public DocumentServiceImpl(SearchOutput searchOutput) {
@@ -81,12 +86,15 @@ public class DocumentServiceImpl implements DocumentService {
     @RabbitListener(queues = "${javainuse2.rabbitmq.queue}", containerFactory = "jsaFactory")
     public void recievedMessage(SearchOutput searchOutput) throws IOException {
             this.searchOutputt = searchOutput;
-
-
-
-        System.out.println("Recieved Message From RabbitMQ: " + searchOutput.getConcept() +searchOutput.getUrls());
-        System.out.println("check url----------------"+ searchOutputt.getUrls()+"8888888888"+searchOutputt.getConcept());
-       // this.searchOutput = searchOutput;
+          // this.searchOutputt = this.objectMapper.readValue(searchOutput,SearchOutput);
+//        for (String x:searchOutput.getUrls()
+//             ) {
+//            System.out.println("-------------"+x);
+//        }
+//
+//        System.out.println("Recieved Message From RabbitMQ: " + searchOutput.getConcept() +searchOutput.getUrls());
+//        System.out.println("check url----------------"+ searchOutputt.getUrls()+"8888888888"+searchOutputt.getConcept());
+//        this.searchOutput = searchOutput;
 //    }
     }
 
@@ -109,8 +117,10 @@ public class DocumentServiceImpl implements DocumentService {
             url.setDomain(searchOutputt.getDomain());
             url.setUrl(urlx);
             url.setDoc(doc.toString());
+            System.out.println(doc.toString());
             url.setTimestamp(Timestamp.valueOf(LocalDateTime.of(LocalDate.now(), LocalTime.now())).toString());
-            rabbitMQSender.send(url);
+            //rabbitMQSender.send(url);
+
             list.add(url);
         }
 
