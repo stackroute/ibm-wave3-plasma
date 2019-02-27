@@ -212,17 +212,5 @@ services:
     ports:
      - 8087:8087
     expose:
-<<<<<<< HEAD
      - 8070
 
-
-  redis:
-    container_name: redis
-    image: redis
-    ports:
-      - "6380:6380"
-    volumes:
-      - ../data/redis:/data
-=======
-     - 8087
->>>>>>> 71dc1e0c1a0703e453ba9ffa73af6921c5bf58e6
