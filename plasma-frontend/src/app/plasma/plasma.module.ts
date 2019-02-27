@@ -1,3 +1,5 @@
+import { WebSpeechModule } from './components/web-speech/web-speech.module';
+import { FooterComponent } from './components/footer/footer.component';
 import { CardComponent } from './components/card/card.component';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -17,32 +19,33 @@ import { NgModule } from '@angular/core';
 
 
 @NgModule({
-  declarations: [
+ declarations: [
+   HeaderComponent,
+   DomainExpertComponent,
+   UserregistrationComponent,
+   FooterComponent,
+   CardComponent,
+   UserLoginComponent
+   ],
+ imports: [
+  BrowserModule,
+  BrowserAnimationsModule,
+  AppRoutingModule,
+  FormsModule,
+  HttpClientModule,
+  CommonModule,
+  PlasmaMaterialModule,
+  WebSpeechModule
 
-    HeaderComponent,
-
-    WebSpeechComponent,
-    UserregistrationComponent
-    ],
-  imports: [
-   BrowserModule,
-
-   BrowserAnimationsModule,
-   AppRoutingModule,
-   FormsModule,
-   HttpClientModule,
-
-   CommonModule,
-   PlasmaMaterialModule,
-
-  ],
-  providers: [UserLoginService],
-  exports: [
-    HeaderComponent,
-    WebSpeechComponent,
-    DomainExpertComponent,
-    UserLoginComponent,
-    CardComponent
-  ]
+ ],
+ providers: [UserLoginService],
+ exports: [
+   HeaderComponent,
+   DomainExpertComponent,
+   UserLoginComponent,
+   CardComponent,
+   FooterComponent,
+   UserregistrationComponent
+ ]
 })
 export class PlasmaModule { }

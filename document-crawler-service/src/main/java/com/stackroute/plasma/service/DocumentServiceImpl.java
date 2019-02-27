@@ -22,18 +22,36 @@ import java.util.List;
 public class DocumentServiceImpl implements DocumentService {
 
     @JsonIgnore
+
+    String docString;
+
     Document doc;
     Url url;
 
     SearchOutput searchOutputt;
     List<Url> list;
+    List<String> tempList = new ArrayList<>();
+    String[] temp = new String[200];
     ObjectMapper objectMapper = new ObjectMapper();
-    public DocumentServiceImpl() {
+public DocumentServiceImpl() {
 
     }
 
-    @Autowired
+
+
+
+
+
+
+
+
+
+
+
     RabbitMQSender rabbitMQSender;
+
+//    @Autowired
+//    RabbitMQSender rabbitMQSender;
 
    // @Autowired
 //    public DocumentServiceImpl(SearchOutput searchOutput) {
@@ -57,23 +75,46 @@ public class DocumentServiceImpl implements DocumentService {
     @RabbitListener(queues = "${javainuse2.rabbitmq.queue}", containerFactory = "jsaFactory")
     public void recievedMessage(SearchOutput searchOutput) throws IOException {
             this.searchOutputt = searchOutput;
+            int j = 0;
+          // this.searchOutputt = this.objectMapper.readValue(searchOutput,SearchOutput);
 
+        for (String x:searchOutput.getUrls()
+             ) {
+            tempList.add(x);
+            temp[j++] = x;
+            System.out.println("###################");
+            System.out.println(tempList);
+            System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!");
+            System.out.println(temp);
+            System.out.println("-------------"+x);
+        }
 
-
-        System.out.println("Recieved Message From RabbitMQ: " + searchOutput.getConcept());
+//        System.out.println("Recieved Message From RabbitMQ: " + searchOutput.getConcept() +searchOutput.getUrls());
+//        System.out.println("check url----------------"+ searchOutputt.getUrls()+"8888888888"+searchOutputt.getConcept());
        // this.searchOutput = searchOutput;
+
+//        for (String x:searchOutput.getUrls()
+//             ) {
+//            System.out.println("-------------"+x);
+//        }
+//
+//        System.out.println("Recieved Message From RabbitMQ: " + searchOutput.getConcept() +searchOutput.getUrls());
+//        System.out.println("check url----------------"+ searchOutputt.getUrls()+"8888888888"+searchOutputt.getConcept());
+//        this.searchOutput = searchOutput;
+
 //    }
     }
 
     @Override
     public List<Url> getHtml() throws IOException {
 
-
+        System.out.println("check inside document url----------------"+ searchOutputt.getUrls()+searchOutputt.getConcept());
         list = new ArrayList<>();
 //        searchOutput.setTimestamp(Timestamp.valueOf(LocalDateTime.of(LocalDate.now(), LocalTime.now())).toString());
 //        searchOutput.setDomain("java");
 //        searchOutput.setConcept("abstraction");
-        for (String urlx : searchOutputt.getUrls()) {
+        //for (String urlx : searchOutputt.getUrls()) {
+        for(String urlx : temp){
             url = new Url();
             //System.out.println("hello");
            // System.out.println(searchOutput.getUrls());
@@ -84,11 +125,16 @@ public class DocumentServiceImpl implements DocumentService {
             url.setDomain(searchOutputt.getDomain());
             url.setUrl(urlx);
             url.setDoc(doc.toString());
+
+            System.out.println(doc.toString());
+
             url.setTimestamp(Timestamp.valueOf(LocalDateTime.of(LocalDate.now(), LocalTime.now())).toString());
             rabbitMQSender.send(url);
+
             list.add(url);
         }
 
         return list;
     }
 }
+

@@ -1,4 +1,4 @@
-
+//
 //package com.stackroute.plasma.exception;
 //
 //public class UrlNotFoundException extends Exception {
@@ -9,10 +9,10 @@
 //    {
 //
 //    }
-//    public  ContentNotFoundException(String message)
+//    public  UrlNotFoundException(String message)
 //    {
 //        //super(message);
 //        this.message=message;
 //    }
 //}
-
+//

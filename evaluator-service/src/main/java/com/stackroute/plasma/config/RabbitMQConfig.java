@@ -14,20 +14,9 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class RabbitMQConfig {
 
-
-
-    @Value("${javainuse1.rabbitmq.queue}")
-    String queueName1;
-
-    @Value("${javainuse.rabbitmq.exchange}")
-    String exchange;
-
-    @Value("${javainuse1.rabbitmq.routingkey}")
-    private String routingkey1;
-
-//Receiving message rabbitMQ
-@Bean
-public MessageConverter consumerJsonMessageConverter(){
+    //Receiving message rabbitMQ
+    @Bean
+    public MessageConverter consumerJsonMessageConverter(){
     return new Jackson2JsonMessageConverter();
 }
 
@@ -41,7 +30,17 @@ public MessageConverter consumerJsonMessageConverter(){
         return factory;
     }
 
- //Sending message to rabbitMQ
+    //Sending message to rabbitMQ
+    @Value("${javainuse1.rabbitmq.queue}")
+    String queueName1;
+
+    @Value("${javainuse.rabbitmq.exchange}")
+    String exchange;
+
+    @Value("${javainuse1.rabbitmq.routingkey}")
+    private String routingkey1;
+
+
     @Bean
     Queue queue() {
         return new Queue(queueName1, true);
@@ -52,6 +51,7 @@ public MessageConverter consumerJsonMessageConverter(){
         return new DirectExchange(exchange);
     }
 
+
     @Bean
     Binding binding(Queue queue, DirectExchange exchange) {
         return BindingBuilder.bind(queue).to(exchange).with(routingkey1);
@@ -61,7 +61,6 @@ public MessageConverter consumerJsonMessageConverter(){
     public MessageConverter jsonMessageConverter() {
         return new Jackson2JsonMessageConverter();
     }
-
 
     public RabbitTemplate rabbitTemplate(ConnectionFactory connectionFactory) {
         final RabbitTemplate rabbitTemplate = new RabbitTemplate(connectionFactory);
