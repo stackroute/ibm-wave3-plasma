@@ -28,6 +28,7 @@ public class RabbitMQConfig {
     @Value("${javainuse3.rabbitmq.routingkey}")
     private String routingkey3;
 
+
     @Bean
     Binding binding(Queue queue, DirectExchange exchange) {
         return BindingBuilder.bind(queue).to(exchange).with(routingkey3);
