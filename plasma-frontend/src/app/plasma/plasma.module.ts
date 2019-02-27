@@ -19,6 +19,7 @@ import { NgModule } from '@angular/core';
 
 
 @NgModule({
+<<<<<<< HEAD
  declarations: [
    HeaderComponent,
    DomainExpertComponent,
@@ -47,5 +48,35 @@ import { NgModule } from '@angular/core';
    FooterComponent,
    UserregistrationComponent
  ]
+=======
+  declarations: [
+    HeaderComponent,
+    DomainExpertComponent,
+    UserregistrationComponent,
+    FooterComponent,
+    CardComponent,
+    UserLoginComponent
+    ],
+  imports: [
+   BrowserModule,
+   BrowserAnimationsModule,
+   AppRoutingModule,
+   FormsModule,
+   HttpClientModule,
+   CommonModule,
+   PlasmaMaterialModule,
+   WebSpeechModule
+
+  ],
+  providers: [UserLoginService],
+  exports: [
+    HeaderComponent,
+    DomainExpertComponent,
+    UserLoginComponent,
+    CardComponent,
+    FooterComponent,
+    UserregistrationComponent
+  ]
+>>>>>>> 7ea6108266fc9dffab5225da806139e40eb1bb6e
 })
 export class PlasmaModule { }
