@@ -1,3 +1,4 @@
+import { CardService } from './../../services/card.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,10 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./card.component.css']
 })
 export class CardComponent implements OnInit {
-
-  constructor() { }
+   private resp: any ;
+  constructor(private Cardservice: CardService ) { }
 
   ngOnInit() {
+    this.Cardservice.getdoc().subscribe(data => {
+      this.resp = data ;
+        console.log('response from getQuiz in card', data);
+    });
   }
 
 }

@@ -5,8 +5,13 @@
   }
   section
   {
+<<<<<<< HEAD
   margin-top: 0px;
-    height:500px;
+=======
+  margin-top: 150px;
+>>>>>>> 7ea6108266fc9dffab5225da806139e40eb1bb6e
+    height:600px;
+    margin-left: 100px;
   
   }
   figure{
@@ -35,9 +40,15 @@
   .center2
   {
     position: absolute;
-    top:290px;
-    padding-left: 580px;
-    
+<<<<<<< HEAD
+    top:380px;
+    padding-left: 600px;
+=======
+    top:360px;
+    padding-left: 640px;
+>>>>>>> 7ea6108266fc9dffab5225da806139e40eb1bb6e
+
+   
     
     }
 
@@ -58,36 +69,40 @@
     display:inline-block;
   }
   
-  
+  mat-form-field
+  {
+    width: 300px;
+    margin-bottom: 10px;
+  }
  
    .search
   {
     margin-left: 500px;
     position: relative;
+
+   
   }
   
   .go
   {
-    margin-left: 710px;
+    margin-left: 810px;
     position: absolute;
-    top:240px;
+<<<<<<< HEAD
+    top:300px;
+=======
+    top:320px;
+>>>>>>> 7ea6108266fc9dffab5225da806139e40eb1bb6e
   } 
   .go1
   {
-    background-color: grey;
+    background-color: black;
+    opacity: 0.8;
   }
 
   .mic
   {
-    background-color: grey;
+    background-color: black;
+    opacity: 0.8;
+   
   }
   
-  .go1
-  {
-    background-color: grey;
-  }
-
-  .mic
-  {
-    background-color: grey;
-  }

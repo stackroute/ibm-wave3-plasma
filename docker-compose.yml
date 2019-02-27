@@ -7,8 +7,8 @@ services:
       - 3306:3306
     container_name: mysql
     environment:
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: PlasmaDB
+      MYSQL_ROOT_PASSWORD: Root@123
+      MYSQL_DATABASE: plasmaDB
     #    volumes:
     #      - '/opt/datasql:/var/lib/mysql'
     network_mode: host
@@ -23,9 +23,17 @@ services:
   rabbitmq:
     image: rabbitmq:management
     ports:
-      - 15673:15673
-      - 5673:5673
+      - 15672:15672
+      - 5672:5672
     network_mode: host
+
+  redis:
+    container_name: redis
+    image: redis
+    ports:
+      - "6380:6380"
+    volumes:
+      - ../data/redis:/data
 
   neo4j:
     image: neo4j:3.5
@@ -36,9 +44,9 @@ services:
     network_mode: host
     restart: always
     volumes:
-      - ../neo4j/import:/import
-      - ../neo4j/data:/data
-      - ../neo4j/plugins:/plugins
+      - ./neo4j/import:/import
+      - ./neo4j/data:/data
+      - ./neo4j/plugins:/plugins
     environment:
       - NEO4J_AUTH=neo4j/Neo4j
     expose:
@@ -50,11 +58,11 @@ services:
     restart: always
     network_mode: host
     depends_on:
-    - eurekaserver
+      - eurekaserver
     ports:
-    - 8092:8092
+      - 8092:8092
     expose:
-    - 8092
+      - 8092
 
   eurekaserver:
     image: eureka-service:latest
@@ -62,9 +70,9 @@ services:
     restart: always
     network_mode: host
     ports:
-    - 9091:9091
+      - 9091:9091
     expose:
-    - 9091
+      - 9091
 
   configserver:
       image: config-service:latest
@@ -72,9 +80,9 @@ services:
       restart: always
       network_mode: host
       ports:
-      - 8888:8888
+        - 8888:8888
       expose:
-      - 8888
+        - 8888
  
   documentcrawler:
     image: document-crawler-service:latest
@@ -184,7 +192,7 @@ services:
     expose:
       - 8086
 
-  plasmafrontend:
+  plasmaFrontend:
     build: plasma-frontend/
     image: plasma-frontend:latest
     container_name: plasma-frontend
@@ -204,4 +212,5 @@ services:
     ports:
      - 8087:8087
     expose:
-     - 8087
+     - 8070
+

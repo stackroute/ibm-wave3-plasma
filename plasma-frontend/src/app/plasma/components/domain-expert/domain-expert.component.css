@@ -9,13 +9,21 @@
 }
 
 section{
-  margin-left: 600px;
+  margin-left: 550px;
+<<<<<<< HEAD
+=======
+  margin-top: 100px;
+>>>>>>> 7ea6108266fc9dffab5225da806139e40eb1bb6e
 }
 
 mat-toolbar{
-  margin-top: 10%;
+
   width:53%;
 }
 button{
   margin-left: 240px;
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 7ea6108266fc9dffab5225da806139e40eb1bb6e

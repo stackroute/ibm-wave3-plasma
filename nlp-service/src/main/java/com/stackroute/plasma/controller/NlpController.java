@@ -5,6 +5,7 @@ import com.stackroute.plasma.model.NlpModel;
 import com.stackroute.plasma.model.UserQuery;
 import com.stackroute.plasma.repository.NlpRepository;
 import com.stackroute.plasma.service.NlpService;
+import com.stackroute.plasma.service.RabbitMQSender;
 import com.stackroute.plasma.viewmodel.QueryPojo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -22,12 +23,13 @@ public class NlpController {
     NlpRepository nlpRepository;*/
     @Autowired
     NlpService nlpService;
+
     NlpModel nlpModel = new NlpModel();
     List<String> temp;
     UserQuery userQuery ;
     int i=0;
 @PostMapping("/query")
-public ResponseEntity<?> extractedQuery(@RequestBody  String query) {
+public ResponseEntity<?> extractedQuery(@RequestBody final String query) {
     temp = new ArrayList<>();
     userQuery = new UserQuery();
     userQuery.setUser_id(i++);

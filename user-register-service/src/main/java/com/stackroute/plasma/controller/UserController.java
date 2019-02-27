@@ -54,9 +54,9 @@ public class UserController {
 
     @ApiOperation(value ="Accepts user into the repository")
     @DeleteMapping("/user/{id}")
-    public ResponseEntity<?> getDeleteUser( @PathVariable("id") String id){
+    public ResponseEntity<?> getDeleteUser( @PathVariable("emailId") String emailId){
         ResponseEntity responseEntity;
-        userService.deleteUser(id);
+        userService.deleteUser(emailId);
         responseEntity = new ResponseEntity<String>("delete", HttpStatus.CREATED);
         return responseEntity;
 

@@ -45,7 +45,7 @@ public class RabbitMQConfig {
     }
 
     @Bean
-    public MessageConverter jsonMessageConverter() {
+    public Jackson2JsonMessageConverter jsonMessageConverter() {
         return new Jackson2JsonMessageConverter();
     }
 
@@ -58,7 +58,7 @@ public class RabbitMQConfig {
 
     //for receiver
     @Bean
-    public MessageConverter consumerJsonMessageConverter(){
+    public Jackson2JsonMessageConverter consumerJsonMessageConverter(){
         return new Jackson2JsonMessageConverter();
     }
 
