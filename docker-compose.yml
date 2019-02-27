@@ -7,8 +7,8 @@ services:
       - 3306:3306
     container_name: mysql
     environment:
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: PlasmaDB
+      MYSQL_ROOT_PASSWORD: Root@123
+      MYSQL_DATABASE: plasmaDB
     #    volumes:
     #      - '/opt/datasql:/var/lib/mysql'
     network_mode: host
@@ -48,7 +48,7 @@ services:
       - ./neo4j/data:/data
       - ./neo4j/plugins:/plugins
     environment:
-      - NEO4J_AUTH=neo4j/Neo4j
+      - NEO4J_AUTH=neo4j/neo4j
     expose:
       - 7474
 
@@ -173,9 +173,9 @@ services:
       - rabbitmq
       - configserver
     ports:
-      - 8085:8085
+      - 8097:8097
     expose:
-      - 8085
+      - 8097
 
   knowledgequeryservice:
     image: knowledge-query-service:latest
@@ -192,7 +192,7 @@ services:
     expose:
       - 8086
 
-  plasmafrontend:
+  plasmaFrontend:
     build: plasma-frontend/
     image: plasma-frontend:latest
     container_name: plasma-frontend
@@ -212,4 +212,5 @@ services:
     ports:
      - 8087:8087
     expose:
-     - 8087
+     - 8070
+

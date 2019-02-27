@@ -5,7 +5,11 @@
   }
   section
   {
+<<<<<<< HEAD
   margin-top: 0px;
+=======
+  margin-top: 150px;
+>>>>>>> 7ea6108266fc9dffab5225da806139e40eb1bb6e
     height:600px;
     margin-left: 100px;
   
@@ -36,8 +40,13 @@
   .center2
   {
     position: absolute;
+<<<<<<< HEAD
     top:380px;
+    padding-left: 600px;
+=======
+    top:360px;
     padding-left: 640px;
+>>>>>>> 7ea6108266fc9dffab5225da806139e40eb1bb6e
 
    
     
@@ -78,7 +87,11 @@
   {
     margin-left: 810px;
     position: absolute;
+<<<<<<< HEAD
+    top:300px;
+=======
     top:320px;
+>>>>>>> 7ea6108266fc9dffab5225da806139e40eb1bb6e
   } 
   .go1
   {

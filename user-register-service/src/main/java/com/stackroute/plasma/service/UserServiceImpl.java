@@ -22,7 +22,9 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User saveUser(User user) throws UserAlreadyExistException {
-        if (userRepository.existsById(user.getId())) {
+
+
+        if (userRepository.existsById(user.getEmailId())) {
             throw new UserAlreadyExistException("user already exists");
         }
         User savedUser = userRepository.save(user);
@@ -34,13 +36,12 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public List<User> getAllUsers() {
-
         return userRepository.findAll();
     }
 
     @Override
     public User updateUser(User user) throws UpdateException {
-        if (userRepository.existsById(user.getId())) {
+        if (userRepository.existsById(user.getEmailId())){
             throw new UpdateException("user already exists");
         }
         User savedUser = userRepository.save(user);
@@ -60,10 +61,10 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public boolean deleteUser(String id) {
+    public boolean deleteUser(String emailId) {
         boolean status = false;
-        if (userRepository.existsById(id)) {
-            userRepository.deleteById(id);
+        if (userRepository.existsById(emailId)) {
+            userRepository.deleteById(emailId);
             status = true;
 
         }

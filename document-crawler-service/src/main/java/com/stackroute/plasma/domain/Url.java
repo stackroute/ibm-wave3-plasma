@@ -5,7 +5,11 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import lombok.NoArgsConstructor;
 
+
+//import java.io.Serializable;
+
 //import java.sql.Timestamp;
+
 import java.sql.Timestamp;
 
 //@NoArgsConstructor

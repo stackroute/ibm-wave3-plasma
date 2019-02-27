@@ -15,7 +15,7 @@ import java.util.List;
 public class RabbitMQSender {
 
     @Autowired
-    private RabbitTemplate rabbitTemplate;
+    RabbitTemplate rabbitTemplate;
 
     @Value("${javainuse.rabbitmq.exchange}")
     private String exchange;
@@ -26,6 +26,6 @@ public class RabbitMQSender {
     //ObjectMapper objectMapper = new ObjectMapper();
     public void send(Url url) {
         rabbitTemplate.convertAndSend(exchange, routingkey, url);
-        System.out.println("Send msg = " + url);
+        System.out.println("Send msg = " +url);
     }
 }
