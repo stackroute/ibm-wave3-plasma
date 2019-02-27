@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+import { CardService } from './../../services/card.service';
+>>>>>>> 7ea6108266fc9dffab5225da806139e40eb1bb6e
 
 import { SearchService } from '../../services/search.service';
 
@@ -25,7 +29,12 @@ export class WebSpeechComponent implements OnInit {
     private changeDetector: ChangeDetectorRef,
     private speechRecognizer: SpeechRecognizerService,
     private searchService: SearchService,
+<<<<<<< HEAD
     private router: Router
+=======
+    private router: Router,
+    private Cardservice: CardService
+>>>>>>> 7ea6108266fc9dffab5225da806139e40eb1bb6e
   ) { }
 
   ngOnInit() {
@@ -34,6 +43,7 @@ export class WebSpeechComponent implements OnInit {
     this.notification = null;
   }
 
+<<<<<<< HEAD
   onClickMe(data) {
     if (data !== undefined || data !== null) {
       this.finalTranscript  = data;
@@ -43,6 +53,15 @@ export class WebSpeechComponent implements OnInit {
    // tslint:disable-next-line:no-shadowed-variable
    this.searchService.data(this.finalTranscript).subscribe(data => {
       console.log(data);
+=======
+  onClickMe() {
+    console.log('transcript valus is ', this.finalTranscript);
+    this.Cardservice.getdoc().subscribe(resp => {
+      console.log('response from call', resp);
+    });
+   this.searchService.data(this.finalTranscript).subscribe(data => {
+     console.log(data);
+>>>>>>> 7ea6108266fc9dffab5225da806139e40eb1bb6e
    });
    this.router.navigateByUrl('/card');
    }
