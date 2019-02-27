@@ -10,14 +10,14 @@
 
   mat-toolbar
   {
-    width: 60%;
-  
+    width:55%;
+    margin-top: 10%;
    
     
   }
 section
   {
-    padding-left: 200px;
+    padding-left:300px;
   
   }
 
@@ -28,5 +28,5 @@ section
     height: 570px;
   } */
   button{
-    margin-left: 10px;
+    margin-left: 70px;
   }

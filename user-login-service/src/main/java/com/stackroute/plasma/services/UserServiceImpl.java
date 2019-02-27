@@ -32,14 +32,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User findByUserIdAndPassword(String userId, String password) {
-        /*if(userRepository.existsById(userId)){
-            user.setUserId(userId);
-            user.setPassword(password);
-            System.out.println(user);
-            return user;
-        }else{
-            return null;
-        }*/
+
         return userRepository.findByUserIdAndPassword(userId,password);
     }
 
