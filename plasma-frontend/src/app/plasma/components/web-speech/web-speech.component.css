@@ -6,18 +6,15 @@
   section
   {
   margin-top: 0px;
-    height:500px;
+    height:600px;
+    margin-left: 100px;
   
   }
   figure{
    padding-left: 350px;
   
   }
-  /* .topnav {
-    margin-top: 0px;
-    overflow: hidden;
-    background-color: #333;
-  } */
+   
   .topnav a {
     float: right;
     color: #f2f2f2;
@@ -39,9 +36,10 @@
   .center2
   {
     position: absolute;
-    top:290px;
-    padding-left: 580px;
-    
+    top:380px;
+    padding-left: 640px;
+
+   
     
     }
 
@@ -62,27 +60,36 @@
     display:inline-block;
   }
   
-  
+  mat-form-field
+  {
+    width: 300px;
+    margin-bottom: 10px;
+  }
  
    .search
   {
     margin-left: 500px;
     position: relative;
+
+   
   }
   
   .go
   {
-    margin-left: 710px;
+    margin-left: 810px;
     position: absolute;
-    top:240px;
+    top:320px;
   } 
   .go1
   {
-    background-color: grey;
+    background-color: black;
+    opacity: 0.8;
   }
 
   .mic
   {
-    background-color: grey;
+    background-color: black;
+    opacity: 0.8;
+   
   }
   

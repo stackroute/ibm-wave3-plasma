@@ -20,11 +20,14 @@ public class User {
     //@Id
     //private String id;
     private String name;
+    @JsonProperty("dateOfBirth")
     private String dateOfBirth;
+    @JsonProperty("gender")
     private String gender;
     private Integer contact;
     @Id
     private String emailId;
+    @JsonProperty("setPassword")
     private String setPassword;
     //private String confirmpassword;
 

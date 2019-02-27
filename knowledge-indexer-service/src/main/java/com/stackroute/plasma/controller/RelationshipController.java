@@ -1,6 +1,8 @@
 package com.stackroute.plasma.controller;
 
+import com.stackroute.plasma.model.Evaluator;
 import com.stackroute.plasma.model.Relationship;
+import com.stackroute.plasma.service.RabbitMQListener;
 import com.stackroute.plasma.service.RelationshipService;
 import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,14 +19,23 @@ public class RelationshipController {
     @Autowired
     RelationshipService relationshipService;
 
-    @GetMapping("/create")
-    public Relationship create(){
-        return relationshipService.create("Erlang",90,"basics");
+    @Autowired
+    RabbitMQListener rabbitMQListener;
+
+    @GetMapping("/")
+    public void create(){
+        Evaluator evaluator=rabbitMQListener.getEvaluator();
+        /*Relationship relationship=new Relationship();
+        relationship.setConfidenceScore(evaluator.getConfidenceScore());
+        relationship.setLevel(evaluator.getLevel());*/
+        relationshipService.create(evaluator.getConcept(),evaluator.getConfidenceScore(),evaluator.getLevel());
     }
 
+    /*
     @DeleteMapping("/delete")
     public Relationship delete(){
         return relationshipService.delete("Erlang");
     }
+    */
 
 }

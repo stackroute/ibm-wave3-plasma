@@ -13,12 +13,27 @@ services:
     #      - '/opt/datasql:/var/lib/mysql'
     network_mode: host
 
+  mongo:
+    image: mongo:3.4-jessie
+    ports:
+      - 27017:27017
+    container_name: mongo
+    network_mode: host
+
   rabbitmq:
     image: rabbitmq:management
     ports:
-      - 15673:15673
-      - 5673:5673
+      - 15672:15672
+      - 5672:5672
     network_mode: host
+
+  redis:
+    container_name: redis
+    image: redis
+    ports:
+      - "6380:6380"
+    volumes:
+      - ../data/redis:/data
 
   neo4j:
     image: neo4j:3.5
@@ -29,9 +44,9 @@ services:
     network_mode: host
     restart: always
     volumes:
-      - ../neo4j/import:/import
-      - ../neo4j/data:/data
-      - ../neo4j/plugins:/plugins
+      - ./neo4j/import:/import
+      - ./neo4j/data:/data
+      - ./neo4j/plugins:/plugins
     environment:
       - NEO4J_AUTH=neo4j/Neo4j
     expose:
@@ -43,11 +58,11 @@ services:
     restart: always
     network_mode: host
     depends_on:
-    - eurekaserver
+      - eurekaserver
     ports:
-    - 8092:8092
+      - 8092:8092
     expose:
-    - 8092
+      - 8092
 
   eurekaserver:
     image: eureka-service:latest
@@ -55,9 +70,9 @@ services:
     restart: always
     network_mode: host
     ports:
-    - 9091:9091
+      - 9091:9091
     expose:
-    - 9091
+      - 9091
 
   configserver:
       image: config-service:latest
@@ -65,9 +80,9 @@ services:
       restart: always
       network_mode: host
       ports:
-      - 8888:8888
+        - 8888:8888
       expose:
-      - 8888
+        - 8888
  
   documentcrawler:
     image: document-crawler-service:latest
@@ -90,6 +105,7 @@ services:
     depends_on:
       - eurekaserver
       - rabbitmq
+      - mongo
     ports:
       - 8090:8090
     expose:
@@ -102,6 +118,7 @@ services:
     network_mode: host
     depends_on:
       - eurekaserver
+      - mongo
     ports:
       - 8098:8098
     expose:
@@ -128,9 +145,9 @@ services:
       - eurekaserver
       - mysql
     ports:
-      - 8133:8133
+      - 8132:8132
     expose:
-      - 8133
+      - 8132
 
   userregisterservice:
     image: user-register-service:latest
@@ -139,6 +156,7 @@ services:
     network_mode: host
     depends_on:
       - eurekaserver
+      - mongo
     ports:
       - 8089:8089
     expose:
@@ -192,8 +210,9 @@ services:
     depends_on:
      - eurekaserver
     ports:
-     - 8070:8070
+     - 8087:8087
     expose:
+<<<<<<< HEAD
      - 8070
 
 
@@ -204,3 +223,6 @@ services:
       - "6380:6380"
     volumes:
       - ../data/redis:/data
+=======
+     - 8087
+>>>>>>> 71dc1e0c1a0703e453ba9ffa73af6921c5bf58e6

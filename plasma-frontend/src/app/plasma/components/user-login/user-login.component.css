@@ -11,17 +11,34 @@
 
 
 section{
-  margin-left: 450px;
+  margin-left: 550px;
+
 }
 mat-toolbar
 {
-  /* margin-top: 3px; */
-  width: 65%;
+  /* margin-top: 10%; */
+  width: 53%;
 }
 button{
-  margin-left: 10px;
+  margin-left: 30px;
+  /* padding-left: 50px; */
 }
+
 a{
   color: white;
   text-decoration: none;
 }
+
+ /*.one
+{
+  align-content: initial;
+  margin-left: 80px;
+
+  padding-bottom: 30px; */
+
+/* .two
+{
+  padding-left: 150px;
+  margin-left: 100px;
+  padding-top: 0px;
+}  */
