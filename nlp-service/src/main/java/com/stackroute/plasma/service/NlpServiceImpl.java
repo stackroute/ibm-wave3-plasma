@@ -91,12 +91,12 @@ public class NlpServiceImpl implements NlpService{
                 extractedString.add(lemma);
             }
         }
-<<<<<<< HEAD
+
 //        rabbitMQSender.sender(extractedString);
-=======
+
         NlpModel nlpModel = new NlpModel(extractedString);
         rabbitMQSender.sender(nlpModel);
->>>>>>> ab092d88aa382284842507f3dc2f27806971df02
+
         return extractedString;
     }
 }
