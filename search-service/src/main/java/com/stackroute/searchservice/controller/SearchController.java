@@ -22,10 +22,8 @@ import java.util.List;
 
 @CrossOrigin(value = "*")
 
-<<<<<<< HEAD
 //@CrossOrigin("*")
-=======
->>>>>>> 47f545d41554f83ff2038268a31742da3935b63b
+
 @RestController
 @RequestMapping("/api/v1")
 public class SearchController {
