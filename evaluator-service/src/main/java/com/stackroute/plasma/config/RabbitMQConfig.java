@@ -14,7 +14,6 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class RabbitMQConfig {
 
-<<<<<<< HEAD
     @Value("${javainuse1.rabbitmq.queue}")
     String queueName1;
 
@@ -29,13 +28,6 @@ public class RabbitMQConfig {
     public MessageConverter consumerJsonMessageConverter(){
         return new Jackson2JsonMessageConverter();
     }
-=======
-    //Receiving message rabbitMQ
-    @Bean
-    public MessageConverter consumerJsonMessageConverter(){
-    return new Jackson2JsonMessageConverter();
-}
->>>>>>> 71dc1e0c1a0703e453ba9ffa73af6921c5bf58e6
 
     @Bean
     public SimpleRabbitListenerContainerFactory jsaFactory(ConnectionFactory connectionFactory,
@@ -47,32 +39,7 @@ public class RabbitMQConfig {
         return factory;
     }
 
-<<<<<<< HEAD
-     //Sending message to rabbitMQ
-=======
     //Sending message to rabbitMQ
-    @Value("${javainuse1.rabbitmq.queue}")
-    String queueName1;
-
-    @Value("${javainuse.rabbitmq.exchange}")
-    String exchange;
-
-    @Value("${javainuse1.rabbitmq.routingkey}")
-    private String routingkey1;
-
-
->>>>>>> 71dc1e0c1a0703e453ba9ffa73af6921c5bf58e6
-    @Bean
-    Queue queue() {
-        return new Queue(queueName1, true);
-    }
-
-    @Bean
-    DirectExchange exchange() {
-        return new DirectExchange(exchange);
-    }
-
-
     @Bean
     Binding binding(Queue queue, DirectExchange exchange) {
         return BindingBuilder.bind(queue).to(exchange).with(routingkey1);
