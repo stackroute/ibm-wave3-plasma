@@ -36,7 +36,7 @@ import { UserregistrationComponent } from './plasma/components/userregistration/
     FormsModule,
     HttpClientModule,
     PlasmaMaterialModule,
-    WebSpeechModule,
+     WebSpeechModule,
     RouterModule,
     ReactiveFormsModule,
 

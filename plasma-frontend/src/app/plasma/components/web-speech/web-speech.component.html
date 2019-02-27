@@ -19,12 +19,12 @@
   
   
   <div class="search">
-  <input  style="width: 200px; height: 30px;" value={{finalTranscript}}  type="search" placeholder="Search" aria-label="Search">
+  <input  #searchText style="width: 200px;  height: 30px;" value={{finalTranscript}}  type="search" placeholder="Search" aria-label="Search">
   
   </div>
   <div class="go">
 
-    <button class="go1" mat-mini-fab (click)="onClickMe()" >GO</button>
+    <button class="go1" mat-mini-fab (click)="onClickMe(searchText.value)" >GO</button>
 
   </div>
 

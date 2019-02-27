@@ -31,10 +31,15 @@ export class WebSpeechComponent implements OnInit {
     this.notification = null;
   }
 
-  onClickMe() {
-    console.log('transcript valus is ', this.finalTranscript);
+  onClickMe(data) {
+    if (data !== undefined || data !== null) {
+      this.finalTranscript  = data;
+    }
+    // console.log(data, this.finalTranscript);
+    // console.log('transcript valus is ', this.finalTranscript);
+   // tslint:disable-next-line:no-shadowed-variable
    this.searchService.data(this.finalTranscript).subscribe(data => {
-     console.log(data);
+      console.log(data);
    });
    }
   startButton(event) {

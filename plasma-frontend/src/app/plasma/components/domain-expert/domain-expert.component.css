@@ -13,5 +13,13 @@ section{
 }
 
 mat-toolbar{
-  width:60%;
+  width:57%;
+  align-self: center;
+}
+mat-form-field{
+  width:58%;
+  align-self: center;
+}
+button{
+  margin-left: 90px;
 }
