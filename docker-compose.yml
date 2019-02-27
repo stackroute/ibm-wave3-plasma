@@ -50,11 +50,11 @@ services:
     restart: always
     network_mode: host
     depends_on:
-    - eurekaserver
+      - eurekaserver
     ports:
-    - 8092:8092
+      - 8092:8092
     expose:
-    - 8092
+      - 8092
 
   eurekaserver:
     image: eureka-service:latest
@@ -62,9 +62,9 @@ services:
     restart: always
     network_mode: host
     ports:
-    - 9091:9091
+      - 9091:9091
     expose:
-    - 9091
+      - 9091
 
   configserver:
       image: config-service:latest
@@ -72,9 +72,9 @@ services:
       restart: always
       network_mode: host
       ports:
-      - 8888:8888
+        - 8888:8888
       expose:
-      - 8888
+        - 8888
  
   documentcrawler:
     image: document-crawler-service:latest
@@ -205,3 +205,4 @@ services:
      - 8087:8087
     expose:
      - 8087
+>>>>>>> 6e6e4cc9c1dce1c2374e7516e973c204b1e195dd

@@ -22,6 +22,9 @@ import java.util.List;
 public class DocumentServiceImpl implements DocumentService {
 
     @JsonIgnore
+
+    String docString;
+
     Document doc;
     Url url;
 
@@ -30,12 +33,25 @@ public class DocumentServiceImpl implements DocumentService {
     List<String> tempList = new ArrayList<>();
     String[] temp = new String[200];
     ObjectMapper objectMapper = new ObjectMapper();
-    public DocumentServiceImpl() {
+public DocumentServiceImpl() {
 
     }
 
-    @Autowired
+
+
+
+
+
+
+
+
+
+
+
     RabbitMQSender rabbitMQSender;
+
+//    @Autowired
+//    RabbitMQSender rabbitMQSender;
 
    // @Autowired
 //    public DocumentServiceImpl(SearchOutput searchOutput) {
@@ -61,6 +77,7 @@ public class DocumentServiceImpl implements DocumentService {
             this.searchOutputt = searchOutput;
             int j = 0;
           // this.searchOutputt = this.objectMapper.readValue(searchOutput,SearchOutput);
+
         for (String x:searchOutput.getUrls()
              ) {
             tempList.add(x);
@@ -75,6 +92,16 @@ public class DocumentServiceImpl implements DocumentService {
 //        System.out.println("Recieved Message From RabbitMQ: " + searchOutput.getConcept() +searchOutput.getUrls());
 //        System.out.println("check url----------------"+ searchOutputt.getUrls()+"8888888888"+searchOutputt.getConcept());
        // this.searchOutput = searchOutput;
+
+//        for (String x:searchOutput.getUrls()
+//             ) {
+//            System.out.println("-------------"+x);
+//        }
+//
+//        System.out.println("Recieved Message From RabbitMQ: " + searchOutput.getConcept() +searchOutput.getUrls());
+//        System.out.println("check url----------------"+ searchOutputt.getUrls()+"8888888888"+searchOutputt.getConcept());
+//        this.searchOutput = searchOutput;
+
 //    }
     }
 
@@ -98,12 +125,16 @@ public class DocumentServiceImpl implements DocumentService {
             url.setDomain(searchOutputt.getDomain());
             url.setUrl(urlx);
             url.setDoc(doc.toString());
-            System.out.println("----------" +doc);
+
+            System.out.println(doc.toString());
+
             url.setTimestamp(Timestamp.valueOf(LocalDateTime.of(LocalDate.now(), LocalTime.now())).toString());
             rabbitMQSender.send(url);
+
             list.add(url);
         }
 
         return list;
     }
 }
+

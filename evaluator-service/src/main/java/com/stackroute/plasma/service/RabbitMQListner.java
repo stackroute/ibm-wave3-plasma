@@ -86,6 +86,16 @@ public class RabbitMQListner implements EvaluatorService{
         eva = new Evaluator();
 
     }
+<<<<<<< HEAD
+//
+//    @RabbitListener(queues = "${javainuse.rabbitmq.queue}", containerFactory = "jsaFactory")
+//    public void recievedMessage(Url urlx) throws IOException, ParseException {
+//        System.out.println("Recieved Message From RabbitMQ: " + urlx.getUrl());
+//        this.url=urlx;
+//        System.out.println("\n\n\nchandu......:\n\n\n\n"+getScore());
+//
+//    }
+=======
 
     //Receving Message from RabbitMQ
     @RabbitListener(queues = "${javainuse.rabbitmq.queue}", containerFactory = "jsaFactory")
@@ -94,6 +104,7 @@ public class RabbitMQListner implements EvaluatorService{
         this.url=urlx;
         System.out.println(getScore());
     }
+>>>>>>> 6e6e4cc9c1dce1c2374e7516e973c204b1e195dd
 
     //Calculating scores for html tag
     @Override

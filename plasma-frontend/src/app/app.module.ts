@@ -1,3 +1,4 @@
+import { PlasmaModule } from './plasma/plasma.module';
 import { CardComponent } from './plasma/components/card/card.component';
 import { UserLoginComponent } from './plasma/components/user-login/user-login.component';
 import { UserLoginService } from './plasma/services/user-login.service';
@@ -19,15 +20,11 @@ import { WebSpeechModule } from './plasma/components/web-speech/web-speech.modul
 import { DomainExpertComponent } from './plasma/components/domain-expert/domain-expert.component';
 import { HeaderComponent } from './plasma/components/header/header.component';
 import { UserregistrationComponent } from './plasma/components/userregistration/userregistration.component';
+import { FooterComponent } from './plasma/components/footer/footer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    DomainExpertComponent,
-    HeaderComponent,
-    UserregistrationComponent,
-    UserLoginComponent,
-    CardComponent
   ],
   imports: [
     BrowserModule,
@@ -39,6 +36,7 @@ import { UserregistrationComponent } from './plasma/components/userregistration/
     WebSpeechModule,
     RouterModule,
     ReactiveFormsModule,
+    PlasmaModule
 
   ],
   providers: [UserLoginService],

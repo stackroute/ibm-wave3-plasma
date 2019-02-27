@@ -11,16 +11,16 @@
 
 
 section{
-  margin-left: 600px;
+  margin-left: 550px;
 
 }
 mat-toolbar
 {
-  margin-top: 10%;
+  /* margin-top: 10%; */
   width: 53%;
 }
 button{
-  margin-left: 70px;
+  margin-left: 30px;
   /* padding-left: 50px; */
 }
 
