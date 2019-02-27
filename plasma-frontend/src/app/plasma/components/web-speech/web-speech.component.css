@@ -6,15 +6,18 @@
   section
   {
   margin-top: 0px;
-    height:600px;
-    margin-left: 100px;
+    height:500px;
   
   }
   figure{
    padding-left: 350px;
   
   }
-   
+  /* .topnav {
+    margin-top: 0px;
+    overflow: hidden;
+    background-color: #333;
+  } */
   .topnav a {
     float: right;
     color: #f2f2f2;
@@ -36,10 +39,9 @@
   .center2
   {
     position: absolute;
-    top:380px;
-    padding-left: 640px;
-
-   
+    top:290px;
+    padding-left: 580px;
+    
     
     }
 
@@ -60,36 +62,27 @@
     display:inline-block;
   }
   
-  mat-form-field
-  {
-    width: 300px;
-    margin-bottom: 10px;
-  }
+  
  
    .search
   {
     margin-left: 500px;
     position: relative;
-
-   
   }
   
   .go
   {
-    margin-left: 810px;
+    margin-left: 710px;
     position: absolute;
-    top:320px;
+    top:240px;
   } 
   .go1
   {
-    background-color: black;
-    opacity: 0.8;
+    background-color: grey;
   }
 
   .mic
   {
-    background-color: black;
-    opacity: 0.8;
-   
+    background-color: grey;
   }
   

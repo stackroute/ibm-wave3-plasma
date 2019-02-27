@@ -5,6 +5,7 @@
 }
  .spacer {
   flex: 1 1 auto;
+
 } 
 .navbar-header
 {
@@ -21,12 +22,17 @@ header{
 
 
 mat-toolbar{
-  background-color:black;
-  opacity: 0.8;
+  background-color: black;
+  opacity: 0.7;
 }
 img{
   width:60px;
   height:50px;
   padding-top: 10px;
+
+}
+img{
+  width: 75px;
+  height: 80px;
 
 }

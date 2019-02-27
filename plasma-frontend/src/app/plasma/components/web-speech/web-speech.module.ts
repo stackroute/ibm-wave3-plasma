@@ -1,4 +1,3 @@
-import { FooterComponent } from './../footer/footer.component';
 import { SpeechRecognizerService } from './../../services/speech-recognizer.service';
 
 

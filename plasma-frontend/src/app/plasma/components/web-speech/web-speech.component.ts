@@ -7,8 +7,6 @@ import { SpeechRecognizerService } from '../../services/speech-recognizer.servic
 import { SpeechNotification } from '../../tsclasses/speech-notification';
 import { SpeechError } from '../../tsclasses/speech-error';
 
-import { Router } from '@angular/router';
-
 @Component({
   selector: 'app-web-speech',
   templateUrl: './web-speech.component.html',
@@ -24,8 +22,7 @@ export class WebSpeechComponent implements OnInit {
   constructor(
     private changeDetector: ChangeDetectorRef,
     private speechRecognizer: SpeechRecognizerService,
-    private searchService: SearchService,
-    private router: Router
+    private searchService: SearchService
   ) { }
 
   ngOnInit() {
@@ -39,7 +36,6 @@ export class WebSpeechComponent implements OnInit {
    this.searchService.data(this.finalTranscript).subscribe(data => {
      console.log(data);
    });
-   this.router.navigateByUrl('/card');
    }
   startButton(event) {
     if (this.recognizing) {

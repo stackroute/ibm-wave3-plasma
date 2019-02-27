@@ -1,4 +1,4 @@
 export class Domainexpert {
     domain: string;
-    concepts: string[];
+    concept: string[];
 }
