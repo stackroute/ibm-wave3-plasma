@@ -24,6 +24,7 @@ public class NlpServiceImpl implements NlpService{
     @Autowired
     NlpRepository nlpRepository;
 
+    RabbitMQSender rabbitMQSender;
     @Override
     public UserQuery save(UserQuery userQuery) {
         return nlpRepository.save(userQuery);
@@ -88,6 +89,7 @@ public class NlpServiceImpl implements NlpService{
                 extractedString.add(lemma);
             }
         }
+        rabbitMQSender.sender(extractedString);
         return extractedString;
     }
 }
