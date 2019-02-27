@@ -6,11 +6,12 @@ import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import lombok.NoArgsConstructor;
 import org.jsoup.nodes.Document;
 
+import java.io.Serializable;
 import java.sql.Timestamp;
 
 //@NoArgsConstructor
 @JsonIdentityInfo(generator = ObjectIdGenerators.IntSequenceGenerator.class, property = "@id", scope = Url.class)
-public class Url {
+public class Url implements Serializable {
 
     @JsonProperty("url")
     private String url;

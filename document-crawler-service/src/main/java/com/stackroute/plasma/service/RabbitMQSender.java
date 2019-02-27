@@ -26,6 +26,6 @@ public class RabbitMQSender {
     //ObjectMapper objectMapper = new ObjectMapper();
     public void send(Url url) {
         rabbitTemplate.convertAndSend(exchange, routingkey, url);
-        System.out.println("Send msg = " + url);
+        System.out.println("Send msg = " +url);
     }
 }
