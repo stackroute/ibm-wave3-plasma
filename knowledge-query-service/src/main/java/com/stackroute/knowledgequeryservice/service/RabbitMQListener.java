@@ -15,7 +15,15 @@ public class RabbitMQListener {
 
     @RabbitListener(queues = "${javainuse5.rabbitmq.queue}", containerFactory = "jsaFactory")
     public void consume(Tag tag){
+        this.tag = tag;
         System.out.println("Recieved Message From RabbitMQ: " + tag.toString());
     }
 
+    public Tag getTag() {
+        return tag;
+    }
+
+    public void setTag(Tag tag) {
+        this.tag = tag;
+    }
 }

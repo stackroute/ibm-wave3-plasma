@@ -1,6 +1,6 @@
 package com.stackroute.knowledgequeryservice.service;
 
-import com.stackroute.knowledgequeryservice.model.Description;
+import com.stackroute.knowledgequeryservice.model.Descriptions;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -20,11 +20,11 @@ public class RabbitMQSender {
 
     // String kafkaTopic = "java_in_use_topic";
 
-    public void sender(Description description) {
+    public void sender(Descriptions descriptions) {
 //        ObjectMapper mapper = new ObjectMapper();
 //        String json = mapper.writeValueAsString(searchOutput);
 //        System.out.println(json);
-        rabbitTemplate.convertAndSend(exchange, routingkey6,description);
-        System.out.println("Send msg = " + description);
+        rabbitTemplate.convertAndSend(exchange, routingkey6,descriptions);
+        System.out.println("Send msg = " + descriptions.getDescriptions());
     }
 }
