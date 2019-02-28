@@ -3,7 +3,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { CardComponent } from './components/card/card.component';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { UserregistrationComponent } from './components/userregistration/userregistration.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -25,7 +25,7 @@ import { NgModule } from '@angular/core';
     UserregistrationComponent,
     FooterComponent,
     CardComponent,
-    UserLoginComponent
+    UserLoginComponent,
     ],
   imports: [
    BrowserModule,
@@ -35,7 +35,8 @@ import { NgModule } from '@angular/core';
    HttpClientModule,
    CommonModule,
    PlasmaMaterialModule,
-   WebSpeechModule
+   WebSpeechModule,
+   ReactiveFormsModule
 
   ],
   providers: [UserLoginService],

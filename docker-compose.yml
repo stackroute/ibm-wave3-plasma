@@ -235,3 +235,18 @@ services:
 #      - ../data/redis:/data
 #
 #     - 8087
+
+  notificationservice:
+    image: notification-service:latest
+    build: notification-service/
+    restart: always
+    network_mode: host
+    depends_on:
+       - eurekaserver
+       - rabbitmq
+    ports:
+       - 8095:8095
+    expose:
+       - 8095
+
+
