@@ -17,8 +17,8 @@ public class RabbitMQSender {
     @Value("${javainuse.rabbitmq.exchange}")
     private String exchange;
 
-    @Value("${javainuse3.rabbitmq.routingkey}")
-    private String routingkey3;
+    @Value("${javainuse4.rabbitmq.routingkey}")
+    private String routingkey4;
 
     // String kafkaTopic = "java_in_use_topic";
 
@@ -31,7 +31,7 @@ public class RabbitMQSender {
 //            e.printStackTrace();
 //        }
 //        System.out.println(json);
-        rabbitTemplate.convertAndSend(exchange, routingkey3,nlpModel);
+        rabbitTemplate.convertAndSend(exchange, routingkey4,nlpModel);
         System.out.println("Send msg = " + nlpModel);
     }
 }

@@ -13,18 +13,18 @@ import org.springframework.context.annotation.Configuration;
 public class RabbitMQConfig {
 
 
-    @Value("${javainuse3.rabbitmq.queue}")
-    String queueName3;
+    @Value("${javainuse4.rabbitmq.queue}")
+    String queueName4;
 
     @Value("${javainuse.rabbitmq.exchange}")
     String exchange;
 
-    @Value("${javainuse3.rabbitmq.routingkey}")
-    private String routingkey3;
+    @Value("${javainuse4.rabbitmq.routingkey}")
+    private String routingkey4;
 
     @Bean
     Queue queue() {
-        return new Queue(queueName3, true);
+        return new Queue(queueName4, true);
     }
 
     @Bean
@@ -34,7 +34,7 @@ public class RabbitMQConfig {
 
     @Bean
     Binding binding(Queue queue, DirectExchange exchange) {
-        return BindingBuilder.bind(queue).to(exchange).with(routingkey3);
+        return BindingBuilder.bind(queue).to(exchange).with(routingkey4);
     }
 
     @Bean
