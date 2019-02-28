@@ -1,3 +1,4 @@
+/*
 
 package  com.stackroute.plasma.config;
 
@@ -13,11 +14,13 @@ import org.springframework.data.redis.listener.RedisMessageListenerContainer;
 
 
 
+*/
 /*
 import com.michaelcgood.queue.MessagePublisher;
 import com.michaelcgood.queue.MessagePublisherImpl;
 import com.michaelcgood.queue.MessageSubscriber;
-*/
+*//*
+
 
 @Configuration
 @ComponentScan("com.stackroute.plasma")
@@ -55,7 +58,8 @@ public class RedisConfig {
     public MessageListener listener() {
         return new MessageSubscriber();
     }
-    /*@Bean
+    */
+/*@Bean
     public RedisTemplate<String, Object> redisTemplate() {
         final RedisTemplate<String, Object> template = new RedisTemplate<String, Object>();
         template.setConnectionFactory(jedisConnectionFactory());
@@ -65,8 +69,10 @@ public class RedisConfig {
     @Bean
     MessageListenerAdapter messageListener() {
         return new MessageListenerAdapter(new MessageSubscriber());
-    }*/
+    }*//*
 
+
+*/
 /*    @Bean
     RedisMessageListenerContainer redisContainer() {
         final RedisMessageListenerContainer container = new RedisMessageListenerContainer();
@@ -76,16 +82,21 @@ public class RedisConfig {
     }
 
 *//*
+*/
+/*
     @Bean
     MessagePublisher redisPublisher() {
         return new MessagePublisherImpl(redisTemplate(), topic());
     }
 *//*
+*/
+/*
 
     @Bean
     ChannelTopic topic() {
         return new ChannelTopic("pubsub:queue");
-    }*/
+    }*//*
+
 }
 
 
@@ -111,6 +122,7 @@ public class RedisConfig {
 
 
 
+*/
 /*
 package com.stackroute.plasma.plasma.Config;
 
@@ -130,6 +142,8 @@ public class RedisConfig {
         return new JedisConnectionFactory();
     }
 
+*//*
+
 */
 /*    @Bean
     RedisTemplate<String, Cache> redisTemplate() {
@@ -137,14 +151,20 @@ public class RedisConfig {
         redisTemplate.setConnectionFactory(jedisConnectionFactory());
         return redisTemplate;
     }*//*
+*/
+/*
 
 
-    */
+    *//*
+
+*/
 /*
         @Bean
         JedisConnectionFactory jedisConnectionFactory() {
             return new JedisConnectionFactory();
         }*//*
+*/
+/*
 
     @Bean
     public RedisTemplate<String, Cache> redisTemplate() {
@@ -157,13 +177,12 @@ public class RedisConfig {
     MessageListenerAdapter messageListener() {
         return new MessageListenerAdapter(new MessageSubscriber());
     }
-  */
+  *//*
+
+*/
 /*  @Bean
     MessagePublisher redisPublisher() {
         return new MessagePublisherImpl(redisTemplate(), topic());
     }*//*
-
-}
-
-
 */
+

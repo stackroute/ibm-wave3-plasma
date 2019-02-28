@@ -29,12 +29,15 @@ a{
   color: white;
   text-decoration: none;
 }
+
 p{
-  margin-left: 130px;
+  margin-left: 80px;
   font-size: 20px;
   padding-top: 30px;
 }
-
+.signup{
+  color: blue;
+}
 
 
 
