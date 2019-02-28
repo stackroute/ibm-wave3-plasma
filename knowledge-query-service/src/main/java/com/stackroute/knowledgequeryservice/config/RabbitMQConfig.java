@@ -1,4 +1,3 @@
-/*
 package com.stackroute.knowledgequeryservice.config;
 
 import org.springframework.amqp.core.Binding;
@@ -45,21 +44,30 @@ public class RabbitMQConfig {
     private String routingkey6;
 
     @Bean
+    Queue queue() {
+        return new Queue(queueName6, true);
+    }
+
+    @Bean
+    DirectExchange exchange() {
+        return new DirectExchange(exchange);
+    }
+
+    @Bean
     Binding binding(Queue queue, DirectExchange exchange) {
         return BindingBuilder.bind(queue).to(exchange).with(routingkey6);
     }
 
     @Bean
-    public MessageConverter jsonMessageConverter() {
+    public Jackson2JsonMessageConverter jsonMessageConverter() {
         return new Jackson2JsonMessageConverter();
     }
 
+    @Bean
     public RabbitTemplate rabbitTemplate(ConnectionFactory connectionFactory) {
         final RabbitTemplate rabbitTemplate = new RabbitTemplate(connectionFactory);
         rabbitTemplate.setMessageConverter(jsonMessageConverter());
         return rabbitTemplate;
     }
 
-
 }
-*/

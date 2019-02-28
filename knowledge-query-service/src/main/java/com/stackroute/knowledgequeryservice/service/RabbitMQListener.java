@@ -1,4 +1,3 @@
-/*
 package com.stackroute.knowledgequeryservice.service;
 
 import com.stackroute.knowledgequeryservice.model.Tag;
@@ -20,4 +19,3 @@ public class RabbitMQListener {
     }
 
 }
-*/
