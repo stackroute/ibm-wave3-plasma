@@ -1,5 +1,7 @@
 package com.stackroute.plasma.service;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.stackroute.plasma.model.NlpModel;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,11 +22,16 @@ public class RabbitMQSender {
     // String kafkaTopic = "java_in_use_topic";
 
     public void sender(NlpModel nlpModel) {
-//        ObjectMapper mapper = new ObjectMapper();
-//        String json = mapper.writeValueAsString(searchOutput);
-//        System.out.println(json);
-        rabbitTemplate.convertAndSend(exchange, routingkey3,nlpModel);
-        System.out.println("Send msg = " + nlpModel);
+        ObjectMapper mapper = new ObjectMapper();
+        String json = null;
+        try {
+            json = mapper.writeValueAsString(nlpModel);
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+        }
+        System.out.println(json);
+        rabbitTemplate.convertAndSend(exchange, routingkey3,json);
+        System.out.println("Send msg = " + json);
     }
 }
 

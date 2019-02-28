@@ -33,7 +33,7 @@ services:
     ports:
       - "6380:6380"
     volumes:
-      - ../data/redis:/data
+      - ./data/redis:/data
 
   neo4j:
     image: neo4j:3.5
@@ -44,11 +44,11 @@ services:
     network_mode: host
     restart: always
     volumes:
-      - ./neo4j/import:/import
       - ./neo4j/data:/data
+      - ./neo4j/import:/import
       - ./neo4j/plugins:/plugins
     environment:
-      - NEO4J_AUTH=neo4j/neo4j
+      - NEO4J_AUTH=neo4j/Neo4j
     expose:
       - 7474
 
@@ -118,6 +118,7 @@ services:
     network_mode: host
     depends_on:
       - eurekaserver
+      - rabbitmq
       - mongo
     ports:
       - 8098:8098
