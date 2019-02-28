@@ -5,12 +5,16 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import lombok.NoArgsConstructor;
 
+
+//import java.io.Serializable;
+
 //import java.sql.Timestamp;
+
 import java.sql.Timestamp;
 
 //@NoArgsConstructor
 @JsonIdentityInfo(generator = ObjectIdGenerators.IntSequenceGenerator.class, property = "@id", scope = Url.class)
-public class Url {
+public class Url  {
 
     @JsonProperty("url")
     private String url;

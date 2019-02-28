@@ -2,6 +2,7 @@ package com.stackroute.plasma.domain;
 
 
 //import io.swagger.annotations.ApiModelProperty;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -19,6 +20,7 @@ public class User {
 
     //@Id
     //private String id;
+    @JsonProperty("name")
     private String name;
     @JsonProperty("dateOfBirth")
     private String dateOfBirth;

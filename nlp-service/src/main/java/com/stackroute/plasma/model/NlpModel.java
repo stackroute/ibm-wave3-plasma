@@ -1,9 +1,12 @@
 package com.stackroute.plasma.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.io.Serializable;
 import java.util.List;
 
-public class NlpModel implements Serializable {
+public class NlpModel {
+    @JsonProperty("tokenized_lematized")
     List<String> tokenized_lematized ;
 
     public List<String> getTokenized_lematized() {
