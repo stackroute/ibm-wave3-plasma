@@ -24,7 +24,7 @@ public class NlpServiceImpl implements NlpService{
 
     @Autowired
     NlpRepository nlpRepository;
-
+    @Autowired
     RabbitMQSender rabbitMQSender;
     @Override
     public UserQuery save(UserQuery userQuery) {

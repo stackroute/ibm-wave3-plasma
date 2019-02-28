@@ -14,7 +14,7 @@ public class RabbitMQConfig {
 
 
     @Value("${javainuse3.rabbitmq.queue}")
-    String queueName;
+    String queueName3;
 
     @Value("${javainuse.rabbitmq.exchange}")
     String exchange;
@@ -24,7 +24,7 @@ public class RabbitMQConfig {
 
     @Bean
     Queue queue() {
-        return new Queue(queueName, true);
+        return new Queue(queueName3, true);
     }
 
     @Bean
@@ -42,7 +42,7 @@ public class RabbitMQConfig {
         return new Jackson2JsonMessageConverter();
     }
 
-
+    @Bean
     public RabbitTemplate rabbitTemplate(ConnectionFactory connectionFactory) {
         final RabbitTemplate rabbitTemplate = new RabbitTemplate(connectionFactory);
         rabbitTemplate.setMessageConverter(jsonMessageConverter());
