@@ -1,0 +1,95 @@
+.speech-result-width {
+    width: 90%;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  section
+  {
+  margin-top: 150px;
+    height:600px;
+    margin-left: 100px;
+  
+  }
+  figure{
+   padding-left: 350px;
+  
+  }
+   
+  .topnav a {
+    float: right;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+  }
+  
+  .topnav a:hover {
+    background-color: #ddd;
+    color: black;
+  }
+
+
+
+
+  
+  .center2
+  {
+    position: absolute;
+    top:370px;
+    padding-left: 640px;
+
+   
+    
+    }
+
+
+  
+  .mat-input-element:disabled {
+
+    color:black;
+  }
+  
+  .notification {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+  
+  
+  .buttonwrapper {
+    display:inline-block;
+  }
+  
+  mat-form-field
+  {
+    width: 300px;
+    margin-bottom: 10px;
+  }
+ 
+   .search
+  {
+    margin-left: 500px;
+    position: relative;
+
+   
+  }
+  
+  .go
+  {
+    margin-left: 810px;
+    position: absolute;
+    top:320px;
+  } 
+  .go1
+  {
+    background-color: black;
+    opacity: 0.8;
+  }
+
+  .mic
+  {
+    background-color: black;
+    opacity: 0.8;
+   
+  }
+  
