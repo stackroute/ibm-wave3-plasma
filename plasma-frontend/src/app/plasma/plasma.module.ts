@@ -25,7 +25,7 @@ import { NgModule } from '@angular/core';
     UserregistrationComponent,
     FooterComponent,
     CardComponent,
-    UserLoginComponent
+    UserLoginComponent,
     ],
   imports: [
    BrowserModule,

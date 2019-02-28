@@ -235,8 +235,18 @@ services:
 #
 #     - 8087
 
+  notificationservice:
+    image: notification-service:latest
+    build: notification-service/
+    restart: always
+    network_mode: host
+    depends_on:
+       - eurekaserver
+       - rabbitmq
+    ports:
+       - 8095:8095
+    expose:
+       - 8095
 
-<<<<<<< HEAD
 
-=======
->>>>>>> ea94e41a1609d4c33b72d27bc4afce39b1b53e7f
+
