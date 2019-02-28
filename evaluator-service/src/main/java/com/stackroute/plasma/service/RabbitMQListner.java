@@ -9,6 +9,7 @@ import org.json.simple.parser.ParseException;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.io.FileReader;
@@ -24,6 +25,8 @@ public class RabbitMQListner implements EvaluatorService{
 
 
     Evaluator eval = new Evaluator();
+    @Autowired
+    RabbitMQSender rabbitMQSender;
 
     @JsonIgnore
     Document docx;
@@ -88,10 +91,12 @@ public class RabbitMQListner implements EvaluatorService{
     }
     //Receving Message from RabbitMQ
     @RabbitListener(queues = "${javainuse.rabbitmq.queue}", containerFactory = "jsaFactory")
-    public void recievedMessage(Url urlx) throws IOException, ParseException {
+    public void recievedMessage(Url urlx) throws IOException,ParseException {
         System.out.println("Recieved Message From RabbitMQ: " + urlx.getUrl());
+
         this.url=urlx;
-        System.out.println(getScore());
+        //System.out.println(getScore());
+        rabbitMQSender.send(getScore());
     }
 
     //Calculating scores for html tag
@@ -107,7 +112,7 @@ public class RabbitMQListner implements EvaluatorService{
 
 
         for(int i=0;i<4;i++){
-            System.out.println("html "+html[i]);
+            //System.out.println("html "+html[i]);
         }
     }
 
@@ -128,7 +133,7 @@ public class RabbitMQListner implements EvaluatorService{
         head[3] = (countOccurences(strn, strL4)-sumHead[3])>0?(countOccurences(strn, strL4)-sumHead[3]):0;
 
         for(int i=0;i<4;i++){
-            System.out.println("head "+head[i]);
+            //System.out.println("head "+head[i]);
         }
     }
 
@@ -151,16 +156,20 @@ public class RabbitMQListner implements EvaluatorService{
     @Override
     public void metaTag() {
         int count = 0;
-        description = docx.select("meta[name=description]").get(0).attr("content");
-        //Print description.
-        System.out.println("Meta Description: " + description);
 
+        if(!docx.select("meta[name=description]").isEmpty()) {
+            description = docx.select("meta[name=description]").get(0).attr("content");
+            //Print description.
+            System.out.println("Meta Description: " + description);
+        }
         //Get keywords from document object.
-        keywords = docx.select("meta[name=keywords]").first().attr("content");
-        //Print keywords.
-        System.out.println("Meta Keyword : " + keywords);
+        if(!docx.select("meta[name=keywords]").isEmpty()) {
+            keywords = docx.select("meta[name=keywords]").first().attr("content");
+            //Print keywords.
+            //System.out.println("Meta Keyword : " + keywords);
 
-        String string= description+keywords;
+        }
+        String string = description + keywords;
         String ss1 = string.trim().replaceAll(",", "");
         List<String> str = Arrays.asList(ss1.split(" "));
         meta[0] = countOccurences(str, strL1);
@@ -195,7 +204,7 @@ public class RabbitMQListner implements EvaluatorService{
 
 
         for(int i=0;i<4;i++){
-            System.out.println("body"+body[i]);
+            //System.out.println("body"+body[i]);
         }
     }
 
@@ -213,7 +222,7 @@ public class RabbitMQListner implements EvaluatorService{
 
 
         for(int i=0;i<4;i++){
-            System.out.println("head1 "+h1[i]);
+            //System.out.println("head1 "+h1[i]);
         }
     }
 
@@ -229,7 +238,7 @@ public class RabbitMQListner implements EvaluatorService{
         h2[3] = countOccurences(strn, strL4);
 
         for(int i=0;i<4;i++){
-            System.out.println("head2 "+h2[i]);
+            //System.out.println("head2 "+h2[i]);
         }
     }
 
@@ -245,7 +254,7 @@ public class RabbitMQListner implements EvaluatorService{
         h3[3] = countOccurences(strn, strL4);
 
         for(int i=0;i<4;i++){
-            System.out.println("head3  "+h3[i]);
+            //System.out.println("head3  "+h3[i]);
         }
     }
 
@@ -261,7 +270,7 @@ public class RabbitMQListner implements EvaluatorService{
         h4[3] = countOccurences(strn, strL4);
 
         for(int i=0;i<4;i++){
-            System.out.println("head4 "+h4[i]);
+            //System.out.println("head4 "+h4[i]);
         }
     }
 
@@ -277,7 +286,7 @@ public class RabbitMQListner implements EvaluatorService{
         h5[3] = countOccurences(strn, strL4);
 
         for(int i=0;i<4;i++){
-            System.out.println("head5 "+h5[i]);
+           // System.out.println("head5 "+h5[i]);
         }
     }
 
@@ -293,7 +302,7 @@ public class RabbitMQListner implements EvaluatorService{
         h6[3] = countOccurences(strn, strL4);
 
         for(int i=0;i<4;i++){
-            System.out.println("head6 "+h6[i]);
+            //System.out.println("head6 "+h6[i]);
         }
     }
 
@@ -312,7 +321,7 @@ public class RabbitMQListner implements EvaluatorService{
         code[3] = (countOccurences(str, strL4));
 
         for(int i=0;i<4;i++){
-            System.out.println("code "+code[i]);
+            //System.out.println("code "+code[i]);
         }
     }
 
@@ -332,7 +341,7 @@ public class RabbitMQListner implements EvaluatorService{
 
 
         for(int i=0;i<4;i++){
-            System.out.println("address "+address[i]);
+            //System.out.println("address "+address[i]);
         }
     }
 
@@ -352,7 +361,7 @@ public class RabbitMQListner implements EvaluatorService{
 
 
         for(int i=0;i<4;i++){
-            System.out.println("summary "+summary[i]);
+            //System.out.println("summary "+summary[i]);
         }
     }
 
@@ -368,7 +377,7 @@ public class RabbitMQListner implements EvaluatorService{
         blockquote[3] = countOccurences(strn, strL4);
 
         for(int i=0;i<4;i++){
-            System.out.println("blockquote "+h6[i]);
+            //System.out.println("blockquote "+h6[i]);
         }
     }
 
@@ -384,7 +393,7 @@ public class RabbitMQListner implements EvaluatorService{
         mark[3] = countOccurences(strn, strL4);
 
         for(int i=0;i<4;i++){
-            System.out.println("mark "+mark[i]);
+            //System.out.println("mark "+mark[i]);
         }
     }
 
@@ -417,7 +426,7 @@ public class RabbitMQListner implements EvaluatorService{
         map[3] = countOccurences(strn, strL4);
 
         for(int i=0;i<4;i++){
-            System.out.println("map "+map[i]);
+            //System.out.println("map "+map[i]);
         }
     }
 
@@ -435,7 +444,7 @@ public class RabbitMQListner implements EvaluatorService{
         p[3] = countOccurences(strn, strL4);
 
         for(int i=0;i<4;i++){
-            System.out.println("p tag"+p[i]);
+            //System.out.println("p tag"+p[i]);
         }
     }
 
@@ -451,7 +460,7 @@ public class RabbitMQListner implements EvaluatorService{
         span[3] = countOccurences(strn, strL4);
 
         for(int i=0;i<4;i++){
-            System.out.println("span "+span[i]);
+            //System.out.println("span "+span[i]);
         }
     }
 
@@ -471,7 +480,7 @@ public class RabbitMQListner implements EvaluatorService{
 
 
         for(int i=0;i<4;i++){
-            System.out.println("div "+div[i]);
+            //System.out.println("div "+div[i]);
         }
     }
 
@@ -487,7 +496,7 @@ public class RabbitMQListner implements EvaluatorService{
         li[3] = countOccurences(strn, strL4);
 
         for(int i=0;i<4;i++){
-            System.out.println("li "+li[i]);
+            //System.out.println("li "+li[i]);
         }
     }
 
@@ -503,7 +512,7 @@ public class RabbitMQListner implements EvaluatorService{
         ul[3] = (countOccurences(strn, strL4)-li[3])>0?(countOccurences(strn, strL4)-li[3]):0;
 
         for(int i=0;i<4;i++){
-            System.out.println("ul "+ul[i]);
+            //System.out.println("ul "+ul[i]);
         }
     }
 
@@ -520,7 +529,7 @@ public class RabbitMQListner implements EvaluatorService{
         ol[3] = (countOccurences(strn, strL4)-li[3])>0?(countOccurences(strn, strL4)-li[3]):0;
 
         for(int i=0;i<4;i++){
-            System.out.println("ol "+ol[i]);
+            //System.out.println("ol "+ol[i]);
         }
     }
 
@@ -537,7 +546,7 @@ public class RabbitMQListner implements EvaluatorService{
         article[3] = countOccurences(strn, strL4);
 
         for(int i=0;i<4;i++){
-            System.out.println("article "+article[i]);
+            //System.out.println("article "+article[i]);
         }
     }
 
@@ -554,7 +563,7 @@ public class RabbitMQListner implements EvaluatorService{
 
 
         for(int i=0;i<4;i++){
-            System.out.println("nav "+nav[i]);
+            //System.out.println("nav "+nav[i]);
         }
     }
 
@@ -587,13 +596,13 @@ public class RabbitMQListner implements EvaluatorService{
     @Override
     public Evaluator getScore() throws IOException, ParseException {
         this.docx = Jsoup.parse(url.getDoc());
-        System.out.println("in method");
+        //System.out.println("in method");
         long[][] val = new long[26][4];
         Long[] score = new Long[4];
         int i=0;
 
         getWeights();
-        System.out.println("starting methods");
+       // System.out.println("starting methods");
         h1Tag();
         h2Tag();
         h3Tag();
@@ -740,7 +749,7 @@ public class RabbitMQListner implements EvaluatorService{
         List<Long> scores = Arrays.asList(score);
         int level = scores.indexOf(Collections.max(scores));
 
-        System.out.println("starting object assign");
+        //System.out.println("starting object assign");
         this.eva.setUrl(url.getUrl());
         this.eva.setTimestamp(Timestamp.valueOf(LocalDateTime.of(LocalDate.now(), LocalTime.now())));
         this.eva.setDomain(url.getDomain());
@@ -754,7 +763,7 @@ public class RabbitMQListner implements EvaluatorService{
         this.eva.setTitle(this.docx.title());
 
 
-        System.out.println("ending object assign");
+       // System.out.println("ending object assign");
 
         System.out.print(this.eva);
         return  this.eva;

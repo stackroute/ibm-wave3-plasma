@@ -11,8 +11,9 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class RabbitMQSender {
+
     @Autowired
-    private RabbitTemplate rabbitTemplate;
+     RabbitTemplate rabbitTemplate;
     ObjectMapper objectMapper = new ObjectMapper();
 
     @Value("${javainuse.rabbitmq.exchange}")
