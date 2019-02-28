@@ -214,7 +214,7 @@ services:
     expose:
      - 8070
 
-<<<<<<< HEAD
+
 
 #  redis:
 #    container_name: redis
@@ -226,5 +226,5 @@ services:
 #
 #     - 8087
 
-=======
->>>>>>> 2351f1840d2fd9f68e9b742335e8bd6616b7d23a
+
+
