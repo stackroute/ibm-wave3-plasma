@@ -35,6 +35,15 @@ services:
 #    volumes:
 #      - ../data/redis:/data
 
+  redis:
+    container_name: redis
+    image: redis
+    ports:
+      - "6380:6380"
+    volumes:
+      - ./data/redis:/data
+
+
   neo4j:
     image: neo4j:3.5
     container_name: neo4j
@@ -44,11 +53,9 @@ services:
     network_mode: host
     restart: always
     volumes:
-      - ./neo4j/import:/import
       - ./neo4j/data:/data
+      - ./neo4j/import:/import
       - ./neo4j/plugins:/plugins
-    environment:
-      - NEO4J_AUTH=neo4j/neo4j
     expose:
       - 7474
 
@@ -111,6 +118,7 @@ services:
     expose:
       - 8090
 
+
   nlpservice:
     image: nlp-service:latest
     build: nlp-service/
@@ -118,6 +126,7 @@ services:
     network_mode: host
     depends_on:
       - eurekaserver
+      - rabbitmq
       - mongo
     ports:
       - 8098:8098
@@ -213,4 +222,17 @@ services:
      - 8087:8087
     expose:
      - 8070
+
+
+
+#  redis:
+#    container_name: redis
+#    image: redis
+#    ports:
+#      - "6380:6380"
+#    volumes:
+#      - ../data/redis:/data
+#
+#     - 8087
+
 

@@ -39,8 +39,7 @@ public class RabbitMQConfig {
         return factory;
     }
 
-    //Sending message to rabbitMQ
-
+    //Sending message rabbitMQ
     @Bean
     Queue queue() {
         return new Queue(queueName1, true);

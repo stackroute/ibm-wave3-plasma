@@ -17,18 +17,20 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class RabbitMQConfig {
 
-    @Value("${javainuse4.rabbitmq.queue}")
-    String queueName;
+    @Value("${javainuse5.rabbitmq.queue}")
+
+    String queueName5;
+
 
     @Value("${javainuse.rabbitmq.exchange}")
     String exchange;
 
-    @Value("${javainuse4.rabbitmq.routingkey}")
-    private String routingkey4;
+    @Value("${javainuse5.rabbitmq.routingkey}")
+    private String routingkey5;
 
     @Bean
     Queue queue() {
-        return new Queue(queueName, true);
+        return new Queue(queueName5, true);
     }
 
     @Bean
@@ -38,7 +40,7 @@ public class RabbitMQConfig {
 
     @Bean
     Binding binding(Queue queue, DirectExchange exchange) {
-        return BindingBuilder.bind(queue).to(exchange).with(routingkey4);
+        return BindingBuilder.bind(queue).to(exchange).with(routingkey5);
     }
 
     @Bean
@@ -46,7 +48,7 @@ public class RabbitMQConfig {
         return new Jackson2JsonMessageConverter();
     }
 
-
+    @Bean
     public RabbitTemplate rabbitTemplate(ConnectionFactory connectionFactory) {
         final RabbitTemplate rabbitTemplate = new RabbitTemplate(connectionFactory);
         rabbitTemplate.setMessageConverter(jsonMessageConverter());
