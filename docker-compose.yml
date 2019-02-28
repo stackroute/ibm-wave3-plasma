@@ -27,6 +27,14 @@ services:
       - 5672:5672
     network_mode: host
 
+#  redis:
+#    container_name: redis
+#    image: redis
+#    ports:
+#      - "6380:6380"
+#    volumes:
+#      - ../data/redis:/data
+
   redis:
     container_name: redis
     image: redis
@@ -34,6 +42,7 @@ services:
       - "6380:6380"
     volumes:
       - ./data/redis:/data
+
 
   neo4j:
     image: neo4j:3.5
@@ -214,7 +223,7 @@ services:
     expose:
      - 8070
 
-<<<<<<< HEAD
+
 
 #  redis:
 #    container_name: redis
@@ -226,5 +235,8 @@ services:
 #
 #     - 8087
 
+
+<<<<<<< HEAD
+
 =======
->>>>>>> 2351f1840d2fd9f68e9b742335e8bd6616b7d23a
+>>>>>>> ea94e41a1609d4c33b72d27bc4afce39b1b53e7f
