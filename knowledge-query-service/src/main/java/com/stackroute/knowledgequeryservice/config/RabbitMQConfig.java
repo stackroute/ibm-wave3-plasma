@@ -1,3 +1,4 @@
+/*
 package com.stackroute.knowledgequeryservice.config;
 
 import org.springframework.amqp.core.Binding;
@@ -61,3 +62,4 @@ public class RabbitMQConfig {
 
 
 }
+*/

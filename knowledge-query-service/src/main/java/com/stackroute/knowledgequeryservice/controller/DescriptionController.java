@@ -14,14 +14,29 @@ import java.util.List;
 public class DescriptionController {
     @Autowired
     DescriptionService descriptionService;
+   /* @Autowired
+    RabbitMQSender rabbitMQSender;*/
 
+    /*
     @GetMapping("get")
     public List<Description> getAll(){
         return descriptionService.getAll();
     }
+    */
 
     @GetMapping("get/{concept}/{level}")
+    //concept   level   domain  userId
     public List<Description> concept(@PathVariable("concept") String concept,@PathVariable("level") String level){
-        return descriptionService.concept(concept,level);
+       return descriptionService.concept(concept,level);
+
+/*
+     For sending
+        List<Description> descriptions = descriptionService.concept(concept,level);
+        for(Description description : descriptions){
+            System.out.println(description);
+            rabbitMQSender.sender(description);
+        }
+*/
+
     }
 }
