@@ -1,0 +1,71 @@
+
+ .plasma{
+  
+  width: 49.5em;
+  height: 16vh;
+  display: flex;
+  /* padding: 1.9em; */
+  /* overflow: auto; */
+  position: relative;
+  
+  /* flex: auto; */
+ }
+ p{
+  text-align: justify;
+ }
+
+ mat-card-title{
+  position: absolute;
+  left: 3px;
+  top: 10px;
+  font-size: 18px;
+  margin :auto;
+  object-fit: cover; /*this makes de image in src fit to the size of specified below*/
+  width: 67%; 
+  color: blue;
+ }
+
+ mat-card-subtitle
+ {
+   position: absolute;
+   left:3px;
+   top:40px;
+   color: green;
+   font-size: 17px;
+ }
+ .description{
+   position: absolute;
+   left: 3px;
+   top:70px;
+   color: #545454;
+   font-size: 15px;
+ }
+
+ .row{
+  flex-direction: row;
+  /* flex-wrap: wrap; */
+  justify-content: flex-start;
+  padding-bottom: 90px;
+  padding-left: 200.5px;
+  margin-top: 39px;
+ }
+
+ .keywords{
+   position: absolute;
+   left: 23px;
+   top:110px;
+   
+   color: grey;
+   font-size: 15px;
+ }
+
+ a{
+   text-decoration: none;
+ }
+a:hover{
+  text-decoration: underline;
+  color:#609;
+}
+a:visited{
+  color:#609;
+  }

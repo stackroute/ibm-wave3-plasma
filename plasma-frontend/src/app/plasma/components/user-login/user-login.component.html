@@ -1,0 +1,39 @@
+   
+
+ <section class = "container"> 
+
+
+ <mat-toolbar>
+    <span>Login</span>
+  </mat-toolbar>
+     <mat-card-content>
+        <form class="my-form">
+           <mat-form-field class="full-width">
+              <mat-label>Email</mat-label>
+              <input  matInput  placeholder="Email" [(ngModel)] = "userId" name="email">
+           </mat-form-field>
+           <mat-form-field class="full-width">
+              <mat-label>Password</mat-label>
+              <input  matInput  placeholder="Password" [(ngModel)] = "password" type = "password" name="password">
+           </mat-form-field>
+
+         
+         </form>
+     </mat-card-content>
+     <mat-card-actions>
+         <!-- <section class="one">  -->
+         <button mat-raised-button  (click)="login($event)"  color="accent"  type="submit">Login</button>
+        <!-- </section> -->
+        <!-- <section class = "two"> -->
+        <button mat-raised-button color="accent"><a [routerLink]="['/signup']" class="btn btn-link">Sign up</a></button>
+       <p> New user should sign up !!! It's Free</p>
+        <!-- </section>  -->
+        
+     </mat-card-actions>
+     
+    </section>
+
+         
+      
+
+
