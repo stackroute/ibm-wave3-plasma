@@ -16,7 +16,7 @@ public interface DescriptionRepository extends Neo4jRepository<Description,Long>
 
     @Query("MATCH (d)-[r:Details_of]->(c) " +
             "WHERE " +
-            "d.concept={concept} and c.name={concept} and r.confidenceScore>\"70\" and r.level={level} " +
+            "d.concept={concept} and c.name={concept} and r.confidenceScore>80 and r.level={level} " +
             "RETURN d " +
             "ORDER BY r.confidenceScore DESC " +
             "LIMIT 10")

@@ -1,7 +1,11 @@
 package com.stackroute.knowledgequeryservice.controller;
 
 import com.stackroute.knowledgequeryservice.model.Description;
+import com.stackroute.knowledgequeryservice.model.Descriptions;
+import com.stackroute.knowledgequeryservice.model.Tag;
 import com.stackroute.knowledgequeryservice.service.DescriptionService;
+import com.stackroute.knowledgequeryservice.service.RabbitMQListener;
+import com.stackroute.knowledgequeryservice.service.RabbitMQSender;
 import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -14,8 +18,12 @@ import java.util.List;
 public class DescriptionController {
     @Autowired
     DescriptionService descriptionService;
-   /* @Autowired
-    RabbitMQSender rabbitMQSender;*/
+
+    @Autowired
+    RabbitMQListener rabbitMQListener;
+
+    @Autowired
+    RabbitMQSender rabbitMQSender;
 
     /*
     @GetMapping("get")
@@ -24,19 +32,12 @@ public class DescriptionController {
     }
     */
 
-    @GetMapping("get/{concept}/{level}")
-    //concept   level   domain  userId
-    public List<Description> concept(@PathVariable("concept") String concept,@PathVariable("level") String level){
-       return descriptionService.concept(concept,level);
-
-/*
-     For sending
-        List<Description> descriptions = descriptionService.concept(concept,level);
-        for(Description description : descriptions){
-            System.out.println(description);
-            rabbitMQSender.sender(description);
-        }
-*/
-
+    @GetMapping("get")
+    public List<List<Description>> concept(){
+        Tag tag = rabbitMQListener.getTag();
+        Descriptions sender = new Descriptions();
+        sender.setDescriptions(descriptionService.concept(tag.getTaggedConcept(),tag.getTaggedLevel()));
+        rabbitMQSender.sender(sender);
+        return descriptionService.concept(tag.getTaggedConcept(),tag.getTaggedLevel());
     }
 }
