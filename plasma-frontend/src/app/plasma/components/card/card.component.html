@@ -1,19 +1,24 @@
 <div class="row" fxLayout.xs="column">
-  <div fxLayout="" fxLayoutGap="32px" fxLayoutAlign="flex-start" *ngFor='let o of products'>
-      <div fxFlex="20%">
-  <mat-card class='product--blue'>
-    <mat-card-header>
-        <img mat-card-image src="{{o.Image_URL}}" alt="{{o.Brand}}">
-        <mat-card-title>
-            <p>{{o.Brand}}</p>
-        </mat-card-title>
-        <mat-card-actions align="center">
-            <button mat-raised-button (click)="buy()">Buy</button>
-           <button mat-raised-button (click)="openDialog(o)">Details</button>
-              <button mat-raised-button (click)="AddToCart(o)">AddToCart</button>
-        </mat-card-actions>
-  </mat-card-header>
- </mat-card>
- </div>
+  <div *ngFor="let o of resp">
+    <div fxFlex="10%">
+      <div class="plasma">
+        <mat-card-header>
+          <mat-card-title>
+            <p>
+              <a href="{{ o.url }}">{{ o.title }}</a>
+            </p>
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-subtitle>
+          <p>{{ o.url }}</p>
+        </mat-card-subtitle>
+        <mat-card-subtitle class="description">
+          <p>{{ o.description }}</p>
+        </mat-card-subtitle>
+        <mat-card-subtitle class="keywords">
+          <p>{{ o.keywords }}</p>
+        </mat-card-subtitle>
+      </div>
+    </div>
   </div>
- </div>
+</div>

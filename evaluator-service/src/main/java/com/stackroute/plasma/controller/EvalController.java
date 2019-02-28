@@ -32,9 +32,9 @@ public class  EvalController {
         this.rmq = rabbitMQListner;
     }
 
-    @GetMapping("/score")
+    @GetMapping(value = "/score")
     public ResponseEntity<?> getScore() throws IOException, ParseException {
-        rabbitMQSender.send(rmq.getScore());
+       rabbitMQSender.send(rmq.getScore());
         return new ResponseEntity<>(rmq.getScore(), HttpStatus.OK);
     }
 

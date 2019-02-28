@@ -45,11 +45,11 @@ public class RabbitMQConfig {
     }
 
     @Bean
-    public MessageConverter jsonMessageConverter() {
+    public Jackson2JsonMessageConverter jsonMessageConverter() {
         return new Jackson2JsonMessageConverter();
     }
 
-
+     @Bean
     public RabbitTemplate rabbitTemplate(ConnectionFactory connectionFactory) {
         final RabbitTemplate rabbitTemplate = new RabbitTemplate(connectionFactory);
         rabbitTemplate.setMessageConverter(jsonMessageConverter());
@@ -58,7 +58,7 @@ public class RabbitMQConfig {
 
     //for receiver
     @Bean
-    public MessageConverter consumerJsonMessageConverter(){
+    public Jackson2JsonMessageConverter consumerJsonMessageConverter(){
         return new Jackson2JsonMessageConverter();
     }
 

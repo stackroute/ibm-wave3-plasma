@@ -8,8 +8,9 @@ export class CardService {
    response: any;
      constructor(private http: HttpClient) {
    }
-  getquiz() {
-   this.url = 'http://localhost:3000/products';
+  getdoc() {
+   this.url = 'http://localhost:3000/plasma';
+   console.log('response from json server', this.http.get(this.url));
    return this.http.get(this.url);
   }
 
