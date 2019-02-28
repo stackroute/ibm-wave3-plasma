@@ -36,11 +36,15 @@ export class WebSpeechComponent implements OnInit {
     this.notification = null;
   }
 
-  onClickMe() {
+  onClickMe(data) {
+    if (data !== undefined || data !== null ) {
+    this.finalTranscript = data;
+  }
     console.log('transcript valus is ', this.finalTranscript);
     this.Cardservice.getdoc().subscribe(resp => {
       console.log('response from call', resp);
     });
+   // tslint:disable-next-line:no-shadowed-variable
    this.searchService.data(this.finalTranscript).subscribe(data => {
      console.log(data);
    });
