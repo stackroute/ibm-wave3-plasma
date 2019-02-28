@@ -1,0 +1,108 @@
+{"plasma":
+    [{
+     "timestamp":"10-10-2018",
+ 
+     "domain" :"java" ,
+    
+     "concept":"encapsulation",
+    
+     "description":"Encapsulation is one of the four fundamental OOP concepts. The other three are inheritance, polymorphism, and abstraction. Encapsulation in Java is a ...",
+    
+     "title":"Java Encapsulation - Tutorialspoint",
+    
+     "keywords":"java,encapsulation,levels,description",
+    
+     "url":"https://www.tutorialspoint.com/java/java_encapsulation.htm"
+    },
+    {
+       "timestamp":"10-10-2018",
+ 
+     "domain" :"java" ,
+    
+     "concept":"encapsulation",
+    
+     "description":"We have a field — a List of Strings — call myStrings , which is encapsulated in MyClass . Now, we need to provide accessor methods:",
+    
+     "title":"Collections and Encapsulation in Java - DZone Java",
+    
+     "keywords":"java,encapsulation,levels,description",
+    
+     "url":"https://dzone.com/articles/collections-and-encapsulation-in-java"
+    },
+    {
+       "timestamp":"10-10-2018",
+ 
+       "domain" :"java" ,
+      
+       "concept":"encapsulation",
+      
+       "description":" I'll show you why you need encapsulation at various levels of ... descriptive, intention-revealing names to make your objects speak and act ...",
+      
+       "title":"Java Encapsulation for Adults - DZone Java",
+      
+       "keywords":"java,encapsulation,levels,description",
+      
+       "url":"https://dzone.com/articles/java-encapsulation-for-adults"
+    },
+    {
+        "timestamp":"10-10-2018",
+  
+        "domain" :"java" ,
+       
+        "concept":"encapsulation",
+       
+        "description":" For example, encapsulation in java is achieved using private , protected and public ... There are two types of polymorphism – compile time polymorphism and ...",
+       
+        "title":"OOPS Concepts in Java - OOPS Concepts Example - JournalDev",
+       
+        "keywords":"java,encapsulation,levels,description",
+       
+        "url":"https://www.journaldev.com › Java"
+     },
+     {
+      "timestamp":"10-10-2018",
+
+      "domain" :"java" ,
+     
+      "concept":"encapsulation",
+     
+      "description":" Encapsulation. The meaning of Encapsulation, is to make sure that data is hidden from users. To achieve this, you must: declare class ...",
+     
+      "title":"Java Encapsulation and Getters and Setters - W3Schools",
+     
+      "keywords":"java,encapsulation,levels,description",
+     
+      "url":"https://www.w3schools.com/java/java_encapsulation.asp"
+   },
+   {
+      "timestamp":"10-10-2018",
+
+      "domain" :"java" ,
+     
+      "concept":"encapsulation",
+     
+      "description":"Encapsulation in Java with example: Encapsulation simply means binding object state(fields) and behaviour(methods) together. If you are creating class.",
+     
+      "title":"Encapsulation in Java with example - BeginnersBook.com",
+     
+      "keywords":"java,encapsulation,levels,description",
+     
+      "url":"https://beginnersbook.com/2013/05/encapsulation-in-java/"
+   },
+   {
+      "timestamp":"10-10-2018",
+
+      "domain" :"java" ,
+     
+      "concept":"encapsulation",
+     
+      "description":" Encapsulation is a mechanism of binding code and data together in a single unit. Let's take an example of Capsule. Different powdered or ...",
+     
+      "title":"Encapsulation in Java - Software Testing Material",
+     
+      "keywords":"java,encapsulation,levels,description",
+     
+      "url":"https://www.softwaretestingmaterial.com/encapsulation-in-java/    "
+   }
+ ]
+    }

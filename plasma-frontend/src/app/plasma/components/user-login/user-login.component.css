@@ -1,0 +1,59 @@
+.my-form{
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+  
+}
+ 
+.full-width {
+  width: 100%;
+}
+
+
+section{
+  margin-left: 550px;
+  margin-top: 180px;
+
+}
+mat-toolbar
+{
+  /* margin-top: 10%; */
+  width: 51%;
+}
+button{
+  margin-left: 30px;
+  /* padding-left: 50px; */
+}
+
+a{
+  color: white;
+  text-decoration: none;
+}
+
+p{
+  margin-left: 80px;
+  font-size: 20px;
+  padding-top: 30px;
+}
+.signup{
+  color: blue;
+}
+
+
+
+/* .container{
+  margin-top: 80px;
+} */
+ /*.one
+{
+  align-content: initial;
+  margin-left: 80px;
+
+  padding-bottom: 30px; */
+
+/* .two
+{
+  padding-left: 150px;
+  margin-left: 100px;
+  padding-top: 0px;
+}  */

@@ -1,0 +1,24 @@
+<div class="row" fxLayout.xs="column">
+  <div *ngFor="let o of resp">
+    <div fxFlex="10%">
+      <div class="plasma">
+       
+          <mat-card-title>
+            <p>
+              <a href="{{ o.url }}">{{ o.title }}</a>
+            </p>
+          </mat-card-title>
+    
+        <mat-card-subtitle>
+          <p>{{ o.url }}</p>
+        </mat-card-subtitle>
+        <mat-card-subtitle class="description">
+          <p>{{ o.description }}</p>
+        </mat-card-subtitle>
+        <mat-card-subtitle class="keywords">
+          <p>{{ o.keywords }}</p>
+        </mat-card-subtitle>
+      </div>
+    </div>
+  </div>
+</div>
