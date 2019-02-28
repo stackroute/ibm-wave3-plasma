@@ -28,6 +28,16 @@ public class RabbitMQConfig {
     public MessageConverter consumerJsonMessageConverter(){
         return new Jackson2JsonMessageConverter();
     }
+<<<<<<< HEAD
+
+    //Receiving message rabbitMQ
+    @Bean
+    public MessageConverter consumerJsonMessageConverter(){
+    return new Jackson2JsonMessageConverter();
+}
+
+=======
+>>>>>>> 2351f1840d2fd9f68e9b742335e8bd6616b7d23a
 
     @Bean
     public SimpleRabbitListenerContainerFactory jsaFactory(ConnectionFactory connectionFactory,
@@ -39,8 +49,22 @@ public class RabbitMQConfig {
         return factory;
     }
 
+<<<<<<< HEAD
+
+     //Sending message to rabbitMQ
+
+=======
+>>>>>>> 2351f1840d2fd9f68e9b742335e8bd6616b7d23a
     //Sending message to rabbitMQ
 
+<<<<<<< HEAD
+    @Value("${javainuse1.rabbitmq.routingkey}")
+    private String routingkey1;
+
+
+
+=======
+>>>>>>> 2351f1840d2fd9f68e9b742335e8bd6616b7d23a
     @Bean
     Queue queue() {
         return new Queue(queueName1, true);

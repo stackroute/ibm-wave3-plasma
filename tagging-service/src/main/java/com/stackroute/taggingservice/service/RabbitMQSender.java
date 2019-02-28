@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class RabbitMQSender {
-
     @Autowired
     private RabbitTemplate rabbitTemplate;
     //ObjectMapper objectMapper = new ObjectMapper();
@@ -22,9 +21,19 @@ public class RabbitMQSender {
 
     public void sender(TagOutput tagOutput) {
 //        ObjectMapper mapper = new ObjectMapper();
+
+//        String json = null;
+//        try {
+//            json = mapper.writeValueAsString(nlpModel);
+//        } catch (JsonProcessingException e) {
+//            e.printStackTrace();
+//        }
+
 //        String json = mapper.writeValueAsString(searchOutput);
+
 //        System.out.println(json);
         rabbitTemplate.convertAndSend(exchange, routingkey5,tagOutput);
         System.out.println("Send msg = " + tagOutput);
     }
+
 }

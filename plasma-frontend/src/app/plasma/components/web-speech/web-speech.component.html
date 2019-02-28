@@ -1,61 +1,43 @@
-
-
-<<<<<<< HEAD
-=======
-
->>>>>>> 7ea6108266fc9dffab5225da806139e40eb1bb6e
-  <section> 
+<section>
   <figure>
-    <img src="./assets/icon.png">
+    <img src="./assets/icon.png" />
   </figure>
 
-  
   <div class="center2">
     <button class="mic" mat-fab (click)="startButton($event)">
       <mat-icon *ngIf="!recognizing">mic</mat-icon>
       <mat-icon *ngIf="recognizing">stop</mat-icon>
     </button>
   </div>
-  
-  
+
   <div class="search">
-  <!-- <input  style="width: 300px; height: 40px;" value={{finalTranscript}}  type="search" placeholder="Search" aria-label="Search">
+    <!-- <input  style="width: 300px; height: 40px;" value={{finalTranscript}}  type="search" placeholder="Search" aria-label="Search">
    -->
-<<<<<<< HEAD
-    
-      
-  
-        <input  #searchText style="width: 200px;  height: 30px;" value={{finalTranscript}}  type="search" placeholder="Search" aria-label="Search">
-        
-    
-
-  </div>
-
-  <div class="go">
-
-    <button class="go1" mat-mini-fab (click)="onClickMe(searchText.value)" routerLink = 'card' >GO</button>
-=======
-    <mat-form-field >
-      <input matInput  value={{finalTranscript}} type="search"  placeholder="Search here" aria-label="Search">
-      
+    <mat-form-field>
+      <input
+        #searchText
+        matInput
+        value="{{ finalTranscript }}"
+        type="search"
+        placeholder="Search here"
+        aria-label="Search"
+      />
     </mat-form-field>
-
   </div>
   <div class="go">
-
-    <button class="go1" mat-mini-fab (click)="onClickMe()" routerLink = 'card' >GO</button>
->>>>>>> 7ea6108266fc9dffab5225da806139e40eb1bb6e
-  
-
+    <button
+      class="go1"
+      mat-mini-fab
+      (click)="onClickMe(searchText.value)"
+      routerLink="card"
+    >
+      GO
+    </button>
   </div>
 
-  <div class = "center3">
-    <mat-card *ngIf="notification" class="notification">{{notification}}</mat-card>
-    </div>
-  </section>
-  
-  
-
-
-
-
+  <div class="center3">
+    <mat-card *ngIf="notification" class="notification">{{
+      notification
+    }}</mat-card>
+  </div>
+</section>

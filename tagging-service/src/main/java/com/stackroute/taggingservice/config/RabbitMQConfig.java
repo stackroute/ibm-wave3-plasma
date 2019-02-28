@@ -18,7 +18,9 @@ import org.springframework.context.annotation.Configuration;
 public class RabbitMQConfig {
 
     @Value("${javainuse5.rabbitmq.queue}")
+
     String queueName5;
+
 
     @Value("${javainuse.rabbitmq.exchange}")
     String exchange;
@@ -46,7 +48,7 @@ public class RabbitMQConfig {
         return new Jackson2JsonMessageConverter();
     }
 
-
+    @Bean
     public RabbitTemplate rabbitTemplate(ConnectionFactory connectionFactory) {
         final RabbitTemplate rabbitTemplate = new RabbitTemplate(connectionFactory);
         rabbitTemplate.setMessageConverter(jsonMessageConverter());

@@ -38,12 +38,12 @@ private password: string;
       console.log(this.helper.decodeToken(res.body.token).jti, ' :this is the value of the userId');
     console.log(this.helper.decodeToken(res.body.token).sub, ' :this is the value of the role');
     if ((this.helper.decodeToken(res.body.token).sub === 'admin' )) {
-      this.router.navigate([`/card`]);
+      this.router.navigate([`/admin`]);
       this.loginService.setCookie('token', res.body.token, 1);
       this.isLoggedIn = true;
     }
     if ((this.helper.decodeToken(res.body.token).sub === 'user' )) {
-      this.router.navigate([`/admin`]);
+      this.router.navigate([`/card`]);
       this.loginService.setCookie('token', res.body.token, 1);
       this.isLoggedIn = true;
     }
@@ -55,8 +55,7 @@ private password: string;
         this.statusCode = parseInt(errorStatus, 10);
         if (this.statusCode === 401) {
           console.log('user does not exist');
-          this.snackBar.open('User doesnot exist !!!', '');
-
+          this.snackBar.open('User doesnot exist !!!', '', { duration: 2000, verticalPosition: 'top' });
         }
     });
   }

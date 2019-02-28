@@ -8,32 +8,24 @@
 } 
 .navbar-header
 {
-<<<<<<< HEAD
-margin-top: 20px;
-margin-left: 0px;
-margin-right: 0px;
-width: 100%;
-height: 35px;
-=======
 margin-top: 0px;
 margin-left: 0px;
 margin-right: 0px;
 width: 100%;
->>>>>>> 7ea6108266fc9dffab5225da806139e40eb1bb6e
 color: white;
+}
+button{
+  font-size: 22px;
 }
 
 header{
   margin: 0;
-<<<<<<< HEAD
-=======
   position: fixed;
   width: 100%;
   z-index: 1; 
   top: 0;
   /* margin-bottom: 65%;  */
   
->>>>>>> 7ea6108266fc9dffab5225da806139e40eb1bb6e
 }
 
 
@@ -41,17 +33,9 @@ mat-toolbar{
   background-color:black;
   opacity: 0.8;
 }
-<<<<<<< HEAD
-.img-rounded{
-  width:45px;
-  height:50px;
-  padding-top: 13px;
-
-=======
 img{
   width:60px;
   height:50px;
   padding-top: 10px;
->>>>>>> 7ea6108266fc9dffab5225da806139e40eb1bb6e
 
 }

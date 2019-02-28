@@ -30,12 +30,16 @@ public class TagServiceImpl implements TagService {
     private List<String> trouble_word_set = new ArrayList<>();
     private List<String> started_word_set = new ArrayList<>();
     private List<String> example_word_set = new ArrayList<>();
-    private List<String> finalConcept = new ArrayList<>();
-    private List<String> finalIntent = new ArrayList<>();
+    private List<String> finalConcept
+    = new ArrayList<>();
+    private List<String> finalIntent
+    = new ArrayList<>();
     private final static   ArrayList<String> concept_word_set = new ArrayList<>();
     private final static  ArrayList<String> intent_word_set = new ArrayList<>();
     private TagOutput tagOutput = new TagOutput(new ArrayList<>(),new ArrayList<>());
 
+    @Autowired
+    RabbitMQSender rabbitMQSender;
     public TagServiceImpl() {
         readConceptFile();
         readTutorialFile();
@@ -46,7 +50,6 @@ public class TagServiceImpl implements TagService {
         readGettingStartedFile();
         readIntentFile();
     }
-
     public ArrayList<String> readIntentFile() {
         try {
             BufferedReader bufferedReader = new BufferedReader(new FileReader("./dictionary/intent.csv"));
@@ -314,6 +317,8 @@ public class TagServiceImpl implements TagService {
         checkForIntent();
         tagOutput.setTaggedConcept(finalConcept);
         tagOutput.setTaggedLevel(finalIntent);
+        TagOutput tagOutput = new TagOutput(finalConcept,finalIntent);
+        rabbitMQSender.sender(tagOutput);
         return tagOutput;
     }
 }
