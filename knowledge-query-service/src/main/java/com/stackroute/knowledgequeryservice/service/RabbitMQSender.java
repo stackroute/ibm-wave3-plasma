@@ -11,19 +11,13 @@ public class RabbitMQSender {
 
     @Autowired
     private RabbitTemplate rabbitTemplate;
-    //ObjectMapper objectMapper = new ObjectMapper();
     @Value("${javainuse.rabbitmq.exchange}")
     private String exchange;
 
     @Value("${javainuse6.rabbitmq.routingkey}")
     private String routingkey6;
 
-    // String kafkaTopic = "java_in_use_topic";
-
     public void sender(Descriptions descriptions) {
-//        ObjectMapper mapper = new ObjectMapper();
-//        String json = mapper.writeValueAsString(searchOutput);
-//        System.out.println(json);
         rabbitTemplate.convertAndSend(exchange, routingkey6,descriptions);
         System.out.println("Send msg = " + descriptions.getDescriptions());
     }

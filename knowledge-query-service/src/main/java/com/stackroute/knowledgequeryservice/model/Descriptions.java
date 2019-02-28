@@ -9,8 +9,6 @@ import java.util.List;
 
 @Data
 public class Descriptions {
-    /*
-    String userId;*/
-
+    String userId;
     List<List<Description>> descriptions;
 }
