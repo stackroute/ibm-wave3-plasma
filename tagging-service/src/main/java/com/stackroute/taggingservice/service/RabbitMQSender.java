@@ -1,14 +1,11 @@
-package com.stackroute.plasma.service;
+package com.stackroute.taggingservice.service;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.stackroute.plasma.model.NlpModel;
+import com.stackroute.taggingservice.domain.TagOutput;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
 @Service
 public class RabbitMQSender {
     @Autowired
@@ -17,12 +14,12 @@ public class RabbitMQSender {
     @Value("${javainuse.rabbitmq.exchange}")
     private String exchange;
 
-    @Value("${javainuse4.rabbitmq.routingkey}")
-    private String routingkey4;
+    @Value("${javainuse5.rabbitmq.routingkey}")
+    private String routingkey5;
 
     // String kafkaTopic = "java_in_use_topic";
 
-    public void sender(NlpModel nlpModel) {
+    public void sender(TagOutput tagOutput) {
 //        ObjectMapper mapper = new ObjectMapper();
 //        String json = null;
 //        try {
@@ -31,8 +28,8 @@ public class RabbitMQSender {
 //            e.printStackTrace();
 //        }
 //        System.out.println(json);
-        rabbitTemplate.convertAndSend(exchange, routingkey4,nlpModel);
-        System.out.println("Send msg = " + nlpModel);
+        rabbitTemplate.convertAndSend(exchange, routingkey5,tagOutput);
+        System.out.println("Send msg = " + tagOutput);
     }
-}
 
+}
