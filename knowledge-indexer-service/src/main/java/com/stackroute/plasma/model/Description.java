@@ -17,7 +17,7 @@ public class Description {
     @Id @GeneratedValue
     private long id;
     @Property
-    private String timestamp;
+    private Timestamp timestamp;
     @Property
     private String concept;
     @Property
@@ -46,11 +46,11 @@ public class Description {
         this.id = id;
     }
 
-    public String getTimestamp() {
+    public Timestamp getTimestamp() {
         return timestamp;
     }
 
-    public void setTimestamp(String timestamp) {
+    public void setTimestamp(Timestamp timestamp) {
         this.timestamp = timestamp;
     }
 

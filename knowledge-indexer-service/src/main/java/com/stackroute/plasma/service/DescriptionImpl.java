@@ -19,21 +19,21 @@ public class DescriptionImpl implements DescriptionService{
 
         long id = description.getId();
         //Timestamp timestamp = description.getTimestamp();
-        String timestamp = description.getTimestamp();
+        Timestamp timestamp = description.getTimestamp();
         String concept = description.getConcept();
         String domain = description.getDomain();
         String descript = description.getDescription();
         String title = description.getTitle();
         String url = description.getUrl();
         String keywords = description.getKeywords();
-        return descriptionRepository.create(id,timestamp,concept,domain,descript,title,keywords,url);
+        return descriptionRepository.create(timestamp,concept,domain,descript,title,keywords,url);
     }
 
     @Override
     public Description update(Description description) {
         long id = description.getId();
         //Timestamp timestamp = description.getTimestamp();
-        String timestamp = description.getTimestamp();
+        Timestamp timestamp = description.getTimestamp();
         String concept = description.getConcept();
         String domain = description.getDomain();
         String descript = description.getDescription();
