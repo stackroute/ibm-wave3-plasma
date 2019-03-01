@@ -36,7 +36,7 @@ public class RabbitMQListener {
 
         /*creates description node*/
         Description description = new Description();
-        description.setTimestamp(evaluator.getTimestamp());
+        description.setTimestamp(evaluator.getTimestamp().toString());
         description.setDomain(evaluator.getDomain());
         description.setConcept(evaluator.getConcept());
         description.setUrl(evaluator.getUrl());
@@ -44,9 +44,9 @@ public class RabbitMQListener {
         description.setKeywords(evaluator.getKeywords());
         description.setTitle(evaluator.getTitle());
         descriptionService.create(description);
-
-        /*creates the relationship*/
-        relationshipService.create(evaluator.getConcept(),evaluator.getConfidenceScore(),evaluator.getLevel());
+/*
+        *//*creates the relationship*//*
+        relationshipService.create(evaluator.getConcept(),evaluator.getConfidenceScore(),evaluator.getLevel());*/
     }
 
     public Evaluator getEvaluator() {
