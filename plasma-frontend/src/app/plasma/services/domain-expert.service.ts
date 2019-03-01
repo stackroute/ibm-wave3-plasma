@@ -20,10 +20,10 @@ httpOptions = {
   })
 };
     getTheData() {
-      return this.http.get('http://localhost:3000/data');
+      return this.http.get('http://13.234.94.77:3000/data');
     }
     add(reg: Domainexpert) {
-      this.url = 'http://localhost:8090/api/v1/search';
+      this.url = 'http://13.234.94.77:8090/api/v1/search';
       // this.http.get(this.url + '').subscribe(resp => {
       //     console.log(resp);
       // this.response = resp;

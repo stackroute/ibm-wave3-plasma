@@ -22,7 +22,7 @@ public class RelationshipController {
     @Autowired
     RabbitMQListener rabbitMQListener;
 
-    @GetMapping("/")
+    @GetMapping("/get")
     public void create(){
         Evaluator evaluator=rabbitMQListener.getEvaluator();
         /*Relationship relationship=new Relationship();

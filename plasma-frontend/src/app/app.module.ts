@@ -17,11 +17,14 @@ import { AppComponent } from './app.component';
 
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
+import { UserregistrationService } from './plasma/services/userregistration.service';
+import { WebSocketComponent } from './plasma/components/web-socket/web-socket.component';
 
 
 @NgModule({
 declarations: [
   AppComponent,
+  WebSocketComponent
 ],
 imports: [
   BrowserModule,
@@ -35,7 +38,7 @@ imports: [
   PlasmaModule
 
 ],
-providers: [UserLoginService, CardService],
+providers: [UserLoginService, CardService, UserregistrationService],
 bootstrap: [
   AppComponent
 ]

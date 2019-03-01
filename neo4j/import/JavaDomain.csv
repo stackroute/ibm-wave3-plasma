@@ -757,7 +757,7 @@ JAVA:758,Salesforce.com,JAVA:273,concept,concept,related,Java software programmi
 JAVA:759,Salesforce.com,JAVA:756,concept,concept,subconcept of,Java software programming,,Salesforce.com: Java software programming: Web programming
 JAVA:760,Sar,JAVA:432,concept,concept,subconcept of,Java software programming,,Sar: Java software programming: Web programming
 JAVA:761,Sar,JAVA:205,concept,concept,related,Java software programming,,Sar: Java software programming: Web programming
-JAVA:762,Scala,JAVA:280,concept,concept,subconcept of,Java software programming,,Scala: Java software programming: Web programming
+JAVA:762,scope,JAVA:280,concept,concept,subconcept of,Java software programming,,Scala: Java software programming: Web programming
 JAVA:763,Scala,JAVA:512,concept,concept,subconcept of,Java software programming,,Scala: Java software programming: Web programming
 JAVA:764,Scale Out,JAVA:947,concept,concept,related,Java software programming,,Scale Out: Java software programming: Web programming
 JAVA:765,Scale Up,JAVA:947,concept,concept,related,Java software programming,,Scale Up: Java software programming: Web programming

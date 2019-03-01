@@ -26,7 +26,7 @@ public class DescriptionImpl implements DescriptionService{
         String title = description.getTitle();
         String url = description.getUrl();
         String keywords = description.getKeywords();
-        return descriptionRepository.create(id,timestamp,concept,domain,descript,title,keywords,url);
+        return descriptionRepository.create(timestamp,concept,domain,descript,title,keywords,url);
     }
 
     @Override
@@ -44,7 +44,7 @@ public class DescriptionImpl implements DescriptionService{
     }
 
     @Override
-    public Description delete(Timestamp timestamp) {
+    public Description delete(String timestamp) {
         return descriptionRepository.delete(timestamp);
     }
 

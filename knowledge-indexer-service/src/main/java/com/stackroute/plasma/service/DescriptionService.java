@@ -9,6 +9,6 @@ public interface DescriptionService {
     public Description create(Description description);
     public Description update(Description description);
     public Description delete(long id);
-    public Description delete(Timestamp timestamp);
+    public Description delete(String timestamp);
     public Description delete(String concept, String domain);
 }

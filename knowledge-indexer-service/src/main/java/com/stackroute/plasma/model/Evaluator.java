@@ -14,7 +14,7 @@ import java.sql.Timestamp;
 public class Evaluator {
 
     //@JsonProperty("timestamp")
-    private String timestamp;
+    private Timestamp timestamp;
     //@JsonProperty("domain")
     private String domain;
     //@JsonProperty("concept")
