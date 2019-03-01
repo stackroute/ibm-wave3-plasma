@@ -28,6 +28,7 @@ public class User {
     private String gender;
     private Integer contact;
     @Id
+    @JsonProperty("emailId")
     private String emailId;
     @JsonProperty("setPassword")
     private String setPassword;
