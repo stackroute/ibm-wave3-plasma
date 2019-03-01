@@ -25,7 +25,7 @@ public class RabbitMQSender {
 
 
     public void send(Evaluator evaluator){
-        rabbitTemplate.convertAndSend(exchange, routingkey1,evaluator.toString());
+        rabbitTemplate.convertAndSend(exchange, routingkey1,evaluator);
         //System.out.println("Send msg = " + evaluator.getLevel());
     }
 }

@@ -13,10 +13,10 @@ import java.util.List;
 public interface DescriptionRepository extends Neo4jRepository<Description,Long> {
 
     /* Creates the description node */
-    @Query("CREATE (d:Description) SET d.id={id}, d.timestamp={timestamp},d.concept={concept},d.domain={domain},d.description={description}," +
+    @Query("CREATE (d:Description) SET d.timestamp={timestamp},d.concept={concept},d.domain={domain},d.description={description}," +
             "d.title={title},d.url={url},d.keywords={keywords} RETURN d")
-    Description create(@Param("id") long id,
-                       @Param("timestamp") String timestamp,
+    Description create(//@Param("id") long id,
+                       @Param("timestamp") Timestamp timestamp,
                        @Param("concept") String concept,
                        @Param("domain") String domain,
                        @Param("description") String description,
@@ -27,9 +27,9 @@ public interface DescriptionRepository extends Neo4jRepository<Description,Long>
     /* Updates the description node */
     @Query("MATCH (d:Description) WHERE d.id={id} " +
             "SET d.id={id} SET d.timestamp={timestamp} SET d.concept={concept} SET d.domain={domain} SET d.description={description} SET" +
-            "d.title={title} SET d.url={url} SET d.keywords={keywords} RETURN n")
+            "d.title={title} SET d.url={url} SET d.keywords={keywords} RETURN d")
     Description update(@Param("id") long id,
-                       @Param("timestamp") String timestamp,
+                       @Param("timestamp") Timestamp timestamp,
                        @Param("concept") String concept,
                        @Param("domain") String domain,
                        @Param("description") String description,
