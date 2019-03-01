@@ -8,7 +8,7 @@ import { catchError } from 'rxjs/operators';
 @Injectable()
   export class UserLoginService {
     response: any;
-  private loginUrl = 'http://13.234.94.77/api/user';
+  private loginUrl = 'http://13.234.94.77:8132/api/user';
   private errorStatus: string;
   private errorBody: string;
   constructor(private http: HttpClient) { }
