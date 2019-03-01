@@ -31,7 +31,7 @@ public class DescriptionController {
     public Description create(){
         Evaluator evaluator=rabbitMQListener.getEvaluator();
         Description description = new Description();
-        description.setTimestamp(evaluator.getTimestamp());
+        description.setTimestamp(evaluator.getTimestamp().toString());
         description.setDomain(evaluator.getDomain());
         description.setConcept(evaluator.getConcept());
         description.setUrl(evaluator.getUrl());

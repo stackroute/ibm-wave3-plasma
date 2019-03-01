@@ -19,7 +19,7 @@ public class DescriptionImpl implements DescriptionService{
 
         long id = description.getId();
         //Timestamp timestamp = description.getTimestamp();
-        Timestamp timestamp = description.getTimestamp();
+        String timestamp = description.getTimestamp();
         String concept = description.getConcept();
         String domain = description.getDomain();
         String descript = description.getDescription();
@@ -33,7 +33,7 @@ public class DescriptionImpl implements DescriptionService{
     public Description update(Description description) {
         long id = description.getId();
         //Timestamp timestamp = description.getTimestamp();
-        Timestamp timestamp = description.getTimestamp();
+        String timestamp = description.getTimestamp();
         String concept = description.getConcept();
         String domain = description.getDomain();
         String descript = description.getDescription();
@@ -44,7 +44,7 @@ public class DescriptionImpl implements DescriptionService{
     }
 
     @Override
-    public Description delete(Timestamp timestamp) {
+    public Description delete(String timestamp) {
         return descriptionRepository.delete(timestamp);
     }
 
