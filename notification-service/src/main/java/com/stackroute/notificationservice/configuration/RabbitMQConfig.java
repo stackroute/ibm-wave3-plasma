@@ -1,5 +1,4 @@
-package com.stackroute.plasma.config;
-
+package com.stackroute.notificationservice.configuration;
 import org.springframework.amqp.core.*;
 import org.springframework.amqp.rabbit.config.SimpleRabbitListenerContainerFactory;
 import org.springframework.amqp.rabbit.connection.ConnectionFactory;
@@ -10,24 +9,20 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.amqp.SimpleRabbitListenerContainerFactoryConfigurer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-
 @Configuration
 public class RabbitMQConfig {
-
-    //Receiving message rabbitMQ
     @Bean
-    public MessageConverter consumerJsonMessageConverter(){
-    return new Jackson2JsonMessageConverter();
-}
+    public MessageConverter jsonMessageConverter() {
+        return new Jackson2JsonMessageConverter();
 
+    }
     @Bean
-    public SimpleRabbitListenerContainerFactory jsaFactory(ConnectionFactory connectionFactory,
-                                                           SimpleRabbitListenerContainerFactoryConfigurer configurer) {
+    public SimpleRabbitListenerContainerFactory jsaFactory(ConnectionFactory connectionFactory,SimpleRabbitListenerContainerFactoryConfigurer configurer) {
         SimpleRabbitListenerContainerFactory factory =
                 new SimpleRabbitListenerContainerFactory();
         configurer.configure(factory, connectionFactory);
-        factory.setMessageConverter(consumerJsonMessageConverter());
+        factory.setMessageConverter(jsonMessageConverter());
         return factory;
     }
-
 }
+

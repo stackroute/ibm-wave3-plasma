@@ -31,6 +31,13 @@ export class UserregistrationComponent implements OnInit {
   // private confirmpassword: string;
   private emailId: string;
   matcher = new MyErrorStateMatcher();
+
+
+  emailFormControl = new FormControl('', [
+    Validators.required,
+    Validators.email,
+  ]);
+
   register(event: any) {
     this.regform = new Userregister();
     this.regform.name = this.name;
@@ -54,11 +61,6 @@ export class UserregistrationComponent implements OnInit {
     console.log(this.gender);
   }
 
-  // tslint:disable-next-line:member-ordering
-  emailFormControl = new FormControl('', [
-    Validators.required,
-    Validators.email,
-  ]);
 
   constructor(private regserv: UserregistrationService, private http: HttpClient) {
 

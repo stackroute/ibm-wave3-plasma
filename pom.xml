@@ -40,6 +40,7 @@
         <module>knowledge-query-service</module>
         <module>tagging-service</module>
         <module>cache-manager-service</module>
+        <module>notification-service</module>
 
     </modules>
     <dependencies>
