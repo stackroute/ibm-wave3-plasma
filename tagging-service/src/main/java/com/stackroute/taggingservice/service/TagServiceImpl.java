@@ -7,14 +7,12 @@ import edu.stanford.nlp.pipeline.CoreDocument;
 import edu.stanford.nlp.pipeline.StanfordCoreNLP;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-
 
 @Service
 public class TagServiceImpl implements TagService {
@@ -286,9 +284,6 @@ public class TagServiceImpl implements TagService {
         }
     }
 
-
-
-
     @Override
     public TagOutput tagger(String lemma) {
         taggedString = new ArrayList<>();
@@ -317,8 +312,13 @@ public class TagServiceImpl implements TagService {
         checkForIntent();
         tagOutput.setTaggedConcept(finalConcept);
         tagOutput.setTaggedLevel(finalIntent);
+
         TagOutput tagOutput = new TagOutput(finalConcept,finalIntent);
         //rabbitMQSender.sender(tagOutput);
+
+        //TagOutput tagOutput = new TagOutput(finalConcept,finalIntent);
+        System.out.println("sending message to RabbitMQ toString: " + tagOutput);
+        rabbitMQSender.sender(tagOutput);
         return tagOutput;
     }
 }
