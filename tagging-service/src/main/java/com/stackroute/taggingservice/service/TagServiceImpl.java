@@ -318,7 +318,7 @@ public class TagServiceImpl implements TagService {
         tagOutput.setTaggedConcept(finalConcept);
         tagOutput.setTaggedLevel(finalIntent);
         TagOutput tagOutput = new TagOutput(finalConcept,finalIntent);
-        rabbitMQSender.sender(tagOutput);
+        //rabbitMQSender.sender(tagOutput);
         return tagOutput;
     }
 }

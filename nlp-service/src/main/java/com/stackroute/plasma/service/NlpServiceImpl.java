@@ -95,7 +95,7 @@ public class NlpServiceImpl implements NlpService{
 //        rabbitMQSender.sender(extractedString);
 
         NlpModel nlpModel = new NlpModel(extractedString);
-        rabbitMQSender.sender(nlpModel);
+        //rabbitMQSender.sender(nlpModel);
 
         return extractedString;
     }

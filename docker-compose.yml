@@ -219,6 +219,7 @@ services:
     network_mode: host
     depends_on:
      - eurekaserver
+     - rabbitmq
     ports:
      - 8087:8087
     expose:
