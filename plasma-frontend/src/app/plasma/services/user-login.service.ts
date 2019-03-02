@@ -26,7 +26,7 @@ import { catchError } from 'rxjs/operators';
     const expires = `expires=${date.toUTCString()}`;
     document.cookie =  `${cname}=${cvalue};${expires};path=/`;
   }
-
+//just for fun
   getCookie(cname: string) {
     const name = cname + '=';
     const ca = document.cookie.split(';');
