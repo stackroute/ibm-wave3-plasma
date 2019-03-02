@@ -17,10 +17,25 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class RabbitMQConfig {
 
+    //Receiving message rabbitMQ
+    @Bean
+    public MessageConverter consumerJsonMessageConverter() {
+        return new Jackson2JsonMessageConverter();
+    }
+
+    @Bean
+    public SimpleRabbitListenerContainerFactory jsaFactory(ConnectionFactory connectionFactory,
+                                                           SimpleRabbitListenerContainerFactoryConfigurer configurer) {
+        SimpleRabbitListenerContainerFactory factory =
+                new SimpleRabbitListenerContainerFactory();
+        configurer.configure(factory, connectionFactory);
+        factory.setMessageConverter(consumerJsonMessageConverter());
+        return factory;
+    }
+
+    //Sending message to rabbitMQ
     @Value("${javainuse5.rabbitmq.queue}")
-
     String queueName5;
-
 
     @Value("${javainuse.rabbitmq.exchange}")
     String exchange;
@@ -44,7 +59,7 @@ public class RabbitMQConfig {
     }
 
     @Bean
-    public MessageConverter jsonMessageConverter() {
+    public Jackson2JsonMessageConverter jsonMessageConverter() {
         return new Jackson2JsonMessageConverter();
     }
 
@@ -54,21 +69,4 @@ public class RabbitMQConfig {
         rabbitTemplate.setMessageConverter(jsonMessageConverter());
         return rabbitTemplate;
     }
-
-    //for receiver
-    @Bean
-    public MessageConverter consumerJsonMessageConverter(){
-        return new Jackson2JsonMessageConverter();
-    }
-
-    @Bean
-    public SimpleRabbitListenerContainerFactory jsaFactory(ConnectionFactory connectionFactory,
-                                                           SimpleRabbitListenerContainerFactoryConfigurer configurer) {
-        SimpleRabbitListenerContainerFactory factory =
-                new SimpleRabbitListenerContainerFactory();
-        configurer.configure(factory, connectionFactory);
-        factory.setMessageConverter(consumerJsonMessageConverter());
-        return factory;
-    }
-
 }

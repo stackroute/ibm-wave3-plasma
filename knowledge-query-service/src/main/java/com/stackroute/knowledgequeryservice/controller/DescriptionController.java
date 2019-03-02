@@ -16,6 +16,7 @@ import java.util.List;
 @RequestMapping("api/v1/")
 @Api(description = "Read operation on description nodes present in knowledge graph")
 public class DescriptionController {
+
     @Autowired
     DescriptionService descriptionService;
 
