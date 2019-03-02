@@ -29,4 +29,12 @@ public class TagOutput {
     public void setTaggedLevel(List<String> taggedLevel) {
         this.taggedLevel = taggedLevel;
     }
+
+    @Override
+    public String toString() {
+        return "TagOutput{" +
+                "taggedConcept=" + taggedConcept +
+                ", taggedLevel=" + taggedLevel +
+                '}';
+    }
 }
