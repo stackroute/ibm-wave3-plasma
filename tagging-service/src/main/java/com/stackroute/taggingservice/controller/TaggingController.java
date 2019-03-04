@@ -19,14 +19,21 @@ public class TaggingController {
 
 //    @PostMapping("/tag")
 //    public ResponseEntity<?> tagger(@RequestBody  String nlpOutput) {
-//        return new ResponseEntity<>(tagService.tagger(tagInput.getTokenizedQuery().toString()), HttpStatus.CREATED);
-//       // return new ResponseEntity<>(temp.stream().map(String::toString).collect(Collectors.toList()), HttpStatus.CREATED);
+//        //temp = tagService.tagger(nlpOutput);
+//        return new ResponseEntity<>(tagService.tagger(nlpOutput), HttpStatus.CREATED);
+//        //return new ResponseEntity<>(temp.stream().map(String::toString).collect(Collectors.toList()), HttpStatus.CREATED);
 //    }
 
     @GetMapping("/tag")
+
+//    public  ResponseEntity<?> tagger() {
+//        System.out.println(tagInputt.getTokenizedQuery().toString());
+//        return new ResponseEntity<>(tagService.tagger(tagInputt.getTokenizedQuery().toString()),HttpStatus.OK);
+
     public ResponseEntity<?> tagger() {
         System.out.println("controller listener check:  "+rabbitMQListener.getTagInput());
         System.out.println("controller sender check:   "+tagService.tagger(rabbitMQListener.getTagInput().getTokenized_lematized().toString()));
         return new ResponseEntity<>(tagService.tagger(rabbitMQListener.getTagInput().getTokenized_lematized().toString()),HttpStatus.OK);
+
     }
 }

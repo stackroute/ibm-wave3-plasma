@@ -312,6 +312,10 @@ public class TagServiceImpl implements TagService {
         checkForIntent();
         tagOutput.setTaggedConcept(finalConcept);
         tagOutput.setTaggedLevel(finalIntent);
+
+        TagOutput tagOutput = new TagOutput(finalConcept,finalIntent);
+        //rabbitMQSender.sender(tagOutput);
+
         //TagOutput tagOutput = new TagOutput(finalConcept,finalIntent);
         System.out.println("sending message to RabbitMQ toString: " + tagOutput);
         rabbitMQSender.sender(tagOutput);

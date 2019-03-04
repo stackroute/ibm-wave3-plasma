@@ -225,7 +225,10 @@ services:
     depends_on:
      - eurekaserver
      - rabbitmq
+<<<<<<< HEAD
+=======
      - nlpservice
+>>>>>>> 6ffaccfaecc85cb97283f61aff57ffbd837b4ca2
     ports:
      - 8087:8087
     expose:
