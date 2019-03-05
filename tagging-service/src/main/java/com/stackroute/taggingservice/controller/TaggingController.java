@@ -1,5 +1,6 @@
 package com.stackroute.taggingservice.controller;
 
+import com.stackroute.taggingservice.domain.TagInput;
 import com.stackroute.taggingservice.service.RabbitMQListener;
 import com.stackroute.taggingservice.service.TagService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,24 +18,25 @@ public class TaggingController {
     @Autowired
     RabbitMQListener rabbitMQListener;
 
-//    @PostMapping("/tag")
-//    public ResponseEntity<?> tagger(@RequestBody  String nlpOutput) {
-//        //temp = tagService.tagger(nlpOutput);
-//        return new ResponseEntity<>(tagService.tagger(nlpOutput), HttpStatus.CREATED);
-//        //return new ResponseEntity<>(temp.stream().map(String::toString).collect(Collectors.toList()), HttpStatus.CREATED);
-//    }
+    @PostMapping("/tag")
+    public ResponseEntity<?> tagger(@RequestBody TagInput tagInput) {
+        //temp = tagService.tagger(nlpOutput);
+        return new ResponseEntity<>(tagService.tagger(tagInput), HttpStatus.CREATED);
+        //return new ResponseEntity<>(temp.stream().map(String::toString).collect(Collectors.toList()), HttpStatus.CREATED);
 
-    @GetMapping("/tag")
-
-//    public  ResponseEntity<?> tagger() {
-//        System.out.println(tagInputt.getTokenizedQuery().toString());
-//        return new ResponseEntity<>(tagService.tagger(tagInputt.getTokenizedQuery().toString()),HttpStatus.OK);
-
-    public ResponseEntity<?> tagger() {
-        //System.out.println("controller listener check:  "+rabbitMQListener.getTagInput());
-       // System.out.println("controller sender check:   "+tagService.tagger(rabbitMQListener.getTagInput().getTokenized_lematized().toString()));
-       // return new ResponseEntity<>(tagService.tagger(rabbitMQListener.getTagInput().getTokenized_lematized().toString()),HttpStatus.OK);
-        tagService.tagger("how is java executed");
-       return null;
     }
+
+//    @GetMapping("/tag")
+//
+////    public  ResponseEntity<?> tagger() {
+////        System.out.println(tagInputt.getTokenizedQuery().toString());
+////        return new ResponseEntity<>(tagService.tagger(tagInputt.getTokenizedQuery().toString()),HttpStatus.OK);
+//
+//    public ResponseEntity<?> tagger() {
+//        //System.out.println("controller listener check:  "+rabbitMQListener.getTagInput());
+//        //System.out.println("controller sender check:   "+tagService.tagger(rabbitMQListener.getTagInput().getTokenized_lematized().toString()));
+//        //return new ResponseEntity<>(tagService.tagger(rabbitMQListener.getTagInput().getTokenized_lematized().toString()),HttpStatus.OK);
+//        tagService.tagger("how is java executed");
+//       return null;
+//    }
 }

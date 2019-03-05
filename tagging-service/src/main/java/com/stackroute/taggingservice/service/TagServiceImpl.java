@@ -1,5 +1,6 @@
 package com.stackroute.taggingservice.service;
 
+import com.stackroute.taggingservice.domain.TagInput;
 import com.stackroute.taggingservice.domain.TagOutput;
 import edu.stanford.nlp.ling.CoreAnnotations;
 import edu.stanford.nlp.ling.CoreLabel;
@@ -41,29 +42,29 @@ public class TagServiceImpl implements TagService {
     public TagServiceImpl() {
         readConceptFile();
         System.out.println(readConceptFile());
-        System.out.println("######################################");
+        //System.out.println("######################################");
         readTutorialFile();
         System.out.println(readTutorialFile());
-        System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+       // System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
         readTroubleShootingFile();
-        System.out.println(readTroubleShootingFile());
-        System.out.println(
-                "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
-        );
+        //System.out.println(readTroubleShootingFile());
+//        System.out.println(
+//                "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
+//        );
         readReferenceFile();
-        System.out.println(readReferenceFile());
-        System.out.println("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$");
+        //System.out.println(readReferenceFile());
+        //System.out.println("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$");
         readExampleFile();
-        System.out.println(readExampleFile());
-        System.out.println("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
+        //System.out.println(readExampleFile());
+        //System.out.println("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
         readBasicFile();
-        System.out.println(readBasicFile());
-        System.out.println("**********************************************");
+        //System.out.println(readBasicFile());
+        //System.out.println("**********************************************");
         readGettingStartedFile();
-        System.out.println(readGettingStartedFile());
-        System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
+        //System.out.println(readGettingStartedFile());
+        //System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
         readIntentFile();
-        System.out.println(readIntentFile());
+       // System.out.println(readIntentFile());
     }
     public ArrayList<String> readIntentFile() {
         try {
@@ -302,7 +303,8 @@ public class TagServiceImpl implements TagService {
     }
 
     @Override
-    public TagOutput tagger(String lemma) {
+    public TagOutput tagger(TagInput lemma) {
+        System.out.println(lemma);
         taggedString = new ArrayList<>();
         intent = new ArrayList<>();
         concept = new ArrayList<>();
