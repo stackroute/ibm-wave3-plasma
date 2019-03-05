@@ -27,6 +27,12 @@ services:
       - 5672:5672
     network_mode: host
 
+  sonarqube:
+      image: sonarqube
+      ports:
+        - 9000:9000
+      network_mode: host
+
 #  redis:
 #    container_name: redis
 #    image: redis
