@@ -27,10 +27,12 @@ public class UserServiceImpl implements UserService {
         if (userRepository.existsById(user.getEmailId())) {
             throw new UserAlreadyExistException("user already exists");
         }
-        User savedUser = userRepository.save(user);
+         User savedUser = userRepository.save(user);
+
         if (savedUser == null) {
             throw new UserAlreadyExistException("User already exists");
         }
+
         return savedUser;
     }
 
