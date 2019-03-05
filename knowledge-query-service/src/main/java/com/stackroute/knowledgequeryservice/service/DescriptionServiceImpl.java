@@ -24,9 +24,7 @@ public class DescriptionServiceImpl implements DescriptionService {
 
     @Override
     public List<List<Description>> concept(List<String> concepts, List<String> levels) {
-        /*return descriptionRepository.concept("Erlang","basics");*/
-        //return descriptionRepository.concept(concept,level);
-        //List<Description> descriptions = new ArrayList<>();
+
 
         System.out.println(concepts);
         System.out.println(levels);

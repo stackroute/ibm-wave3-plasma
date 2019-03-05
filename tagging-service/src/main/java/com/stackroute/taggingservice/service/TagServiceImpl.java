@@ -42,29 +42,22 @@ public class TagServiceImpl implements TagService {
     public TagServiceImpl() {
         readConceptFile();
         System.out.println(readConceptFile());
-        //System.out.println("######################################");
+
         readTutorialFile();
         System.out.println(readTutorialFile());
-       // System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+
         readTroubleShootingFile();
-        //System.out.println(readTroubleShootingFile());
-//        System.out.println(
-//                "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
-//        );
+
         readReferenceFile();
-        //System.out.println(readReferenceFile());
-        //System.out.println("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$");
+
         readExampleFile();
-        //System.out.println(readExampleFile());
-        //System.out.println("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
+
         readBasicFile();
-        //System.out.println(readBasicFile());
-        //System.out.println("**********************************************");
+
         readGettingStartedFile();
-        //System.out.println(readGettingStartedFile());
-        //System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
+
         readIntentFile();
-       // System.out.println(readIntentFile());
+
     }
     public ArrayList<String> readIntentFile() {
         try {
@@ -327,33 +320,7 @@ public class TagServiceImpl implements TagService {
                 taggedString.add(coreLabel.originalText());
             }
         }
-//        readConceptFile();
-//        System.out.println(readConceptFile());
-//        System.out.println("######################################");
-//        System.out.println(readConceptFile().size());
-//        readTutorialFile();
-//        System.out.println(readTutorialFile());
-//        System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-//        readTroubleShootingFile();
-//        System.out.println(readTroubleShootingFile());
-//        System.out.println(
-//                "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
-//        );
-//        readReferenceFile();
-//        System.out.println(readReferenceFile());
-//        System.out.println("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$");
-//        readExampleFile();
-//        System.out.println(readExampleFile());
-//        System.out.println("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
-//        readBasicFile();
-//        System.out.println(readBasicFile());
-//        System.out.println("**********************************************");
-//        readGettingStartedFile();
-//        System.out.println(readGettingStartedFile());
-//        System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
-//        readIntentFile();
-//        System.out.println(readIntentFile());
-//
+
 
 
         checkForConcept();
@@ -362,9 +329,9 @@ public class TagServiceImpl implements TagService {
         tagOutput.setTaggedLevel(finalIntent);
 
         TagOutput tagOutput = new TagOutput(finalConcept,finalIntent);
-        //rabbitMQSender.sender(tagOutput);
 
-        //TagOutput tagOutput = new TagOutput(finalConcept,finalIntent);
+
+
         System.out.println("sending message to RabbitMQ toString: " + tagOutput);
         rabbitMQSender.sender(tagOutput);
         return tagOutput;

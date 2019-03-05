@@ -10,14 +10,14 @@ import org.springframework.stereotype.Service;
 public class RabbitMQSender {
     @Autowired
     private RabbitTemplate rabbitTemplate;
-    //ObjectMapper objectMapper = new ObjectMapper();
+
     @Value("${javainuse.rabbitmq.exchange}")
     private String exchange;
 
     @Value("${javainuse5.rabbitmq.routingkey}")
     private String routingkey5;
 
-    // String kafkaTopic = "java_in_use_topic";
+
 
     public void sender(TagOutput tagOutput) {
         rabbitTemplate.convertAndSend(exchange, routingkey5,tagOutput);
