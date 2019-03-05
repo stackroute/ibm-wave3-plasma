@@ -1,5 +1,6 @@
 package com.stackroute.taggingservice.service;
 
+import com.stackroute.taggingservice.domain.TagInput;
 import com.stackroute.taggingservice.domain.TagOutput;
 import edu.stanford.nlp.ling.CoreAnnotations;
 import edu.stanford.nlp.ling.CoreLabel;
@@ -302,7 +303,7 @@ public class TagServiceImpl implements TagService {
     }
 
     @Override
-    public TagOutput tagger(String lemma) {
+    public TagOutput tagger(TagInput lemma) {
         System.out.println(lemma);
         taggedString = new ArrayList<>();
         intent = new ArrayList<>();
