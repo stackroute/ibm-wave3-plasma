@@ -1,3 +1,5 @@
+
+<div class="register">
 <section class="whole">
   <section>
 <mat-toolbar >
@@ -5,11 +7,11 @@
   </mat-toolbar>
 <mat-card-content>
     <form class="my-form">
-       <mat-form-field class="full-width">
+       <mat-form-field class="full-width" appearance = "outline">
               <mat-label>Name</mat-label>
               <input  matInput  placeholder="Name" [(ngModel)]="name" name="name" required>
            </mat-form-field>
-           <mat-form-field class="full-width">
+           <mat-form-field class="full-width" appearance = "outline" >
               <mat-label>Date of Birth</mat-label>
          <input matInput [matDatepicker]="picker" placeholder="Choose a date" [(ngModel)]="dateOfBirth" name="dateOfBirth">
           <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
@@ -21,12 +23,12 @@
               <mat-radio-button class="example-margin" value="F" (change)="onChange('Female')">Female</mat-radio-button>
               <mat-radio-button class="example-margin" value="Other" (change)="onChange('Other')">Other</mat-radio-button>
             </mat-radio-group>
-            <mat-form-field class="full-width">
+            <mat-form-field class="full-width" appearance = "outline">
               <mat-label>Contact</mat-label>
               <input  matInput maxlength="10" type="number" placeholder="Contact" [(ngModel)]="contact" name="contact">
            </mat-form-field>
            <!-- Email Id  -->
-           <mat-form-field class="full-width" required>
+           <mat-form-field class="full-width" appearance = "outline" required>
               <mat-label>Email</mat-label>
                    <input matInput placeholder="Email" [formControl]="emailFormControl"
                         [errorStateMatcher]="matcher" [(ngModel)]="emailId" name="emaiId" required>
@@ -45,8 +47,7 @@
               class="material-icons"
               showHideTrigger="mysecretpassword"></i>
            </mat-form-field>   -->
-
-           <mat-form-field class="full-width">
+           <mat-form-field class="full-width" appearance = "outline">
             <input matInput placeholder="Enter your password" [type]="hide ? 'password' : 'text'"   pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" [(ngModel)]="setPassword" [ngModelOptions]="{standalone: true}">
             <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
           </mat-form-field> 
@@ -59,3 +60,4 @@
   <p> Already have an account?<a routerLink="/login">Login</a></p>
 </section>
 </section>
+</div>
