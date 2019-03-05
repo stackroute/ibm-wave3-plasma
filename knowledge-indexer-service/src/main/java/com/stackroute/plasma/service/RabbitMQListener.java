@@ -44,9 +44,9 @@ public class RabbitMQListener {
         description.setKeywords(evaluator.getKeywords());
         description.setTitle(evaluator.getTitle());
         descriptionService.create(description);
-/*
-        *//*creates the relationship*//*
-        relationshipService.create(evaluator.getConcept(),evaluator.getConfidenceScore(),evaluator.getLevel());*/
+
+        /*creates the relationship*/
+        relationshipService.create(evaluator.getConcept(),evaluator.getConfidenceScore(),evaluator.getLevel());
     }
 
     public Evaluator getEvaluator() {

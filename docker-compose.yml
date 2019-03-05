@@ -27,6 +27,12 @@ services:
       - 5672:5672
     network_mode: host
 
+  sonarqube:
+      image: sonarqube
+      ports:
+        - 9000:9000
+      network_mode: host
+
 #  redis:
 #    container_name: redis
 #    image: redis
@@ -225,10 +231,6 @@ services:
     depends_on:
      - eurekaserver
      - rabbitmq
-<<<<<<< HEAD
-=======
-     - nlpservice
->>>>>>> 6ffaccfaecc85cb97283f61aff57ffbd837b4ca2
     ports:
      - 8087:8087
     expose:
@@ -254,6 +256,7 @@ services:
     depends_on:
        - eurekaserver
        - rabbitmq
+       - knowledgequeryservice
     ports:
        - 8095:8095
     expose:
