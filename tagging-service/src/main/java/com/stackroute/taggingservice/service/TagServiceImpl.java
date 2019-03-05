@@ -303,7 +303,7 @@ public class TagServiceImpl implements TagService {
     }
 
     @Override
-    public TagOutput tagger(TagInput lemma) {
+    public TagOutput tagger(String lemma) {
         System.out.println(lemma);
         taggedString = new ArrayList<>();
         intent = new ArrayList<>();

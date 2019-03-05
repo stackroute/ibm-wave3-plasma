@@ -5,6 +5,6 @@ import com.stackroute.taggingservice.domain.TagOutput;
 
 
 public interface TagService {
-    public TagOutput tagger(TagInput lemma);
+    public TagOutput tagger(String lemma);
 
 }

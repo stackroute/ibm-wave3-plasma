@@ -41,7 +41,7 @@ header{
 
 mat-toolbar{
   background-color:black;
-  opacity: 0.7;
+  /* opacity: 0.7; */
 }
 img{
   width:60px;
