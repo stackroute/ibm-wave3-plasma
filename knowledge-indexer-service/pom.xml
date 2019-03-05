@@ -8,13 +8,6 @@
 		<version>0.0.1-SNAPSHOT</version>
 		<relativePath>../pom.xml</relativePath>
 	</parent>
-	<!--
-	<parent>
-		<groupId>org.springframework.boot</groupId>
-		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.1.2.RELEASE</version>
-	</parent>
-	-->
 	<artifactId>knowledge-indexer-service</artifactId>
 	<name>knowledge-indexer-service</name>
 	<description>Microservice for mapping description node to Domain ontology(Knowledge Graph) using Neo4j - Command responsibility</description>
@@ -108,6 +101,13 @@
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-surefire-plugin</artifactId>
 			</plugin>
+			<!--plugin for SonarQube-->
+			<plugin>
+				<groupId>org.sonarsource.scanner.maven</groupId>
+				<artifactId>sonar-maven-plugin</artifactId>
+				<version>3.6.0.1398</version>
+			</plugin>
+
 		</plugins>
 	</build>
 

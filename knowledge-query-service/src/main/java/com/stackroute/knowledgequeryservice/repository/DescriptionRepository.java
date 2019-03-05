@@ -11,10 +11,10 @@ import java.util.List;
 @Repository
 public interface DescriptionRepository extends Neo4jRepository<Description,Long> {
 
-    @Query("MATCH (d:Description) RETURN d")
+    @Query("MATCH (d:Document) RETURN d")
     List<Description> getAll();
 
-    @Query("MATCH (d)-[r:Details_of]->(c) " +
+    @Query("MATCH (d)-[r:Document_of]->(c) " +
             "WHERE " +
             "d.concept={concept} and c.name={concept} and r.confidenceScore>5 and r.level={level} " +
             "RETURN d " +

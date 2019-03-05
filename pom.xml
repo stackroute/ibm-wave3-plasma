@@ -39,7 +39,6 @@
         <module>knowledge-indexer-service</module>
         <module>knowledge-query-service</module>
         <module>tagging-service</module>
-        <module>cache-manager-service</module>
         <module>notification-service</module>
 
     </modules>
@@ -99,6 +98,11 @@
 
     <build>
         <plugins>
+            <plugin>
+                <groupId>org.sonarsource.scanner.maven</groupId>
+                <artifactId>sonar-maven-plugin</artifactId>
+                <version>3.6.0.1398</version>
+            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-clean-plugin</artifactId>

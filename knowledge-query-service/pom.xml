@@ -8,9 +8,7 @@
 		<version>0.0.1-SNAPSHOT</version>
 		<relativePath>../pom.xml</relativePath> <!-- lookup parent from repository -->
 	</parent>
-	<!--<groupId>com.stackroute</groupId>-->
 	<artifactId>knowledge-query-service</artifactId>
-	<!--<version>0.0.1-SNAPSHOT</version>-->
 	<name>knowledge-query-service</name>
 	<description>Microservice to read data from the knowledge graph</description>
 
@@ -98,6 +96,14 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+
+			<!--plugin for SonarQube-->
+			<plugin>
+				<groupId>org.sonarsource.scanner.maven</groupId>
+				<artifactId>sonar-maven-plugin</artifactId>
+				<version>3.6.0.1398</version>
+			</plugin>
+
 		</plugins>
 	</build>
 
