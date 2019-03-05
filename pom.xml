@@ -88,14 +88,6 @@
         </dependencies>
     </dependencyManagement>
 
-    <!--https://github.com/stackroute/ibm-wave3-plasma.git-->
-
-    <!--<scm>-->
-    <!--<connection>scm:git:git@github.com:SonarSource/sq-com_example_java-maven-travis.git</connection>-->
-    <!--<developerConnection>scm:git:git@github.com:SonarSource/sq-com_example_java-maven-travis.git</developerConnection>-->
-    <!--<url>https://github.com/SonarSource/sq-com_example_java-maven-travis</url>-->
-    <!--</scm>-->
-
     <build>
         <plugins>
             <plugin>

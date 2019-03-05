@@ -9,8 +9,6 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: Root@123
       MYSQL_DATABASE: plasmaDB
-    #    volumes:
-    #      - '/opt/datasql:/var/lib/mysql'
     network_mode: host
 
   mongo:
@@ -33,13 +31,7 @@ services:
         - 9000:9000
       network_mode: host
 
-#  redis:
-#    container_name: redis
-#    image: redis
-#    ports:
-#      - "6380:6380"
-#    volumes:
-#      - ../data/redis:/data
+
 
   redis:
     container_name: redis
@@ -252,15 +244,6 @@ services:
 
 
 
-#  redis:
-#    container_name: redis
-#    image: redis
-#    ports:
-#      - "6380:6380"
-#    volumes:
-#      - ../data/redis:/data
-#
-#     - 8087
 
   notificationservice:
     image: notification-service:latest

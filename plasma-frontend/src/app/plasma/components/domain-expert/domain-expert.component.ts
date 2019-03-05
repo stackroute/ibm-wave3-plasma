@@ -7,6 +7,8 @@ import { stringify } from 'querystring';
 
 
 
+
+
 @Component({
   selector: 'app-domain-expert',
   templateUrl: './domain-expert.component.html',
@@ -38,7 +40,11 @@ export class DomainExpertComponent implements OnInit {
     });
 
    }
+<<<<<<< HEAD
    constructor(private search: DomainExpertService,  private http: HttpClient, private snackBar: MatSnackBar ) {
+=======
+   constructor(private search: DomainExpertService,  private http: HttpClient ) {
+>>>>>>> 2e37932e2d63110ade0016bf63331a29435b2c30
 
     this.search.getTheData().subscribe((data: any) => {
       this.conceptsAll = data.concepts;
