@@ -20,12 +20,10 @@ public class RabbitMQListener {
         this.send = send;
     }
 
+    /*from knowledgequeryservice*/
     @RabbitListener(queues = "${javainuse6.rabbitmq.queue}", containerFactory = "jsaFactory")
     public void consume(Descriptions descriptions){
         System.out.println("Recieved Message From RabbitMQ: " + descriptions.toString());
-        /*Description description = new Description();*/
-        /*List<Description> oneConcept = descriptions.getDescriptions();*/
-        /*System.out.println("Recieved Message From RabbitMQ: " + description);*/
         this.send.convertAndSend("/topic", descriptions);
     }
 
