@@ -37,7 +37,7 @@ public class EvalServiceImplTest {
         url.setConcept("class");
         url.setUrl("https://www.guru99.com/java-oops-class-objects.html");
 
-        url.setDoc("<html><head><title>encapsulation</title><meta name=\"description\" content=\"Encapsulation in java\"> </head><body><p>Encapsulation is one of the four fundamental OOP concepts. The other three are inheritance, polymorphism, and abstraction.\n" +
+        url.setDoc("<html><head><title>encapsulation</title><meta name=\"description\" content=\"Encapsulation in java\"> <meta name=\"keywords\" content=\"encapsulation,in,java\"> </head><body><p>Encapsulation is one of the four fundamental OOP concepts. The other three are inheritance, polymorphism, and abstraction.\n" +
                 "\n" +
                 "Encapsulation in Java is a mechanism of wrapping the data (variables) and code acting on the data (methods) together as a single unit. In encapsulation, the variables of a class will be hidden from other classes, and can be accessed only through the methods of their current class. Therefore, it is also known as data hiding.\n" +
                 "\n" +
@@ -57,7 +57,7 @@ public class EvalServiceImplTest {
     }
 
     @Test
-    public void getScore() throws IOException, ParseException {
+    public void getScore(){
       evaluator=evalServiceImpl.getScore(url);
      assertEquals("https://www.guru99.com/java-oops-class-objects.html",evaluator.getUrl());
      assertEquals("Encapsulation in java".trim(),evaluator.getDescription().trim());
