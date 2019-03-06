@@ -32,19 +32,13 @@ public class DescriptionServiceImpl implements DescriptionService {
     concept(List<String> concepts, List<String> levels) {
 
 
+
+        System.out.println(concepts);
+        System.out.println(levels);
         int i;
         List<List<Description>>
                 descriptions = new ArrayList<>();
-
-        public List<List<Description>> concept (List < String > concepts, List < String > levels){
-
-
-            System.out.println(concepts);
-            System.out.println(levels);
-            int i;
-            List<List<Description>> descriptions = new ArrayList<>();
-
-            for (i = 0; i < concepts.size(); i++) {
+         for (i = 0; i < concepts.size(); i++) {
                 logger.info(concepts.get(i));
                 logger.info(levels.get(i));
                 descriptions.add(descriptionRepository.concept(concepts.get(i), levels.get(i)));
@@ -52,4 +46,3 @@ public class DescriptionServiceImpl implements DescriptionService {
             return descriptions;
         }
     }
-}

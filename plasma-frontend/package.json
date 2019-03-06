@@ -25,6 +25,7 @@
     "@stomp/stompjs": "^4.0.8",
     "core-js": "^2.5.4",
     "jquery": "^3.3.1",
+    "jwt-decode": "^2.2.0",
     "rxjs": "~6.3.3",
     "sockjs-client": "^1.1.5",
     "tslib": "^1.9.0",
