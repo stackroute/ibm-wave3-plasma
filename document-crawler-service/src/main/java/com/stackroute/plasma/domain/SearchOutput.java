@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import org.springframework.stereotype.Component;
 
+import java.sql.Timestamp;
 import java.util.Arrays;
 
 @Component
@@ -17,7 +18,7 @@ public class SearchOutput {
     private String domain;
     @JsonProperty("concept")
     private String concept;
-
+    // private List<String[]> urls;
     @JsonProperty("urls")
     private String[] urls;
 
@@ -31,6 +32,8 @@ public class SearchOutput {
         this.concept = concept;
         this.urls = urls;
     }
+
+//url object sent
 
 
     public String getTimestamp() {

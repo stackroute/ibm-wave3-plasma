@@ -22,48 +22,94 @@ import java.util.List;
 public class DocumentServiceImpl implements DocumentService {
 
     @JsonIgnore
-
+<<<<<<< HEAD
     String docString;
-
+=======
     Document doc;
     Url url;
 
     SearchOutput searchOutputt;
     List<Url> list;
-    List<String> tempList = new ArrayList<>();
-    String[] temp = new String[200];
     ObjectMapper objectMapper = new ObjectMapper();
-
-public DocumentServiceImpl() {
+>>>>>>> 6e6e4cc9c1dce1c2374e7516e973c204b1e195dd
+    public DocumentServiceImpl() {
 
     }
 
-   @Autowired
-   RabbitMQSender rabbitMQSender;
+<<<<<<< HEAD
+<<<<<<< HEAD
+    @Override
+    public String getHtml(String singleUrl) throws IOException {
+
+            Document doc = Jsoup.connect(singleUrl).get();
+            docString = doc.toString();
+            return docString;
+
+        }
+
+    }
+
+
+
+
+
+
+
+
+=======
+    @Autowired
+    RabbitMQSender rabbitMQSender;
+=======
+//    @Autowired
+//    RabbitMQSender rabbitMQSender;
+>>>>>>> 1480c1fcc4952afc5ca1beb45a0ef959743f295e
+
+   // @Autowired
+//    public DocumentServiceImpl(SearchOutput searchOutput) {
+//        //url=new Url();
+//        this.searchOutput = searchOutput;
+//        searchOutput.setUrls(new String[]{"https://www.youtube.com/watch?v=szYzBC89CPE", "https://beginnersbook.com/2013/03/oops-in-java-encapsulation-inheritance-polymorphism-abstraction/",
+//                "https://www.youtube.com/watch?v=PM47JJe_8xI",
+//                "https://dzone.com/articles/java-encapsulation-for-adults",
+//                "https://howtodoinjava.com/oops/encapsulation-in-java-and-its-relation-with-abstraction/",
+//                "https://www.guru99.com/java-oops-encapsulation.html",
+//                "https://programmingstack.com/java-encapsulation.html",
+//                "https://quizlet.com/177452001/java-encapsulation-flash-cards/",
+//                "https://www.coursehero.com/file/14011464/Java-encapsulation-inheritance-polymorphism/",
+//                "https://quizlet.com/332830793/java-encapsulationscope-quiz-flash-cards/"});
+//        searchOutput.setTimestamp(Timestamp.valueOf(LocalDateTime.of(LocalDate.now(), LocalTime.now())).toString());
+//        searchOutput.setDomain("java");
+//        searchOutput.setConcept("abstraction");
+//    }
+
 
     @RabbitListener(queues = "${javainuse2.rabbitmq.queue}", containerFactory = "jsaFactory")
     public void recievedMessage(SearchOutput searchOutput) throws IOException {
             this.searchOutputt = searchOutput;
-
-         for (String x:searchOutput.getUrls()
-             ) {
-            System.out.println("-------------"+x);
-        }
-       System.out.println("Recieved Message From RabbitMQ: " + searchOutput.getConcept() +searchOutput.getUrls());
-       System.out.println("check url----------------"+ searchOutputt.getUrls()+"8888888888"+searchOutputt.getConcept());
-
-   }
-     int j = 0;
+          // this.searchOutputt = this.objectMapper.readValue(searchOutput,SearchOutput);
+//        for (String x:searchOutput.getUrls()
+//             ) {
+//            System.out.println("-------------"+x);
+//        }
+//
+//        System.out.println("Recieved Message From RabbitMQ: " + searchOutput.getConcept() +searchOutput.getUrls());
+//        System.out.println("check url----------------"+ searchOutputt.getUrls()+"8888888888"+searchOutputt.getConcept());
+//        this.searchOutput = searchOutput;
+//    }
+    }
 
     @Override
     public List<Url> getHtml() throws IOException {
 
         System.out.println("check inside document url----------------"+ searchOutputt.getUrls()+searchOutputt.getConcept());
         list = new ArrayList<>();
-
+//        searchOutput.setTimestamp(Timestamp.valueOf(LocalDateTime.of(LocalDate.now(), LocalTime.now())).toString());
+//        searchOutput.setDomain("java");
+//        searchOutput.setConcept("abstraction");
         for (String urlx : searchOutputt.getUrls()) {
-
             url = new Url();
+            //System.out.println("hello");
+           // System.out.println(searchOutput.getUrls());
 
             Document doc = Jsoup.connect(urlx).get();
 
@@ -71,15 +117,9 @@ public DocumentServiceImpl() {
             url.setDomain(searchOutputt.getDomain());
             url.setUrl(urlx);
             url.setDoc(doc.toString());
-
             System.out.println(doc.toString());
-
-            System.out.println();
             url.setTimestamp(Timestamp.valueOf(LocalDateTime.of(LocalDate.now(), LocalTime.now())).toString());
-
-            url.setTimestamp(Timestamp.valueOf(LocalDateTime.of(LocalDate.now(), LocalTime.now())).toString());
-
-            rabbitMQSender.send(url);
+            //rabbitMQSender.send(url);
 
             list.add(url);
         }
@@ -87,3 +127,4 @@ public DocumentServiceImpl() {
         return list;
     }
 }
+>>>>>>> 6e6e4cc9c1dce1c2374e7516e973c204b1e195dd
