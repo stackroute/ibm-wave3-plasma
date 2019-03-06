@@ -1,9 +1,10 @@
-import { MatSnackBar } from '@angular/material';
+
 import { DomainExpertService } from './../../services/domain-expert.service';
 import { Component, OnInit, Input } from '@angular/core';
 import { Domainexpert } from '../../tsclasses/domainexpert';
 import { HttpClient } from '@angular/common/http';
-import { stringify } from 'querystring';
+
+
 
 
 
@@ -40,11 +41,9 @@ export class DomainExpertComponent implements OnInit {
     });
 
    }
-<<<<<<< HEAD
-   constructor(private search: DomainExpertService,  private http: HttpClient, private snackBar: MatSnackBar ) {
-=======
+
    constructor(private search: DomainExpertService,  private http: HttpClient ) {
->>>>>>> 2e37932e2d63110ade0016bf63331a29435b2c30
+
 
     this.search.getTheData().subscribe((data: any) => {
       this.conceptsAll = data.concepts;
