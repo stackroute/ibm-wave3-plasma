@@ -1,6 +1,5 @@
 package com.stackroute.taggingservice.service;
 
-import com.stackroute.taggingservice.domain.TagInput;
 import com.stackroute.taggingservice.domain.TagOutput;
 import edu.stanford.nlp.ling.CoreAnnotations;
 import edu.stanford.nlp.ling.CoreLabel;

@@ -3,7 +3,6 @@ package com.stackroute.plasma.service;
 import com.stackroute.plasma.model.NlpModel;
 import com.stackroute.plasma.model.UserQuery;
 import com.stackroute.plasma.repository.NlpRepository;
-import com.stackroute.plasma.viewmodel.QueryPojo;
 import edu.stanford.nlp.ling.CoreLabel;
 import edu.stanford.nlp.pipeline.CoreDocument;
 import edu.stanford.nlp.pipeline.StanfordCoreNLP;

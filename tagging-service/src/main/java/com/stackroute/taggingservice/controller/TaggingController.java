@@ -1,6 +1,5 @@
 package com.stackroute.taggingservice.controller;
 
-import com.stackroute.taggingservice.domain.TagInput;
 import com.stackroute.taggingservice.service.RabbitMQListener;
 import com.stackroute.taggingservice.service.TagService;
 import org.springframework.beans.factory.annotation.Autowired;

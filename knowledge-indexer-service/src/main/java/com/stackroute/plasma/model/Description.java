@@ -1,16 +1,11 @@
 package com.stackroute.plasma.model;
 
-import lombok.Getter;
 import org.neo4j.ogm.annotation.GeneratedValue;
 import org.neo4j.ogm.annotation.Id;
 import org.neo4j.ogm.annotation.NodeEntity;
 import org.neo4j.ogm.annotation.Property;
-import org.neo4j.ogm.annotation.Relationship;
-import java.sql.Timestamp;
-import java.util.ArrayList;
-import java.util.List;
 
-//@Getter
+
 @NodeEntity
 public class Description {
 
@@ -30,13 +25,6 @@ public class Description {
     private String url;
     @Property
     private String keywords;
-    /* @Property
-    private String type;*/
-
-    /*@Relationship(type = "Details_of", direction = Relationship.OUTGOING)
-    private Concept parent;*/
-    /*@Relationship(type = "Details_of", direction = Relationship.OUTGOING)
-    private List<Concept> parent = new ArrayList<>();*/
 
     public long getId() {
         return id;

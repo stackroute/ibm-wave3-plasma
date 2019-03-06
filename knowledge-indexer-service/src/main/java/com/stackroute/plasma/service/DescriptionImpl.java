@@ -5,8 +5,7 @@ import com.stackroute.plasma.repository.DescriptionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.sql.Timestamp;
-import java.util.List;
+
 
 @Service
 public class DescriptionImpl implements DescriptionService{
@@ -18,7 +17,6 @@ public class DescriptionImpl implements DescriptionService{
     public Description create(Description description) {
 
         long id = description.getId();
-        //Timestamp timestamp = description.getTimestamp();
         String timestamp = description.getTimestamp();
         String concept = description.getConcept();
         String domain = description.getDomain();
@@ -32,7 +30,6 @@ public class DescriptionImpl implements DescriptionService{
     @Override
     public Description update(Description description) {
         long id = description.getId();
-        //Timestamp timestamp = description.getTimestamp();
         String timestamp = description.getTimestamp();
         String concept = description.getConcept();
         String domain = description.getDomain();

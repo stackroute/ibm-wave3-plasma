@@ -59,8 +59,7 @@ public class UserController {
                 throw new UserIdAndPasswordMismatchException("Invalid login credential, Please check username and password ");
             }
 
-            // generating token
-            SecurityTokenGenerator securityTokenGenerator = (User userDetails) -> {
+             SecurityTokenGenerator securityTokenGenerator = (User userDetails) -> {
 
                 String jwtToken = "";
                 jwtToken = Jwts.builder().setId(user.getUserId()).setSubject(user.getRole()).setIssuedAt(new Date())

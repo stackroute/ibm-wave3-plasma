@@ -89,18 +89,15 @@ public class RabbitMQListner implements EvaluatorService{
         eva = new Evaluator();
 
     }
-    //Receving Message from RabbitMQ
-    @RabbitListener(queues = "${javainuse.rabbitmq.queue}", containerFactory = "jsaFactory")
+     @RabbitListener(queues = "${javainuse.rabbitmq.queue}", containerFactory = "jsaFactory")
     public void recievedMessage(Url urlx) throws IOException,ParseException {
         System.out.println("Recieved Message From RabbitMQ: " + urlx.getUrl());
 
         this.url=urlx;
-        //System.out.println(getScore());
-        rabbitMQSender.send(getScore());
+         rabbitMQSender.send(getScore());
     }
 
-    //Calculating scores for html tag
-    @Override
+     @Override
     public void htmlTag() {
         String htmlTag = docx.select("html").text();
         String[] str = htmlTag.toLowerCase().trim().split(" ");
@@ -112,12 +109,10 @@ public class RabbitMQListner implements EvaluatorService{
 
 
         for(int i=0;i<4;i++){
-            //System.out.println("html "+html[i]);
-        }
+         }
     }
 
-    //Calculating scores for head tag
-    @Override
+     @Override
     public void headTag() {
         String headTag = docx.select("head").text();
         String[] str = headTag.toLowerCase().trim().split(" ");
@@ -133,12 +128,10 @@ public class RabbitMQListner implements EvaluatorService{
         head[3] = (countOccurences(strn, strL4)-sumHead[3])>0?(countOccurences(strn, strL4)-sumHead[3]):0;
 
         for(int i=0;i<4;i++){
-            //System.out.println("head "+head[i]);
-        }
+         }
     }
 
-    //Calculating scores for title tag
-    @Override
+     @Override
     public void titleTag() {
         List<String> str = Arrays.asList(docx.title().split(" "));
         title[0] = countOccurences(str, strL1);
@@ -152,21 +145,16 @@ public class RabbitMQListner implements EvaluatorService{
 
     }
 
-    //Calculating scores for meta tag
-    @Override
+     @Override
     public void metaTag() {
         int count = 0;
 
         if(!docx.select("meta[name=description]").isEmpty()) {
             description = docx.select("meta[name=description]").get(0).attr("content");
-            //Print description.
-            System.out.println("Meta Description: " + description);
+             System.out.println("Meta Description: " + description);
         }
-        //Get keywords from document object.
-        if(!docx.select("meta[name=keywords]").isEmpty()) {
+         if(!docx.select("meta[name=keywords]").isEmpty()) {
             keywords = docx.select("meta[name=keywords]").first().attr("content");
-            //Print keywords.
-            //System.out.println("Meta Keyword : " + keywords);
 
         }
         String string = description + keywords;
@@ -183,8 +171,7 @@ public class RabbitMQListner implements EvaluatorService{
 
     }
 
-    //Calculating scores for body tag
-    @Override
+     @Override
     public void bodyTag() {
 
         String bodyTag = docx.select("body").text();
@@ -204,13 +191,11 @@ public class RabbitMQListner implements EvaluatorService{
 
 
         for(int i=0;i<4;i++){
-            //System.out.println("body"+body[i]);
-        }
+         }
     }
 
 
-    //Calculating scores for h1 tag
-    @Override
+     @Override
     public void h1Tag() {
         String h1Tag = docx.select("h1").first().text();
         String[] str = h1Tag.toLowerCase().trim().split(" ");
@@ -222,12 +207,10 @@ public class RabbitMQListner implements EvaluatorService{
 
 
         for(int i=0;i<4;i++){
-            //System.out.println("head1 "+h1[i]);
-        }
+         }
     }
 
-    //Calculating scores for h2 tag
-    @Override
+     @Override
     public void h2Tag() {
         String h2Tag = docx.select("h2").text();
         String[] str = h2Tag.toLowerCase().trim().split(" ");
@@ -238,12 +221,10 @@ public class RabbitMQListner implements EvaluatorService{
         h2[3] = countOccurences(strn, strL4);
 
         for(int i=0;i<4;i++){
-            //System.out.println("head2 "+h2[i]);
-        }
+         }
     }
 
-    //Calculating scores for h3 tag
-    @Override
+     @Override
     public void h3Tag(){
         String h3Tag = docx.select("h3").text();
         String[] str = h3Tag.toLowerCase().trim().split(" ");
@@ -254,12 +235,10 @@ public class RabbitMQListner implements EvaluatorService{
         h3[3] = countOccurences(strn, strL4);
 
         for(int i=0;i<4;i++){
-            //System.out.println("head3  "+h3[i]);
-        }
+         }
     }
 
-    //Calculating scores for h4 tag
-    @Override
+     @Override
     public void h4Tag() {
         String h4Tag = docx.select("h4").text();
         String[] str = h4Tag.toLowerCase().trim().split(" ");
@@ -270,12 +249,10 @@ public class RabbitMQListner implements EvaluatorService{
         h4[3] = countOccurences(strn, strL4);
 
         for(int i=0;i<4;i++){
-            //System.out.println("head4 "+h4[i]);
-        }
+         }
     }
 
-    //Calculating scores for h5 tag
-    @Override
+     @Override
     public void h5Tag() {
         String h5Tag = docx.select("h5").text();
         String[] str = h5Tag.toLowerCase().trim().split(" ");
@@ -286,12 +263,10 @@ public class RabbitMQListner implements EvaluatorService{
         h5[3] = countOccurences(strn, strL4);
 
         for(int i=0;i<4;i++){
-           // System.out.println("head5 "+h5[i]);
-        }
+         }
     }
 
-    //Calculating scores for h6 tag
-    @Override
+     @Override
     public void h6Tag() {
         String h6Tag = docx.select("h6").text();
         String[] str = h6Tag.toLowerCase().trim().split(" ");
@@ -302,12 +277,10 @@ public class RabbitMQListner implements EvaluatorService{
         h6[3] = countOccurences(strn, strL4);
 
         for(int i=0;i<4;i++){
-            //System.out.println("head6 "+h6[i]);
-        }
+         }
     }
 
-    //Calculating scores for code tag
-    @Override
+     @Override
     public void codeTag() {
         String codeTag = docx.select("code").text();
         String ss = codeTag.toLowerCase().trim().replaceAll(":", "");
@@ -321,12 +294,10 @@ public class RabbitMQListner implements EvaluatorService{
         code[3] = (countOccurences(str, strL4));
 
         for(int i=0;i<4;i++){
-            //System.out.println("code "+code[i]);
-        }
+         }
     }
 
-    //Calculating scores for address tag
-    @Override
+     @Override
     public void addressTag() {
         String addressTag = docx.select("address").text();
         String ss = addressTag.toLowerCase().trim().replaceAll(":", "");
@@ -341,12 +312,10 @@ public class RabbitMQListner implements EvaluatorService{
 
 
         for(int i=0;i<4;i++){
-            //System.out.println("address "+address[i]);
-        }
+         }
     }
 
-    //Calculating scores for summary tag
-    @Override
+     @Override
     public void summaryTag() {
         String summaryTag = docx.select("summary").text();
         String ss = summaryTag.toLowerCase().trim().replaceAll(":", "");
@@ -361,12 +330,10 @@ public class RabbitMQListner implements EvaluatorService{
 
 
         for(int i=0;i<4;i++){
-            //System.out.println("summary "+summary[i]);
-        }
+         }
     }
 
-    //Calculating scores for blockquote tag
-    @Override
+     @Override
     public void blockQuoteTag() {
         String blockQuoteTag = docx.select("blockquote").text();
         String[] str = blockQuoteTag.toLowerCase().trim().split(" ");
@@ -377,12 +344,10 @@ public class RabbitMQListner implements EvaluatorService{
         blockquote[3] = countOccurences(strn, strL4);
 
         for(int i=0;i<4;i++){
-            //System.out.println("blockquote "+h6[i]);
-        }
+         }
     }
 
-    //Calculating scores for mark tag
-    @Override
+     @Override
     public void markTag() {
         String markTag = docx.select("mark").text();
         String[] str = markTag.toLowerCase().trim().split(" ");
@@ -393,12 +358,10 @@ public class RabbitMQListner implements EvaluatorService{
         mark[3] = countOccurences(strn, strL4);
 
         for(int i=0;i<4;i++){
-            //System.out.println("mark "+mark[i]);
-        }
+         }
     }
 
-    //Calculating scores for ins tag
-    @Override
+     @Override
     public void insTag() {
         String insTag = docx.select("ins").text();
         String[] str = insTag.toLowerCase().trim().split(" ");
@@ -414,8 +377,7 @@ public class RabbitMQListner implements EvaluatorService{
         }
     }
 
-    //Calculating scores for map tag
-    @Override
+     @Override
     public void mapTag() {
         String mapTag = docx.select("map").text();
         String[] str = mapTag.toLowerCase().trim().split(" ");
@@ -426,12 +388,10 @@ public class RabbitMQListner implements EvaluatorService{
         map[3] = countOccurences(strn, strL4);
 
         for(int i=0;i<4;i++){
-            //System.out.println("map "+map[i]);
-        }
+         }
     }
 
-    //Calculating scores for p tag
-    @Override
+     @Override
     public void pTag() {
         String ss = docx.select("p").text().toLowerCase().trim().replaceAll(":", "");
         String ss1 = ss.trim().replaceAll(",", "");
@@ -444,12 +404,10 @@ public class RabbitMQListner implements EvaluatorService{
         p[3] = countOccurences(strn, strL4);
 
         for(int i=0;i<4;i++){
-            //System.out.println("p tag"+p[i]);
-        }
+         }
     }
 
-    //Calculating scores for span tag
-    @Override
+     @Override
     public void spanTag() {
         String spanTag = docx.select("span").text();
         String[] str = spanTag.toLowerCase().trim().split(" ");
@@ -460,12 +418,10 @@ public class RabbitMQListner implements EvaluatorService{
         span[3] = countOccurences(strn, strL4);
 
         for(int i=0;i<4;i++){
-            //System.out.println("span "+span[i]);
-        }
+         }
     }
 
-    //Calculating scores for div tag
-    @Override
+     @Override
     public void divTag() {
         String divTag = docx.select("div").text();
         String ss = divTag.toLowerCase().trim().replaceAll(":", "");
@@ -480,12 +436,10 @@ public class RabbitMQListner implements EvaluatorService{
 
 
         for(int i=0;i<4;i++){
-            //System.out.println("div "+div[i]);
-        }
+         }
     }
 
-    //Calculating scores for li tag
-    @Override
+     @Override
     public void liTag() {
         String liTag = docx.select("li").text();
         String[] str = liTag.toLowerCase().trim().split(" ");
@@ -496,12 +450,10 @@ public class RabbitMQListner implements EvaluatorService{
         li[3] = countOccurences(strn, strL4);
 
         for(int i=0;i<4;i++){
-            //System.out.println("li "+li[i]);
-        }
+         }
     }
 
-    //Calculating scores for ul tag
-    @Override
+     @Override
     public void ulTag() {
         String ulTag = docx.select("ul").text();
         String[] str = ulTag.toLowerCase().trim().split(" ");
@@ -512,13 +464,11 @@ public class RabbitMQListner implements EvaluatorService{
         ul[3] = (countOccurences(strn, strL4)-li[3])>0?(countOccurences(strn, strL4)-li[3]):0;
 
         for(int i=0;i<4;i++){
-            //System.out.println("ul "+ul[i]);
-        }
+         }
     }
 
 
-    //Calculating scores for ol tag
-    @Override
+     @Override
     public void olTag() {
         String olTag = docx.select("ol").text();
         String[] str = olTag.toLowerCase().trim().split(" ");
@@ -529,13 +479,11 @@ public class RabbitMQListner implements EvaluatorService{
         ol[3] = (countOccurences(strn, strL4)-li[3])>0?(countOccurences(strn, strL4)-li[3]):0;
 
         for(int i=0;i<4;i++){
-            //System.out.println("ol "+ol[i]);
-        }
+         }
     }
 
 
-    //Calculating scores for article tag
-    @Override
+     @Override
     public void articleTag() {
         String articleTag = docx.select("article").text();
         String[] str = articleTag.toLowerCase().trim().split(" ");
@@ -546,12 +494,10 @@ public class RabbitMQListner implements EvaluatorService{
         article[3] = countOccurences(strn, strL4);
 
         for(int i=0;i<4;i++){
-            //System.out.println("article "+article[i]);
-        }
+         }
     }
 
-    //Calculating scores for nav tag
-    @Override
+     @Override
     public void navTag() {
         String navTag = docx.select("nav").text();
         String[] str = navTag.toLowerCase().trim().split(" ");
@@ -563,12 +509,9 @@ public class RabbitMQListner implements EvaluatorService{
 
 
         for(int i=0;i<4;i++){
-            //System.out.println("nav "+nav[i]);
-        }
+         }
     }
-
-//after getting data from redis- count the occurrence and calculate based on their weight
-    public long countOccurencesx(List<String> str, HashMap<String,Long> strL) {
+     public long countOccurencesx(List<String> str, HashMap<String,Long> strL) {
         long countx = 0;
         for (String s : str) {
             if (strL.containsKey(s.trim())) {
@@ -592,18 +535,15 @@ public class RabbitMQListner implements EvaluatorService{
     }
 
 
-//calculate confidence score and level and return json object
-    @Override
+     @Override
     public Evaluator getScore() throws IOException, ParseException {
         this.docx = Jsoup.parse(url.getDoc());
-        //System.out.println("in method");
-        long[][] val = new long[26][4];
+         long[][] val = new long[26][4];
         Long[] score = new Long[4];
         int i=0;
 
         getWeights();
-       // System.out.println("starting methods");
-        h1Tag();
+         h1Tag();
         h2Tag();
         h3Tag();
         h4Tag();
@@ -734,8 +674,7 @@ public class RabbitMQListner implements EvaluatorService{
             val[25][j] = nav[j]*tagweight.get("nav");
             System.out.print("nav j:"+val[25][j]);
         }
-        //Scores calculation
-        for (int j = 0; j < 4; j++) {
+         for (int j = 0; j < 4; j++) {
             score[j] = Long.valueOf(0);
             for (i = 0; i < 26; i++) {
 
@@ -749,8 +688,7 @@ public class RabbitMQListner implements EvaluatorService{
         List<Long> scores = Arrays.asList(score);
         int level = scores.indexOf(Collections.max(scores));
 
-        //System.out.println("starting object assign");
-        this.eva.setUrl(url.getUrl());
+         this.eva.setUrl(url.getUrl());
         this.eva.setTimestamp(Timestamp.valueOf(LocalDateTime.of(LocalDate.now(), LocalTime.now())));
         this.eva.setDomain(url.getDomain());
         this.eva.setConcept(url.getConcept());
@@ -763,14 +701,12 @@ public class RabbitMQListner implements EvaluatorService{
         this.eva.setTitle(this.docx.title());
 
 
-       // System.out.println("ending object assign");
 
         System.out.print(this.eva);
         return  this.eva;
     }
 
-    //get weights from tagweight.json
-    @Override
+     @Override
     public void getWeights() throws IOException, ParseException {
         FileReader fileReader = new FileReader("tagweights.json");
         JSONParser parser = new JSONParser();
@@ -782,34 +718,6 @@ public class RabbitMQListner implements EvaluatorService{
 
         map1.put("basics",(long)6);
         map1.put("tutorials",(long)6);
-        //return jsonObj;
-    }
-
-    /*public void getW() throws IOException, ParseException {
-        JSONObject jsonO=getWeights();
-
-        System.out.print(jsonO.get("title").equals("title"));
-    }
-*/
-/*
-    public void getWeight() throws FileNotFoundException, ParseException {
-
-//
-//        JSONParser parse = new JSONParser();
-//        JSONObject jobj = (JSONObject)parse.parse(inline);
-
-
-
-        FileReader fileReader = new FileReader("/home/chandra/Desktop/Product/ibm-wave3-plasma/evaluator-service/src/main/resources/tagweight.txt");
-        JSONParser parser = new JSONParser(fileReader);
-        Object obj = parser.parse();
-
-        JSONObject jsonObj = new JSONObject((Map)obj);
-    }
-
-
-*/
-
-
+     }
 
 }

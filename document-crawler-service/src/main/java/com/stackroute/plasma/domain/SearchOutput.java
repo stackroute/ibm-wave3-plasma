@@ -17,7 +17,6 @@ public class SearchOutput {
     private String domain;
     @JsonProperty("concept")
     private String concept;
-
     @JsonProperty("urls")
     private String[] urls;
 

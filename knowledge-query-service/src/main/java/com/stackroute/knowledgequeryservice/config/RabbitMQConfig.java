@@ -6,7 +6,6 @@ import org.springframework.amqp.core.DirectExchange;
 import org.springframework.amqp.core.Queue;
 import org.springframework.amqp.rabbit.config.SimpleRabbitListenerContainerFactory;
 import org.springframework.amqp.rabbit.connection.ConnectionFactory;
-import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.amqp.support.converter.Jackson2JsonMessageConverter;
 import org.springframework.amqp.support.converter.MessageConverter;
 import org.springframework.beans.factory.annotation.Value;
@@ -17,8 +16,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class RabbitMQConfig {
 
-    //Receiving message rabbitMQ
-    @Bean
+     @Bean
     public MessageConverter consumerJsonMessageConverter(){
     return new Jackson2JsonMessageConverter();
 }
@@ -33,8 +31,7 @@ public class RabbitMQConfig {
         return factory;
     }
 
-    //Sending message to rabbitMQ
-    @Value("${javainuse6.rabbitmq.queue}")
+     @Value("${javainuse6.rabbitmq.queue}")
     String queueName6;
 
     @Value("${javainuse.rabbitmq.exchange}")
@@ -57,6 +54,5 @@ public class RabbitMQConfig {
     Binding binding(Queue queue, DirectExchange exchange) {
         return BindingBuilder.bind(queue).to(exchange).with(routingkey6);
     }
-
 
 }

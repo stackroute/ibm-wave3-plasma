@@ -26,13 +26,6 @@ public class DescriptionController {
     @Autowired
     RabbitMQSender rabbitMQSender;
 
-    /*
-    @GetMapping("get")
-    public List<Description> getAll(){
-        return descriptionService.getAll();
-    }
-    */
-
     @GetMapping("get")
     public List<List<Description>> concept(){
         Tag tag = rabbitMQListener.getTag();

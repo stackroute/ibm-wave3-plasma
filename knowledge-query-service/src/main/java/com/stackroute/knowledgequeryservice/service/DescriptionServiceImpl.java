@@ -1,8 +1,6 @@
 package com.stackroute.knowledgequeryservice.service;
 
-import com.stackroute.knowledgequeryservice.controller.DescriptionController;
 import com.stackroute.knowledgequeryservice.model.Description;
-import com.stackroute.knowledgequeryservice.model.Descriptions;
 import com.stackroute.knowledgequeryservice.repository.DescriptionRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -30,8 +28,6 @@ public class DescriptionServiceImpl implements DescriptionService {
 
     public List<List<Description>>
     concept(List<String> concepts, List<String> levels) {
-
-
 
         System.out.println(concepts);
         System.out.println(levels);

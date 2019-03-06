@@ -6,7 +6,6 @@ import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.io.IOException;
 
 @Service
 public class RabbitMQListener {
@@ -22,7 +21,6 @@ public class RabbitMQListener {
     @RabbitListener(queues = "${javainuse1.rabbitmq.queue}", containerFactory = "jsaFactory")
     public void consume(Evaluator evaluator){
         System.out.println("Recieved Message From RabbitMQ: " + evaluator.toString());
-        /*either remove the Evaluator object, hence getters and setter OR implement three methods for modularity and call other two methods in consume*/
         this.evaluator.setTimestamp(evaluator.getTimestamp());
         this.evaluator.setDomain(evaluator.getDomain());
         this.evaluator.setConcept(evaluator.getConcept());
@@ -34,7 +32,6 @@ public class RabbitMQListener {
         this.evaluator.setConfidenceScore(evaluator.getConfidenceScore());
 
 
-        /*creates description node*/
         Description description = new Description();
         description.setTimestamp(evaluator.getTimestamp().toString());
         description.setDomain(evaluator.getDomain());
@@ -45,7 +42,6 @@ public class RabbitMQListener {
         description.setTitle(evaluator.getTitle());
         descriptionService.create(description);
 
-        /*creates the relationship*/
         relationshipService.create(evaluator.getConcept(),evaluator.getConfidenceScore(),evaluator.getLevel());
     }
 
@@ -56,6 +52,5 @@ public class RabbitMQListener {
     public void setEvaluator(Evaluator evaluator) {
         this.evaluator = evaluator;
     }
-
 
 }
