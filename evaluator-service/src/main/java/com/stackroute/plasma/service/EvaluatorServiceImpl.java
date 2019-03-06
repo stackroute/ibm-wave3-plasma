@@ -1022,7 +1022,7 @@ public class EvaluatorServiceImpl implements EvaluatorService {
         this.eva.setTimestamp(Timestamp.valueOf(LocalDateTime.of(LocalDate.now(), LocalTime.now())));
         this.eva.setDomain(url.getDomain());
         this.eva.setConcept(url.getConcept());
-        this.eva.setConfidenceScore(max);
+        this.eva.setConfidenceScore(max.floatValue());
         this.eva.setLevel(levels[level]);
         this.eva.setDescription(description);
         this.eva.setKeywords(keywords);
@@ -1047,7 +1047,7 @@ public class EvaluatorServiceImpl implements EvaluatorService {
 
             tagweight.putAll((Map<? extends String, ? extends Long>) obj);
 
-            FileReader fileReaderData = new FileReader("./assets/abc.json");
+            FileReader fileReaderData = new FileReader("./assets/data.json");
 
             JSONParser parserData = new JSONParser();
             Object objData = parserData.parse(fileReaderData);
