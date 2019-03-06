@@ -8,7 +8,7 @@ import java.io.IOException;
 
 public interface EvaluatorService {
 
-    Evaluator getScore(Url url);
+    Evaluator getScore();
     void getConsumedUrl(Url url);
     void getWeights() throws IOException, ParseException;
     void htmlTag();

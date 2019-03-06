@@ -25,9 +25,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+//import com.stackroute.plasma.domain.Url;
 
 @Service
-public class EvaluatorServiceImpl implements EvaluatorService {
+public class EvaluatorServiceImpl implements EvaluatorService  {
 
     Evaluator eval = new Evaluator();
 
@@ -66,6 +67,7 @@ public class EvaluatorServiceImpl implements EvaluatorService {
         eva = new Evaluator();
         getWeights();
         System.out.println("in constructor");
+
     }
 
 
@@ -73,7 +75,8 @@ public class EvaluatorServiceImpl implements EvaluatorService {
     public void getConsumedUrl(Url url)
     {
         this.url=url;
-        getScore(this.url);
+        getScore();
+
     }
     //Calculating scores for html tag
     @Override
@@ -86,135 +89,87 @@ public class EvaluatorServiceImpl implements EvaluatorService {
 
         //basics intent
         for (int j = 0; j < (basicsIndicatorTerms.length()); j++) {
-            try {
-                if (htmlDoc.contains(basicsIndicatorTerms.getJSONObject(j).getString("word"))) {
-                    n = ((countOccurences(headDoc, basicsIndicatorTerms.getJSONObject(j).getString("word")) + (countOccurences(bodyDoc, basicsIndicatorTerms.getJSONObject(j).getString("word")))));
-                    indicatorVal[0] += (countOccurences(htmlDoc, basicsIndicatorTerms.getJSONObject(j).getString("word")) - n) * basicsIndicatorTerms.getJSONObject(j).getLong("intensity") * tagweight.get("html");
-                }
-            }catch (NullPointerException ex){
-                continue;
+            if (htmlDoc.contains(basicsIndicatorTerms.getJSONObject(j).getString("word"))) {
+                n = ((countOccurences(headDoc, basicsIndicatorTerms.getJSONObject(j).getString("word")) + (countOccurences(bodyDoc, basicsIndicatorTerms.getJSONObject(j).getString("word")))));
+                indicatorVal[0] += (countOccurences(htmlDoc, basicsIndicatorTerms.getJSONObject(j).getString("word")) - n) * basicsIndicatorTerms.getJSONObject(j).getLong("intensity") * tagweight.get("html");
             }
         }
         for (int j = 0; j < (basicsCounterIndicatorTerms.length()); j++) {
-            try {
-                if (htmlDoc.contains(basicsCounterIndicatorTerms.getJSONObject(j).getString("word"))) {
-                    n = ((countOccurences(headDoc, basicsCounterIndicatorTerms.getJSONObject(j).getString("word")) + (countOccurences(bodyDoc, basicsCounterIndicatorTerms.getJSONObject(j).getString("word")))));
-                    counterIndicatorVal[0] += (countOccurences(htmlDoc, basicsCounterIndicatorTerms.getJSONObject(j).getString("word")) - n) * basicsCounterIndicatorTerms.getJSONObject(j).getLong("intensity") * tagweight.get("html");
-                }
-            }catch (NullPointerException ex){
-                continue;
+            if (htmlDoc.contains(basicsCounterIndicatorTerms.getJSONObject(j).getString("word"))) {
+                n = ((countOccurences(headDoc, basicsCounterIndicatorTerms.getJSONObject(j).getString("word")) + (countOccurences(bodyDoc, basicsCounterIndicatorTerms.getJSONObject(j).getString("word")))));
+                counterIndicatorVal[0] += (countOccurences(htmlDoc, basicsCounterIndicatorTerms.getJSONObject(j).getString("word")) - n) * basicsCounterIndicatorTerms.getJSONObject(j).getLong("intensity") * tagweight.get("html");
             }
         }
 
         //tutorials intent
         for (int j = 0; j < tutorialsIndicatorTerms.length(); j++) {
-            try {
-                if (htmlDoc.contains(tutorialsIndicatorTerms.getJSONObject(j).getString("word"))) {
-                    n = ((countOccurences(headDoc, tutorialsIndicatorTerms.getJSONObject(j).getString("word")) + (countOccurences(bodyDoc, tutorialsIndicatorTerms.getJSONObject(j).getString("word")))));
-                    indicatorVal[1] += (countOccurences(htmlDoc, tutorialsIndicatorTerms.getJSONObject(j).getString("word")) - n) * tutorialsIndicatorTerms.getJSONObject(j).getLong("intensity") * tagweight.get("html");
-                }
-            }catch (NullPointerException ex){
-                continue;
+            if (htmlDoc.contains(tutorialsIndicatorTerms.getJSONObject(j).getString("word"))) {
+                n = ((countOccurences(headDoc, tutorialsIndicatorTerms.getJSONObject(j).getString("word")) + (countOccurences(bodyDoc, tutorialsIndicatorTerms.getJSONObject(j).getString("word")))));
+                indicatorVal[1] += (countOccurences(htmlDoc, tutorialsIndicatorTerms.getJSONObject(j).getString("word")) - n) * tutorialsIndicatorTerms.getJSONObject(j).getLong("intensity") * tagweight.get("html");
             }
         }
         for (int j = 0; j < tutorialsCounterIndicatorTerms.length(); j++) {
-            try {
-                if (htmlDoc.contains(tutorialsCounterIndicatorTerms.getJSONObject(j).getString("word"))) {
-                    n = ((countOccurences(headDoc, tutorialsCounterIndicatorTerms.getJSONObject(j).getString("word")) + (countOccurences(bodyDoc, tutorialsCounterIndicatorTerms.getJSONObject(j).getString("word")))));
-                    counterIndicatorVal[1] += (countOccurences(htmlDoc, tutorialsCounterIndicatorTerms.getJSONObject(j).getString("word")) - n) * tutorialsCounterIndicatorTerms.getJSONObject(j).getLong("intensity") * tagweight.get("html");
-                }
-            }catch (NullPointerException ex){
-                continue;
+            if (htmlDoc.contains(tutorialsCounterIndicatorTerms.getJSONObject(j).getString("word"))) {
+                n = ((countOccurences(headDoc, tutorialsCounterIndicatorTerms.getJSONObject(j).getString("word")) + (countOccurences(bodyDoc, tutorialsCounterIndicatorTerms.getJSONObject(j).getString("word")))));
+                counterIndicatorVal[1] += (countOccurences(htmlDoc, tutorialsCounterIndicatorTerms.getJSONObject(j).getString("word")) - n) * tutorialsCounterIndicatorTerms.getJSONObject(j).getLong("intensity") * tagweight.get("html");
             }
         }
 
         //example  intent
         for (int j = 0; j < exampleIndicatorTerms.length(); j++) {
-            try {
-                if (htmlDoc.contains(exampleIndicatorTerms.getJSONObject(j).getString("word"))) {
-                    n = ((countOccurences(headDoc, exampleIndicatorTerms.getJSONObject(j).getString("word")) + (countOccurences(bodyDoc, exampleIndicatorTerms.getJSONObject(j).getString("word")))));
-                    indicatorVal[2] += (countOccurences(htmlDoc, exampleIndicatorTerms.getJSONObject(j).getString("word")) - n) * exampleIndicatorTerms.getJSONObject(j).getLong("intensity") * tagweight.get("html");
-                }
-            }catch (NullPointerException ex){
-                continue;
+            if (htmlDoc.contains(exampleIndicatorTerms.getJSONObject(j).getString("word"))) {
+                n = ((countOccurences(headDoc, exampleIndicatorTerms.getJSONObject(j).getString("word")) + (countOccurences(bodyDoc, exampleIndicatorTerms.getJSONObject(j).getString("word")))));
+                indicatorVal[2] += (countOccurences(htmlDoc, exampleIndicatorTerms.getJSONObject(j).getString("word")) - n) * exampleIndicatorTerms.getJSONObject(j).getLong("intensity") * tagweight.get("html");
             }
         }
         for (int j = 0; j < exampleCounterIndicatorTerms.length(); j++) {
-            try {
-                if (htmlDoc.contains(exampleCounterIndicatorTerms.getJSONObject(j).getString("word"))) {
-                    n = ((countOccurences(headDoc, exampleCounterIndicatorTerms.getJSONObject(j).getString("word")) + (countOccurences(bodyDoc, exampleCounterIndicatorTerms.getJSONObject(j).getString("word")))));
-                    counterIndicatorVal[2] += (countOccurences(htmlDoc, exampleCounterIndicatorTerms.getJSONObject(j).getString("word")) - n) * exampleCounterIndicatorTerms.getJSONObject(j).getInt("intensity") * tagweight.get("html");
-                }
-            }catch (NullPointerException ex){
-                continue;
+            if (htmlDoc.contains(exampleCounterIndicatorTerms.getJSONObject(j).getString("word"))) {
+                n = ((countOccurences(headDoc, exampleCounterIndicatorTerms.getJSONObject(j).getString("word")) + (countOccurences(bodyDoc, exampleCounterIndicatorTerms.getJSONObject(j).getString("word")))));
+                counterIndicatorVal[2] += (countOccurences(htmlDoc, exampleCounterIndicatorTerms.getJSONObject(j).getString("word")) - n) * exampleCounterIndicatorTerms.getJSONObject(j).getInt("intensity") * tagweight.get("html");
             }
         }
 
         //complete reference intent
         for (int j = 0; j < completeReferenceIndicatorTerms.length(); j++) {
-            try {
-                if (htmlDoc.contains(completeReferenceIndicatorTerms.getJSONObject(j).getString("word"))) {
-                    n = ((countOccurences(headDoc, completeReferenceIndicatorTerms.getJSONObject(j).getString("word")) + (countOccurences(bodyDoc, completeReferenceIndicatorTerms.getJSONObject(j).getString("word")))));
-                    indicatorVal[3] += (countOccurences(htmlDoc, completeReferenceIndicatorTerms.getJSONObject(j).getString("word")) - n) * completeReferenceIndicatorTerms.getJSONObject(j).getInt("intensity") * tagweight.get("html");
-                }
-            }catch (NullPointerException ex){
-                continue;
+            if (htmlDoc.contains(completeReferenceIndicatorTerms.getJSONObject(j).getString("word"))) {
+                n = ((countOccurences(headDoc, completeReferenceIndicatorTerms.getJSONObject(j).getString("word")) + (countOccurences(bodyDoc, completeReferenceIndicatorTerms.getJSONObject(j).getString("word")))));
+                indicatorVal[3] += (countOccurences(htmlDoc, completeReferenceIndicatorTerms.getJSONObject(j).getString("word")) - n) * completeReferenceIndicatorTerms.getJSONObject(j).getInt("intensity") * tagweight.get("html");
             }
         }
         for (int j = 0; j < completeReferenceCounterIndicatorTerms.length(); j++) {
-            try {
-                if (htmlDoc.contains(completeReferenceCounterIndicatorTerms.getJSONObject(j).getString("word"))) {
-                    n = ((countOccurences(headDoc, completeReferenceCounterIndicatorTerms.getJSONObject(j).getString("word")) + (countOccurences(bodyDoc, completeReferenceCounterIndicatorTerms.getJSONObject(j).getString("word")))));
-                    counterIndicatorVal[3] += (countOccurences(htmlDoc, completeReferenceCounterIndicatorTerms.getJSONObject(j).getString("word")) - n) * completeReferenceCounterIndicatorTerms.getJSONObject(j).getInt("intensity") * tagweight.get("html");
-                }
-            }catch (NullPointerException ex){
-                continue;
+            if (htmlDoc.contains(completeReferenceCounterIndicatorTerms.getJSONObject(j).getString("word"))) {
+                n = ((countOccurences(headDoc, completeReferenceCounterIndicatorTerms.getJSONObject(j).getString("word")) + (countOccurences(bodyDoc, completeReferenceCounterIndicatorTerms.getJSONObject(j).getString("word")))));
+                counterIndicatorVal[3] += (countOccurences(htmlDoc, completeReferenceCounterIndicatorTerms.getJSONObject(j).getString("word")) - n) * completeReferenceCounterIndicatorTerms.getJSONObject(j).getInt("intensity") * tagweight.get("html");
             }
         }
 
         //trouble shooting intent
         for (int j = 0; j < troubleShootingIndicatorTerms.length(); j++) {
-            try {
-                if (htmlDoc.contains(troubleShootingIndicatorTerms.getJSONObject(j).getString("word"))) {
-                    n = ((countOccurences(headDoc, troubleShootingIndicatorTerms.getJSONObject(j).getString("word")) + (countOccurences(bodyDoc, troubleShootingIndicatorTerms.getJSONObject(j).getString("word")))));
-                    indicatorVal[4] += (countOccurences(htmlDoc, troubleShootingIndicatorTerms.getJSONObject(j).getString("word")) - n) * troubleShootingIndicatorTerms.getJSONObject(j).getInt("intensity") * tagweight.get("html");
-                }
-            }catch (NullPointerException ex){
-                continue;
+            if (htmlDoc.contains(troubleShootingIndicatorTerms.getJSONObject(j).getString("word"))) {
+                n = ((countOccurences(headDoc, troubleShootingIndicatorTerms.getJSONObject(j).getString("word")) + (countOccurences(bodyDoc, troubleShootingIndicatorTerms.getJSONObject(j).getString("word")))));
+                indicatorVal[4] += (countOccurences(htmlDoc, troubleShootingIndicatorTerms.getJSONObject(j).getString("word")) - n) * troubleShootingIndicatorTerms.getJSONObject(j).getInt("intensity") * tagweight.get("html");
             }
 
         }
         for (int j = 0; j < troubleShootingCounterIndicatorTerms.length(); j++) {
-            try {
-                if (htmlDoc.contains(troubleShootingCounterIndicatorTerms.getJSONObject(j).getString("word"))) {
-                    n = ((countOccurences(headDoc, troubleShootingCounterIndicatorTerms.getJSONObject(j).getString("word")) + (countOccurences(bodyDoc, troubleShootingCounterIndicatorTerms.getJSONObject(j).getString("word")))));
-                    counterIndicatorVal[4] += (countOccurences(htmlDoc, troubleShootingCounterIndicatorTerms.getJSONObject(j).getString("word")) - n) * troubleShootingCounterIndicatorTerms.getJSONObject(j).getInt("intensity") * tagweight.get("html");
-                }
-            }catch (NullPointerException ex){
-                continue;
+            if (htmlDoc.contains(troubleShootingCounterIndicatorTerms.getJSONObject(j).getString("word"))) {
+                n = ((countOccurences(headDoc, troubleShootingCounterIndicatorTerms.getJSONObject(j).getString("word")) + (countOccurences(bodyDoc, troubleShootingCounterIndicatorTerms.getJSONObject(j).getString("word")))));
+                counterIndicatorVal[4] += (countOccurences(htmlDoc, troubleShootingCounterIndicatorTerms.getJSONObject(j).getString("word")) - n) * troubleShootingCounterIndicatorTerms.getJSONObject(j).getInt("intensity") * tagweight.get("html");
             }
         }
 
         //gettingStarted
         for (int j = 0; j < gettingStartedIndicatorTerms.length(); j++) {
-            try {
-                if (htmlDoc.contains(gettingStartedIndicatorTerms.getJSONObject(j).getString("word"))) {
-                    n = ((countOccurences(headDoc, gettingStartedIndicatorTerms.getJSONObject(j).getString("word")) + (countOccurences(bodyDoc, gettingStartedIndicatorTerms.getJSONObject(j).getString("word")))));
-                    indicatorVal[5] += (countOccurences(htmlDoc, gettingStartedIndicatorTerms.getJSONObject(j).getString("word")) - n) * gettingStartedIndicatorTerms.getJSONObject(j).getInt("intensity") * tagweight.get("html");
-                }
-            }catch (NullPointerException ex){
-                continue;
+            if (htmlDoc.contains(gettingStartedIndicatorTerms.getJSONObject(j).getString("word"))) {
+                n = ((countOccurences(headDoc, gettingStartedIndicatorTerms.getJSONObject(j).getString("word")) + (countOccurences(bodyDoc, gettingStartedIndicatorTerms.getJSONObject(j).getString("word")))));
+                indicatorVal[5] += (countOccurences(htmlDoc, gettingStartedIndicatorTerms.getJSONObject(j).getString("word")) - n) * gettingStartedIndicatorTerms.getJSONObject(j).getInt("intensity") * tagweight.get("html");
             }
         }
         for (int j = 0; j < gettingStartedCounterIndicatorTerms.length(); j++) {
-            try {
-                if (htmlDoc.contains(gettingStartedCounterIndicatorTerms.getJSONObject(j).getString("word"))) {
-                    n = ((countOccurences(headDoc, gettingStartedCounterIndicatorTerms.getJSONObject(j).getString("word")) + (countOccurences(bodyDoc, gettingStartedCounterIndicatorTerms.getJSONObject(j).getString("word")))));
-                    counterIndicatorVal[5] += (countOccurences(htmlDoc, gettingStartedCounterIndicatorTerms.getJSONObject(j).getString("word")) - n) * gettingStartedCounterIndicatorTerms.getJSONObject(j).getInt("intensity") * tagweight.get("html");
+            if (htmlDoc.contains(gettingStartedCounterIndicatorTerms.getJSONObject(j).getString("word"))) {
+                n = ((countOccurences(headDoc, gettingStartedCounterIndicatorTerms.getJSONObject(j).getString("word")) + (countOccurences(bodyDoc, gettingStartedCounterIndicatorTerms.getJSONObject(j).getString("word")))));
+                counterIndicatorVal[5] += (countOccurences(htmlDoc, gettingStartedCounterIndicatorTerms.getJSONObject(j).getString("word")) - n) * gettingStartedCounterIndicatorTerms.getJSONObject(j).getInt("intensity") * tagweight.get("html");
 
-                }
-            }catch (NullPointerException ex){
-                continue;
             }
         }
     }
@@ -536,10 +491,10 @@ public class EvaluatorServiceImpl implements EvaluatorService {
         String h3Tag;
         String[] str;
         if(!docx.select("h3").text().isEmpty()){
-        h3Tag = docx.select("h3").text();
-        str= h3Tag.toLowerCase().trim().split(" ");
-        h3Doc = Arrays.asList(str);
-        calScore(h3Doc, "h3");
+            h3Tag = docx.select("h3").text();
+            str= h3Tag.toLowerCase().trim().split(" ");
+            h3Doc = Arrays.asList(str);
+            calScore(h3Doc, "h3");
         }
     }
 
@@ -668,11 +623,11 @@ public class EvaluatorServiceImpl implements EvaluatorService {
     @Override
     public void pTag() {
         if(!docx.select("p").isEmpty()){
-        String ss = docx.select("p").text().toLowerCase().trim().replaceAll(":", "");
-        String ss1 = ss.trim().replaceAll(",", "");
-        String[] str1 = ss1.split(" ");
-        pDoc = Arrays.asList(str1);
-        calScore(pDoc, "p");
+            String ss = docx.select("p").text().toLowerCase().trim().replaceAll(":", "");
+            String ss1 = ss.trim().replaceAll(",", "");
+            String[] str1 = ss1.split(" ");
+            pDoc = Arrays.asList(str1);
+            calScore(pDoc, "p");
         }
     }
 
@@ -955,11 +910,11 @@ public class EvaluatorServiceImpl implements EvaluatorService {
 
     //calculate confidence score and level and return json object
     @Override
-    public Evaluator getScore(Url url) {
+    public Evaluator getScore() {
         this.docx = Jsoup.parse(url.getDoc());
         long[][] val = new long[26][4];
-        Double[] score = new Double[6];
-        Double[] scoren = new Double[6];
+        Float[] score = new Float[6];
+        Float[] scoren = new Float[6];
         DecimalFormat df2 = new DecimalFormat(".##");
         for (int i = 0; i < 6; i++) {
             indicatorVal[i] = 0;
@@ -994,15 +949,15 @@ public class EvaluatorServiceImpl implements EvaluatorService {
 
         for (int i = 0; i < 6; i++) {
             if ((indicatorVal[i] + counterIndicatorVal[i]) <= 0) {
-                score[i] = 0.0;
+                score[i] = 0F;
             } else {
 
-                score[i] = ((double) (indicatorVal[i])) / (indicatorVal[i] + counterIndicatorVal[i]);
-                scoren[i] = Double.parseDouble(df2.format(score[i]));
+                score[i] = ((float) (indicatorVal[i])) / (indicatorVal[i] + counterIndicatorVal[i]);
+                scoren[i] = Float.parseFloat(df2.format(score[i]));
             }
         }
 
-        Double max = 0.0;
+        Float max = 0F;
         int level = 0;
 
         for (int i = 0; i < scoren.length; i++) {
@@ -1022,7 +977,7 @@ public class EvaluatorServiceImpl implements EvaluatorService {
         this.eva.setTimestamp(Timestamp.valueOf(LocalDateTime.of(LocalDate.now(), LocalTime.now())));
         this.eva.setDomain(url.getDomain());
         this.eva.setConcept(url.getConcept());
-        this.eva.setConfidenceScore(max.floatValue());
+        this.eva.setConfidenceScore(max);
         this.eva.setLevel(levels[level]);
         this.eva.setDescription(description);
         this.eva.setKeywords(keywords);
@@ -1047,7 +1002,7 @@ public class EvaluatorServiceImpl implements EvaluatorService {
 
             tagweight.putAll((Map<? extends String, ? extends Long>) obj);
 
-            FileReader fileReaderData = new FileReader("./assets/data.json");
+            FileReader fileReaderData = new FileReader("./assets/abc.json");
 
             JSONParser parserData = new JSONParser();
             Object objData = parserData.parse(fileReaderData);

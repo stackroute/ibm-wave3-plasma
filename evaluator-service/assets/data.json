@@ -1,37 +1,282 @@
 {
-  "knowledge": {
-    "data": {
-      "terms": [
-        {
-          "word": 1 ,
-          "intensity": 1
-        } ,
-        {
-          "word": 2 ,
-          "intensity": 3
-        }
-      ]
-    } ,
+  "basics": {
     "counterIndicator": [
       {
-        "word": "abc" ,
-        "intensity": 22
+        "word": "auxillary" ,
+        "intensity": 7
       } ,
       {
-        "word": "cde" ,
-        "intensity": 11
+        "word": "snippets" ,
+        "intensity": 3
+      } ,
+      {
+        "word": "secondary" ,
+        "intensity": 6
+      } ,
+      {
+        "word": "additional" ,
+        "intensity": 3
+      } ,
+      {
+        "word": "model" ,
+        "intensity": 4
       }
     ] ,
     "indicator": [
       {
-        "word": "abc" ,
-        "intensity": 22
+        "word": "main" ,
+        "intensity": 3
       } ,
       {
-        "word": "cde" ,
-        "intensity": 11
+        "word": "essential" ,
+        "intensity": 0
+      } ,
+      {
+        "word": "basics" ,
+        "intensity": 6
+      } ,
+      {
+        "word": "fundamental" ,
+        "intensity": 0
+      } ,
+      {
+        "word": "beginner" ,
+        "intensity": 9
+      }
+    ]
+  } ,
+  "tutorials": {
+    "counterIndicator": [
+      {
+        "word": "primitive" ,
+        "intensity": 5
+      } ,
+      {
+        "word": "beginner" ,
+        "intensity": 7
+      } ,
+      {
+        "word": "primary" ,
+        "intensity": 6
+      } ,
+      {
+        "word": "foundation" ,
+        "intensity": 7
+      }
+    ] ,
+    "indicator": [
+      {
+        "word": "acedemic" ,
+        "intensity": 7
+      } ,
+      {
+        "word": "guidance" ,
+        "intensity": 7
+      } ,
+      {
+        "word": "instructional" ,
+        "intensity": 8
+      } ,
+      {
+        "word": "instructive" ,
+        "intensity": 8
+      } ,
+      {
+        "word": "tutorials" ,
+        "intensity": 8
+      } ,
+      {
+        "word": "training" ,
+        "intensity": 7
+      } ,
+      {
+        "word": "informational" ,
+        "intensity": 7
+      }
+    ]
+  } ,
+  "example": {
+    "counterIndicator": [
+      {
+        "word": "instructive" ,
+        "intensity": 5
+      } ,
+      {
+        "word": "primary" ,
+        "intensity": 5
+      } ,
+      {
+        "word": "informational" ,
+        "intensity": 4
+      } ,
+      {
+        "word": "simple" ,
+        "intensity": 6
+      } ,
+      {
+        "word": "guidance" ,
+        "intensity": 8
+      } ,
+      {
+        "word": "model" ,
+        "intensity": 4
+      } ,
+      {
+        "word": "essential" ,
+        "intensity": 3
+      }
+    ] ,
+    "indicator": [
+      {
+        "word": "function" ,
+        "intensity": 6
+      } ,
+      {
+        "word": "model" ,
+        "intensity": 8
+      } ,
+      {
+        "word": "class" ,
+        "intensity": 7
+      } ,
+      {
+        "word": "sample" ,
+        "intensity": 8
+      } ,
+      {
+        "word": "relating" ,
+        "intensity": 6
+      } ,
+      {
+        "word": "snippets" ,
+        "intensity": 7
+      } ,
+      {
+        "word": "expression" ,
+        "intensity": 5
+      } ,
+      {
+        "word": "reference" ,
+        "intensity": 6
+      } ,
+      {
+        "word": "source code" ,
+        "intensity": 8
+      } ,
+      {
+        "word": "instance" ,
+        "intensity": 6
+      }
+    ]
+  } ,
+  "completeReference": {
+    "counterIndicator": [
+      {
+        "word": "snippets" ,
+        "intensity": 5
+      } ,
+      {
+        "word": "guidance" ,
+        "intensity": 7
+      } ,
+      {
+        "word": "sample" ,
+        "intensity": 6
+      } ,
+      {
+        "word": "source" ,
+        "intensity": 4
+      } ,
+      {
+        "word": "expression" ,
+        "intensity": 7
+      }
+    ] ,
+    "indicator": [
+      {
+        "word": "indicates" ,
+        "intensity": 7
+      } ,
+      {
+        "word": "note" ,
+        "intensity": 7
+      } ,
+      {
+        "word": "advance" ,
+        "intensity": 6
+      } ,
+      {
+        "word": "meaning" ,
+        "intensity": 6
+      } ,
+      {
+        "word": "extract" ,
+        "intensity": 6
+      } ,
+      {
+        "word": "source code" ,
+        "intensity": 6
+      } ,
+      {
+        "word": "refer code" ,
+        "intensity": 7
+      } ,
+      {
+        "word": "give us example" ,
+        "intensity": 8
+      } ,
+      {
+        "word": "relating" ,
+        "intensity": 6
+      } ,
+      {
+        "word": "implementation" ,
+        "intensity": 8
+      }
+    ]
+  } ,
+  "troubleShooting": {
+    "counterIndicator": [
+    ] ,
+    "indicator": [
+      {
+        "word": "improve" ,
+        "intensity": 5
+      } ,
+      {
+        "word": "rectify" ,
+        "intensity": 7
+      } ,
+      {
+        "word": "fix" ,
+        "intensity": 7
+      } ,
+      {
+        "word": "repair" ,
+        "intensity": 7
+      } ,
+      {
+        "word": "service" ,
+        "intensity": 6
+      } ,
+      {
+        "word": "support" ,
+        "intensity": 6
+      }
+    ]
+  } ,
+  "gettingStarted": {
+    "counterIndicator": [
+    ] ,
+    "indicator": [
+      {
+        "word": "how to code" ,
+        "intensity": 7
+      } ,
+      {
+        "word": "hello world" ,
+        "intensity": 7
       }
     ]
   }
 }
-
