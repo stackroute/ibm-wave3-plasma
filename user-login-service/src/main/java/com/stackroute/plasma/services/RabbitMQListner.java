@@ -1,22 +1,15 @@
 package com.stackroute.plasma.services;
 
+import com.stackroute.plasma.model.User;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
+import org.springframework.stereotype.Service;
 
 import java.io.IOException;
-
+@Service
 public class RabbitMQListner {
 
-    @RabbitListener(queues = "${javainuse2.rabbitmq.queue}", containerFactory = "jsaFactory")
-    public void recievedMessage(SearchOutput searchOutput) throws IOException {
-        this.searchOutputt = searchOutput;
-
-        //this.searchOutputt = this.objectMapper.readValue(searchOutput,SearchOutput);
-        for (String x:searchOutput.getUrls()
-        ) {
-            System.out.println("-------------"+x);
-        }
-        System.out.println("Recieved Message From RabbitMQ: " + searchOutput.getConcept() +searchOutput.getUrls());
-        System.out.println("check url----------------"+ searchOutputt.getUrls()+"8888888888"+searchOutputt.getConcept());
+    @RabbitListener(queues = "${javainuse3.rabbitmq.queue}", containerFactory = "jsaFactory")
+    public void recievedMessage(User user) throws IOException {
 
     }
 }

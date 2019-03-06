@@ -17,22 +17,15 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class User {
 
 
-    @JsonIgnore
+    @JsonProperty("name")
     private String name;
-<<<<<<< HEAD
     @JsonProperty("dateOfBirth")
     private String dateOfBirth;
     @JsonProperty("gender")
     private String gender;
     @JsonProperty("contact")
-=======
-    @JsonIgnore
-    private String dateOfBirth;
-    @JsonIgnore
-    private String gender;
-    @JsonIgnore
->>>>>>> f82a88f43470e0b6480196ffed9b1a9118671d66
-    private Long contact;
+    private String contact;
+
 
 
     @Id
