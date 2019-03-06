@@ -16,6 +16,7 @@ import { UserLoginService } from './services/user-login.service';
 import { PlasmaMaterialModule } from './plasma.material.modules';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { ProfileComponent } from './components/profile/profile.component';
 
 
 @NgModule({
@@ -26,6 +27,7 @@ import { NgModule } from '@angular/core';
     FooterComponent,
     CardComponent,
     UserLoginComponent,
+    ProfileComponent
     ],
   imports: [
    BrowserModule,
@@ -46,7 +48,8 @@ import { NgModule } from '@angular/core';
     UserLoginComponent,
     CardComponent,
     FooterComponent,
-    UserregistrationComponent
+    UserregistrationComponent,
+    ProfileComponent
   ]
 })
 export class PlasmaModule { }

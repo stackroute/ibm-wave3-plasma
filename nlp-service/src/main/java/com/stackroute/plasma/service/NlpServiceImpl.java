@@ -87,12 +87,11 @@ public class NlpServiceImpl implements NlpService{
         ) {
             lemma = coreLabel.lemma();
             if (!(word.contains(lemma))) {
-                //rabbitMQSender.sender();
+
                 extractedString.add(lemma);
             }
         }
         NlpModel nlpModel = new NlpModel(extractedString);
-        //rabbitMQSender.sender(nlpModel);
 
 
         rabbitMQSender.sender(nlpModel);

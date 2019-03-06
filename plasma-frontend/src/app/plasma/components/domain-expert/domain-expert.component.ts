@@ -9,7 +9,6 @@ import { HttpClient } from '@angular/common/http';
 
 
 
-
 @Component({
   selector: 'app-domain-expert',
   templateUrl: './domain-expert.component.html',
@@ -41,9 +40,7 @@ export class DomainExpertComponent implements OnInit {
     });
 
    }
-
    constructor(private search: DomainExpertService,  private http: HttpClient ) {
-
 
     this.search.getTheData().subscribe((data: any) => {
       this.conceptsAll = data.concepts;

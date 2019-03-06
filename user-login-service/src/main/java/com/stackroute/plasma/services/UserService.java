@@ -9,7 +9,7 @@ public interface UserService {
 
 
 
-    public User saveUsers(User user);  // throws UserNameOrPasswordEmptyException;
+    public User saveUsers(User user);
     public List<User> getAllUsers();       // gives list of users
     public User findByUserIdAndPassword(String userId, String password); //finds the user by UserId and Password
 }

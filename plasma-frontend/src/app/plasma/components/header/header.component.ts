@@ -6,10 +6,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
+  route: any;
 
   constructor() { }
 
   ngOnInit() {
+  }
+  profile() {
+    this.route.navigate(['/', 'profile']);
   }
 
 }

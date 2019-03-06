@@ -6,11 +6,11 @@
 		<groupId>com.stackroute</groupId>
 		<artifactId>ibm-wave3-plasma</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
-		<relativePath>../pom.xml</relativePath> <!-- lookup parent from repository -->
+		<relativePath>../pom.xml</relativePath>
 	</parent>
-	<!--<groupId>com.stackroute</groupId>-->
+
 	<artifactId>plasma</artifactId>
-	<!--<version>0.0.1-SNAPSHOT</version>-->
+
 	<name>user-login-service</name>
 	<description>Demo project for Spring Boot</description>
 
@@ -32,7 +32,7 @@
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 
-		<!--dependency for RabbitMQ-->
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-amqp</artifactId>

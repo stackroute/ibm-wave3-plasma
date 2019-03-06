@@ -10,11 +10,14 @@ export class UserregistrationService {
   url: string;
   response: any;
   get: any;
+  profile(emailId: String) {
+    this.url = 'http://localhost:8015/api/v1/user/' + emailId;
+    return this.http.get(this.url);
+   }
 constructor(private http: HttpClient ) {
 }
-//added just comment
  addregister(reg: Userregister) {
-   this.url = 'http://13.234.94.77:8089/api/v1/user';
+   this.url = 'http://localhost:8089/api/v1/user';
   this.http.get(this.url).subscribe(resp => {
 
   this.response = resp;

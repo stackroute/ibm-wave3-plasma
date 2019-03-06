@@ -63,8 +63,6 @@ public class SearchController {
             searchOutput[k].setUrls(singleConceptResult);
             rabbitMQSender.sender(searchOutput[k]);
 
-            //responseEntity = new ResponseEntity<List<String[]>>(tempList,HttpStatus.CREATED);
-            //responseEntity = new ResponseEntity(searchOutput[k],HttpStatus.CREATED);
             k = k+1;
 
         }
