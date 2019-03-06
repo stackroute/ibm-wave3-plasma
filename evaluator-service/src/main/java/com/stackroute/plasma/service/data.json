@@ -1,0 +1,37 @@
+{
+  "knowledge": {
+    "data": {
+      "terms": [
+        {
+          "word": 1 ,
+          "intensity": 1
+        } ,
+        {
+          "word": 2 ,
+          "intensity": 3
+        }
+      ]
+    } ,
+    "counterIndicator": [
+      {
+        "word": "abc" ,
+        "intensity": 22
+      } ,
+      {
+        "word": "cde" ,
+        "intensity": 11
+      }
+    ] ,
+    "indicator": [
+      {
+        "word": "abc" ,
+        "intensity": 22
+      } ,
+      {
+        "word": "cde" ,
+        "intensity": 11
+      }
+    ]
+  }
+}
+
