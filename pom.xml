@@ -33,14 +33,13 @@
         <module>eureka-server</module>
         <module>zuul-gatewayservice</module>
         <module>config-server</module>
-        <module>eventbrite-service</module>
         <module>nlp-service</module>
         <module>user-register-service</module>
         <module>knowledge-indexer-service</module>
         <module>knowledge-query-service</module>
         <module>tagging-service</module>
-        <module>cache-manager-service</module>
         <module>notification-service</module>
+        <module>search-recommendation-service</module>
 
     </modules>
     <dependencies>
@@ -48,6 +47,20 @@
             <groupId>org.javassist</groupId>
             <artifactId>javassist</artifactId>
             <version>3.23.1-GA</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-logging</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-log4j2</artifactId>
         </dependency>
         <dependency>
             <groupId>javax.xml.bind</groupId>
@@ -88,14 +101,6 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
-
-    <!--https://github.com/stackroute/ibm-wave3-plasma.git-->
-
-    <!--<scm>-->
-    <!--<connection>scm:git:git@github.com:SonarSource/sq-com_example_java-maven-travis.git</connection>-->
-    <!--<developerConnection>scm:git:git@github.com:SonarSource/sq-com_example_java-maven-travis.git</developerConnection>-->
-    <!--<url>https://github.com/SonarSource/sq-com_example_java-maven-travis</url>-->
-    <!--</scm>-->
 
     <build>
         <plugins>

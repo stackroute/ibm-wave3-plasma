@@ -8,9 +8,9 @@ import org.springframework.data.repository.query.Param;
 public interface RelationshipRespository extends Neo4jRepository<Relationship,Long> {
 
     /* Creates the relationship from description node to concept node */
-    @Query("MATCH (c:Domain),(d:Description) " +
+    @Query("MATCH (c:Concept),(d:Document) " +
             "WHERE c.name={concept} AND d.concept={concept}" + //AND c.name = d.concept AND c.type = \"concept\" " +
-            "MERGE x=(d)-[r:Details_of { confidenceScore:{confidenceScore},level:{level} }]->(c) RETURN r")
+            "MERGE x=(d)-[r:Document_of { confidenceScore:{confidenceScore},level:{level} }]->(c) RETURN r")
     void create(@Param("concept")String concept,@Param("confidenceScore")long confidenceScore,@Param("level")String level);
 
     /* Reads the Concept node from  Domain Ontology */
@@ -20,7 +20,7 @@ public interface RelationshipRespository extends Neo4jRepository<Relationship,Lo
 
 
     /* Deletes the relationship from description node to concept node */
-    @Query("MATCH (d)-[r:Details_of]->(c) WHERE d.concept={concept} DETACH DELETE r RETURN r")
+    @Query("MATCH (d)-[r:Document_of]->(c) WHERE d.concept={concept} DETACH DELETE r RETURN r")
     Relationship delete(@Param("concept") String concept);
 
 }

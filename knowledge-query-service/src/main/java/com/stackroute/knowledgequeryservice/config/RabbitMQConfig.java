@@ -58,16 +58,5 @@ public class RabbitMQConfig {
         return BindingBuilder.bind(queue).to(exchange).with(routingkey6);
     }
 
-    @Bean
-    public Jackson2JsonMessageConverter jsonMessageConverter() {
-        return new Jackson2JsonMessageConverter();
-    }
-
-    @Bean
-    public RabbitTemplate rabbitTemplate(ConnectionFactory connectionFactory) {
-        final RabbitTemplate rabbitTemplate = new RabbitTemplate(connectionFactory);
-        rabbitTemplate.setMessageConverter(jsonMessageConverter());
-        return rabbitTemplate;
-    }
 
 }

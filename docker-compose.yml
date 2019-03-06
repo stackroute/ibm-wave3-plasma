@@ -31,13 +31,7 @@ services:
         - 9000:9000
       network_mode: host
 
-#  redis:
-#    container_name: redis
-#    image: redis
-#    ports:
-#      - "6380:6380"
-#    volumes:
-#      - ../data/redis:/data
+
 
   redis:
     container_name: redis
@@ -211,6 +205,20 @@ services:
     expose:
       - 8086
 
+  searchrecommendationservice:
+    image: search-recommendation-service:latest
+    build: search-recommendation-service/
+    restart: always
+    network_mode: host
+    depends_on:
+      - eurekaserver
+      - rabbitmq
+      - configserver
+    ports:
+      - 8083:8083
+    expose:
+      - 8083
+
   plasmaFrontend:
     build: plasma-frontend/
     image: plasma-frontend:latest
@@ -236,15 +244,6 @@ services:
 
 
 
-#  redis:
-#    container_name: redis
-#    image: redis
-#    ports:
-#      - "6380:6380"
-#    volumes:
-#      - ../data/redis:/data
-#
-#     - 8087
 
   notificationservice:
     image: notification-service:latest

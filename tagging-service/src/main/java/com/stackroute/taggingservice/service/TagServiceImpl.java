@@ -1,5 +1,6 @@
 package com.stackroute.taggingservice.service;
 
+import com.stackroute.taggingservice.domain.TagInput;
 import com.stackroute.taggingservice.domain.TagOutput;
 import edu.stanford.nlp.ling.CoreAnnotations;
 import edu.stanford.nlp.ling.CoreLabel;
@@ -40,17 +41,27 @@ public class TagServiceImpl implements TagService {
     RabbitMQSender rabbitMQSender;
     public TagServiceImpl() {
         readConceptFile();
+        System.out.println(readConceptFile());
+
         readTutorialFile();
+        System.out.println(readTutorialFile());
+
         readTroubleShootingFile();
+
         readReferenceFile();
+
         readExampleFile();
+
         readBasicFile();
+
         readGettingStartedFile();
+
         readIntentFile();
+
     }
     public ArrayList<String> readIntentFile() {
         try {
-            BufferedReader bufferedReader = new BufferedReader(new FileReader("./dictionary/intent.csv"));
+            BufferedReader bufferedReader = new BufferedReader(new FileReader("./dict/intent.csv"));
             String intent_word = "";
             try {
                 intent_word = intent_word + bufferedReader.readLine() + "";
@@ -73,7 +84,7 @@ public class TagServiceImpl implements TagService {
 
     public List<String> readBasicFile() {
         try {
-            BufferedReader bufferedReader = new BufferedReader(new FileReader("./dictionary/basic.csv"));
+            BufferedReader bufferedReader = new BufferedReader(new FileReader("./dict/basic.csv"));
             String basic_word = "";
             try {
                 basic_word = basic_word + bufferedReader.readLine() + "";
@@ -96,7 +107,7 @@ public class TagServiceImpl implements TagService {
 
     public List<String> readTutorialFile() {
         try {
-            BufferedReader bufferedReader = new BufferedReader(new FileReader("./dictionary/tutorials.csv"));
+            BufferedReader bufferedReader = new BufferedReader(new FileReader("./dict/tutorials.csv"));
             String tutorial_word = "";
             try {
                 tutorial_word = tutorial_word + bufferedReader.readLine() + "";
@@ -119,7 +130,7 @@ public class TagServiceImpl implements TagService {
 
     public List<String> readReferenceFile() {
         try {
-            BufferedReader bufferedReader = new BufferedReader(new FileReader("./dictionary/reference.csv"));
+            BufferedReader bufferedReader = new BufferedReader(new FileReader("./dict/reference.csv"));
             String reference_word = "";
             try {
                 reference_word = reference_word + bufferedReader.readLine() + "";
@@ -142,14 +153,14 @@ public class TagServiceImpl implements TagService {
 
     public ArrayList<String> readConceptFile() {
         try {
-            BufferedReader bufferedReader = new BufferedReader(new FileReader("./dictionary/concept.csv"));
+            BufferedReader bufferedReader = new BufferedReader(new FileReader("./dict/concept.csv"));
             String concept_word = "";
             try {
                 concept_word = concept_word + bufferedReader.readLine() + "";
                 while (bufferedReader.readLine() != null){
                     concept_word = concept_word + bufferedReader.readLine() + " ";
                 }
-                String[] concept_word_split = concept_word.split(" ");
+                String[] concept_word_split = concept_word.split(",");
                 for (String concept_word_split_single:concept_word_split
                 ) {
                     concept_word_set.add(concept_word_split_single.toLowerCase().toLowerCase().trim());
@@ -165,7 +176,7 @@ public class TagServiceImpl implements TagService {
 
     public List<String> readTroubleShootingFile() {
         try {
-            BufferedReader bufferedReader = new BufferedReader(new FileReader("./dictionary/trouleshooting.csv"));
+            BufferedReader bufferedReader = new BufferedReader(new FileReader("./dict/trouleshooting.csv"));
             String trouble_word = "";
             try {
                 trouble_word = trouble_word + bufferedReader.readLine() + "";
@@ -189,7 +200,7 @@ public class TagServiceImpl implements TagService {
 
     public List<String> readGettingStartedFile() {
         try {
-            BufferedReader bufferedReader = new BufferedReader(new FileReader("./dictionary/gettingstarted.csv"));
+            BufferedReader bufferedReader = new BufferedReader(new FileReader("./dict/gettingstarted.csv"));
             String started_word = "";
             try {
                 started_word = started_word + bufferedReader.readLine() + "";
@@ -212,7 +223,7 @@ public class TagServiceImpl implements TagService {
 
     public List<String> readExampleFile() {
         try {
-            BufferedReader bufferedReader = new BufferedReader(new FileReader("./dictionary/example.csv"));
+            BufferedReader bufferedReader = new BufferedReader(new FileReader("./dict/example.csv"));
             String example_word = "";
             try {
                 example_word = example_word + bufferedReader.readLine() + "";
@@ -286,6 +297,7 @@ public class TagServiceImpl implements TagService {
 
     @Override
     public TagOutput tagger(String lemma) {
+        System.out.println(lemma);
         taggedString = new ArrayList<>();
         intent = new ArrayList<>();
         concept = new ArrayList<>();
@@ -308,15 +320,18 @@ public class TagServiceImpl implements TagService {
                 taggedString.add(coreLabel.originalText());
             }
         }
+
+
+
         checkForConcept();
         checkForIntent();
         tagOutput.setTaggedConcept(finalConcept);
         tagOutput.setTaggedLevel(finalIntent);
 
         TagOutput tagOutput = new TagOutput(finalConcept,finalIntent);
-        //rabbitMQSender.sender(tagOutput);
 
-        //TagOutput tagOutput = new TagOutput(finalConcept,finalIntent);
+
+
         System.out.println("sending message to RabbitMQ toString: " + tagOutput);
         rabbitMQSender.sender(tagOutput);
         return tagOutput;

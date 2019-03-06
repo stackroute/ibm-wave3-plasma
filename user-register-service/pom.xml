@@ -8,10 +8,9 @@
 		<version>0.0.1-SNAPSHOT</version>
 		<relativePath>../pom.xml</relativePath>
 	</parent>
-	<!--<groupId>com.stackroute</groupId>-->
+
 
 	<artifactId>user-register-service</artifactId>
-	<!--<version>0.0.1-SNAPSHOT</version>-->
 	<name>user-register-service</name>
 	<description>Demo project for Spring Boot</description>
 
@@ -70,6 +69,11 @@
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> f82a88f43470e0b6480196ffed9b1a9118671d66
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-amqp</artifactId>
@@ -91,6 +95,7 @@
 		</dependency>
 
 
+<<<<<<< HEAD
 
 
 
@@ -102,6 +107,8 @@
 <!--			<version>5.1.4.RELEASE</version>-->
 <!--			<scope>compile</scope>-->
 <!--		</dependency>-->
+=======
+>>>>>>> f82a88f43470e0b6480196ffed9b1a9118671d66
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-web</artifactId>
