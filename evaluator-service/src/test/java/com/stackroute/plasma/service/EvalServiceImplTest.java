@@ -57,7 +57,7 @@ public class EvalServiceImplTest {
     }
 
     @Test
-    public void getScore() throws IOException {
+    public void getScore() throws IOException, ParseException {
       evaluator=evalServiceImpl.getScore(url);
      assertEquals("https://www.guru99.com/java-oops-class-objects.html",evaluator.getUrl());
      assertEquals("Encapsulation in java".trim(),evaluator.getDescription().trim());
