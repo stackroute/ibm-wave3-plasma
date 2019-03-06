@@ -21,7 +21,7 @@ public class EvalServiceImplTest {
     Evaluator evaluator;
 
     private Url url;
-    private EvaluatorServiceImpl evalServiceImpl=new EvaluatorServiceImpl();
+    private EvaluatorServiceImpl evalServiceImpl;
     private Timestamp timestamp;
     private String doc;
     DecimalFormat df2 = new DecimalFormat("#.##");
@@ -31,6 +31,7 @@ public class EvalServiceImplTest {
 
     @Before
     public void setUp() throws Exception {
+        evalServiceImpl=new EvaluatorServiceImpl();
         evaluator=new Evaluator();
         url=new Url();
         url.setDomain("java");
@@ -54,6 +55,7 @@ public class EvalServiceImplTest {
     @After
     public void tearDown() throws Exception {
         evaluator=null;
+        evalServiceImpl=null;
     }
 
     @Test
