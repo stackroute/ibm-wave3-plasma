@@ -1,13 +1,15 @@
 package com.stackroute.plasma.service;
 
 import com.stackroute.plasma.domain.Evaluator;
+import com.stackroute.plasma.domain.Url;
 import org.json.simple.parser.ParseException;
 
 import java.io.IOException;
 
 public interface EvaluatorService {
 
-    Evaluator getScore() throws IOException, ParseException;
+    Evaluator getScore(Url url);
+    void getConsumedUrl(Url url);
     void getWeights() throws IOException, ParseException;
     void htmlTag();
     void headTag();

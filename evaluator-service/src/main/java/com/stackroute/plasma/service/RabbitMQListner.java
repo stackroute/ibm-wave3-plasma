@@ -1,89 +1,19 @@
 package com.stackroute.plasma.service;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.stackroute.plasma.domain.Evaluator;
-import com.stackroute.plasma.domain.Url;
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
-import org.json.simple.parser.ParseException;
-import org.jsoup.Jsoup;
-import org.jsoup.nodes.Document;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import com.stackroute.plasma.domain.Url;
 
-import java.io.FileReader;
-import java.io.IOException;
-import java.sql.Timestamp;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.LocalTime;
-import java.util.*;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
 
 @Service
-public class RabbitMQListner implements EvaluatorService{
+public class RabbitMQListner{
 
-
-    Evaluator eval = new Evaluator();
     @Autowired
-    RabbitMQSender rabbitMQSender;
-
-    @JsonIgnore
-    Document docx;
-    String data;
-
-    Evaluator eva;
-    Url url;
-    JSONObject jsonObj;
-    private long[] html = new long[5];
-    private long[] head = new long[5];
-    private long[] title = new long[5];
-    private long[] meta = new long[5];
-    private long[] body = new long[5];
-    private long[] h1 = new long[5];
-    private long[] h2 = new long[5];
-    private long[] h3 = new long[5];
-    private long[] h4 = new long[5];
-    private long[] h5 = new long[5];
-    private long[] h6= new long[5];
-    private long[] code = new long[5];
-    private long[] address= new long[5];
-    private long[] summary = new long[5];
-    private long[] blockquote = new long[5];
-    private long[] mark = new long[5];
-    private long[] ins= new long[5];
-    private long[] map = new long[5];
-    private long[] p = new long[5];
-    private long[] span = new long[5];
-    private long[] div= new long[5];
-    private long[] ul = new long[5];
-    private long[] ol = new long[5];
-    private long[] li = new long[5];
-    private long[] article = new long[5];
-    private long[] nav = new long[5];
-    private long[] sumBody=new long[4];
-    private long[] sumHead=new long[4];
-    private  String keywords,description;
-    private int[] tagVal = {10, 9, 6, 4};
-    private String[] content = {"title", "h1", "p", "body"};
-
-    private Map<String,Long> tagweight=new HashMap<>();
-    private String[] level1 = {"basics", "tutorials", "example", "complete reference", "trouble shooting"};
-    private String[] level2 = {"main", "fundamental", "essential", "beginner", "basics", "model", "secondary", "additional", "auxiliary", "snippets"};
-    private String[] level3 = {"academic", "informational", "instructive", "guidance", "instructional", "tutorials", "training", "primary", "primitive", "foundation"};
-    private String[] level4 = {"source code", "reference", "relating", "snippet", "sample", "expression", "model", "instance", "class", "function"};
-
-    private HashMap<String,Long>  map1=new HashMap<>();
-    private HashMap<String,Long>  map2=new HashMap<>();
-    private HashMap<String,Long>  map3=new HashMap<>();
-    private HashMap<String,Long>  map4=new HashMap<>();
-
-
-    private String[] levels = {"Knowledge", "Comprehensive", "Application", "Analysis", "Synthesis", "Evaluation"};
-    private List<String> strL1 = Arrays.asList(level1);
-    private List<String> strL2 = Arrays.asList(level2);
-    private List<String> strL3 = Arrays.asList(level3);
-    private List<String> strL4 = Arrays.asList(level4);
+    EvaluatorService evaluatorService;
 
     public RabbitMQListner() {
         eva = new Evaluator();
@@ -720,4 +650,9 @@ public class RabbitMQListner implements EvaluatorService{
         map1.put("tutorials",(long)6);
      }
 
+    @RabbitListener(queues = "${javainuse.rabbitmq.queue}", containerFactory = "jsaFactory")
+    public void recievedMessage(Url urlx){
+        System.out.println("Recieved Message From RabbitMQ: " + urlx.getUrl());
+        evaluatorService.getConsumedUrl(urlx);
+    }
 }

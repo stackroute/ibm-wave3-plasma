@@ -3,6 +3,7 @@
   max-width: 250px;
   width: 100%;
   padding-left: 90px;
+  padding-top: 20px;
  
  }
  
@@ -10,7 +11,7 @@
   width: 100%;
  }
 .login{
-    background-image: url("../../../../assets/login1.jpg");
+    background-image: url("../../../../assets/bg17.jpg");
   /* background-image: cover; */
   height: 700px;
   width:100%;
@@ -48,9 +49,10 @@ section{
   padding-top: 0px;
   background: inherit;
   border-radius: 50px 50px;
+  font-size: 25px;
  }
  button{
-  margin-left: 170px;
+  margin-left: 180px;
   /* padding-left: 50px; */
  }
  span{
@@ -68,7 +70,7 @@ section{
  p{
   margin-left: 80px;
   font-size: 20px;
-  padding-top: 30px;
+  padding-top: 10px;
   font-style: italic;
  }
  .signup{
