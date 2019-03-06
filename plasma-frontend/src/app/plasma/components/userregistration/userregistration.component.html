@@ -1,3 +1,5 @@
+
+<div class="register">
 <section class="whole">
   <section>
 <mat-toolbar >
@@ -5,61 +7,57 @@
   </mat-toolbar>
 <mat-card-content>
     <form class="my-form">
-        <mat-form-field class="full-width">
-            <mat-label>Id</mat-label>
-            <input  matInput  placeholder="Id" [(ngModel)]="id" name="id">
-         </mat-form-field>
-       <mat-form-field class="full-width">
+       <mat-form-field class="full-width" appearance = "outline">
               <mat-label>Name</mat-label>
-              <input  matInput  placeholder="Name" [(ngModel)]="name" name="name">
+              <input  matInput  placeholder="Name" [(ngModel)]="name" name="name" required>
            </mat-form-field>
-           <mat-form-field class="full-width" >
+           <mat-form-field class="full-width" appearance = "outline" >
               <mat-label>Date of Birth</mat-label>
-           <!-- <input matInput [matDatepicker]="picker" placeholder="Choose a date" [(ngModel)]="dateOfBirth"  required> -->
-           <input matInput [matDatepicker]="picker" placeholder="Choose a date" [(ngModel)]="dateOfBirth" name="DOB">
-           <mat-datepicker-toggle matSuffix [for]="picker" >
-              </mat-datepicker-toggle>
-              <mat-datepicker #picker></mat-datepicker>
-            
+         <input matInput [matDatepicker]="picker" placeholder="Choose a date" [(ngModel)]="dateOfBirth" name="dateOfBirth">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker> 
         </mat-form-field>
             <mat-label>Gender: </mat-label>
-            <mat-radio-group [(ngModel)]="gender" >
-              <mat-radio-button class="example-margin" name="male" value="M" (change)="onChange('male')">Male</mat-radio-button>
-              <mat-radio-button class="example-margin" name="female" value="F"(change)="onChange('female')">Female</mat-radio-button>
-              <mat-radio-button class="example-margin" name="other" value="Other" (change)="onChange('other')">Other</mat-radio-button> 
+            <mat-radio-group>
+              <mat-radio-button class="example-margin" value="M" (change)="onChange('Male')">Male</mat-radio-button>
+              <mat-radio-button class="example-margin" value="F" (change)="onChange('Female')">Female</mat-radio-button>
+              <mat-radio-button class="example-margin" value="Other" (change)="onChange('Other')">Other</mat-radio-button>
             </mat-radio-group>
-            <!-- <mat-select  placeholder="gender"> -->
-                <!-- <mat-label>Gender: </mat-label>
-                <mat-radio-group [(ngModel)]="gender">
-                    <mat-radio-button class="example-margin" [(ngModel)]="gender" name="gender" value="M">Male</mat-radio-button>
-                    <mat-radio-button class="example-margin" [(ngModel)]="gender" name="gender" value="F">Female</mat-radio-button>
-                    <mat-radio-button class="example-margin" [(ngModel)]="gender" name="gender" value="Other">Other</mat-radio-button>
-                  </mat-radio-group> -->
-                <!-- <mat-option  *ngFor="let data of genderlist; let i =index" [value]="data">
-                  <mat-checkbox [checked] = "selected === i" (change)="onChange(data);gender=data"> {{data}}</mat-checkbox>
-                </mat-option>
-              </mat-select> -->
-            <mat-form-field class="full-width">
+            <mat-form-field class="full-width" appearance = "outline">
               <mat-label>Contact</mat-label>
-              <input  matInput  placeholder="Contact" [(ngModel)]="contact" name="contact">
+              <input  matInput maxlength="10" type="number" placeholder="Contact" [(ngModel)]="contact" name="contact">
            </mat-form-field>
-           <mat-form-field class="full-width">
+           <!-- Email Id  -->
+           <mat-form-field class="full-width" appearance = "outline" required>
               <mat-label>Email</mat-label>
-              <input  matInput  placeholder="Email" [(ngModel)]="emailId" name="emailId">
-           </mat-form-field>
-           <mat-form-field class="full-width">
+                   <input matInput placeholder="Email" [formControl]="emailFormControl"
+                        [errorStateMatcher]="matcher" [(ngModel)]="emailId" name="emaiId" required>
+                 <mat-hint>Errors appear instantly!</mat-hint>
+                  <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+                   Please enter a valid email address
+                 </mat-error>
+                  <mat-error *ngIf="emailFormControl.hasError('required')">
+                   Email is <strong>required</strong>
+                 </mat-error>
+            </mat-form-field>
+             <!-- <mat-form-field class="full-width">
               <mat-label>Set Password</mat-label>
-              <input  matInput  placeholder="Set Password" [(ngModel)]="setPassword" name="setPassword">
-           </mat-form-field>
-           <mat-form-field class="full-width">
-              <mat-label>Confirm Password</mat-label>
-              <input  matInput  placeholder="Confirm Password" [(ngModel)]="confirmpassword" name="confirmpassword">
-           </mat-form-field>
+              <input  matInput type="password" id="mysecretpassword"  placeholder="Set Password" [(ngModel)]="setPassword" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"   name="setPassword" showHideStatus required>
+              <i matSuffix
+              class="material-icons"
+              showHideTrigger="mysecretpassword"></i>
+           </mat-form-field>   -->
+           <mat-form-field class="full-width" appearance = "outline">
+            <input matInput placeholder="Enter your password" [type]="hide ? 'password' : 'text'"   pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" [(ngModel)]="setPassword" [ngModelOptions]="{standalone: true}">
+            <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </mat-form-field> 
     </form>
   </mat-card-content>
   <mat-card-actions>
     <button mat-raised-button (click)="register($event)" color="accent">Register</button>
    <button mat-raised-button [routerLink]="['/login']" class="btn btn-link" color="accent"> Cancel</button>
   </mat-card-actions>
+  <p> Already have an account?<a routerLink="/login">Login</a></p>
 </section>
 </section>
+</div>

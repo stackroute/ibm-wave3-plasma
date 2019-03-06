@@ -1,3 +1,5 @@
+import { from } from 'rxjs';
+import { JwtHelperService } from '@auth0/angular-jwt';
 import { CardService } from './../../services/card.service';
 
 import { SearchService } from '../../services/search.service';
@@ -9,6 +11,9 @@ import { SpeechNotification } from '../../tsclasses/speech-notification';
 import { SpeechError } from '../../tsclasses/speech-error';
 
 import { Router } from '@angular/router';
+import * as jwt_decode from 'jwt-decode';
+import * as search from '../../tsclasses/search';
+
 
 @Component({
   selector: 'app-web-speech',
@@ -19,6 +24,9 @@ export class WebSpeechComponent implements OnInit {
   finalTranscript = '';
   recognizing = false;
   notification: string;
+  loginToken: search.search;
+  reg: any;
+  jti: String;
 
 
 
@@ -34,13 +42,30 @@ export class WebSpeechComponent implements OnInit {
 
     this.initRecognition();
     this.notification = null;
+    try {
+      const tokenObtained = localStorage.getItem('token');
+      this.loginToken = jwt_decode(tokenObtained);
+      console.log('decoded token', jwt_decode(tokenObtained));
+      this.jti = this.loginToken.jti;
+      console.log('decoded token id', this.loginToken.jti);
+      this.searchService.profile(this.jti).subscribe((res: any) => {
+        this.reg = res.body;
+        console.log(res);
+        console.log( this.reg);
+     });
+      } catch (error) {
+        console.log(error);
+      }
   }
 
-  onClickMe() {
-    console.log('transcript valus is ', this.finalTranscript);
+  onClickMe(data) {
+    if (data !== undefined || data !== null ) {
+    this.finalTranscript = data;
+  }
     this.Cardservice.getdoc().subscribe(resp => {
       console.log('response from call', resp);
     });
+   // tslint:disable-next-line:no-shadowed-variable
    this.searchService.data(this.finalTranscript).subscribe(data => {
      console.log(data);
    });

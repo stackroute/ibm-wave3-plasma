@@ -13,7 +13,7 @@ export class CardComponent implements OnInit {
   ngOnInit() {
     this.Cardservice.getdoc().subscribe(data => {
       this.resp = data ;
-        console.log('response from getdoc in card', data);
+        console.log('response from getQuiz in card', data);
     });
   }
 
