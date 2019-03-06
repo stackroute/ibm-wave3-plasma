@@ -20,6 +20,9 @@ public class UserServiceImpl implements UserService {
         this.userRepository = userRepository;
     }
 
+    @Autowired
+    RabbitMQSender rabbitMQSender;
+
     @Override
     public User saveUser(User user) throws UserAlreadyExistException {
 
@@ -28,6 +31,7 @@ public class UserServiceImpl implements UserService {
             throw new UserAlreadyExistException("user already exists");
         }
         User savedUser = userRepository.save(user);
+        rabbitMQSender.sender(user);
         if (savedUser == null) {
             throw new UserAlreadyExistException("User already exists");
         }

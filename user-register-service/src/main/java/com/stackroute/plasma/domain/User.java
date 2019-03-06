@@ -19,14 +19,18 @@ public class User {
     //private String id;
     @JsonProperty("name")
     private String name;
+    @JsonProperty("dateOfBirth")
     private String dateOfBirth;
+    @JsonProperty("gender")
     private String gender;
+    @JsonProperty("contact")
     private Long contact;
 //    private Integer contact;
 
     @Id
     @JsonProperty("emailId")
     private String emailId;
+    @JsonProperty("setPassword")
     private String setPassword;
     //private String confirmpassword;
 
