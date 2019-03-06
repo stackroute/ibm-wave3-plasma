@@ -11,7 +11,7 @@ import org.neo4j.ogm.annotation.Property;
 @Getter
 @Setter
 @NodeEntity
-public class Description {
+public class Document {
     @Id
     @GeneratedValue
     private long id;

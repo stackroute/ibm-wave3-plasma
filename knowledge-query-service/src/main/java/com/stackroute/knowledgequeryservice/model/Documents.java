@@ -6,7 +6,7 @@ import java.util.List;
 
 
 @Data
-public class Descriptions {
+public class Documents {
     String userId;
-    List<List<Description>> descriptions;
+    List<List<Document>> documents;
 }

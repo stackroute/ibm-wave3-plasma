@@ -1,9 +1,9 @@
 package com.stackroute.knowledgequeryservice.controller;
 
-import com.stackroute.knowledgequeryservice.model.Description;
-import com.stackroute.knowledgequeryservice.model.Descriptions;
+import com.stackroute.knowledgequeryservice.model.Document;
+import com.stackroute.knowledgequeryservice.model.Documents;
 import com.stackroute.knowledgequeryservice.model.Tag;
-import com.stackroute.knowledgequeryservice.service.DescriptionService;
+import com.stackroute.knowledgequeryservice.service.DocumentService;
 import com.stackroute.knowledgequeryservice.service.RabbitMQListener;
 import com.stackroute.knowledgequeryservice.service.RabbitMQSender;
 import io.swagger.annotations.Api;
@@ -15,10 +15,10 @@ import java.util.List;
 @RestController
 @RequestMapping("api/v1/")
 @Api(description = "Read operation on description nodes present in knowledge graph")
-public class DescriptionController {
+public class DocumentController {
 
     @Autowired
-    DescriptionService descriptionService;
+    DocumentService documentService;
 
     @Autowired
     RabbitMQListener rabbitMQListener;
@@ -26,12 +26,19 @@ public class DescriptionController {
     @Autowired
     RabbitMQSender rabbitMQSender;
 
+    /*
     @GetMapping("get")
-    public List<List<Description>> concept(){
+    public List<Document> getAll(){
+        return documentService.getAll();
+    }
+    */
+
+    @GetMapping("get")
+    public List<List<Document>> concept(){
         Tag tag = rabbitMQListener.getTag();
-        Descriptions sender = new Descriptions();
-        sender.setDescriptions(descriptionService.concept(tag.getTaggedConcept(),tag.getTaggedLevel()));
+        Documents sender = new Documents();
+        sender.setDocuments(documentService.concept(tag.getTaggedConcept(),tag.getTaggedLevel()));
         rabbitMQSender.sender(sender);
-        return descriptionService.concept(tag.getTaggedConcept(),tag.getTaggedLevel());
+        return documentService.concept(tag.getTaggedConcept(),tag.getTaggedLevel());
     }
 }

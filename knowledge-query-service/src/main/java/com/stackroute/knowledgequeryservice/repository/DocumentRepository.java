@@ -1,6 +1,6 @@
 package com.stackroute.knowledgequeryservice.repository;
 
-import com.stackroute.knowledgequeryservice.model.Description;
+import com.stackroute.knowledgequeryservice.model.Document;
 import org.springframework.data.neo4j.annotation.Query;
 import org.springframework.data.neo4j.repository.Neo4jRepository;
 import org.springframework.data.repository.query.Param;
@@ -9,10 +9,10 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface DescriptionRepository extends Neo4jRepository<Description,Long> {
+public interface DocumentRepository extends Neo4jRepository<Document,Long> {
 
     @Query("MATCH (d:Document) RETURN d")
-    List<Description> getAll();
+    List<Document> getAll();
 
     @Query("MATCH (d)-[r:Document_of]->(c) " +
             "WHERE " +
@@ -20,6 +20,6 @@ public interface DescriptionRepository extends Neo4jRepository<Description,Long>
             "RETURN d " +
             "ORDER BY r.confidenceScore DESC " +
             "LIMIT 10")
-    List<Description> concept(@Param("concept") String concept,@Param("level") String level);
+    List<Document> concept(@Param("concept") String concept, @Param("level") String level);
 
 }
