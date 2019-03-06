@@ -3,7 +3,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { CardComponent } from './components/card/card.component';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 
 import { UserregistrationComponent } from './components/userregistration/userregistration.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -16,7 +16,6 @@ import { UserLoginService } from './services/user-login.service';
 import { PlasmaMaterialModule } from './plasma.material.modules';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { ProfileComponent } from './components/profile/profile.component';
 
 
 @NgModule({
@@ -26,8 +25,7 @@ import { ProfileComponent } from './components/profile/profile.component';
     UserregistrationComponent,
     FooterComponent,
     CardComponent,
-    UserLoginComponent,
-    ProfileComponent
+    UserLoginComponent
     ],
   imports: [
    BrowserModule,
@@ -37,8 +35,7 @@ import { ProfileComponent } from './components/profile/profile.component';
    HttpClientModule,
    CommonModule,
    PlasmaMaterialModule,
-   WebSpeechModule,
-   ReactiveFormsModule
+   WebSpeechModule
 
   ],
   providers: [UserLoginService],
@@ -48,8 +45,7 @@ import { ProfileComponent } from './components/profile/profile.component';
     UserLoginComponent,
     CardComponent,
     FooterComponent,
-    UserregistrationComponent,
-    ProfileComponent
+    UserregistrationComponent
   ]
 })
 export class PlasmaModule { }

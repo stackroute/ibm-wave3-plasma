@@ -6,7 +6,6 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { DomainExpertComponent } from './plasma/components/domain-expert/domain-expert.component';
 import { UserregistrationComponent } from './plasma/components/userregistration/userregistration.component';
-import { ProfileComponent } from './plasma/components/profile/profile.component';
 
 const routes: Routes = [
   {
@@ -37,11 +36,8 @@ const routes: Routes = [
   {
     path: 'card',
     component: CardComponent
-  },
-  {
-    path: 'profile',
-    component: ProfileComponent
   }
+
 
 ];
 @NgModule({

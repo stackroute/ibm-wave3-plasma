@@ -10,10 +10,6 @@ export class UserregistrationService {
   url: string;
   response: any;
   get: any;
-  profile(emailId: String) {
-    this.url = 'http://localhost:8015/api/v1/user/' + emailId;
-    return this.http.get(this.url);
-   }
 constructor(private http: HttpClient ) {
 }
  addregister(reg: Userregister) {
