@@ -20,6 +20,6 @@ public class RabbitMQSender {
 
     public void sender(Documents documents) {
         rabbitTemplate.convertAndSend(exchange, routingkey6, documents);
-        System.out.println("Send msg = " + documents.getDescriptions());
+        System.out.println("Send msg = " + documents.getDocuments());
     }
 }
