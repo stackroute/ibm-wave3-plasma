@@ -26,9 +26,9 @@ data(finalTranscript: String) {
   .post(`${this.nlpserviceurl}`, finalTranscript);
 
 }
-profile(userId: String) {
-  this.url = 'http://localhost:8132/api/user/' + userId;
-  return this.http.get(this.url);
- }
+// profile(userId: String) {
+//   this.url = 'http://localhost:8132/api/user/' + userId;
+//   return this.http.get(this.url);
+//  }
 
 }
