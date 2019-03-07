@@ -1002,7 +1002,7 @@ public class EvaluatorServiceImpl implements EvaluatorService  {
 
             tagweight.putAll((Map<? extends String, ? extends Long>) obj);
 
-            FileReader fileReaderData = new FileReader("./assets/abc.json");
+            FileReader fileReaderData = new FileReader("./assets/data.json");
 
             JSONParser parserData = new JSONParser();
             Object objData = parserData.parse(fileReaderData);
