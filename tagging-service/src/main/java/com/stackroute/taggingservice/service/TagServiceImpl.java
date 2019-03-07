@@ -5,6 +5,8 @@ import edu.stanford.nlp.ling.CoreAnnotations;
 import edu.stanford.nlp.ling.CoreLabel;
 import edu.stanford.nlp.pipeline.CoreDocument;
 import edu.stanford.nlp.pipeline.StanfordCoreNLP;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.io.BufferedReader;
@@ -17,6 +19,7 @@ import java.util.List;
 @Service
 public class TagServiceImpl implements TagService {
 
+    Logger logger = LoggerFactory.getLogger(TagServiceImpl.class.getName());
     @Autowired
     StanfordCoreNLP stanfordCoreNLP;
     List<String> taggedString;
@@ -296,7 +299,7 @@ public class TagServiceImpl implements TagService {
 
     @Override
     public TagOutput tagger(String lemma) {
-        System.out.println(lemma);
+        logger.info(lemma);
         taggedString = new ArrayList<>();
         intent = new ArrayList<>();
         concept = new ArrayList<>();

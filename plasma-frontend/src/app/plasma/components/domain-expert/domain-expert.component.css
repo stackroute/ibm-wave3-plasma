@@ -17,7 +17,6 @@ section{
     width: 550px;
     height: 270px;
     box-shadow: 10px 10px 10px #333333;
-    /*border-top-left-radius: 25px;*/
     border-radius: 50px 50px 50px 50px;
     background-image: url("../../../../assets/gra.jpg");
  
@@ -39,7 +38,6 @@ button{
   height: 700px;
   width:100%;
   opacity: 0.8;
-  /* padding-left: 100px; */
   background-repeat: no-repeat;
   position: absolute;
   top:60px;

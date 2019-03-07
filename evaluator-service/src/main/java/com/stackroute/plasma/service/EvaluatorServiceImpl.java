@@ -6,10 +6,13 @@ import com.stackroute.plasma.domain.Evaluator;
 import com.stackroute.plasma.domain.Url;
 import org.json.JSONArray;
 import org.json.JSONObject;
+//import org.json.simple.JSONArray;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import java.io.File;
@@ -29,6 +32,7 @@ import java.util.Map;
 
 @Service
 public class EvaluatorServiceImpl implements EvaluatorService  {
+    Logger logger = LoggerFactory.getLogger(EvaluatorServiceImpl.class.getName());
 
     Evaluator eval = new Evaluator();
 
@@ -983,7 +987,7 @@ public class EvaluatorServiceImpl implements EvaluatorService  {
         this.eva.setKeywords(keywords);
         this.eva.setTitle(this.docx.title());
 
-        System.out.print(this.eva);
+        logger.info(String.valueOf(this.eva));
         return this.eva;
     }
 

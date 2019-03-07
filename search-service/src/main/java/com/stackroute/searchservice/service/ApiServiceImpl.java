@@ -2,6 +2,7 @@ package com.stackroute.searchservice.service;
 
 import com.stackroute.searchservice.domain.SearchStorage;
 import com.stackroute.searchservice.repository.SearchRepository;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import javax.json.Json;
@@ -11,10 +12,12 @@ import java.io.InputStreamReader;
 import java.io.StringReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.logging.Logger;
 
 
 @Service
 public class ApiServiceImpl implements ApiService {
+    Logger logger = (Logger) LoggerFactory.getLogger(ApiServiceImpl.class.getName());
     final static String apiKey = "AIzaSyB-93tpPyxrK76l6iw-mFnsvDiUJCLpFw8";
     final static String customSearchEngineKey = "006477474756235376421:nz2modhy5qa";
     public String newResult ;
@@ -51,10 +54,10 @@ public class ApiServiceImpl implements ApiService {
                 toSearch += "&num=" + numOfResults;
 
                 URL url = new URL(toSearch);
-                System.out.println("check1");
+              logger.info("check1");
                 HttpURLConnection connection = (HttpURLConnection) url
                         .openConnection();
-                System.out.println("check2");
+               logger.info("check2");
                 BufferedReader br = new BufferedReader(new InputStreamReader(
                         connection.getInputStream()));
                 String line;
@@ -71,11 +74,11 @@ public class ApiServiceImpl implements ApiService {
 
 
                         if (parser.getString().equals("link")) {
-                            System.out.println("reason");
+                           logger.info("reason");
                             JsonParser.Event value = parser.next();
 
                             if (value == JsonParser.Event.VALUE_STRING){
-                                System.out.println("inside json");
+                               logger.info("inside json");
                                 link[i++] = parser.getString();
 
                             }

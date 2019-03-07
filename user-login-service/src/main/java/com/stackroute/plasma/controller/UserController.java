@@ -10,6 +10,8 @@ import com.stackroute.plasma.services.UserService;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.swagger.annotations.ApiOperation;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -24,6 +26,7 @@ import java.util.Map;
 @RestController
 @RequestMapping("api/")
 public class UserController {
+    Logger logger = LoggerFactory.getLogger(UserController.class.getName());
 
     @Autowired
     private UserService userService;
@@ -39,23 +42,23 @@ public class UserController {
 
             String userId = loginDetails.getUserId();
             String password = loginDetails.getPassword();
-            System.out.println("details"+userId+"\n"+password);
+        logger.info ("details"+userId+"\n"+password);
 
             if (userId == null || password == null) {
-                System.out.println("in  method1");
+                logger.info("in  method1");
                 throw new UserNameOrPasswordEmptyException("Userid and Password cannot be empty");
             }
 
             User user  = userService.findByUserIdAndPassword(userId, password);
-            System.out.println(user);
+            logger.info(String.valueOf(user));
            if (user == null) {
-               System.out.println("in  method2");
+               logger.info("in  method2");
                throw new UserNotFoundException("User with given Id does not exists");
            }
 
             String fetchedPassword = user.getPassword();
             if (!password.equals(fetchedPassword)) {
-                System.out.println("in  method3");
+               logger.info("in  method3");
                 throw new UserIdAndPasswordMismatchException("Invalid login credential, Please check username and password ");
             }
 
@@ -68,8 +71,8 @@ public class UserController {
                 Map<String, String> map1 = new HashMap<>();
                 map1.put("token", jwtToken);
                 map1.put("message", "User successfully logged in");
-                System.out.println("token value"+jwtToken);
-                System.out.println("in  method4");
+                logger.info("token value"+jwtToken);
+              logger.info("in  method4");
                 return map1;
             };
 
@@ -78,7 +81,7 @@ public class UserController {
             return new ResponseEntity<>(map, HttpStatus.OK);
 
         } catch (UserNameOrPasswordEmptyException | UserNotFoundException | UserIdAndPasswordMismatchException exception) {
-            System.out.println("in  catch");
+           logger.info("in  catch");
             return new ResponseEntity<>("{ \"message\": \"" + exception.getMessage() + "\"}", HttpStatus.UNAUTHORIZED);
         }
     }

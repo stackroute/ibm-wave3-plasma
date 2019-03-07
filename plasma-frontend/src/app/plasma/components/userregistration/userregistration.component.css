@@ -12,7 +12,6 @@
   mat-toolbar
   {
     width:50%;
-    /* margin-top: 10%; */
     background: inherit;
     padding-left: 220px;
     font-size: 25px;
@@ -25,7 +24,6 @@
     height: 700px;
     width:100%;
     opacity: 0.9;
-    /* padding-left: 100px; */
     background-repeat: no-repeat;
     position: absolute;
     top:60px;
@@ -40,13 +38,10 @@
     width: 550px;
     height: 570px;
     box-shadow: 10px 10px 10px #333333;
-    /*border-top-left-radius: 25px;*/
     border-radius: 50px 50px 50px 50px;
     background-image: url("../../../../assets/gra.jpg");
  
   }
-
-
   button{
     margin-left: 180px;
   }

@@ -1,7 +1,6 @@
 .navLinks {
   font-size: 1.25rem;
-  cursor: pointer;
-  
+  cursor: pointer; 
  
 }
  .spacer {
@@ -10,10 +9,8 @@
 .login,.profile
 {
 
-  background-color: black;
+ background-color: black;
 
-
-  /* opacity: 0.8; */
 color: white;
 }
 .login:hover{
@@ -41,15 +38,10 @@ header{
   width: 100%;
   z-index: 1; 
   top: 0;
-  /* margin-bottom: 65%;  */
   
 }
-
-
 mat-toolbar{
   background-color:black;
- 
-  /* opacity: 0.7; */
 }
 img{
   width:60px;
