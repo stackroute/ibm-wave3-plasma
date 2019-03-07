@@ -1,13 +1,4 @@
-/* .laststep{
-   background-image:url('http://szzljy.com/data/27/gray-color-wallpaper/gray-color-wallpaper-5.jpg');
 
-} */
-/* .col{
-    margin-right: 1200px;
-   width: 120px;
-   height: 120px;
-   padding-left: 10px;
-} */
 .step1{
  text-align: right;
        width: 100%;
@@ -32,7 +23,6 @@ text-align: center;
 
 
 .col1{
-/* padding-top: 1000px; */
  margin-left: 550px;
  margin-top: 200px;
  width: 1500px;
@@ -43,9 +33,7 @@ text-align: center;
  height: 220px;
  text-align: left;
  box-shadow: 10px 10px 10px black;
- /*border-top-left-radius: 25px;*/
  border-radius: 50px 50px 50px 50px;
- /* background: wheat; */
  background-image: url("../../../../assets/gra.jpg");
 }
 section{
@@ -53,7 +41,6 @@ section{
     height: 700px;
     width:100%;
     opacity: 0.7;
-    /* padding-left: 100px; */
     background-repeat: no-repeat;
     position: absolute;
     top:60px;

@@ -9,7 +9,6 @@
        <div class="wrap"  *ngIf=userLogged>
         <mat-card-actions>
           <button mat-raised-button class="login" routerLink="/login">Login</button>
-           <!-- <button mat-raised-button (click)='logout()'>logout</button>  -->
         </mat-card-actions>
     </div>
     <div  *ngIf=flag >
@@ -17,12 +16,6 @@
            <button class="wrap1" mat-raised-button color="" (click)='logout()'>Logout</button>
                  </mat-card-actions>
     </div>
-       
-       
-  
-        <!-- <span>
-          <button mat-raised-button (click)="profile()"><mat-icon>account_circle</mat-icon></button>
-        </span> -->
         <button mat-raised-button class="profile" routerLink="/profile">Profile</button>
       </mat-toolbar-row>
  </mat-toolbar>

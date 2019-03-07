@@ -2,95 +2,156 @@
   "basics": {
     "counterIndicator": [
       {
-        "word": "auxillary" ,
+        "intent": "auxiliary" ,
         "intensity": 7
       } ,
       {
-        "word": "snippets" ,
+        "intent": "snippets" ,
         "intensity": 3
       } ,
       {
-        "word": "secondary" ,
+        "intent": "secondary" ,
         "intensity": 6
       } ,
       {
-        "word": "additional" ,
+        "intent": "additional" ,
         "intensity": 3
       } ,
       {
-        "word": "model" ,
+        "intent": "model" ,
         "intensity": 4
-      }
+      },
+      {
+        "intent": "foundation" ,
+        "intensity": 7
+      },
+      {
+        "intent": "primitive" ,
+        "intensity": 5
+      },
+      {
+        "intent": "fundamental" ,
+        "intensity": 8
+      },
+      {
+        "intent": "fundamentals" ,
+        "intensity": 8
+      },
+      {
+        "intent": "primary" ,
+        "intensity": 5
+      },
     ] ,
     "indicator": [
       {
-        "word": "main" ,
+        "intent": "main" ,
         "intensity": 3
       } ,
       {
-        "word": "essential" ,
+        "intent": "essential" ,
         "intensity": 0
       } ,
       {
-        "word": "basics" ,
+        "intent": "basics" ,
         "intensity": 6
       } ,
       {
-        "word": "fundamental" ,
+        "intent": "fundamental" ,
         "intensity": 0
       } ,
       {
-        "word": "beginner" ,
+        "intent": "beginner" ,
         "intensity": 9
+      },
+      {
+        "intent": "instructive" ,
+        "intensity": 8
+      },
+      {
+        "intent": "informational" ,
+        "intensity": 7
+      },
+      {
+        "intent": "source code" ,
+        "intensity": 6
+      },
+      {
+        "intent": "guidance" ,
+        "intensity": 7
       }
     ]
   } ,
   "tutorials": {
     "counterIndicator": [
       {
-        "word": "primitive" ,
+        "intent": "primitive" ,
         "intensity": 5
       } ,
       {
-        "word": "beginner" ,
+        "intent": "beginner" ,
         "intensity": 7
       } ,
       {
-        "word": "primary" ,
+        "intent": "primary" ,
         "intensity": 6
       } ,
       {
-        "word": "foundation" ,
+        "intent": "foundation" ,
+        "intensity": 7
+      },
+
+      {
+        "intent": "fundamental" ,
+        "intensity": 6
+      },
+      {
+        "intent": "expression" ,
+        "intensity": 7
+      },
+      {
+        "intent": "sample" ,
         "intensity": 7
       }
     ] ,
     "indicator": [
       {
-        "word": "acedemic" ,
+        "intent": "academic" ,
         "intensity": 7
       } ,
       {
-        "word": "guidance" ,
+        "intent": "guidance" ,
         "intensity": 7
       } ,
       {
-        "word": "instructional" ,
+        "intent": "instructional" ,
         "intensity": 8
       } ,
       {
-        "word": "instructive" ,
+        "intent": "instructive" ,
         "intensity": 8
       } ,
       {
-        "word": "tutorials" ,
+        "intent": "tutorials" ,
         "intensity": 8
       } ,
       {
-        "word": "training" ,
+        "intent": "training" ,
         "intensity": 7
       } ,
       {
-        "word": "informational" ,
+        "intent": "informational" ,
+        "intensity": 6
+      },
+      {
+        "intent": "implementation" ,
+        "intensity": 8
+      },
+      {
+        "intent": "note" ,
+        "intensity": 8
+      },
+      {
+        "intent": "give us example" ,
         "intensity": 7
       }
     ]
@@ -98,73 +159,73 @@
   "example": {
     "counterIndicator": [
       {
-        "word": "instructive" ,
+        "intent": "instructive" ,
         "intensity": 5
       } ,
       {
-        "word": "primary" ,
+        "intent": "primary" ,
         "intensity": 5
       } ,
       {
-        "word": "informational" ,
+        "intent": "informational" ,
         "intensity": 4
       } ,
       {
-        "word": "simple" ,
+        "intent": "simple" ,
         "intensity": 6
       } ,
       {
-        "word": "guidance" ,
+        "intent": "guidance" ,
         "intensity": 8
       } ,
       {
-        "word": "model" ,
+        "intent": "model" ,
         "intensity": 4
       } ,
       {
-        "word": "essential" ,
+        "intent": "essential" ,
         "intensity": 3
       }
     ] ,
     "indicator": [
       {
-        "word": "function" ,
+        "intent": "function" ,
         "intensity": 6
       } ,
       {
-        "word": "model" ,
+        "intent": "model" ,
         "intensity": 8
       } ,
       {
-        "word": "class" ,
+        "intent": "class" ,
         "intensity": 7
       } ,
       {
-        "word": "sample" ,
+        "intent": "sample" ,
         "intensity": 8
       } ,
       {
-        "word": "relating" ,
+        "intent": "relating" ,
         "intensity": 6
       } ,
       {
-        "word": "snippets" ,
+        "intent": "snippets" ,
         "intensity": 7
       } ,
       {
-        "word": "expression" ,
+        "intent": "expression" ,
         "intensity": 5
       } ,
       {
-        "word": "reference" ,
+        "intent": "reference" ,
         "intensity": 6
       } ,
       {
-        "word": "source code" ,
+        "intent": "source code" ,
         "intensity": 8
       } ,
       {
-        "word": "instance" ,
+        "intent": "instance" ,
         "intensity": 6
       }
     ]
@@ -172,66 +233,70 @@
   "completeReference": {
     "counterIndicator": [
       {
-        "word": "snippets" ,
+        "intent": "snippets" ,
         "intensity": 5
       } ,
       {
-        "word": "guidance" ,
+        "intent": "guidance" ,
         "intensity": 7
       } ,
       {
-        "word": "sample" ,
+        "intent": "sample" ,
         "intensity": 6
       } ,
       {
-        "word": "source" ,
+        "intent": "source " ,
         "intensity": 4
       } ,
       {
-        "word": "expression" ,
+        "intent": "expression" ,
         "intensity": 7
       }
     ] ,
     "indicator": [
       {
-        "word": "indicates" ,
+        "intent": "indicates" ,
         "intensity": 7
       } ,
       {
-        "word": "note" ,
+        "intent": "note" ,
         "intensity": 7
       } ,
       {
-        "word": "advance" ,
+        "intent": "advance" ,
         "intensity": 6
       } ,
       {
-        "word": "meaning" ,
+        "intent": "meaning" ,
         "intensity": 6
       } ,
       {
-        "word": "extract" ,
+        "intent": "extract" ,
         "intensity": 6
       } ,
       {
-        "word": "source code" ,
+        "intent": "source code" ,
         "intensity": 6
       } ,
       {
-        "word": "refer code" ,
+        "intent": "refer to" ,
         "intensity": 7
       } ,
       {
-        "word": "give us example" ,
+        "intent": "give us example" ,
         "intensity": 8
       } ,
       {
-        "word": "relating" ,
+        "intent": "relating" ,
         "intensity": 6
       } ,
       {
-        "word": "implementation" ,
+        "intent": "implementation" ,
         "intensity": 8
+      },
+      {
+        "intent": "guidance" ,
+        "intensity": 7
       }
     ]
   } ,
@@ -240,27 +305,27 @@
     ] ,
     "indicator": [
       {
-        "word": "improve" ,
+        "intent": "improve" ,
         "intensity": 5
       } ,
       {
-        "word": "rectify" ,
+        "intent": "rectify" ,
         "intensity": 7
       } ,
       {
-        "word": "fix" ,
+        "intent": "fix" ,
         "intensity": 7
       } ,
       {
-        "word": "repair" ,
+        "intent": "repair" ,
         "intensity": 7
       } ,
       {
-        "word": "service" ,
+        "intent": "service" ,
         "intensity": 6
       } ,
       {
-        "word": "support" ,
+        "intent": "support" ,
         "intensity": 6
       }
     ]
@@ -270,11 +335,11 @@
     ] ,
     "indicator": [
       {
-        "word": "how to code" ,
+        "intent": "how to code" ,
         "intensity": 7
       } ,
       {
-        "word": "hello world" ,
+        "intent": "hello world" ,
         "intensity": 7
       }
     ]
