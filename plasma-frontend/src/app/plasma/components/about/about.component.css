@@ -2,7 +2,7 @@
 
 .home-hero-copy{
     position: relative;
-    top:200px;
+    top:160px;
     left: 390px;
     height: 250px;
     width: 700px;
@@ -12,8 +12,8 @@
     color: #202124;
 }
 
-.color-hero1{
-    color: #4285f4;
+/* .color-hero1{ */
+    /* color: #4285f4;
 }
 .color-hero2{
     color: #ea4335;
@@ -23,13 +23,14 @@
 }
 .color-hero4{
     color:#f9ab00;
-}
+} */
 .container1
 {
 display: flex;
 padding-left: 10px;
-margin-top:0px;
+margin-top:10px;
  margin-bottom: 200px; 
+ margin-left: 90px;
 
 }
 
@@ -38,19 +39,35 @@ margin-top:0px;
    position: relative;
    top:150px;
    padding-right:30px;
+   box-shadow: 1px 1px 8px #333333;
+   /*border-top-left-radius: 25px;*/
+   border-radius: 50px 50px 50px 50px;
+   margin-left: 15px;
  }  
 
 img{
     padding-top: 10px;
     padding-left: 10px;
-    width:350px;
-    height: 300px;
+    width:300px;
+    height: 250px;
+    border-radius: 50px 50px 50px 50px;
     }
-a{
+    a{
+        margin-left: 10px;
+    }
+mat-card-content a{
     color: black;
-   margin-left: 120px;
+   margin-left: 80px;
    text-decoration: none;
 }
 li{
     display: inline;
+    padding-bottom: 70px;
+    /* margin-left: -90px; */
+}
+h5{
+    padding-left: 90px;
+}
+.social{
+    margin-left: 600px;
 }

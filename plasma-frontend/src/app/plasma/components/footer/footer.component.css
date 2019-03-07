@@ -6,6 +6,7 @@ footer{
     position: fixed;
     top:750px;
     z-index:1;
+    
     /* top:670px; */
    
     color: white;
@@ -16,6 +17,7 @@ p{
     padding-top: 5px;
     margin-left: 650px;
     font-size: 15px;
+    letter-spacing: 0.5px;
 }
 
 .about{
