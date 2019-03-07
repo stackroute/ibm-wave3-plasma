@@ -1,20 +1,18 @@
 package com.stackroute.plasma.service;
 
 import com.stackroute.plasma.domain.User;
-import org.slf4j.LoggerFactory;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
-
-import java.util.logging.Logger;
 
 
 @Service
 public class RabbitMQSender {
-    Logger logger = (Logger) LoggerFactory.getLogger(RabbitMQSender.class.getName());
 
-
+    @Autowired
     private RabbitTemplate rabbitTemplate;
+
     @Value("${javainuse.rabbitmq.exchange}")
     private String exchange;
 
@@ -24,8 +22,10 @@ public class RabbitMQSender {
 
     public void sender(User user) {
 
+        System.out.println("user value is"+user);
+
         rabbitTemplate.convertAndSend(exchange, routingkey3,user);
-      logger.info("Send msg = " + user);
+        System.out.println("Send msg = " + user);
     }
 }
 

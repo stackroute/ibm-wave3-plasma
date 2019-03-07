@@ -23,10 +23,12 @@ export class UserregistrationComponent implements OnInit {
   @Input()
   private regform;
   private name: string;
-  private setPassword: string;
+  // private id: string;
+  private password: string;
   private contact: Number;
   private dateOfBirth: string;
   private gender: string;
+  // private confirmpassword: string;
   private emailId: string;
   matcher = new MyErrorStateMatcher();
 
@@ -39,13 +41,16 @@ export class UserregistrationComponent implements OnInit {
   register(event: any) {
     this.regform = new Userregister();
     this.regform.name = this.name;
-    this.regform.setPassword = this.setPassword;
+  //  this.regform.id = this.id;
+    this.regform.password = this.password;
+   // this.regform.confirmpassword = this.confirmpassword;
     this.regform.contact = this.contact;
     this.regform.dateOfBirth = this.dateOfBirth;
     this.regform.gender = this.gender;
     this.regform.emailId  = this.emailId;
+    // this.value = event.target.value;
     console.log(this.dateOfBirth);
-    console.log('val: ' + this.setPassword);
+    console.log('val: ' + this.password);
     this.regserv.addregister(this.regform).subscribe(data => {
 
     });

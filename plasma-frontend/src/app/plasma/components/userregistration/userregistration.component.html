@@ -1,4 +1,4 @@
-<app-header></app-header>
+
 <div class="register">
 <section class="whole">
   <section>
@@ -27,12 +27,12 @@
               <mat-label>Contact</mat-label>
               <input  matInput maxlength="10" type="number" placeholder="Contact" [(ngModel)]="contact" name="contact">
            </mat-form-field>
-         
+           <!-- Email Id  -->
            <mat-form-field class="full-width" appearance = "outline" required>
               <mat-label>Email</mat-label>
                    <input matInput placeholder="Email" [formControl]="emailFormControl"
                         [errorStateMatcher]="matcher" [(ngModel)]="emailId" name="emaiId" required>
-                
+                 <mat-hint>Errors appear instantly!</mat-hint>
                   <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
                    Please enter a valid email address
                  </mat-error>
@@ -40,9 +40,15 @@
                    Email is <strong>required</strong>
                  </mat-error>
             </mat-form-field>
-          
+             <!-- <mat-form-field class="full-width">
+              <mat-label>Set Password</mat-label>
+              <input  matInput type="password" id="mysecretpassword"  placeholder="Set Password" [(ngModel)]="setPassword" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"   name="setPassword" showHideStatus required>
+              <i matSuffix
+              class="material-icons"
+              showHideTrigger="mysecretpassword"></i>
+           </mat-form-field>   -->
            <mat-form-field class="full-width" appearance = "outline">
-            <input matInput placeholder="Enter your password" [type]="hide ? 'password' : 'text'"   pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" [(ngModel)]="setPassword" [ngModelOptions]="{standalone: true}">
+            <input matInput placeholder="Enter your password" [type]="hide ? 'password' : 'text'"   pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" [(ngModel)]="password" [ngModelOptions]="{standalone: true}">
             <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
           </mat-form-field> 
     </form>

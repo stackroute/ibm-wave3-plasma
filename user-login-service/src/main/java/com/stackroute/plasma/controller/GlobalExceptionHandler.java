@@ -11,18 +11,21 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 
     @ControllerAdvice
     public class GlobalExceptionHandler {
-        @ResponseStatus(value= HttpStatus.CONFLICT, reason="User Id and Password are not matching")
+        @ResponseStatus(value= HttpStatus.CONFLICT, reason="UserAuth Id and Password are not matching")
         @ExceptionHandler(UserIdAndPasswordMismatchException.class)
         public void handleUserIdAndPasswordMismatchException(UserIdAndPasswordMismatchException e){
-         }
+            // log.error("UserAuth already exists", e);
+        }
 
-        @ResponseStatus(value= HttpStatus.NOT_FOUND, reason="User does not exist")
+        @ResponseStatus(value= HttpStatus.NOT_FOUND, reason="UserAuth does not exist")
         @ExceptionHandler(UserNotFoundException.class)
         public void handleUserNotFoundException(UserNotFoundException e){
-         }
-        @ResponseStatus(value= HttpStatus.NOT_FOUND, reason="User Name or Password Empty")
+            // log.error("UserAuth does not exist", e);
+        }
+        @ResponseStatus(value= HttpStatus.NOT_FOUND, reason="UserAuth Name or Password Empty")
         @ExceptionHandler(UserNameOrPasswordEmptyException.class)
         public void handleUserNameOrPasswordEmptyException(UserNameOrPasswordEmptyException e){
-         }
+            // log.error("UserAuth does not exist", e);
+        }
     }
 

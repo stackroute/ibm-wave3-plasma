@@ -1,30 +1,22 @@
-<!-- <app-header></app-header> -->
 <section
-      class="laststep">
+      class="laststep"
+      fxLayout
+      fxLayout="column"
+      fxLayoutAlign="center center"
+      fxLayoutGap="10px"
+    >
    <mat-card class="col1">
     <h3>Personal Information</h3>
     <label class="step1">Name : {{ reg.name }}</label> <br />
     <br />
-
-    <label class="step1">Email Id : {{ reg.emailId }}</label> <br />
+    <label class="step1">Email Id : {{ reg.userId }}</label> <br />
     <br />
-
     <label class="step1">MobileNo : {{ reg.contact }}</label> <br />
     <br />
-
     <label class="step1">Date of Birth : {{ reg.dateOfBirth }}</label> <br />
     <br />
-    <label class="step1">Gender : {{ gender }}</label> <br />
+    <label class="step1">Gender : {{ reg.gender }}</label> <br />
     <br />
-
-
-
-    <!-- <button mat-raised-button (click)="Profile()">Edit</button>
-    <button mat-raised-button (click)="Profile()">Submit</button> -->
-
+    <button mat-raised-button (click)="edit($event)" type="submit">Edit</button>
     </mat-card>
-
-    <!-- <button mat-button fxFlex = "10" class="step3" (click)="saveDetails()">Submit</button> -->
-
-    <!-- <p>{{Msg}}</p> -->
   </section>

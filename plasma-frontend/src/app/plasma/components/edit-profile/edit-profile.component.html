@@ -1,0 +1,32 @@
+
+<div class="edit">
+  <section class="whole">
+    <section>
+  <mat-toolbar >
+      <span>Edit</span>
+    </mat-toolbar>
+  <mat-card-content>
+      <form class="my-form">
+         <mat-form-field class="full-width" appearance = "outline">
+                <mat-label>Name</mat-label>
+                <input  matInput  placeholder="Name" [(ngModel)]="name" name="name" required>
+             </mat-form-field>
+             <mat-form-field class="full-width" appearance = "outline" >
+                <mat-label>Date of Birth</mat-label>
+           <input matInput [matDatepicker]="picker" placeholder="Choose a date" [(ngModel)]="dateOfBirth" name="dateOfBirth">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker> 
+          </mat-form-field>
+              <mat-form-field class="full-width" appearance = "outline">
+                <mat-label>Contact</mat-label>
+                <input  matInput maxlength="10" type="number" placeholder="Contact" [(ngModel)]="contact" name="contact">
+             </mat-form-field>
+      </form>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button (click)="submit()" color="accent">Submit</button>
+     <button mat-raised-button [routerLink]="['/profile']" class="btn btn-link" color="accent"> Cancel</button>
+    </mat-card-actions>
+  </section>
+  </section>
+  </div>

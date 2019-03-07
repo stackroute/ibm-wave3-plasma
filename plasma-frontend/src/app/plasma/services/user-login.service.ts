@@ -1,29 +1,23 @@
-import { UserLogin } from './../tsclasses/user-login';
+import { UserAuth } from './../tsclasses/user-auth';
 
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
-import { Router } from '@angular/router';
 
 @Injectable()
   export class UserLoginService {
     response: any;
-  private loginUrl = 'http://localhost:8132/api/user';
+  private loginUrl = 'http://localhost:8132/api/userAuth';
   private errorStatus: string;
   private errorBody: string;
-  constructor(private http: HttpClient, private router: Router) { }
-  login(user: UserLogin) {
+  constructor(private http: HttpClient) { }
+  login(userAuth: UserAuth) {
 
 
     return this.http
-    .post(this.loginUrl + '', user, {observe: 'response'})
+    .post(this.loginUrl + '', userAuth, {observe: 'response'})
     .pipe(catchError(this.handleError));
-    }
-    logout() {
-      console.log('i have entered in the logout function');
-      localStorage.removeItem('token');
-      this.router.navigate([`/web-speech`]);  // after logging out ,it should redirect to homepage
     }
 
   setCookie(cname: string, cvalue: string, exdays: number) {
