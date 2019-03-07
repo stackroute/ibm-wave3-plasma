@@ -24,7 +24,7 @@ public class SeedDataApplicationListener implements ApplicationListener<ContextR
     public void onApplicationEvent(ContextRefreshedEvent contextRefreshedEvent) {
 
         userRepository.save(new User("leela", "Alla","user"));
-        userRepository.save(new User("Sai", "kodi","user"));
+        userRepository.save(new User("Sai", "kodi","admin"));
     }
 }
 

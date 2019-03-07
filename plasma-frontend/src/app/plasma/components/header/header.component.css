@@ -7,7 +7,7 @@
  .spacer {
   flex: 1 1 auto;
 } 
-.login,.profile
+.login,.profile,.wrap1
 {
 
   background-color: black;
@@ -16,13 +16,10 @@
   /* opacity: 0.8; */
 color: white;
 }
-.login:hover{
+.login:hover,.profile:hover,.wrap1:hover{
   background-color: #4CAF50;
 }
 
-.profile:hover{
-  background-color: #4CAF50;
-}
 .navbar-header
 {
 margin-top: 0px;
