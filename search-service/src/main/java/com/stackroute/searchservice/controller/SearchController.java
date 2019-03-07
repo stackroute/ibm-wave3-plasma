@@ -5,7 +5,6 @@ import com.stackroute.searchservice.domain.SearchInput;
 import com.stackroute.searchservice.domain.SearchOutput;
 import com.stackroute.searchservice.domain.SearchStorage;
 import com.stackroute.searchservice.service.ApiService;
-//import com.stackroute.searchservice.service.RabbitMQSender;
 import com.stackroute.searchservice.service.RabbitMQSender;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

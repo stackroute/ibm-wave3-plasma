@@ -6,10 +6,20 @@
               <img src="../assets/pic1.png" class="img-rounded" alt="plasma">
               </a>
        <span class="spacer"></span>
-       <!-- <a mat-button routerLink="/signup">Register</a> -->
-       <!-- <a mat-button routerLink="/login">Login</a> -->
-       <button mat-raised-button class="login" routerLink="/login">Login</button>
-        <!-- <a mat-button routerLink="/admin">Admin</a>  -->
+       <div class="wrap"  *ngIf=userLogged>
+        <mat-card-actions>
+          <button mat-raised-button class="login" routerLink="/login">Login</button>
+           <!-- <button mat-raised-button (click)='logout()'>logout</button>  -->
+        </mat-card-actions>
+    </div>
+    <div class="wrap" *ngIf=flag >
+        <mat-card-actions>
+           <button mat-raised-button color="" (click)='logout()'>Logout</button>
+                 </mat-card-actions>
+    </div>
+       
+       
+  
         <!-- <span>
           <button mat-raised-button (click)="profile()"><mat-icon>account_circle</mat-icon></button>
         </span> -->

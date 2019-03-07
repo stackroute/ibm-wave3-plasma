@@ -42,20 +42,6 @@ export class WebSpeechComponent implements OnInit {
 
     this.initRecognition();
     this.notification = null;
-    try {
-      const tokenObtained = localStorage.getItem('token');
-      this.loginToken = jwt_decode(tokenObtained);
-      console.log('decoded token', jwt_decode(tokenObtained));
-      this.jti = this.loginToken.jti;
-      console.log('decoded token id', this.loginToken.jti);
-      this.searchService.profile(this.jti).subscribe((res: any) => {
-        this.reg = res.body;
-        console.log(res);
-        console.log( this.reg);
-     });
-      } catch (error) {
-        console.log(error);
-      }
   }
 
   onClickMe(data) {

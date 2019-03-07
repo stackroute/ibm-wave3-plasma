@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 public class RabbitMQListener {
 
     @Autowired
-    DescriptionService descriptionService;
+    DocumentService documentService;
 
     Tag tag = new Tag();
 

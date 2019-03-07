@@ -17,8 +17,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class RabbitMQConfig {
 
-    //Receiving message rabbitMQ
-    @Bean
+     @Bean
     public MessageConverter consumerJsonMessageConverter() {
         return new Jackson2JsonMessageConverter();
     }
@@ -33,8 +32,7 @@ public class RabbitMQConfig {
         return factory;
     }
 
-    //Sending message to rabbitMQ
-    @Value("${javainuse5.rabbitmq.queue}")
+     @Value("${javainuse5.rabbitmq.queue}")
     String queueName5;
 
     @Value("${javainuse.rabbitmq.exchange}")

@@ -7,7 +7,6 @@ import lombok.Setter;
 
 import java.util.HashMap;
 
-
 @Getter
 @Setter
 @NoArgsConstructor
@@ -29,7 +28,7 @@ public class Cache {
         this.intent = intent;
     }
 
-    public HashMap<String, Long> getTermWeight() {
+    public HashMap<String , Long> getTermWeight() {
         return termWeight;
     }
 

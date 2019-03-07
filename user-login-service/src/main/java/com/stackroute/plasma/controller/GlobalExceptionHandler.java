@@ -14,18 +14,15 @@ import org.springframework.web.bind.annotation.ResponseStatus;
         @ResponseStatus(value= HttpStatus.CONFLICT, reason="User Id and Password are not matching")
         @ExceptionHandler(UserIdAndPasswordMismatchException.class)
         public void handleUserIdAndPasswordMismatchException(UserIdAndPasswordMismatchException e){
-            // log.error("User already exists", e);
-        }
+         }
 
         @ResponseStatus(value= HttpStatus.NOT_FOUND, reason="User does not exist")
         @ExceptionHandler(UserNotFoundException.class)
         public void handleUserNotFoundException(UserNotFoundException e){
-            // log.error("User does not exist", e);
-        }
+         }
         @ResponseStatus(value= HttpStatus.NOT_FOUND, reason="User Name or Password Empty")
         @ExceptionHandler(UserNameOrPasswordEmptyException.class)
         public void handleUserNameOrPasswordEmptyException(UserNameOrPasswordEmptyException e){
-            // log.error("User does not exist", e);
-        }
+         }
     }
 
