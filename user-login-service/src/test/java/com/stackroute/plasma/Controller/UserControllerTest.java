@@ -2,7 +2,7 @@
 //
 //import com.fasterxml.jackson.databind.ObjectMapper;
 //import com.stackroute.plasma.controller.UserController;
-//import com.stackroute.plasma.model.User;
+//import com.stackroute.plasma.model.UserAuth;
 //import com.stackroute.plasma.services.UserService;
 //import org.junit.Before;
 //import org.junit.Test;
@@ -31,7 +31,7 @@
 //    public class UserControllerTest {
 //        @Autowired
 //        private MockMvc mockMvc;
-//        private User user;
+//        private UserAuth userAuth;
 //
 //        @MockBean
 //        private UserService userService;
@@ -39,27 +39,27 @@
 //        @InjectMocks
 //        private UserController userController;
 //
-//        private List<User> list = null;
+//        private List<UserAuth> list = null;
 //
 //        @Before
 //        public void setUp() {
 //            MockitoAnnotations.initMocks(this);
 //            mockMvc = MockMvcBuilders.standaloneSetup(userController).build();
-//            user = new User();
-//            user.setUserId("abcd");
-//            user.setPassword("abcd");
+//            userAuth = new UserAuth();
+//            userAuth.setUserId("abcd");
+//            userAuth.setPassword("abcd");
 //            list = new ArrayList<>();
-//            list.add(user);
+//            list.add(userAuth);
 //        }
 //
 //        @Test
 //        public void saveUsers() throws Exception {
-////            System.out.println('user!!!!!!!!!");
-//            System.out.println(user.getUserId() + user.getPassword());
+////            System.out.println('userAuth!!!!!!!!!");
+//            System.out.println(userAuth.getUserId() + userAuth.getPassword());
 //
-//            when(userService.saveUsers(any())).thenReturn(user);
+//            when(userService.saveUsers(any())).thenReturn(userAuth);
 //            mockMvc.perform(MockMvcRequestBuilders.post("/api/users")
-//                    .contentType(MediaType.APPLICATION_JSON).content(asJsonString(user)))
+//                    .contentType(MediaType.APPLICATION_JSON).content(asJsonString(userAuth)))
 //                    .andExpect(MockMvcResultMatchers.status().isOk())
 //                    .andDo(MockMvcResultHandlers.print());
 //        }
@@ -68,8 +68,8 @@
 //        public void getAllUsers() throws Exception {
 //
 //            when(userService.getAllUsers()).thenReturn(list);
-//            mockMvc.perform(MockMvcRequestBuilders.get("/api/user")
-//                    .contentType(MediaType.APPLICATION_JSON).content(asJsonString(user)))
+//            mockMvc.perform(MockMvcRequestBuilders.get("/api/userAuth")
+//                    .contentType(MediaType.APPLICATION_JSON).content(asJsonString(userAuth)))
 //                    .andExpect(MockMvcResultMatchers.status().isOk())
 //                    .andDo(MockMvcResultHandlers.print());
 //        }

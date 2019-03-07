@@ -1,5 +1,5 @@
 package com.stackroute.plasma.seedcomponent;
-import com.stackroute.plasma.model.User;
+import com.stackroute.plasma.model.UserAuth;
 import com.stackroute.plasma.repository.UserRepository;
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,8 +23,8 @@ public class SeedDataApplicationListener implements ApplicationListener<ContextR
     @Override
     public void onApplicationEvent(ContextRefreshedEvent contextRefreshedEvent) {
 
-        userRepository.save(new User("leela", "Alla","user"));
-        userRepository.save(new User("Sai", "kodi","user"));
+        userRepository.save(new UserAuth("admin", "123","admin"));
+        userRepository.save(new UserAuth("Sai", "kodi","user"));
     }
 }
 

@@ -10,7 +10,7 @@ public interface EvaluatorService {
 
     Evaluator getScore();
     void getConsumedUrl(Url url);
-    void getWeights() throws IOException, ParseException;
+    void getWeights()throws ParseException;
     void htmlTag();
     void headTag();
     void titleTag();

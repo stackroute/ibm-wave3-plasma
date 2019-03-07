@@ -20,15 +20,6 @@ public class DocumentController {
 
     String docString;
 
-
-
-    @Autowired
-    public DocumentController(DocumentService documentService)
-    {
-        this.documentService = documentService;
-    }
-
-
     @GetMapping("/doc")
     public ResponseEntity<?> getContent() throws IOException {
 

@@ -1,6 +1,6 @@
 //package com.stackroute.plasma.Repository;
 //
-//import com.stackroute.plasma.model.User;
+//import com.stackroute.plasma.model.UserAuth;
 //import com.stackroute.plasma.repository.UserRepository;
 //import org.junit.Assert;
 //import org.junit.Before;
@@ -17,32 +17,32 @@
 //public class UserRepositoryTest {
 //    @Autowired
 //    private UserRepository userRepository;
-//    private User user;
+//    private UserAuth userAuth;
 //
 //    @Before
 //    public void setUp()
 //    {
-//        user = new User();
-//        user.setUserId("abcd");
-//        user.setPassword("Alex");
-//        userRepository.save(user);
+//        userAuth = new UserAuth();
+//        userAuth.setUserId("abcd");
+//        userAuth.setPassword("Alex");
+//        userRepository.save(userAuth);
 //    }
 //
 //    @Test
 //  public void saveUserTest()
 //    {
-//        userRepository.save(user);
-//        User fetchUser = userRepository.findById(user.getUserId()).get();
+//        userRepository.save(userAuth);
+//        UserAuth fetchUser = userRepository.findById(userAuth.getUserId()).get();
 //       Assert.assertEquals("abcd",fetchUser.getUserId());
 //    }
 //
 //
 //    @Test
 //    public void testSaveUserFailure(){
-//        User testUser = new User("fgf","gh","user");
-//        userRepository.save(user);
-//        User fetchUser = userRepository.findById(user.getUserId()).get();
-//        Assert.assertNotSame(testUser,user);
+//        UserAuth testUser = new UserAuth("fgf","gh","userAuth");
+//        userRepository.save(userAuth);
+//        UserAuth fetchUser = userRepository.findById(userAuth.getUserId()).get();
+//        Assert.assertNotSame(testUser,userAuth);
 //    }
 //
 //

@@ -15,6 +15,7 @@ import java.net.URL;
 
 @Service
 public class ApiServiceImpl implements ApiService {
+
     final static String apiKey = "AIzaSyB-93tpPyxrK76l6iw-mFnsvDiUJCLpFw8";
     final static String customSearchEngineKey = "006477474756235376421:nz2modhy5qa";
     public String newResult ;

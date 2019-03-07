@@ -6,6 +6,8 @@ import com.stackroute.plasma.domain.SearchOutput;
 import com.stackroute.plasma.domain.Url;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,6 +22,7 @@ import java.util.List;
 
 @Service
 public class DocumentServiceImpl implements DocumentService {
+    Logger logger = LoggerFactory.getLogger(DocumentServiceImpl.class.getName());
 
     @JsonIgnore
 
@@ -47,10 +50,10 @@ public DocumentServiceImpl() {
 
          for (String x:searchOutput.getUrls()
              ) {
-            System.out.println("-------------"+x);
+            logger.info("-------------"+x);
         }
-       System.out.println("Recieved Message From RabbitMQ: " + searchOutput.getConcept() +searchOutput.getUrls());
-       System.out.println("check url----------------"+ searchOutputt.getUrls()+"8888888888"+searchOutputt.getConcept());
+       logger.info("Recieved Message From RabbitMQ: " + searchOutput.getConcept() +searchOutput.getUrls());
+       logger.info("check url----------------"+ searchOutputt.getUrls()+"8888888888"+searchOutputt.getConcept());
 
    }
      int j = 0;
@@ -58,7 +61,11 @@ public DocumentServiceImpl() {
     @Override
     public List<Url> getHtml() throws IOException {
 
+<<<<<<< HEAD
 //        System.out.println("check inside document url----------------"+ searchOutputt.getUrls()+searchOutputt.getConcept());
+=======
+        logger.info("check inside document url----------------"+ searchOutputt.getUrls()+searchOutputt.getConcept());
+>>>>>>> 8cc7d408da9c2bbdc0aecf732500266b84fb653a
         list = new ArrayList<>();
 
         for (String urlx : searchOutputt.getUrls()) {
@@ -72,7 +79,7 @@ public DocumentServiceImpl() {
             url.setUrl(urlx);
             url.setDoc(doc.toString());
 
-            System.out.println(doc.toString());
+          logger.info(doc.toString());
 
             System.out.println();
             url.setTimestamp(Timestamp.valueOf(LocalDateTime.of(LocalDate.now(), LocalTime.now())).toString());

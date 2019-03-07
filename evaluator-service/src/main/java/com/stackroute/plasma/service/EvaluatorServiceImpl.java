@@ -6,10 +6,13 @@ import com.stackroute.plasma.domain.Evaluator;
 import com.stackroute.plasma.domain.Url;
 import org.json.JSONArray;
 import org.json.JSONObject;
+//import org.json.simple.JSONArray;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import java.io.File;
@@ -29,6 +32,7 @@ import java.util.Map;
 
 @Service
 public class EvaluatorServiceImpl implements EvaluatorService  {
+    Logger logger = LoggerFactory.getLogger(EvaluatorServiceImpl.class.getName());
 
     Evaluator eval = new Evaluator();
 
@@ -37,30 +41,53 @@ public class EvaluatorServiceImpl implements EvaluatorService  {
     Evaluator eva;
     Url url;
 
-    private String keywords, description;
+    private String keywords;
+    private String description;
     private Map<String, Long> tagweight = new HashMap<>();
     private String[] levels = {"basics", "tutorials", "example", "completeReference", "troubleShooting", "gettingStarted"};
-    private List<String> strL1;
-    private List<String> strL2;
-    private List<String> strL3;
-    private List<String> strL4;
-    private List<String> strL5;
-    private List<String> strL6;
-    private List<String> strL11;
-    private List<String> strL21;
-    private List<String> strL31;
-    private List<String> strL41;
-    private List<String> strL51;
-    private List<String> strL61;
-
 
     private long[] indicatorVal = new long[6];
     private long[] counterIndicatorVal = new long[6];
 
-    private JSONArray basicsIndicatorTerms, tutorialsIndicatorTerms, exampleIndicatorTerms, completeReferenceIndicatorTerms, troubleShootingIndicatorTerms, gettingStartedIndicatorTerms;
-    private JSONArray basicsCounterIndicatorTerms, tutorialsCounterIndicatorTerms, exampleCounterIndicatorTerms, completeReferenceCounterIndicatorTerms, troubleShootingCounterIndicatorTerms, gettingStartedCounterIndicatorTerms;
+    private JSONArray basicsIndicatorTerms;
+    private JSONArray tutorialsIndicatorTerms;
+    private JSONArray exampleIndicatorTerms;
+    private JSONArray completeReferenceIndicatorTerms;
+    private JSONArray troubleShootingIndicatorTerms;
+    private JSONArray gettingStartedIndicatorTerms;
+    private JSONArray basicsCounterIndicatorTerms;
+    private JSONArray tutorialsCounterIndicatorTerms;
+    private JSONArray exampleCounterIndicatorTerms;
+    private JSONArray completeReferenceCounterIndicatorTerms;
+    private JSONArray troubleShootingCounterIndicatorTerms;
+    private JSONArray gettingStartedCounterIndicatorTerms;
 
-    private List<String> htmlDoc, headDoc, titleDoc, metaDoc, bodyDoc, h1Doc, h2Doc, h3Doc, h4Doc, h5Doc, h6Doc, codeDoc, addressDoc, summaryDoc, blockquoteDoc, markDoc, insDoc, mapDoc, pDoc, spanDoc, divDoc, ulDoc, liDoc, olDoc, navDoc, articleDoc;
+    private List<String> htmlDoc;
+    private List<String> headDoc;
+    private List<String> titleDoc;
+    private List<String> metaDoc;
+    private List<String> bodyDoc;
+    private List<String> h1Doc;
+    private List<String> h2Doc;
+    private List<String> h3Doc;
+    private List<String> h4Doc;
+    private List<String> h5Doc;
+    private List<String> h6Doc;
+    private List<String> codeDoc;
+    private List<String> addressDoc;
+    private List<String> summaryDoc;
+    private List<String> blockquoteDoc;
+    private List<String> markDoc;
+    private List<String> insDoc;
+    private List<String> mapDoc;
+    private List<String> pDoc;
+    private List<String> spanDoc;
+    private List<String> divDoc;
+    private List<String> ulDoc;
+    private List<String> liDoc;
+    private List<String> olDoc;
+    private List<String> navDoc;
+    private List<String> articleDoc;
 
 
     public EvaluatorServiceImpl() throws ParseException {
@@ -69,6 +96,7 @@ public class EvaluatorServiceImpl implements EvaluatorService  {
         System.out.println("in constructor");
 
     }
+
 
 
     @Override
@@ -185,13 +213,13 @@ public class EvaluatorServiceImpl implements EvaluatorService  {
         //basics intent
         for (int j = 0; j < (basicsIndicatorTerms.length()); j++) {
             if (headDoc.contains(basicsIndicatorTerms.getJSONObject(j).getString("word"))) {
-                n = ((countOccurences(metaDoc, basicsIndicatorTerms.getJSONObject(j).getString("word")) + (countOccurences(titleDoc, basicsIndicatorTerms.getJSONObject(j).getString("word")))));
+                n = (countOccurences(metaDoc, basicsIndicatorTerms.getJSONObject(j).getString("word")) + (countOccurences(titleDoc, basicsIndicatorTerms.getJSONObject(j).getString("word"))));
                 indicatorVal[0] += ((countOccurences(headDoc, basicsIndicatorTerms.getJSONObject(j).getString("word")) - n > 0 ? (countOccurences(headDoc, basicsIndicatorTerms.getJSONObject(j).getString("word")) - n) : 0) * basicsIndicatorTerms.getJSONObject(j).getLong("intensity") * tagweight.get("head"));
             }
         }
         for (int j = 0; j < (basicsCounterIndicatorTerms.length()); j++) {
             if (headDoc.contains(basicsCounterIndicatorTerms.getJSONObject(j).getString("word"))) {
-                n = ((countOccurences(metaDoc, basicsCounterIndicatorTerms.getJSONObject(j).getString("word")) + (countOccurences(titleDoc, basicsCounterIndicatorTerms.getJSONObject(j).getString("word")))));
+                n = (countOccurences(metaDoc, basicsCounterIndicatorTerms.getJSONObject(j).getString("word")) + (countOccurences(titleDoc, basicsCounterIndicatorTerms.getJSONObject(j).getString("word"))));
                 counterIndicatorVal[0] += ((countOccurences(headDoc, basicsCounterIndicatorTerms.getJSONObject(j).getString("word")) - n) > 0 ? (countOccurences(headDoc, basicsIndicatorTerms.getJSONObject(j).getString("word")) - n) : 0) * basicsCounterIndicatorTerms.getJSONObject(j).getLong("intensity") * tagweight.get("head");
             }
         }
@@ -199,13 +227,13 @@ public class EvaluatorServiceImpl implements EvaluatorService  {
         //tutorials intent
         for (int j = 0; j < tutorialsIndicatorTerms.length(); j++) {
             if (headDoc.contains(tutorialsIndicatorTerms.getJSONObject(j).getString("word"))) {
-                n = ((countOccurences(metaDoc, tutorialsIndicatorTerms.getJSONObject(j).getString("word")) + (countOccurences(titleDoc, tutorialsIndicatorTerms.getJSONObject(j).getString("word")))));
+                n = (countOccurences(metaDoc, tutorialsIndicatorTerms.getJSONObject(j).getString("word")) + (countOccurences(titleDoc, tutorialsIndicatorTerms.getJSONObject(j).getString("word"))));
                 indicatorVal[1] += ((countOccurences(headDoc, tutorialsIndicatorTerms.getJSONObject(j).getString("word")) - n) > 0 ? (countOccurences(headDoc, tutorialsIndicatorTerms.getJSONObject(j).getString("word")) - n) : 0) * tutorialsIndicatorTerms.getJSONObject(j).getLong("intensity") * tagweight.get("head");
             }
         }
         for (int j = 0; j < tutorialsCounterIndicatorTerms.length(); j++) {
             if (headDoc.contains(tutorialsCounterIndicatorTerms.getJSONObject(j).getString("word"))) {
-                n = ((countOccurences(metaDoc, tutorialsCounterIndicatorTerms.getJSONObject(j).getString("word")) + (countOccurences(titleDoc, tutorialsCounterIndicatorTerms.getJSONObject(j).getString("word")))));
+                n = (countOccurences(metaDoc, tutorialsCounterIndicatorTerms.getJSONObject(j).getString("word")) + (countOccurences(titleDoc, tutorialsCounterIndicatorTerms.getJSONObject(j).getString("word"))));
                 counterIndicatorVal[1] += ((countOccurences(headDoc, tutorialsCounterIndicatorTerms.getJSONObject(j).getString("word")) - n) > 0 ? (countOccurences(headDoc, tutorialsIndicatorTerms.getJSONObject(j).getString("word")) - n) : 0) * tutorialsCounterIndicatorTerms.getJSONObject(j).getLong("intensity") * tagweight.get("head");
             }
         }
@@ -213,13 +241,13 @@ public class EvaluatorServiceImpl implements EvaluatorService  {
         //example  intent
         for (int j = 0; j < exampleIndicatorTerms.length(); j++) {
             if (headDoc.contains(exampleIndicatorTerms.getJSONObject(j).getString("word"))) {
-                n = ((countOccurences(metaDoc, exampleIndicatorTerms.getJSONObject(j).getString("word")) + (countOccurences(titleDoc, exampleIndicatorTerms.getJSONObject(j).getString("word")))));
+                n = (countOccurences(metaDoc, exampleIndicatorTerms.getJSONObject(j).getString("word")) + (countOccurences(titleDoc, exampleIndicatorTerms.getJSONObject(j).getString("word"))));
                 indicatorVal[2] += ((countOccurences(headDoc, exampleIndicatorTerms.getJSONObject(j).getString("word")) - n) > 0 ? (countOccurences(headDoc, exampleIndicatorTerms.getJSONObject(j).getString("word")) - n) : 0) * exampleIndicatorTerms.getJSONObject(j).getLong("intensity") * tagweight.get("head");
             }
         }
         for (int j = 0; j < exampleCounterIndicatorTerms.length(); j++) {
             if (headDoc.contains(exampleCounterIndicatorTerms.getJSONObject(j).getString("word"))) {
-                n = ((countOccurences(metaDoc, exampleCounterIndicatorTerms.getJSONObject(j).getString("word")) + (countOccurences(titleDoc, exampleCounterIndicatorTerms.getJSONObject(j).getString("word")))));
+                n = (countOccurences(metaDoc, exampleCounterIndicatorTerms.getJSONObject(j).getString("word")) + (countOccurences(titleDoc, exampleCounterIndicatorTerms.getJSONObject(j).getString("word"))));
                 counterIndicatorVal[2] += ((countOccurences(headDoc, exampleCounterIndicatorTerms.getJSONObject(j).getString("word")) - n) > 0 ? (countOccurences(headDoc, exampleIndicatorTerms.getJSONObject(j).getString("word")) - n) : 0) * exampleCounterIndicatorTerms.getJSONObject(j).getInt("intensity") * tagweight.get("head");
             }
         }
@@ -227,13 +255,13 @@ public class EvaluatorServiceImpl implements EvaluatorService  {
         //complete reference intent
         for (int j = 0; j < completeReferenceIndicatorTerms.length(); j++) {
             if (headDoc.contains(completeReferenceIndicatorTerms.getJSONObject(j).getString("word"))) {
-                n = ((countOccurences(metaDoc, completeReferenceIndicatorTerms.getJSONObject(j).getString("word")) + (countOccurences(titleDoc, completeReferenceIndicatorTerms.getJSONObject(j).getString("word")))));
+                n = (countOccurences(metaDoc, completeReferenceIndicatorTerms.getJSONObject(j).getString("word")) + (countOccurences(titleDoc, completeReferenceIndicatorTerms.getJSONObject(j).getString("word"))));
                 indicatorVal[3] += ((countOccurences(headDoc, completeReferenceIndicatorTerms.getJSONObject(j).getString("word")) - n) > 0 ? (countOccurences(headDoc, completeReferenceIndicatorTerms.getJSONObject(j).getString("word")) - n) : 0) * completeReferenceIndicatorTerms.getJSONObject(j).getInt("intensity") * tagweight.get("head");
             }
         }
         for (int j = 0; j < completeReferenceCounterIndicatorTerms.length(); j++) {
             if (headDoc.contains(completeReferenceCounterIndicatorTerms.getJSONObject(j).getString("word"))) {
-                n = ((countOccurences(metaDoc, completeReferenceCounterIndicatorTerms.getJSONObject(j).getString("word")) + (countOccurences(titleDoc, completeReferenceCounterIndicatorTerms.getJSONObject(j).getString("word")))));
+                n = (countOccurences(metaDoc, completeReferenceCounterIndicatorTerms.getJSONObject(j).getString("word")) + (countOccurences(titleDoc, completeReferenceCounterIndicatorTerms.getJSONObject(j).getString("word"))));
                 counterIndicatorVal[3] += ((countOccurences(headDoc, completeReferenceCounterIndicatorTerms.getJSONObject(j).getString("word")) - n) > 0 ? (countOccurences(headDoc, completeReferenceIndicatorTerms.getJSONObject(j).getString("word")) - n) : 0) * completeReferenceCounterIndicatorTerms.getJSONObject(j).getInt("intensity") * tagweight.get("head");
             }
         }
@@ -241,7 +269,7 @@ public class EvaluatorServiceImpl implements EvaluatorService  {
         //trouble shooting intent
         for (int j = 0; j < troubleShootingIndicatorTerms.length(); j++) {
             if (headDoc.contains(troubleShootingIndicatorTerms.getJSONObject(j).getString("word"))) {
-                n = ((countOccurences(metaDoc, troubleShootingIndicatorTerms.getJSONObject(j).getString("word")) + (countOccurences(titleDoc, troubleShootingIndicatorTerms.getJSONObject(j).getString("word")))));
+                n = (countOccurences(metaDoc, troubleShootingIndicatorTerms.getJSONObject(j).getString("word")) + (countOccurences(titleDoc, troubleShootingIndicatorTerms.getJSONObject(j).getString("word"))));
                 indicatorVal[4] += ((countOccurences(headDoc, troubleShootingIndicatorTerms.getJSONObject(j).getString("word")) - n) > 0 ? (countOccurences(headDoc, troubleShootingIndicatorTerms.getJSONObject(j).getString("word")) - n) : 0) * troubleShootingIndicatorTerms.getJSONObject(j).getInt("intensity") * tagweight.get("head");
             }
         }
@@ -249,7 +277,7 @@ public class EvaluatorServiceImpl implements EvaluatorService  {
 
         for (int j = 0; j < troubleShootingCounterIndicatorTerms.length(); j++) {
             if (headDoc.contains(troubleShootingCounterIndicatorTerms.getJSONObject(j).getString("word"))) {
-                n = ((countOccurences(metaDoc, troubleShootingCounterIndicatorTerms.getJSONObject(j).getString("word")) + (countOccurences(titleDoc, troubleShootingCounterIndicatorTerms.getJSONObject(j).getString("word")))));
+                n = (countOccurences(metaDoc, troubleShootingCounterIndicatorTerms.getJSONObject(j).getString("word")) + (countOccurences(titleDoc, troubleShootingCounterIndicatorTerms.getJSONObject(j).getString("word"))));
                 counterIndicatorVal[4] += ((countOccurences(headDoc, troubleShootingCounterIndicatorTerms.getJSONObject(j).getString("word")) - n) > 0 ? (countOccurences(headDoc, troubleShootingCounterIndicatorTerms.getJSONObject(j).getString("word")) - n) : 0) * troubleShootingCounterIndicatorTerms.getJSONObject(j).getInt("intensity") * tagweight.get("head");
             }
 
@@ -258,13 +286,13 @@ public class EvaluatorServiceImpl implements EvaluatorService  {
         //gettingStarted
         for (int j = 0; j < gettingStartedIndicatorTerms.length(); j++) {
             if (headDoc.contains(gettingStartedIndicatorTerms.getJSONObject(j).getString("word"))) {
-                n = ((countOccurences(metaDoc, gettingStartedIndicatorTerms.getJSONObject(j).getString("word")) + (countOccurences(titleDoc, gettingStartedIndicatorTerms.getJSONObject(j).getString("word")))));
+                n = (countOccurences(metaDoc, gettingStartedIndicatorTerms.getJSONObject(j).getString("word")) + (countOccurences(titleDoc, gettingStartedIndicatorTerms.getJSONObject(j).getString("word"))));
                 indicatorVal[5] += ((countOccurences(headDoc, gettingStartedIndicatorTerms.getJSONObject(j).getString("word")) - n) > 0 ? (countOccurences(headDoc, gettingStartedIndicatorTerms.getJSONObject(j).getString("word")) - n) : 0) * gettingStartedIndicatorTerms.getJSONObject(j).getInt("intensity") * tagweight.get("head");
             }
         }
         for (int j = 0; j < gettingStartedCounterIndicatorTerms.length(); j++) {
             if (headDoc.contains(gettingStartedCounterIndicatorTerms.getJSONObject(j).getString("word"))) {
-                n = ((countOccurences(metaDoc, gettingStartedCounterIndicatorTerms.getJSONObject(j).getString("word")) + (countOccurences(titleDoc, gettingStartedCounterIndicatorTerms.getJSONObject(j).getString("word")))));
+                n = (countOccurences(metaDoc, gettingStartedCounterIndicatorTerms.getJSONObject(j).getString("word")) + (countOccurences(titleDoc, gettingStartedCounterIndicatorTerms.getJSONObject(j).getString("word"))));
                 counterIndicatorVal[5] += ((countOccurences(headDoc, gettingStartedCounterIndicatorTerms.getJSONObject(j).getString("word")) - n) > 0 ? (countOccurences(headDoc, gettingStartedIndicatorTerms.getJSONObject(j).getString("word")) - n) : 0) * gettingStartedCounterIndicatorTerms.getJSONObject(j).getInt("intensity") * tagweight.get("head");
             }
         }
@@ -957,7 +985,7 @@ public class EvaluatorServiceImpl implements EvaluatorService  {
             }
         }
 
-        Float max = 0F;
+        float max = 0;
         int level = 0;
 
         for (int i = 0; i < scoren.length; i++) {

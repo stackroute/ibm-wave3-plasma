@@ -30,9 +30,11 @@ public class UserServiceImpl implements UserService {
         }
 
         User savedUser = userRepository.save(user);
-        rabbitMQSender.sender(user);
+        System.out.println("saved user++++++++++++++++"+savedUser);
+       rabbitMQSender.sender(savedUser);
+        System.out.println("after rabbit mq===========");
 
-         User saveUser = userRepository.save(user);
+//         User saveUser = userRepository.save(user);
 
         if (savedUser == null) {
             throw new UserAlreadyExistException("User already exists");
@@ -77,3 +79,4 @@ public class UserServiceImpl implements UserService {
         return status;
     }
 }
+

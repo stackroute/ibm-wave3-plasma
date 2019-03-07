@@ -3,7 +3,12 @@ package com.stackroute.plasma.service;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.stackroute.plasma.domain.Url;
+<<<<<<< HEAD
 import org.springframework.amqp.core.AmqpTemplate;
+=======
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+>>>>>>> 8cc7d408da9c2bbdc0aecf732500266b84fb653a
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -13,6 +18,7 @@ import java.util.List;
 
 @Service
 public class RabbitMQSender {
+    Logger logger = LoggerFactory.getLogger(RabbitMQSender.class.getName());
 
     @Autowired
     RabbitTemplate rabbitTemplate;
@@ -26,6 +32,6 @@ public class RabbitMQSender {
     //ObjectMapper objectMapper = new ObjectMapper();
     public void send(Url url) {
         rabbitTemplate.convertAndSend(exchange, routingkey, url);
-        System.out.println("Send msg = " +url);
+       logger.info("Send msg = " +url);
     }
 }
