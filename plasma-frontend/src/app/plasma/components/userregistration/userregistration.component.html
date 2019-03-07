@@ -32,7 +32,7 @@
               <mat-label>Email</mat-label>
                    <input matInput placeholder="Email" [formControl]="emailFormControl"
                         [errorStateMatcher]="matcher" [(ngModel)]="emailId" name="emaiId" required>
-                 <mat-hint>Errors appear instantly!</mat-hint>
+                
                   <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
                    Please enter a valid email address
                  </mat-error>
