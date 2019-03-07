@@ -16,9 +16,9 @@ import * as JWT from 'jwt-decode';
 export class ProfileComponent implements OnInit {
   register: any = [];
   @Input()
-  reg: any;
+
   loginToken: UserLogin;
-  jti: any;
+  jti: string;
 
   constructor(private services: UserregistrationService) { }
 
@@ -33,9 +33,9 @@ export class ProfileComponent implements OnInit {
       this.jti = this.loginToken.jti;
       console.log('decoded token id', this.loginToken.jti);
       this.services.profile(this.jti).subscribe(data => {
-        this.reg = data;
-        // console.log(res);
-        console.log( this.reg);
+        // this.reg = data;
+        // // console.log(res);
+        // console.log( this.reg);
      });
       } catch (error) {
         console.log(error);
