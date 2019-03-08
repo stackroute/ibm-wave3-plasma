@@ -3,12 +3,10 @@ package com.stackroute.plasma.service;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.stackroute.plasma.domain.Url;
-<<<<<<< HEAD
-import org.springframework.amqp.core.AmqpTemplate;
-=======
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
->>>>>>> 8cc7d408da9c2bbdc0aecf732500266b84fb653a
+
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;

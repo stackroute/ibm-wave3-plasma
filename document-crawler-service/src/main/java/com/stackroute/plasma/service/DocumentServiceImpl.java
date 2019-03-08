@@ -61,11 +61,9 @@ public DocumentServiceImpl() {
     @Override
     public List<Url> getHtml() throws IOException {
 
-<<<<<<< HEAD
-//        System.out.println("check inside document url----------------"+ searchOutputt.getUrls()+searchOutputt.getConcept());
-=======
+
         logger.info("check inside document url----------------"+ searchOutputt.getUrls()+searchOutputt.getConcept());
->>>>>>> 8cc7d408da9c2bbdc0aecf732500266b84fb653a
+
         list = new ArrayList<>();
 
         for (String urlx : searchOutputt.getUrls()) {

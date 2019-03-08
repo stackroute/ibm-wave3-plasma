@@ -58,7 +58,7 @@ section{
   font-family: 'Crimson Text', serif;
  }
  button{
-  margin-left: 180px;
+  margin-left: 170px;
   /* padding-left: 50px; */
   font-size: 18px;
   font-family: 'Crimson Text', serif;
@@ -78,7 +78,7 @@ section{
  p{
   margin-left: 80px;
   font-size: 20px;
-  padding-top: 10px;
+  padding-top: 30px;
   font-style: italic;
   font-family: 'Crimson Text', serif;
  }
