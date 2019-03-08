@@ -13,5 +13,3 @@ public class Data {
     private String keywords;
 
 }
-
-
