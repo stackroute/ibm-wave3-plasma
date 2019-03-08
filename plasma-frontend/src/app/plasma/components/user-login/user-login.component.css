@@ -56,6 +56,7 @@ section{
 
  mat-label{
   font-family: 'Crimson Text', serif;
+  color: black;
  }
  button{
   margin-left: 170px;
@@ -78,7 +79,7 @@ section{
  p{
   margin-left: 80px;
   font-size: 20px;
-  padding-top: 30px;
+  padding-top: 10px;
   font-style: italic;
   font-family: 'Crimson Text', serif;
  }
@@ -89,3 +90,4 @@ section{
   text-decoration: underline;
  
  }
+
