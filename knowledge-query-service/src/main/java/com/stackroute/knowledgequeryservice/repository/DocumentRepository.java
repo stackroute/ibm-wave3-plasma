@@ -16,10 +16,9 @@ public interface DocumentRepository extends Neo4jRepository<Document,Long> {
 
     @Query("MATCH (d)-[r:Document_of]->(c) " +
             "WHERE " +
-            "d.concept={concept} and c.name={concept} and r.confidenceScore>5 and r.level={level} " +
+            "d.concept={concept} and c.name={concept} and r.confidenceScore>0.2 and r.level={level} " +
             "RETURN d " +
             "ORDER BY r.confidenceScore DESC " +
             "LIMIT 10")
     List<Document> concept(@Param("concept") String concept, @Param("level") String level);
-
 }

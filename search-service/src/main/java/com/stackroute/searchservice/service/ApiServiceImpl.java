@@ -78,7 +78,7 @@ public class ApiServiceImpl implements ApiService {
                             if (value == JsonParser.Event.VALUE_STRING){
                                 System.out.println("inside json");
                                 link[i++] = parser.getString();
-
+                                System.out.println(link[i++]);
                             }
                         }
 

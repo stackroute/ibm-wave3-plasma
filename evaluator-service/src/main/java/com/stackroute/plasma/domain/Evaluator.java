@@ -34,7 +34,7 @@ public class Evaluator {
     @JsonProperty("level")
     private String level;
     @JsonProperty("confidenceScore")
-    private Float confidenceScore;
+    private float confidenceScore;
 
 
     @Override

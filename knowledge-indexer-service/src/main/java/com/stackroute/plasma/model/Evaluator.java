@@ -1,47 +1,41 @@
 package com.stackroute.plasma.model;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
-import org.neo4j.ogm.annotation.Id;
-import org.neo4j.ogm.annotation.NodeEntity;
-import org.neo4j.ogm.annotation.Property;
+
+import java.sql.Timestamp;
+
 
 @Data
-@NodeEntity
-public class Document {
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+//@JsonIdentityInfo(generator = ObjectIdGenerators.IntSequenceGenerator.class, property = "@id", scope = Url.class)
+public class Evaluator {
 
-    @JsonProperty("timestamp")
-    @Id
-    private String timestamp;
-    @JsonProperty("domain")
-    @Property
+    //@JsonProperty("timestamp")
+    private Timestamp timestamp;
+    //@JsonProperty("domain")
     private String domain;
-    @JsonProperty("concept")
-    @Property
+    //@JsonProperty("concept")
     private String concept;
-    @JsonProperty("title")
-    @Property
+    //@JsonProperty("title")
     private String title;
-    @JsonProperty("description")
-    @Property
+    //@JsonProperty("description")
     private String description;
-    @JsonProperty("keywords")
-    @Property
+    //@JsonProperty("keywords")
     private String keywords;
-    @JsonProperty("url")
-    @Property
+    //@JsonProperty("url")
     private String url;
-    @JsonProperty("level")
-    @Property
+    //@JsonProperty("level")
     private String level;
-    @JsonProperty("confidenceScore")
-    @Property
-    private long confidenceScore;
+    //@JsonProperty("confidenceScore")
+    private float confidenceScore;
 
 
     @Override
     public String toString() {
-        return "Document{" +
+        return "Evaluator{" +
                 "timestamp=" + timestamp +
                 ", domain='" + domain + '\'' +
                 ", concept='" + concept + '\'' +
