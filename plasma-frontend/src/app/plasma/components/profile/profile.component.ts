@@ -40,31 +40,5 @@ export class ProfileComponent implements OnInit {
       } catch (error) {
         console.log(error);
       }
-    // try {
-    //   const tokenObtained = localStorage.getItem('token');
-    //   this.loginToken = jwt_decode(tokenObtained);
-    //   console.log('decoded token', jwt_decode(tokenObtained));
-    //   this.jti = this.loginToken.jti;
-    //   console.log('decoded token id', this.loginToken.jti);
-    //   this.services.profile(this.).subscribe((res: any) => {
-    //     this.reg = res.body;
-    //     console.log(res);
-    //     console.log( this.reg);
-    //  });
-    //   } catch (error) {
-    //     console.log(error);
-    //   }
-    //   this.services.profile(this.userId).subscribe((res: any) => {
-    //     this.reg = res.body;
-    //     console.log(res);
-    //     console.log( this.reg);
-    //  });
 }
 }
-
-
-
-
-// this.Userlogin.Profile(this.userId.value)
-// .subscribe(res => {
-//   console.log('Res: ', res);

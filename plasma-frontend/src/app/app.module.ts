@@ -19,7 +19,7 @@ import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { UserregistrationService } from './plasma/services/userregistration.service';
 import { WebSocketComponent } from './plasma/components/web-socket/web-socket.component';
-import { Ng2CarouselamosModule } from 'ng2-carouselamos';
+// import { Ng2CarouselamosModule } from 'ng2-carouselamos';
 
 @NgModule({
 declarations: [
@@ -36,7 +36,7 @@ imports: [
   RouterModule,
   ReactiveFormsModule,
   PlasmaModule,
-  Ng2CarouselamosModule
+  // Ng2CarouselamosModule
 
 ],
 providers: [UserLoginService, CardService, UserregistrationService],
