@@ -24,7 +24,7 @@ export class UserregistrationComponent implements OnInit {
   private regform;
   private name: string;
   // private id: string;
-  private password: string;
+  private setPassword: string;
   private contact: Number;
   private dateOfBirth: string;
   private gender: string;
@@ -42,7 +42,7 @@ export class UserregistrationComponent implements OnInit {
     this.regform = new Userregister();
     this.regform.name = this.name;
   //  this.regform.id = this.id;
-    this.regform.password = this.password;
+    this.regform.setPassword = this.setPassword;
    // this.regform.confirmpassword = this.confirmpassword;
     this.regform.contact = this.contact;
     this.regform.dateOfBirth = this.dateOfBirth;
@@ -50,7 +50,7 @@ export class UserregistrationComponent implements OnInit {
     this.regform.emailId  = this.emailId;
     // this.value = event.target.value;
     console.log(this.dateOfBirth);
-    console.log('val: ' + this.password);
+    console.log('val: ' + this.setPassword);
     this.regserv.addregister(this.regform).subscribe(data => {
 
     });

@@ -1,19 +1,20 @@
-import { UserAuth } from './../tsclasses/user-auth';
+// import { UserLogin } from './../tsclasses/user-login';
 
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { Router } from '@angular/router';
+import { UserLogin } from './../tsclasses/user-login';
 
 @Injectable()
   export class UserLoginService {
     response: any;
-  private loginUrl = 'http://localhost:8132/api/userAuth';
+  private loginUrl = 'http://localhost:8132/api/user';
   private errorStatus: string;
   private errorBody: string;
   constructor(private http: HttpClient, private router: Router) { }
-  login(userAuth: UserAuth) {
+  login(userAuth: UserLogin) {
 
 
     return this.http

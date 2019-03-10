@@ -1,4 +1,4 @@
-export class UserAuth {
+export class UserLogin {
     userId: string;
     password: string;
     token: string;

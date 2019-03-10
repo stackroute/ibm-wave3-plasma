@@ -4,7 +4,11 @@
   width: 49.5em;
   height: 16vh;
   display: flex;
+  /* padding: 1.9em; */
+  /* overflow: auto; */
   position: relative;
+  
+  /* flex: auto; */
  }
  p{
   text-align: justify;
@@ -39,6 +43,7 @@
 
  .row{
   flex-direction: row;
+  /* flex-wrap: wrap; */
   justify-content: flex-start;
   padding-bottom: 90px;
   padding-left: 200.5px;

@@ -19,7 +19,6 @@ export class WebSocketComponent {
     // tslint:disable-next-line:prefer-const
     let ws = new SockJS(this.serverUrl);
     this.stompClient = Stomp.over(ws);
-    // tslint:disable-next-line:prefer-const
     let that = this;
     this.stompClient.connect({}, function(frame) {
       that.stompClient.subscribe('/topic', message => {

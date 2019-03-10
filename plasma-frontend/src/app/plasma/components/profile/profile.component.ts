@@ -1,6 +1,6 @@
 import { UserregistrationService } from './../../services/userregistration.service';
 import { Profile } from 'selenium-webdriver/firefox';
-import { UserAuth } from './../../tsclasses/user-auth';
+import { UserLogin } from './../../tsclasses/user-login';
 import { Component, OnInit, Input } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -17,15 +17,15 @@ export class ProfileComponent implements OnInit {
   register: any = [];
   @Input()
   reg: any;
-  loginToken: UserAuth;
+  loginToken: UserLogin;
   jti: any;
 
-  edit(event: any) {
-    this.router.navigate([`/edit-profile`]);
-  }
-  constructor(private services: UserregistrationService, private router: Router) { }
+  constructor(private services: UserregistrationService) { }
 
   ngOnInit() {
+
+
+
     try {
       const tokenObtained = localStorage.getItem('token');
       this.loginToken = jwt_decode(tokenObtained);

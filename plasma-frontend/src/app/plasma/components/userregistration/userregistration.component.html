@@ -1,4 +1,5 @@
-
+<!-- <app-header></app-header> -->
+ <link href="https://fonts.googleapis.com/css?family=Crimson+Text" rel="stylesheet"> 
 <div class="register">
 <section class="whole">
   <section>
@@ -16,13 +17,7 @@
          <input matInput [matDatepicker]="picker" placeholder="Choose a date" [(ngModel)]="dateOfBirth" name="dateOfBirth">
           <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
           <mat-datepicker #picker></mat-datepicker> 
-        </mat-form-field>
-            <mat-label>Gender: </mat-label>
-            <mat-radio-group>
-              <mat-radio-button class="example-margin" value="M" (change)="onChange('Male')">Male</mat-radio-button>
-              <mat-radio-button class="example-margin" value="F" (change)="onChange('Female')">Female</mat-radio-button>
-              <mat-radio-button class="example-margin" value="Other" (change)="onChange('Other')">Other</mat-radio-button>
-            </mat-radio-group>
+           </mat-form-field>
             <mat-form-field class="full-width" appearance = "outline">
               <mat-label>Contact</mat-label>
               <input  matInput maxlength="10" type="number" placeholder="Contact" [(ngModel)]="contact" name="contact">
@@ -32,7 +27,7 @@
               <mat-label>Email</mat-label>
                    <input matInput placeholder="Email" [formControl]="emailFormControl"
                         [errorStateMatcher]="matcher" [(ngModel)]="emailId" name="emaiId" required>
-                 <mat-hint>Errors appear instantly!</mat-hint>
+                
                   <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
                    Please enter a valid email address
                  </mat-error>
@@ -47,16 +42,17 @@
               class="material-icons"
               showHideTrigger="mysecretpassword"></i>
            </mat-form-field>   -->
-           <mat-form-field class="full-width" appearance = "outline">
-            <input matInput placeholder="Enter your password" [type]="hide ? 'password' : 'text'"   pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" [(ngModel)]="password" [ngModelOptions]="{standalone: true}">
+           <mat-form-field class="full-width" appearance = "outline" >
+             <mat-label>Password</mat-label>
+            <input matInput placeholder="Enter your password" [type]="hide ? 'password' : 'text'"   pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" [(ngModel)]="setPassword" [ngModelOptions]="{standalone: true}" required>
             <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
           </mat-form-field> 
     </form>
   </mat-card-content>
-  <mat-card-actions>
+  <!-- <mat-card-actions> -->
     <button mat-raised-button (click)="register($event)" color="accent">Register</button>
    <button mat-raised-button [routerLink]="['/login']" class="btn btn-link" color="accent"> Cancel</button>
-  </mat-card-actions>
+  <!-- </mat-card-actions> -->
   <p> Already have an account?<a routerLink="/login">Login</a></p>
 </section>
 </section>

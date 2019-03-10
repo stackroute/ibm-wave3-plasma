@@ -11,6 +11,7 @@ import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
@@ -35,6 +36,9 @@ public class EvaluatorServiceImpl implements EvaluatorService  {
     Logger logger = LoggerFactory.getLogger(EvaluatorServiceImpl.class.getName());
 
     Evaluator eval = new Evaluator();
+
+    @Autowired
+    RabbitMQSender rabbitMQSender;
 
     @JsonIgnore
     Document docx;
@@ -856,7 +860,6 @@ public class EvaluatorServiceImpl implements EvaluatorService  {
                 counterIndicatorVal[5] += ((countOccurences(str, gettingStartedCounterIndicatorTerms.getJSONObject(j).getString("word")) - n) > 0 ? (countOccurences(str, gettingStartedCounterIndicatorTerms.getJSONObject(j).getString("word")) - n) : 0) * gettingStartedCounterIndicatorTerms.getJSONObject(j).getInt("intensity") * tagweight.get(tag);
             }
         }
-
     }
 
     void calScore(List<String> str, String tag) {
@@ -1010,7 +1013,8 @@ public class EvaluatorServiceImpl implements EvaluatorService  {
         this.eva.setDescription(description);
         this.eva.setKeywords(keywords);
         this.eva.setTitle(this.docx.title());
-
+        //rabbitmq sender
+        rabbitMQSender.send(this.eva);
         System.out.print(this.eva);
         return this.eva;
     }
