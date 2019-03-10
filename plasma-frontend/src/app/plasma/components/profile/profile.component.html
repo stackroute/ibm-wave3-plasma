@@ -7,16 +7,13 @@
     >
    <mat-card class="col1">
     <h3>Personal Information</h3>
-    <label class="step1">Name : {{ reg.name }}</label> <br />
+    <label class="step1">{{ reg.name }}</label> <br />
     <br />
-    <label class="step1">Email Id : {{ reg.userId }}</label> <br />
+    <label class="step1">{{ reg.userId }}</label> <br />
     <br />
-    <label class="step1">MobileNo : {{ reg.contact }}</label> <br />
+    <label class="step1">{{ reg.contact }}</label> <br />
     <br />
-    <label class="step1">Date of Birth : {{ reg.dateOfBirth }}</label> <br />
-    <br />
-    <label class="step1">Gender : {{ reg.gender }}</label> <br />
-    <br />
+    <label class="step1">{{ reg.dateOfBirth }}</label> <br />
     <button mat-raised-button (click)="edit($event)" type="submit">Edit</button>
     </mat-card>
   </section>

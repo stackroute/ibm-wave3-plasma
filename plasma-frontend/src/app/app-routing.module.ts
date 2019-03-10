@@ -7,6 +7,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { DomainExpertComponent } from './plasma/components/domain-expert/domain-expert.component';
 import { UserregistrationComponent } from './plasma/components/userregistration/userregistration.component';
 import { ProfileComponent } from './plasma/components/profile/profile.component';
+import { EditProfileComponent } from './plasma/components/edit-profile/edit-profile.component';
 
 const routes: Routes = [
   {
@@ -41,8 +42,11 @@ const routes: Routes = [
   {
     path: 'profile',
     component: ProfileComponent
+  },
+  {
+    path: 'edit-profile',
+    component: EditProfileComponent
   }
-
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

@@ -17,6 +17,7 @@ import { PlasmaMaterialModule } from './plasma.material.modules';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { ProfileComponent } from './components/profile/profile.component';
+import { EditProfileComponent } from './components/edit-profile/edit-profile.component';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { ProfileComponent } from './components/profile/profile.component';
     FooterComponent,
     CardComponent,
     UserLoginComponent,
-    ProfileComponent
+    ProfileComponent,
+    EditProfileComponent
     ],
   imports: [
    BrowserModule,
@@ -49,7 +51,8 @@ import { ProfileComponent } from './components/profile/profile.component';
     CardComponent,
     FooterComponent,
     UserregistrationComponent,
-    ProfileComponent
+    ProfileComponent,
+    EditProfileComponent
   ]
 })
 export class PlasmaModule { }
