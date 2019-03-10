@@ -12,7 +12,7 @@ import java.util.List;
 
 //@Getter
 @NodeEntity
-public class Description {
+public class Document {
 
     @Id @GeneratedValue
     private long id;

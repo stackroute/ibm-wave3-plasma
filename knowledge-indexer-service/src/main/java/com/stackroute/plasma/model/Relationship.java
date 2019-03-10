@@ -12,7 +12,7 @@ public class Relationship {
     private float confidenceScore;
 
    /* @StartNode
-    private Description description;
+    private Document description;
     @EndNode
     private Concept concept;*/
 

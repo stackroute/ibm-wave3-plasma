@@ -1,21 +1,18 @@
 package com.stackroute.plasma.service;
 
-import com.stackroute.plasma.model.Description;
-import com.stackroute.plasma.repository.DescriptionRepository;
+import com.stackroute.plasma.model.Document;
+import com.stackroute.plasma.repository.DocumentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.sql.Timestamp;
-import java.util.List;
-
 @Service
-public class DescriptionImpl implements DescriptionService{
+public class DocumentImpl implements DocumentService{
 
     @Autowired
-    DescriptionRepository descriptionRepository;
+    DocumentRepository documentRepository;
 
     @Override
-    public Description create(Description description) {
+    public Document create(Document description) {
 
         long id = description.getId();
         //Timestamp timestamp = description.getTimestamp();
@@ -26,11 +23,11 @@ public class DescriptionImpl implements DescriptionService{
         String title = description.getTitle();
         String url = description.getUrl();
         String keywords = description.getKeywords();
-        return descriptionRepository.create(timestamp,concept,domain,descript,title,keywords,url);
+        return documentRepository.create(timestamp,concept,domain,descript,title,keywords,url);
     }
 
     @Override
-    public Description update(Description description) {
+    public Document update(Document description) {
         long id = description.getId();
         //Timestamp timestamp = description.getTimestamp();
         String timestamp = description.getTimestamp();
@@ -40,21 +37,21 @@ public class DescriptionImpl implements DescriptionService{
         String title = description.getTitle();
         String url = description.getUrl();
         String keywords = description.getKeywords();
-        return descriptionRepository.update(id,timestamp,concept,domain,descript,title,keywords,url);
+        return documentRepository.update(id,timestamp,concept,domain,descript,title,keywords,url);
     }
 
     @Override
-    public Description delete(String timestamp) {
-        return descriptionRepository.delete(timestamp);
+    public Document delete(String timestamp) {
+        return documentRepository.delete(timestamp);
     }
 
     @Override
-    public Description delete(long id) {
-        return descriptionRepository.delete(id);
+    public Document delete(long id) {
+        return documentRepository.delete(id);
     }
 
     @Override
-    public Description delete(String concept, String domain) {
-        return descriptionRepository.delete(concept,domain);
+    public Document delete(String concept, String domain) {
+        return documentRepository.delete(concept,domain);
     }
 }
