@@ -10,7 +10,9 @@ import { UserLogin } from './../tsclasses/user-login';
 @Injectable()
   export class UserLoginService {
     response: any;
-  private loginUrl = 'http://localhost:8132/api/user';
+  
+  private loginUrl = 'http://localhost:8092/user-login-service';
+  //private loginUrl = 'http://localhost:8132/api/user';
   private errorStatus: string;
   private errorBody: string;
   constructor(private http: HttpClient, private router: Router) { }

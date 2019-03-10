@@ -39,7 +39,6 @@
         <module>knowledge-query-service</module>
         <module>tagging-service</module>
         <module>notification-service</module>
-        <module>search-recommendation-service</module>
 
     </modules>
     <dependencies>

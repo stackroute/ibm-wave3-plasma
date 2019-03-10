@@ -31,8 +31,6 @@ services:
         - 9000:9000
       network_mode: host
 
-
-
   redis:
     container_name: redis
     image: redis
