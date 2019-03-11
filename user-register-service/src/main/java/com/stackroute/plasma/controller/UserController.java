@@ -39,7 +39,10 @@ public class UserController {
         ResponseEntity responseEntity;
         User user1=userService.saveUser(user);
         System.out.println("user value is"+ user1);
+<<<<<<< HEAD
 //        rabbitMQSender.sender(user1);
+=======
+>>>>>>> 370c25dee7b5df118116b0bff1441cc27c018353
         responseEntity=new ResponseEntity<String>( "Created", HttpStatus.CREATED);
         return responseEntity;
 
@@ -71,4 +74,3 @@ public class UserController {
 
     }
 }
-

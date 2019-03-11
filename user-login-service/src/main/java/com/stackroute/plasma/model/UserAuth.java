@@ -42,6 +42,7 @@ public class UserAuth {
         this.password = password;
         this.role = role;
     }
+<<<<<<< HEAD
 
 }
 
@@ -49,3 +50,6 @@ public class UserAuth {
 
 
 
+=======
+}
+>>>>>>> 370c25dee7b5df118116b0bff1441cc27c018353

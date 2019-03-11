@@ -1,7 +1,6 @@
 package com.stackroute.taggingservice.service;
 
 import com.stackroute.taggingservice.domain.NlpModel;
-import com.stackroute.taggingservice.domain.TagInput;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

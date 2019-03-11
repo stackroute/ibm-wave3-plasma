@@ -1,8 +1,5 @@
 package com.stackroute.plasma.domain;
 
-
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
 import org.springframework.data.annotation.Id;
@@ -39,5 +36,9 @@ public class User {
         this.emailId = emailId;
     }
 
+<<<<<<< HEAD
 
    }
+=======
+}
+>>>>>>> 370c25dee7b5df118116b0bff1441cc27c018353

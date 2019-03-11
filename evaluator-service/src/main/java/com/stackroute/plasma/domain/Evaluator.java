@@ -1,9 +1,7 @@
 package com.stackroute.plasma.domain;
 
 
-import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import lombok.*;
 
 import java.sql.Timestamp;
@@ -14,7 +12,6 @@ import java.sql.Timestamp;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-//  @JsonIdentityInfo(generator = ObjectIdGenerators.IntSequenceGenerator.class, property = "@id", scope = Url.class)
 public class Evaluator {
 
     @JsonProperty("timestamp")
@@ -34,7 +31,7 @@ public class Evaluator {
     @JsonProperty("level")
     private String level;
     @JsonProperty("confidenceScore")
-    private long confidenceScore;
+    private float confidenceScore;
 
 
     @Override
@@ -52,4 +49,3 @@ public class Evaluator {
                 '}';
     }
 }
-

@@ -9,9 +9,9 @@ public interface RelationshipRespository extends Neo4jRepository<Relationship,Lo
 
     /* Creates the relationship from description node to concept node */
     @Query("MATCH (c:Concept),(d:Document) " +
-            "WHERE c.name={concept} AND d.concept={concept}" + //AND c.name = d.concept AND c.type = \"concept\" " +
-            "MERGE x=(d)-[r:Document_of { confidenceScore:{confidenceScore},level:{level} }]->(c) RETURN r")
-    void create(@Param("concept")String concept,@Param("confidenceScore")long confidenceScore,@Param("level")String level);
+            "WHERE c.name={concept} AND d.concept={concept} AND d.url={url} AND d.timestamp={timestamp}" + //AND c.name = d.concept AND c.type = \"concept\" " +
+            "MERGE (d)-[r:Document_of { confidenceScore:{confidenceScore},level:{level} }]->(c) RETURN r")
+    void create(@Param("concept")String concept,@Param("confidenceScore")float confidenceScore, @Param("level")String level,@Param("url") String url,@Param("timestamp")String timestamp);
 
     /* Reads the Concept node from  Domain Ontology */
     //@Query("MATCH (c:DomainOntology) WHERE c.name={name} AND c.class=\"concept\" RETURN c")

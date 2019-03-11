@@ -22,8 +22,10 @@
 //
 //    DocumentServiceTest documentServiceTest;
 //    SearchOutput searchOutput=new SearchOutput();
-//    DocumentServiceImpl documentServiceImpl = new DocumentServiceImpl(searchOutput);
+//    DocumentServiceImpl documentServiceImpl = new DocumentServiceImpl();
 //    Url url=new Url();
+//
+//
 //
 //
 //
@@ -39,9 +41,9 @@
 //    public void setUp() throws Exception {
 //        documentServiceTest = new DocumentServiceTest();
 ////        url.setUrl("http://www.dustyfeet.com/");
-//       this.url.setUrl("https://www.youtube.com/watch?v=szYzBC89CPE");
+//      this.url.setUrl("https://www.youtube.com/watch?v=szYzBC89CPE");
 //
-//        this.url.setTimestamp(Timestamp.valueOf(LocalDateTime.of(LocalDate.now(), LocalTime.now())));
+//      this.url.setTimestamp(String.valueOf(Timestamp.valueOf(LocalDateTime.of(LocalDate.now(), LocalTime.now()))));
 //        this.url.setDomain("java");
 //        this.url.setConcept("abstraction");
 //        this.url.setDoc("sfakfjkafj");
@@ -54,7 +56,9 @@
 //                "https://quizlet.com/177452001/java-encapsulation-flash-cards/",
 //                "https://www.coursehero.com/file/14011464/Java-encapsulation-inheritance-polymorphism/",
 //                "https://quizlet.com/332830793/java-encapsulationscope-quiz-flash-cards/"});
-//        this.searchOutput.setTimestamp(Timestamp.valueOf(LocalDateTime.of(LocalDate.now(), LocalTime.now())));
+//
+//
+//        this.searchOutput.setTimestamp(String.valueOf(Timestamp.valueOf(LocalDateTime.of(LocalDate.now(), LocalTime.now()))));
 //        this.searchOutput.setDomain("java");
 //        this.searchOutput.setConcept("abstraction");
 //    }
@@ -64,6 +68,7 @@
 //
 //    @Test
 //    public void getDoc() throws IOException {
+//
 //
 //        assertNotNull(documentServiceImpl.getHtml());
 //

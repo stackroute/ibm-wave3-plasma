@@ -5,6 +5,8 @@ import com.stackroute.plasma.model.NlpModel;
 import com.stackroute.plasma.model.UserQuery;
 import com.stackroute.plasma.service.NlpService;
 import com.stackroute.plasma.service.RabbitMQSender;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,6 +19,7 @@ import java.util.stream.Collectors;
 @RestController
 @RequestMapping("/api/v1")
 public class NlpController {
+    Logger logger = LoggerFactory.getLogger(NlpController.class.getName());
 
     @Autowired
     NlpService nlpService;
@@ -33,16 +36,14 @@ public ResponseEntity<?> extractedQuery(@RequestBody final String query) {
     userQuery = new UserQuery();
     userQuery.setUser_id(i++);
     userQuery.setUser_query(query);
-    System.out.println(userQuery.getUser_query());
+    logger.info(userQuery.getUser_query());
 
     nlpService.save(userQuery);
     temp = nlpService.queryConverter(query);
     nlpModel.setTokenized_lematized(temp);
-    System.out.println("controller output" + temp);
+   logger.info("controller output" + temp);
     rabbitMQSender.sender(nlpModel);
     return new ResponseEntity<>(temp.stream().map(String::toString).collect(Collectors.toList()), HttpStatus.CREATED);
 
-
   }
 }
-

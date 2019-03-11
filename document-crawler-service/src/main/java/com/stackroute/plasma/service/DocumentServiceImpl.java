@@ -4,8 +4,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.stackroute.plasma.domain.SearchOutput;
 import com.stackroute.plasma.domain.Url;
+import org.jsoup.HttpStatusException;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,6 +23,7 @@ import java.util.List;
 
 @Service
 public class DocumentServiceImpl implements DocumentService {
+    Logger logger = LoggerFactory.getLogger(DocumentServiceImpl.class.getName());
 
     @JsonIgnore
 
@@ -47,10 +51,10 @@ public DocumentServiceImpl() {
 
          for (String x:searchOutput.getUrls()
              ) {
-            System.out.println("-------------"+x);
+            logger.info("-------------"+x);
         }
-       System.out.println("Recieved Message From RabbitMQ: " + searchOutput.getConcept() +searchOutput.getUrls());
-       System.out.println("check url----------------"+ searchOutputt.getUrls()+"8888888888"+searchOutputt.getConcept());
+       logger.info("Recieved Message From RabbitMQ: " + searchOutput.getConcept() +searchOutput.getUrls());
+       logger.info("check url----------------"+ searchOutputt.getUrls()+"8888888888"+searchOutputt.getConcept());
 
    }
      int j = 0;
@@ -58,21 +62,27 @@ public DocumentServiceImpl() {
     @Override
     public List<Url> getHtml() throws IOException {
 
-        System.out.println("check inside document url----------------"+ searchOutputt.getUrls()+searchOutputt.getConcept());
+
+        logger.info("check inside document url----------------"+ searchOutputt.getUrls()+searchOutputt.getConcept());
         list = new ArrayList<>();
 
         for (String urlx : searchOutputt.getUrls()) {
 
             url = new Url();
 
-            Document doc = Jsoup.connect(urlx).get();
-
+            Document doc;
+            try {
+                doc = Jsoup.connect(urlx).get();
+            }catch(HttpStatusException e){
+                System.out.println("url can't be fetched");
+                continue;
+            }
             url.setConcept(searchOutputt.getConcept());
             url.setDomain(searchOutputt.getDomain());
             url.setUrl(urlx);
             url.setDoc(doc.toString());
 
-            System.out.println(doc.toString());
+          logger.info(doc.toString());
 
             System.out.println();
             url.setTimestamp(Timestamp.valueOf(LocalDateTime.of(LocalDate.now(), LocalTime.now())).toString());

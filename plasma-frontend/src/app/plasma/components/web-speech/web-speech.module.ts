@@ -12,20 +12,16 @@ import { PlasmaMaterialModule } from '../../plasma.material.modules';
 
 
 @NgModule({
-  imports: [
-    CommonModule,
-    FormsModule,
-    PlasmaMaterialModule,
-  ],
-  declarations: [
-    WebSpeechComponent
-  ],
-  providers: [
-     SpeechRecognizerService,
-  ]
+ imports: [
+   CommonModule,
+   FormsModule,
+   PlasmaMaterialModule,
+ ],
+ declarations: [
+   WebSpeechComponent
+ ],
+ providers: [
+    SpeechRecognizerService,
+ ]
 })
 export class WebSpeechModule { }
-
-
-
-

@@ -3,10 +3,11 @@ package com.stackroute.plasma.service;
 import com.stackroute.plasma.model.NlpModel;
 import com.stackroute.plasma.model.UserQuery;
 import com.stackroute.plasma.repository.NlpRepository;
-import com.stackroute.plasma.viewmodel.QueryPojo;
 import edu.stanford.nlp.ling.CoreLabel;
 import edu.stanford.nlp.pipeline.CoreDocument;
 import edu.stanford.nlp.pipeline.StanfordCoreNLP;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,6 +22,7 @@ import java.util.List;
 
 @Service
 public class NlpServiceImpl implements NlpService{
+    Logger logger = LoggerFactory.getLogger(NlpServiceImpl.class.getName());
 
     @Autowired
     NlpRepository nlpRepository;
@@ -81,8 +83,8 @@ public class NlpServiceImpl implements NlpService{
 
         HashSet<String> word;
         word = readStopWordCsvFile();
-        System.out.println("stopwords check");
-        System.out.println(word);
+        logger.info("stopwords check");
+        logger.info(String.valueOf(word));
         for (CoreLabel coreLabel: coreLabels
         ) {
             lemma = coreLabel.lemma();
@@ -95,7 +97,7 @@ public class NlpServiceImpl implements NlpService{
 
 
         rabbitMQSender.sender(nlpModel);
-        System.out.println("service output"+nlpModel);
+        logger.info("service output"+nlpModel);
 
         return extractedString;
     }

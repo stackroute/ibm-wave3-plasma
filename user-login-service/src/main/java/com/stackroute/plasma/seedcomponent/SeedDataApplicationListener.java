@@ -27,4 +27,3 @@ public class SeedDataApplicationListener implements ApplicationListener<ContextR
         userRepository.save(new UserAuth("Sai", "kodi","user"));
     }
 }
-

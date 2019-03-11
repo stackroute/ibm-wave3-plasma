@@ -1,3 +1,4 @@
+import { AboutComponent } from './plasma/components/about/about.component';
 import { CardComponent } from './plasma/components/card/card.component';
 import { UserLoginComponent } from './plasma/components/user-login/user-login.component';
 import { HeaderComponent } from './plasma/components/header/header.component';
@@ -46,8 +47,11 @@ const routes: Routes = [
   {
     path: 'edit-profile',
     component: EditProfileComponent
+  },
+  {
+  path: 'about',
+  component: AboutComponent
   }
-
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

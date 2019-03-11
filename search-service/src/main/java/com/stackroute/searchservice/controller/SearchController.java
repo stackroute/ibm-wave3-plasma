@@ -5,7 +5,6 @@ import com.stackroute.searchservice.domain.SearchInput;
 import com.stackroute.searchservice.domain.SearchOutput;
 import com.stackroute.searchservice.domain.SearchStorage;
 import com.stackroute.searchservice.service.ApiService;
-//import com.stackroute.searchservice.service.RabbitMQSender;
 import com.stackroute.searchservice.service.RabbitMQSender;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -61,7 +60,7 @@ public class SearchController {
             searchStorage.setUrls(singleConceptResult);
             apiService.save(searchStorage);
             searchOutput[k].setUrls(singleConceptResult);
-            rabbitMQSender.sender(searchOutput[k]);
+           // rabbitMQSender.sender(searchOutput[k]);
 
             k = k+1;
 
@@ -70,5 +69,4 @@ public class SearchController {
         responseEntity = new ResponseEntity(searchOutput,HttpStatus.CREATED);
         return responseEntity;
     }
-
 }

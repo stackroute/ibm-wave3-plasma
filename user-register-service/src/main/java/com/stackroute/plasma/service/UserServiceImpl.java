@@ -6,7 +6,6 @@ import com.stackroute.plasma.exceptions.UserAlreadyExistException;
 import com.stackroute.plasma.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 
 @Service
@@ -33,8 +32,11 @@ public class UserServiceImpl implements UserService {
         System.out.println("saved user++++++++++++++++"+savedUser);
        rabbitMQSender.sender(savedUser);
         System.out.println("after rabbit mq===========");
+<<<<<<< HEAD
 
 //         User saveUser = userRepository.save(user);
+=======
+>>>>>>> 370c25dee7b5df118116b0bff1441cc27c018353
 
         if (savedUser == null) {
             throw new UserAlreadyExistException("User already exists");
@@ -79,4 +81,3 @@ public class UserServiceImpl implements UserService {
         return status;
     }
 }
-

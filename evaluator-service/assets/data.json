@@ -1,0 +1,347 @@
+{
+  "basics": {
+    "counterIndicator": [
+      {
+        "intent": "auxiliary" ,
+        "intensity": 7
+      } ,
+      {
+        "intent": "snippets" ,
+        "intensity": 3
+      } ,
+      {
+        "intent": "secondary" ,
+        "intensity": 6
+      } ,
+      {
+        "intent": "additional" ,
+        "intensity": 3
+      } ,
+      {
+        "intent": "model" ,
+        "intensity": 4
+      },
+      {
+        "intent": "foundation" ,
+        "intensity": 7
+      },
+      {
+        "intent": "primitive" ,
+        "intensity": 5
+      },
+      {
+        "intent": "fundamental" ,
+        "intensity": 8
+      },
+      {
+        "intent": "fundamentals" ,
+        "intensity": 8
+      },
+      {
+        "intent": "primary" ,
+        "intensity": 5
+      },
+    ] ,
+    "indicator": [
+      {
+        "intent": "main" ,
+        "intensity": 3
+      } ,
+      {
+        "intent": "essential" ,
+        "intensity": 0
+      } ,
+      {
+        "intent": "basics" ,
+        "intensity": 6
+      } ,
+      {
+        "intent": "fundamental" ,
+        "intensity": 0
+      } ,
+      {
+        "intent": "beginner" ,
+        "intensity": 9
+      },
+      {
+        "intent": "instructive" ,
+        "intensity": 8
+      },
+      {
+        "intent": "informational" ,
+        "intensity": 7
+      },
+      {
+        "intent": "source code" ,
+        "intensity": 6
+      },
+      {
+        "intent": "guidance" ,
+        "intensity": 7
+      }
+    ]
+  } ,
+  "tutorials": {
+    "counterIndicator": [
+      {
+        "intent": "primitive" ,
+        "intensity": 5
+      } ,
+      {
+        "intent": "beginner" ,
+        "intensity": 7
+      } ,
+      {
+        "intent": "primary" ,
+        "intensity": 6
+      } ,
+      {
+        "intent": "foundation" ,
+        "intensity": 7
+      },
+
+      {
+        "intent": "fundamental" ,
+        "intensity": 6
+      },
+      {
+        "intent": "expression" ,
+        "intensity": 7
+      },
+      {
+        "intent": "sample" ,
+        "intensity": 7
+      }
+    ] ,
+    "indicator": [
+      {
+        "intent": "academic" ,
+        "intensity": 7
+      } ,
+      {
+        "intent": "guidance" ,
+        "intensity": 7
+      } ,
+      {
+        "intent": "instructional" ,
+        "intensity": 8
+      } ,
+      {
+        "intent": "instructive" ,
+        "intensity": 8
+      } ,
+      {
+        "intent": "tutorials" ,
+        "intensity": 8
+      } ,
+      {
+        "intent": "training" ,
+        "intensity": 7
+      } ,
+      {
+        "intent": "informational" ,
+        "intensity": 6
+      },
+      {
+        "intent": "implementation" ,
+        "intensity": 8
+      },
+      {
+        "intent": "note" ,
+        "intensity": 8
+      },
+      {
+        "intent": "give us example" ,
+        "intensity": 7
+      }
+    ]
+  } ,
+  "example": {
+    "counterIndicator": [
+      {
+        "intent": "instructive" ,
+        "intensity": 5
+      } ,
+      {
+        "intent": "primary" ,
+        "intensity": 5
+      } ,
+      {
+        "intent": "informational" ,
+        "intensity": 4
+      } ,
+      {
+        "intent": "simple" ,
+        "intensity": 6
+      } ,
+      {
+        "intent": "guidance" ,
+        "intensity": 8
+      } ,
+      {
+        "intent": "model" ,
+        "intensity": 4
+      } ,
+      {
+        "intent": "essential" ,
+        "intensity": 3
+      }
+    ] ,
+    "indicator": [
+      {
+        "intent": "function" ,
+        "intensity": 6
+      } ,
+      {
+        "intent": "model" ,
+        "intensity": 8
+      } ,
+      {
+        "intent": "class" ,
+        "intensity": 7
+      } ,
+      {
+        "intent": "sample" ,
+        "intensity": 8
+      } ,
+      {
+        "intent": "relating" ,
+        "intensity": 6
+      } ,
+      {
+        "intent": "snippets" ,
+        "intensity": 7
+      } ,
+      {
+        "intent": "expression" ,
+        "intensity": 5
+      } ,
+      {
+        "intent": "reference" ,
+        "intensity": 6
+      } ,
+      {
+        "intent": "source code" ,
+        "intensity": 8
+      } ,
+      {
+        "intent": "instance" ,
+        "intensity": 6
+      }
+    ]
+  } ,
+  "completeReference": {
+    "counterIndicator": [
+      {
+        "intent": "snippets" ,
+        "intensity": 5
+      } ,
+      {
+        "intent": "guidance" ,
+        "intensity": 7
+      } ,
+      {
+        "intent": "sample" ,
+        "intensity": 6
+      } ,
+      {
+        "intent": "source " ,
+        "intensity": 4
+      } ,
+      {
+        "intent": "expression" ,
+        "intensity": 7
+      }
+    ] ,
+    "indicator": [
+      {
+        "intent": "indicates" ,
+        "intensity": 7
+      } ,
+      {
+        "intent": "note" ,
+        "intensity": 7
+      } ,
+      {
+        "intent": "advance" ,
+        "intensity": 6
+      } ,
+      {
+        "intent": "meaning" ,
+        "intensity": 6
+      } ,
+      {
+        "intent": "extract" ,
+        "intensity": 6
+      } ,
+      {
+        "intent": "source code" ,
+        "intensity": 6
+      } ,
+      {
+        "intent": "refer to" ,
+        "intensity": 7
+      } ,
+      {
+        "intent": "give us example" ,
+        "intensity": 8
+      } ,
+      {
+        "intent": "relating" ,
+        "intensity": 6
+      } ,
+      {
+        "intent": "implementation" ,
+        "intensity": 8
+      },
+      {
+        "intent": "guidance" ,
+        "intensity": 7
+      }
+    ]
+  } ,
+  "troubleShooting": {
+    "counterIndicator": [
+    ] ,
+    "indicator": [
+      {
+        "intent": "improve" ,
+        "intensity": 5
+      } ,
+      {
+        "intent": "rectify" ,
+        "intensity": 7
+      } ,
+      {
+        "intent": "fix" ,
+        "intensity": 7
+      } ,
+      {
+        "intent": "repair" ,
+        "intensity": 7
+      } ,
+      {
+        "intent": "service" ,
+        "intensity": 6
+      } ,
+      {
+        "intent": "support" ,
+        "intensity": 6
+      }
+    ]
+  } ,
+  "gettingStarted": {
+    "counterIndicator": [
+    ] ,
+    "indicator": [
+      {
+        "intent": "how to code" ,
+        "intensity": 7
+      } ,
+      {
+        "intent": "hello world" ,
+        "intensity": 7
+      }
+    ]
+  }
+}

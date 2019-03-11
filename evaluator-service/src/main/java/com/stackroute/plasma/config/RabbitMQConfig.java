@@ -23,8 +23,7 @@ public class RabbitMQConfig {
     @Value("${javainuse1.rabbitmq.routingkey}")
     private String routingkey1;
 
-    //Receiving message rabbitMQ
-    @Bean
+     @Bean
     public MessageConverter consumerJsonMessageConverter(){
         return new Jackson2JsonMessageConverter();
     }
@@ -39,8 +38,7 @@ public class RabbitMQConfig {
         return factory;
     }
 
-    //Sending message rabbitMQ
-    @Bean
+     @Bean
     Queue queue() {
         return new Queue(queueName1, true);
     }
@@ -66,6 +64,5 @@ public class RabbitMQConfig {
         rabbitTemplate.setMessageConverter(jsonMessageConverter());
         return rabbitTemplate;
     }
-
 
 }
