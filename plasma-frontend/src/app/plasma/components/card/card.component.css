@@ -17,26 +17,28 @@
  mat-card-title{
   position: absolute;
   left: 3px;
-  top: 10px;
+  top: 30px;
   font-size: 18px;
   margin :auto;
   object-fit: cover; /*this makes de image in src fit to the size of specified below*/
-  width: 67%; 
+  width: 100%; 
   color: blue;
+  /* margin-top: 20px; */
  }
 
  mat-card-subtitle
  {
    position: absolute;
    left:3px;
-   top:40px;
+   padding-top: 50px;
+   top:20px;
    color: green;
-   font-size: 17px;
+   font-size: 15px;
  }
  .description{
    position: absolute;
    left: 3px;
-   top:70px;
+   top:50px;
    color: #545454;
    font-size: 15px;
  }
@@ -45,15 +47,16 @@
   flex-direction: row;
   /* flex-wrap: wrap; */
   justify-content: flex-start;
-  padding-bottom: 90px;
+  margin-bottom: 100px;
   padding-left: 200.5px;
-  margin-top: 39px;
+  margin-top: 79px;
+
  }
 
  .keywords{
    position: absolute;
    left: 23px;
-   top:110px;
+   top:90px;
    
    color: grey;
    font-size: 15px;

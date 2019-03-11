@@ -66,3 +66,47 @@
     position: absolute;;
     left: 600px;
   }
+  .regis,.btn-link{
+    background-color: darkblue;
+    color: white;
+
+  }
+
+
+@media (max-width: 800px){
+
+  .register {
+   width: 100%;
+   height:100%;
+  }
+  .my-form{
+    width: 50%;
+    height: 100%;
+  }
+
+  .whole{
+    width: 50%;
+    height:90%;
+    margin-left: 15%;
+  }
+  mat-toolbar{
+    padding-left: 5%;
+    margin-left: 0%;
+  }
+ .regis{
+    padding-left: 5%;
+    margin-left: 5%;
+  }
+  .btn-link{
+    position: absolute;
+    left: 20px;
+    top: 510px;
+  }
+  .full-width{
+    height: 5%;
+    width: 70%;
+  }
+  p{
+    margin-left: 2%;
+  }
+}
