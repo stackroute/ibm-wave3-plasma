@@ -60,8 +60,7 @@ public class SearchController {
             searchStorage.setUrls(singleConceptResult);
             apiService.save(searchStorage);
             searchOutput[k].setUrls(singleConceptResult);
-           // rabbitMQSender.sender(searchOutput[k]);
-
+            rabbitMQSender.sender(searchOutput[k]);
             k = k+1;
 
         }
@@ -69,4 +68,5 @@ public class SearchController {
         responseEntity = new ResponseEntity(searchOutput,HttpStatus.CREATED);
         return responseEntity;
     }
+
 }

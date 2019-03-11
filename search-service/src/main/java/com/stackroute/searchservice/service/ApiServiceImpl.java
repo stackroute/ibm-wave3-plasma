@@ -36,7 +36,7 @@ public class ApiServiceImpl implements ApiService {
 
     public String[] getConceptsUrl(String qSearch, int start, int numOfResults) {
         int iter = 0;
-        link = new String[20];
+        link = new String[10];
         int i = 0;
         while (iter++<2) {
             try {

@@ -30,7 +30,7 @@ services:
       ports:
         - 9000:9000
       network_mode: host
-      
+
   neo4j:
     image: neo4j
     ports:
@@ -89,6 +89,7 @@ services:
       - eurekaserver
       - rabbitmq
       - searchservice
+      - apigateway
     ports:
       - 8193:8193
     expose:
@@ -103,6 +104,7 @@ services:
       - eurekaserver
       - rabbitmq
       - mongo
+      - apigateway
     ports:
       - 8090:8090
     expose:
@@ -118,6 +120,7 @@ services:
       - eurekaserver
       - rabbitmq
       - mongo
+      - apigateway
     ports:
       - 8098:8098
     expose:
@@ -145,6 +148,7 @@ services:
     depends_on:
       - eurekaserver
       - mysql
+      - apigateway
     ports:
       - 8132:8132
     expose:
@@ -158,6 +162,7 @@ services:
     depends_on:
       - eurekaserver
       - mongo
+      - apigateway
     ports:
       - 8089:8089
     expose:
@@ -190,6 +195,7 @@ services:
       - rabbitmq
       - configserver
       - taggingservice
+      - apigateway
     ports:
       - 8086:8086
     expose:
@@ -213,6 +219,7 @@ services:
     depends_on:
      - eurekaserver
      - rabbitmq
+     - apigateway
     ports:
      - 8087:8087
     expose:
