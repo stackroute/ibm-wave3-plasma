@@ -4,7 +4,6 @@ import com.stackroute.plasma.domain.User;
 
 import com.stackroute.plasma.exceptions.UpdateException;
 import com.stackroute.plasma.exceptions.UserAlreadyExistException;
-import com.stackroute.plasma.service.RabbitMQSender;
 import com.stackroute.plasma.service.UserService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -39,7 +38,6 @@ public class UserController {
         ResponseEntity responseEntity;
         User user1=userService.saveUser(user);
         System.out.println("user value is"+ user1);
-//        rabbitMQSender.sender(user1);
         responseEntity=new ResponseEntity<String>( "Created", HttpStatus.CREATED);
         return responseEntity;
 
@@ -71,4 +69,3 @@ public class UserController {
 
     }
 }
-

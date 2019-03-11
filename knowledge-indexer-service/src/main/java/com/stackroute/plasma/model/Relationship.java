@@ -11,9 +11,4 @@ public class Relationship {
     @Property
     private float confidenceScore;
 
-   /* @StartNode
-    private Document description;
-    @EndNode
-    private Concept concept;*/
-
 }

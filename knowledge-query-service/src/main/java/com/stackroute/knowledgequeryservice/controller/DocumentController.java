@@ -26,13 +26,6 @@ public class DocumentController {
     @Autowired
     RabbitMQSender rabbitMQSender;
 
-    /*
-    @GetMapping("get")
-    public List<Document> getAll(){
-        return documentService.getAll();
-    }
-    */
-
     @GetMapping("get")
     public List<List<Document>> concept(){
         Tag tag = rabbitMQListener.getTag();

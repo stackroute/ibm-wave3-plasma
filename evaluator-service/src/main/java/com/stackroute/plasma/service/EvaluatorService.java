@@ -4,7 +4,6 @@ import com.stackroute.plasma.domain.Evaluator;
 import com.stackroute.plasma.domain.Url;
 import org.json.simple.parser.ParseException;
 
-import java.io.IOException;
 
 public interface EvaluatorService {
 
