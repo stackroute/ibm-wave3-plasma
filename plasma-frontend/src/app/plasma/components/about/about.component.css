@@ -1,0 +1,124 @@
+
+
+.home-hero-copy{
+    position: relative;
+    top:160px;
+    left: 390px;
+    height: 250px;
+    width: 700px;
+    font-size: 2.5vw;
+    text-align: center;
+    font-family: 'Crimson Text', serif;
+    color: #202124;
+}
+
+/* .color-hero1{ */
+    /* color: #4285f4;
+}
+.color-hero2{
+    color: #ea4335;
+}
+.color-hero3{
+    color: #34a853;
+}
+.color-hero4{
+    color:#f9ab00;
+} */
+.container1
+{
+display: flex;
+padding-left: 10px;
+margin-top:0px;
+ margin-bottom: 200px; 
+ margin-left: 90px;
+
+}
+
+.a1 {
+    max-width: 400px; 
+   position: relative;
+   top:150px;
+   padding-right:30px;
+   box-shadow: 1px 1px 8px #333333;
+   /*border-top-left-radius: 25px;*/
+   border-radius: 50px 50px 50px 50px;
+   margin-left: 15px;
+  
+  
+   /* background-image: url("../../../../assets/gra.jpg"); */
+ } 
+ 
+ mat-card-content a{
+    font-family: 'Crimson Text', serif;
+    font-size: 15px;
+ }
+
+img{
+    padding-top: 10px;
+    padding-left: 10px;
+    width:300px;
+    height: 250px;
+    border-radius: 50px 50px 50px 50px;
+    }
+    a{
+        margin-left: 10px;
+    }
+mat-card-content a{
+    color: black;
+   margin-left: 80px;
+   text-decoration: none;
+}
+li{
+    display: inline;
+    padding-bottom: 70px;
+    /* margin-left: -90px; */
+}
+h5{
+    padding-left: 90px;
+}
+.social{
+    margin-left: 600px;
+}
+@media (max-width: 800px){
+
+    .home-hero-copy{
+        width: 70%;
+        height: 30%;
+        padding-left: 0%;
+        position: relative;
+        left: 20%;
+
+    }
+    .container1 {
+     width: 50%;
+     height:50%;
+     display: flex;
+     flex-direction: column;
+    }
+    .a1{
+      width: 70%;
+      height: 50%;
+     
+      /* margin-left: 30%; */
+    }
+    img{
+        width: 90%;
+        height: 90%;
+        margin-left: 10%;
+    }
+    mat-card-content{
+        width: 40%;
+        height: 10%;
+        /* position: relative;
+        left:10%; */
+        padding-left: 0px;
+        
+    }
+    .social{
+        position: absolute;
+        top:140%;
+        margin-top: 0%;
+        margin-left: 15%;
+    }
+  
+  }

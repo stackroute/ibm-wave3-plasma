@@ -1,0 +1,11 @@
+﻿ {
+    "data": {"domain":"java",
+    "concepts":[ "abstract class","abstract factory", "abstraction", "activity diagram",
+       "acyclic dependency", "acyclic graph", "afferent coupling", "aggregate functions", 
+       "aggregation", "agile development", "ajax", "algorithm complexity", "amazon aws", 
+       "angular js", "annotations", "anonymous inner class", "app instances", "architecture patterns", 
+       "appletviewer", "array", "aspect oriented programming", "assert", "association", 
+       "attribute", "autoboxing", "bi-directional association", "big-o notation", "binary search", 
+       "binary search tree", "black box testing", "inheritance", "data encapsulation", "polymorphism"
+    ]}
+    }

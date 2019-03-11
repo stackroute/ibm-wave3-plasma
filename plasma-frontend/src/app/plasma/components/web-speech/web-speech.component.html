@@ -1,0 +1,45 @@
+<div class="Front">
+
+<section>
+    <figure >
+      <img src="./assets/pl1.png" />
+    </figure>
+   
+    <div class="center2">
+      <button class="mic" mat-fab (click)="startButton($event)">
+        <mat-icon *ngIf="!recognizing">mic</mat-icon>
+        <mat-icon *ngIf="recognizing">stop</mat-icon>
+      </button>
+    </div>
+   
+    <div class="search">
+   
+      <mat-form-field>
+        <input class="sea"
+          #searchText
+          matInput
+          value="{{ finalTranscript }}"
+          type="search"
+          placeholder="Search here"
+          aria-label="Search" width="500px"
+        />
+      </mat-form-field>
+    </div>
+    <div class="go">
+      <button
+        class="go1"
+        mat-mini-fab
+        (click)="onClickMe(searchText.value)"
+        routerLink="card"
+      >
+        GO
+      </button>
+    </div>
+   
+    <div class="center3">
+      <mat-card *ngIf="notification" class="notification">{{
+        notification
+      }}</mat-card>
+    </div>
+   </section>
+  </div>

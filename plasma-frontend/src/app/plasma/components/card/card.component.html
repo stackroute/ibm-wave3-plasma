@@ -1,0 +1,37 @@
+<!-- <app-header></app-header> -->
+<html lang="en">
+<div class="row" fxLayout.xs="column">
+  <div *ngFor= "let a of resp.descriptions">
+    <div *ngFor = "let b of a">
+    <div fxFlex="10%">
+      <div class="plasma">
+       
+          <mat-card-title>
+            <p>
+              <a href="{{ b.url }}">{{ b.title }}</a>
+            </p>
+          </mat-card-title>
+    
+        <mat-card-subtitle>
+          <p>{{ b.keywords }}</p>
+        </mat-card-subtitle>
+        <mat-card-subtitle class="description">
+          <p>{{ b.description }}</p>
+        </mat-card-subtitle>
+        <mat-card-subtitle class="keywords">
+          <p>{{ b.url }}</p>
+        </mat-card-subtitle>
+      </div>
+    </div>
+  </div>
+  </div>
+</div>
+</html>
+<!-- <h3>{{resp.userId}}</h3>
+<ul *ngFor= "let a of resp.descriptions">
+  <ul *ngFor = "let b of a">
+    <li>{{b.id}}</li>
+    <li>{{b.concept}}</li>
+    <li>{{b.description}}</li>
+  </ul>
+</ul> -->
