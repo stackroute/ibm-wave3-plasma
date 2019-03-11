@@ -203,20 +203,6 @@ services:
     expose:
       - 8086
 
-  searchrecommendationservice:
-    image: search-recommendation-service:latest
-    build: search-recommendation-service/
-    restart: always
-    network_mode: host
-    depends_on:
-      - eurekaserver
-      - rabbitmq
-      - configserver
-    ports:
-      - 8083:8083
-    expose:
-      - 8083
-
   plasmaFrontend:
     build: plasma-frontend/
     image: plasma-frontend:latest
