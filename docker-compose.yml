@@ -30,15 +30,7 @@ services:
       ports:
         - 9000:9000
       network_mode: host
-
-  redis:
-    container_name: redis
-    image: redis
-    ports:
-      - "6380:6380"
-    volumes:
-      - ./data/redis:/data
-
+      
   neo4j:
     image: neo4j
     ports:
