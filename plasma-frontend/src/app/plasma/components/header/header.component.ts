@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UserLoginService } from '../../services/user-login.service';
 
 @Component({
   selector: 'app-header',
@@ -7,13 +8,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
   route: any;
-
-  constructor() { }
+  userLogged: boolean;
+  flag: boolean;
+  constructor(private userLoginService: UserLoginService) { }
 
   ngOnInit() {
-  }
+
+    if (localStorage.getItem('token') !== null ) {
+      this.flag = true;
+     this.userLogged = false;
+    } else {
+      this.flag = false;
+     this.userLogged = true;
+       }
+    }
+    logout() {
+        this.userLoginService.logout();
+         this.flag = false;
+      }
   profile() {
-    this.route.navigate(['/', 'profile']);
+    this.userLoginService.profile();
+         this.flag = false;
   }
 
 }

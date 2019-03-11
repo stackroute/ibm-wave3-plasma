@@ -1,8 +1,6 @@
+<app-header></app-header> 
 <div class="login">
-   <!-- <app-header></app-header> -->
    <section class = "container">
-   
-   
    <mat-toolbar>
       <span>Login</span>
     </mat-toolbar>
@@ -17,27 +15,9 @@
                 <mat-label>Password</mat-label>
                 <input class="email" matInput  placeholder="Password" [(ngModel)] = "password" type = "password" name="password" required>
              </mat-form-field>
-   
-   
            </form>
        </mat-card-content>
-       <mat-card-actions>
-   
-   
-           <!-- <section class="one">  -->
            <button mat-raised-button  (click)="login($event)"  color="accent"  type="submit">Login</button>
-          <!-- </section> -->
-          <!-- <section class = "two"> -->
-         
-          <!-- </section>  -->
-   
-       </mat-card-actions>
        <p> New to Plasma<a class="signup" routerLink="/signup"> SIGN UP for free</a></p>
-   
       </section>
-   
-   
-   
-   
-   
      </div>

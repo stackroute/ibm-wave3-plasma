@@ -10,7 +10,7 @@
 	</parent>
 	<artifactId>search-recommendation-service</artifactId>
 	<name>search-recommendation-service</name>
-	<description>Recommend users knowledge searches based on user search histories.</description>
+	<description>Recommend users knowledge searches based on userAuth search histories.</description>
 
 	<properties>
 		<java.version>1.8</java.version>

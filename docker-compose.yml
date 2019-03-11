@@ -155,6 +155,7 @@ services:
     depends_on:
       - eurekaserver
       - mysql
+      - rabbitmq
     ports:
       - 8132:8132
     expose:
@@ -168,6 +169,7 @@ services:
     depends_on:
       - eurekaserver
       - mongo
+      - rabbitmq
     ports:
       - 8089:8089
     expose:

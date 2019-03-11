@@ -1,6 +1,6 @@
 package com.stackroute.plasma.services;
 
-import com.stackroute.plasma.model.User;
+import com.stackroute.plasma.model.UserAuth;
 import com.stackroute.plasma.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,7 +11,7 @@ public class UserServiceImpl implements UserService {
 
 
     private UserRepository userRepository;
-    public User user;
+    public UserAuth userAuth;
 
     @Autowired
     public UserServiceImpl(UserRepository userRepository) {
@@ -20,18 +20,18 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User saveUsers(User user) {
-        return userRepository.save(user);
+    public UserAuth saveUsers(UserAuth userAuth) {
+        return userRepository.save(userAuth);
     }
 
     @Override
-    public List<User> getAllUsers() {
-        return userRepository.findAll();
+    public UserAuth getUser(String userId) {
+        return userRepository.findById(userId).get();
     }
 
 
     @Override
-    public User findByUserIdAndPassword(String userId, String password) {
+    public UserAuth findByUserIdAndPassword(String userId, String password) {
 
         return userRepository.findByUserIdAndPassword(userId,password);
     }

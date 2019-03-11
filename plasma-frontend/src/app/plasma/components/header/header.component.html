@@ -1,24 +1,29 @@
-  <header>
+<header>
   <nav>
-<mat-toolbar>
+ <mat-toolbar>
     <mat-toolbar-row class="navbar-header">
           <a href="/">
               <img src="../assets/pic1.png" class="img-rounded" alt="plasma">
               </a>
        <span class="spacer"></span>
-       <!-- <a mat-button routerLink="/signup">Register</a> -->
-       <!-- <a mat-button routerLink="/login">Login</a> -->
-       <button mat-raised-button class="login" routerLink="/login">Login</button>
-        <!-- <a mat-button routerLink="/admin">Admin</a>  -->
-        <!-- <span>
-          <button mat-raised-button (click)="profile()"><mat-icon>account_circle</mat-icon></button>
-        </span> -->
-        <button mat-raised-button class="profile" routerLink="/profile">profile</button>
+       <div class="wrap"  *ngIf=userLogged>
+        <mat-card-actions>
+          <button mat-raised-button class="login" routerLink="/login">Login</button>
+        </mat-card-actions>
+    </div>
+    <div  *ngIf=flag >
+        <mat-card-actions>
+           <button class="wrap1" mat-raised-button color="" (click)='logout()'>Logout</button>
+                 </mat-card-actions>
+    </div>
+    <div  *ngIf=flag >
+      <mat-card-actions>
+         <button class="wrap2" mat-raised-button color="" (click)='profile()'>Profile</button>
+               </mat-card-actions>
+  </div>
+        <!-- <button mat-raised-button class="profile" routerLink="/profile">Profile</button> -->
       </mat-toolbar-row>
  </mat-toolbar>
-
+ 
  </nav>
  </header>
-
-
-

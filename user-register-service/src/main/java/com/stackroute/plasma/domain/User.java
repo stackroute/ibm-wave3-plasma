@@ -26,11 +26,18 @@ public class User {
     @JsonProperty("contact")
     private String contact;
 
-
-
-    @Id
     @JsonProperty("emailId")
+    @Id
     private String emailId;
-    @JsonProperty("setPassword")
-    private String setPassword;
+    @JsonProperty("password")
+    private String password;
+    public String getEmailId() {
+        return emailId;
+    }
+
+    public void setEmailId(String emailId) {
+        this.emailId = emailId;
+    }
+
+
    }

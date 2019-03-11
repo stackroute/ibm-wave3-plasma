@@ -1,6 +1,6 @@
 //package com.stackroute.plasma.Service;
 //
-//import com.stackroute.plasma.model.User;
+//import com.stackroute.plasma.model.UserAuth;
 //import com.stackroute.plasma.repository.UserRepository;
 //import com.stackroute.plasma.services.UserServiceImpl;
 //import org.junit.Assert;
@@ -20,44 +20,44 @@
 //public class UserServiceTest {
 //
 //
-//    User user;
+//    UserAuth userAuth;
 //
 //    @Mock
 //    UserRepository userRepository;
 //
 //    @InjectMocks
 //    UserServiceImpl userService;
-//    List<User> list = null;
+//    List<UserAuth> list = null;
 //
 //    @Before
 //    public void setUp() {
 //        MockitoAnnotations.initMocks(this);
-//        user = new User();
-//        user.setUserId("abcd");
-//        user.setPassword("abcd");
+//        userAuth = new UserAuth();
+//        userAuth.setUserId("abcd");
+//        userAuth.setPassword("abcd");
 //        list = new ArrayList<>();
-//        list.add(user);
+//        list.add(userAuth);
 //    }
 //
 //
 //    @Test
 //    public void saveUserTest() throws Exception {
-//        when(userRepository.save((User) any())).thenReturn(user);
-//        User savedUser = userService.saveUsers(user);
-//        Assert.assertEquals(user, savedUser);
+//        when(userRepository.save((UserAuth) any())).thenReturn(userAuth);
+//        UserAuth savedUser = userService.saveUsers(userAuth);
+//        Assert.assertEquals(userAuth, savedUser);
 //    }
 //    @Test
 //    public void getAllUsersTest() {
-//        userRepository.save(user);
+//        userRepository.save(userAuth);
 //        when(userRepository.findAll()).thenReturn(list);
-//        List<User> userList = userService.getAllUsers();
+//        List<UserAuth> userList = userService.getAllUsers();
 //        Assert.assertEquals(list, userList);
 //    }
 //
 //    @Test
 //    public void getAllUsersFailure(){
 //
-//        User user1 = new User();
+//        UserAuth user1 = new UserAuth();
 //        user1.setUserId("adcb");
 //        user1.setPassword("123");
 //        list = new ArrayList<>();
@@ -65,28 +65,28 @@
 //        userRepository.save(user1);
 //        //stubbing the mock to return specific data
 //        when(userRepository.findAll()).thenReturn(list);
-//        List<User> userlist = userService.getAllUsers();
+//        List<UserAuth> userlist = userService.getAllUsers();
 //        Assert.assertEquals(list,userlist);
 //    }
 //
 //    @Test
 //    public void saveUserTestSuccess() throws Exception {
 //
-//        when(userRepository.save((User)any())).thenReturn(user);
-//        User savedUser = userService.saveUsers(user);
-//        Assert.assertEquals(user,savedUser);
+//        when(userRepository.save((UserAuth)any())).thenReturn(userAuth);
+//        UserAuth savedUser = userService.saveUsers(userAuth);
+//        Assert.assertEquals(userAuth,savedUser);
 //
 //        //verify here verifies that userRepository save method is only called once
-//        //verify(userRepository,times(1)).save(user);
+//        //verify(userRepository,times(1)).save(userAuth);
 //
 //    }
 //
 //    @Test
 //    public void saveUserTestfailure() throws Exception {
 //
-//        when(userRepository.save((User) any())).thenReturn(null);
-//        User savedUser = userService.saveUsers(user);
+//        when(userRepository.save((UserAuth) any())).thenReturn(null);
+//        UserAuth savedUser = userService.saveUsers(userAuth);
 //        System.out.println("savedUser:" + savedUser);
-//        Assert.assertNotEquals(user, savedUser);
+//        Assert.assertNotEquals(userAuth, savedUser);
 //    }
 //}

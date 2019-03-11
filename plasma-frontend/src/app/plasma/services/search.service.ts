@@ -27,7 +27,7 @@ data(finalTranscript: String) {
 
 }
 profile(userId: String) {
-  this.url = 'http://localhost:8132/api/user/' + userId;
+  this.url = 'http://localhost:8132/api/userAuth/' + userId;
   return this.http.get(this.url);
  }
 

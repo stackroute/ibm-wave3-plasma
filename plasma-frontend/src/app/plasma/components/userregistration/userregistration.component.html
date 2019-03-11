@@ -48,7 +48,7 @@
               showHideTrigger="mysecretpassword"></i>
            </mat-form-field>   -->
            <mat-form-field class="full-width" appearance = "outline">
-            <input matInput placeholder="Enter your password" [type]="hide ? 'password' : 'text'"   pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" [(ngModel)]="setPassword" [ngModelOptions]="{standalone: true}">
+            <input matInput placeholder="Enter your password" [type]="hide ? 'password' : 'text'"   pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" [(ngModel)]="password" [ngModelOptions]="{standalone: true}">
             <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
           </mat-form-field> 
     </form>

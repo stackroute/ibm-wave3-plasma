@@ -4,6 +4,6 @@ export class Userregister {
         gender: string;
         contact: Number;
         emailId: string;
-        setPassword: string;
+        password: string;
 
 }
