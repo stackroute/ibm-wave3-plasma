@@ -1,6 +1,7 @@
 package com.stackroute.plasma.services;
 
 import com.stackroute.plasma.model.UserAuth;
+import java.util.List;
 
 public interface UserService {
 

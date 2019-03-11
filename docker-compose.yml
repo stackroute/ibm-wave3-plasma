@@ -149,6 +149,7 @@ services:
       - eurekaserver
       - mysql
       - apigateway
+      - rabbitmq
     ports:
       - 8132:8132
     expose:
@@ -163,6 +164,7 @@ services:
       - eurekaserver
       - mongo
       - apigateway
+      - rabbitmq
     ports:
       - 8089:8089
     expose:

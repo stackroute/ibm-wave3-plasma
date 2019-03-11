@@ -4,6 +4,7 @@ import com.stackroute.plasma.domain.User;
 
 import com.stackroute.plasma.exceptions.UpdateException;
 import com.stackroute.plasma.exceptions.UserAlreadyExistException;
+import com.stackroute.plasma.service.RabbitMQSender;
 import com.stackroute.plasma.service.UserService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;

@@ -28,6 +28,7 @@ public class User {
     private String emailId;
     @JsonProperty("password")
     private String password;
+
     public String getEmailId() {
         return emailId;
     }
