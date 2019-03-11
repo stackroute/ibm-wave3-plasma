@@ -335,7 +335,7 @@ public class TagServiceImpl implements TagService {
 
 
         System.out.println("sending message to RabbitMQ toString: " + tagOutput);
-        rabbitMQSender.sender(tagOutput);
+        //rabbitMQSender.sender(tagOutput);
         return tagOutput;
     }
 }
