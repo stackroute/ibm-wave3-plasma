@@ -2,7 +2,6 @@ package com.stackroute.plasma.service;
 
 import com.stackroute.plasma.model.UserQuery;
 import org.springframework.stereotype.Service;
-
 import java.util.HashSet;
 import java.util.List;
 

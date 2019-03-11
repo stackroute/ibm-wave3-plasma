@@ -61,7 +61,6 @@ public class SearchController {
             apiService.save(searchStorage);
             searchOutput[k].setUrls(singleConceptResult);
             rabbitMQSender.sender(searchOutput[k]);
-
             k = k+1;
 
         }

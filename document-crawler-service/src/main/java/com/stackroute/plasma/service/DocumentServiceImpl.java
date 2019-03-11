@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.stackroute.plasma.domain.SearchOutput;
 import com.stackroute.plasma.domain.Url;
+import org.jsoup.HttpStatusException;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.slf4j.Logger;
@@ -63,15 +64,19 @@ public DocumentServiceImpl() {
 
 
         logger.info("check inside document url----------------"+ searchOutputt.getUrls()+searchOutputt.getConcept());
-
         list = new ArrayList<>();
 
         for (String urlx : searchOutputt.getUrls()) {
 
             url = new Url();
 
-            Document doc = Jsoup.connect(urlx).get();
-
+            Document doc;
+            try {
+                doc = Jsoup.connect(urlx).get();
+            }catch(HttpStatusException e){
+                System.out.println("url can't be fetched");
+                continue;
+            }
             url.setConcept(searchOutputt.getConcept());
             url.setDomain(searchOutputt.getDomain());
             url.setUrl(urlx);

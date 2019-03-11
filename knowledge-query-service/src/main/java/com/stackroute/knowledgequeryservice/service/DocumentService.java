@@ -1,7 +1,6 @@
 package com.stackroute.knowledgequeryservice.service;
 
 import com.stackroute.knowledgequeryservice.model.Document;
-
 import java.util.List;
 
 public interface DocumentService {

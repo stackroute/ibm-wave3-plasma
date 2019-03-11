@@ -1,9 +1,6 @@
-package com.stackroute.plasma.domain;
+package com.stackroute.plasma.model;
 
-
-import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
-
 import java.sql.Timestamp;
 
 
@@ -14,23 +11,23 @@ import java.sql.Timestamp;
 @AllArgsConstructor
 public class Evaluator {
 
-    @JsonProperty("timestamp")
+    //@JsonProperty("timestamp")
     private Timestamp timestamp;
-    @JsonProperty("domain")
+    //@JsonProperty("domain")
     private String domain;
-    @JsonProperty("concept")
+    //@JsonProperty("concept")
     private String concept;
-    @JsonProperty("title")
+    //@JsonProperty("title")
     private String title;
-    @JsonProperty("description")
+    //@JsonProperty("description")
     private String description;
-    @JsonProperty("keywords")
+    //@JsonProperty("keywords")
     private String keywords;
-    @JsonProperty("url")
+    //@JsonProperty("url")
     private String url;
-    @JsonProperty("level")
+    //@JsonProperty("level")
     private String level;
-    @JsonProperty("confidenceScore")
+    //@JsonProperty("confidenceScore")
     private float confidenceScore;
 
 
