@@ -1,9 +1,7 @@
 package com.stackroute.knowledgequeryservice.model;
 
 import lombok.Data;
-
 import java.util.List;
-
 
 @Data
 public class Documents {

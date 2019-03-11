@@ -21,8 +21,7 @@ export class HeaderComponent implements OnInit {
     } else {   this.flag = false;
      this.userLogged = true;
        }
-    }
-    logout() {
+    } logout() {
         this.userLoginService.logout();
          this.flag = false;
          this.userLogged = true;

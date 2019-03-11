@@ -1,26 +1,23 @@
-// import { UserLogin } from './../tsclasses/user-login';
+import { UserLogin } from './../tsclasses/user-login';
 
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { Router } from '@angular/router';
-import { UserLogin } from './../tsclasses/user-login';
 
 @Injectable()
   export class UserLoginService {
     response: any;
-  
-  private loginUrl = 'http://localhost:8092/user-login-service';
-  //private loginUrl = 'http://localhost:8132/api/user';
+  private loginUrl = 'http://localhost:8132/api/user';
   private errorStatus: string;
   private errorBody: string;
   constructor(private http: HttpClient, private router: Router) { }
-  login(userAuth: UserLogin) {
+  login(user: UserLogin) {
 
 
     return this.http
-    .post(this.loginUrl + '', userAuth, {observe: 'response'})
+    .post(this.loginUrl + '', user, {observe: 'response'})
     .pipe(catchError(this.handleError));
     }
     logout() {
@@ -28,6 +25,7 @@ import { UserLogin } from './../tsclasses/user-login';
       localStorage.removeItem('token');
       this.router.navigate([`/web-speech`]);  // after logging out ,it should redirect to homepage
     }
+
   setCookie(cname: string, cvalue: string, exdays: number) {
   const date = new Date();
     date.setTime(date.getTime() + (exdays * 24 * 60 * 60 * 1000));

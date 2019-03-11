@@ -17,8 +17,7 @@ export class UserregistrationService {
 constructor(private http: HttpClient ) {
 }
  addregister(reg: Userregister) {
-  this.url = 'http://localhost:8082/user-register-service';
-  //this.url = 'http://localhost:8089/api/v1/user';
+   this.url = 'http://localhost:8089/api/v1/user';
   this.http.get(this.url).subscribe(resp => {
 
   this.response = resp;
