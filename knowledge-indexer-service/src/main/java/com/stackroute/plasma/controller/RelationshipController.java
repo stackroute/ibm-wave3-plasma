@@ -1,3 +1,4 @@
+/*
 package com.stackroute.plasma.controller;
 
 import com.stackroute.plasma.model.Evaluator;
@@ -25,17 +26,22 @@ public class RelationshipController {
     @GetMapping("/get")
     public void create(){
         Evaluator evaluator=rabbitMQListener.getEvaluator();
-        /*Relationship relationship=new Relationship();
+        */
+/*Relationship relationship=new Relationship();
         relationship.setConfidenceScore(evaluator.getConfidenceScore());
-        relationship.setLevel(evaluator.getLevel());*/
-        relationshipService.create(evaluator.getConcept(),evaluator.getConfidenceScore(),evaluator.getLevel());
+        relationship.setLevel(evaluator.getLevel());*//*
+
+        relationshipService.create(evaluator.getConcept(),evaluator.getConfidenceScore(),evaluator.getLevel(),evaluator.getUrl(),evaluator.getTimestamp().toString());
     }
 
-    /*
+    */
+/*
     @DeleteMapping("/delete")
     public Relationship delete(){
         return relationshipService.delete("Erlang");
     }
-    */
+    *//*
+
 
 }
+*/

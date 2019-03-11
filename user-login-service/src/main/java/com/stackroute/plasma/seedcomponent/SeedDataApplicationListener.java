@@ -1,16 +1,11 @@
 package com.stackroute.plasma.seedcomponent;
-
-import com.stackroute.plasma.exception.UserIdAndPasswordMismatchException;
-import com.stackroute.plasma.exception.UserNameOrPasswordEmptyException;
-import com.stackroute.plasma.model.User;
+import com.stackroute.plasma.model.UserAuth;
 import com.stackroute.plasma.repository.UserRepository;
-import com.stackroute.plasma.services.UserService;
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.annotation.Primary;
 import org.springframework.context.event.ContextRefreshedEvent;
-import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -28,42 +23,8 @@ public class SeedDataApplicationListener implements ApplicationListener<ContextR
     @Override
     public void onApplicationEvent(ContextRefreshedEvent contextRefreshedEvent) {
 
-        userRepository.save(new User("leela", "Alla","user"));
-        userRepository.save(new User("Sai", "kodi","user"));
+        userRepository.save(new UserAuth("admin", "123","admin"));
+        userRepository.save(new UserAuth("Sai", "kodi","user"));
     }
 }
 
-
-
-//public class SeedDataAppListener implements ApplicationListener<ContextRefreshedEvent> {
-//    @Autowired
-//    Environment env;
-//    @Autowired
-//    UserService userServices;
-//    User feedUserData = new User();
-//    @Override
-//    public void onApplicationEvent(ContextRefreshedEvent event) {
-//        feedUserData.setUserId(Integer.parseInt(env.getProperty("user.1.userid")));
-//        feedUserData.setPassword(env.getProperty("user.1.password"));
-//        try {
-//            userServices.saveUsers(feedUserData);
-//        } catch (UserNameOrPasswordEmptyException e) {
-//            e.printStackTrace();
-//        }
-//        feedUserData.setUserId(Integer.parseInt(env.getProperty("user.2.userid")));
-//        feedUserData.setPassword(env.getProperty("user.2.password"));
-//        try {
-//            userServices.saveUsers(feedUserData);
-//        } catch (UserNameOrPasswordEmptyException e) {
-//            e.printStackTrace();
-//        }
-//        feedUserData.setUserId(Integer.parseInt(env.getProperty("user.3.userid")));
-//        feedUserData.setPassword(env.getProperty("user.3.password"));
-//
-//
-//        try {
-//            userServices.saveUsers(feedUserData);
-//        } catch (UserNameOrPasswordEmptyException e) {
-//            e.printStackTrace();
-//        }    }
-//}

@@ -16,7 +16,10 @@ import { UserLoginService } from './services/user-login.service';
 import { PlasmaMaterialModule } from './plasma.material.modules';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-
+import { ProfileComponent } from './components/profile/profile.component';
+import { EditProfileComponent } from './components/edit-profile/edit-profile.component';
+import { AboutComponent } from './components/about/about.component';
+// import { Ng2CarouselamosModule } from 'ng2-carouselamos';
 
 @NgModule({
   declarations: [
@@ -26,6 +29,9 @@ import { NgModule } from '@angular/core';
     FooterComponent,
     CardComponent,
     UserLoginComponent,
+    ProfileComponent,
+    EditProfileComponent,
+    AboutComponent
     ],
   imports: [
    BrowserModule,
@@ -36,9 +42,9 @@ import { NgModule } from '@angular/core';
    CommonModule,
    PlasmaMaterialModule,
    WebSpeechModule,
-   ReactiveFormsModule
-
-  ],
+   ReactiveFormsModule,
+  //  Ng2CarouselamosModule
+],
   providers: [UserLoginService],
   exports: [
     HeaderComponent,
@@ -46,7 +52,10 @@ import { NgModule } from '@angular/core';
     UserLoginComponent,
     CardComponent,
     FooterComponent,
-    UserregistrationComponent
+    UserregistrationComponent,
+    ProfileComponent,
+    EditProfileComponent,
+    AboutComponent
   ]
 })
 export class PlasmaModule { }

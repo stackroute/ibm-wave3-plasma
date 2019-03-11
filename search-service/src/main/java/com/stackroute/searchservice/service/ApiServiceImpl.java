@@ -11,11 +11,11 @@ import java.io.InputStreamReader;
 import java.io.StringReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.util.ArrayList;
 
 
 @Service
 public class ApiServiceImpl implements ApiService {
+
     final static String apiKey = "AIzaSyB-93tpPyxrK76l6iw-mFnsvDiUJCLpFw8";
     final static String customSearchEngineKey = "006477474756235376421:nz2modhy5qa";
     public String newResult ;
@@ -78,7 +78,7 @@ public class ApiServiceImpl implements ApiService {
                             if (value == JsonParser.Event.VALUE_STRING){
                                 System.out.println("inside json");
                                 link[i++] = parser.getString();
-
+                                System.out.println(link[i++]);
                             }
                         }
 

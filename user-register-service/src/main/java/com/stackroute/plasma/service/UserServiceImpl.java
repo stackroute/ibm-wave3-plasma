@@ -1,7 +1,5 @@
 package com.stackroute.plasma.service;
 
-
-
 import com.stackroute.plasma.domain.User;
 import com.stackroute.plasma.exceptions.UpdateException;
 import com.stackroute.plasma.exceptions.UserAlreadyExistException;
@@ -20,6 +18,9 @@ public class UserServiceImpl implements UserService {
         this.userRepository = userRepository;
     }
 
+    @Autowired
+    RabbitMQSender rabbitMQSender;
+
     @Override
     public User saveUser(User user) throws UserAlreadyExistException {
 
@@ -27,7 +28,13 @@ public class UserServiceImpl implements UserService {
         if (userRepository.existsById(user.getEmailId())) {
             throw new UserAlreadyExistException("user already exists");
         }
-         User savedUser = userRepository.save(user);
+
+        User savedUser = userRepository.save(user);
+        System.out.println("saved user++++++++++++++++"+savedUser);
+       rabbitMQSender.sender(savedUser);
+        System.out.println("after rabbit mq===========");
+
+//         User saveUser = userRepository.save(user);
 
         if (savedUser == null) {
             throw new UserAlreadyExistException("User already exists");
@@ -54,7 +61,6 @@ public class UserServiceImpl implements UserService {
 
 
     }
-    //just writing
 
     @Override
     public List<User> getUpdateUser() throws UpdateException {

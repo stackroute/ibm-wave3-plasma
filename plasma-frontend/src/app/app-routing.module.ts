@@ -1,3 +1,4 @@
+import { AboutComponent } from './plasma/components/about/about.component';
 import { CardComponent } from './plasma/components/card/card.component';
 import { UserLoginComponent } from './plasma/components/user-login/user-login.component';
 import { HeaderComponent } from './plasma/components/header/header.component';
@@ -6,6 +7,8 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { DomainExpertComponent } from './plasma/components/domain-expert/domain-expert.component';
 import { UserregistrationComponent } from './plasma/components/userregistration/userregistration.component';
+import { ProfileComponent } from './plasma/components/profile/profile.component';
+import { EditProfileComponent } from './plasma/components/edit-profile/edit-profile.component';
 
 const routes: Routes = [
   {
@@ -36,9 +39,19 @@ const routes: Routes = [
   {
     path: 'card',
     component: CardComponent
+  },
+  {
+    path: 'profile',
+    component: ProfileComponent
+  },
+  {
+    path: 'edit-profile',
+    component: EditProfileComponent
+  },
+  {
+  path: 'about',
+  component: AboutComponent
   }
-
-
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

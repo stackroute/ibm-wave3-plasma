@@ -5,7 +5,9 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class SearchService {
   console: any;
-  private nlpserviceurl: String = 'http://13.234.94.77:8098/api/v1/query';
+  private nlpserviceurl: String = 'http://13.234.94.77:8092/nlp-service';
+  //private nlpserviceurl: String = 'http://13.234.94.77:8098/api/v1/query';
+  url: string;
 
 constructor(private http: HttpClient) {
 
@@ -25,5 +27,9 @@ data(finalTranscript: String) {
   .post(`${this.nlpserviceurl}`, finalTranscript);
 
 }
+// profile(userId: String) {
+//   this.url = 'http://localhost:8132/api/user/' + userId;
+//   return this.http.get(this.url);
+//  }
 
 }

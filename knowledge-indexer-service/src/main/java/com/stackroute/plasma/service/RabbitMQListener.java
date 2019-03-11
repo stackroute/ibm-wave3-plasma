@@ -1,18 +1,16 @@
 package com.stackroute.plasma.service;
 
-import com.stackroute.plasma.model.Description;
+import com.stackroute.plasma.model.Document;
 import com.stackroute.plasma.model.Evaluator;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.io.IOException;
-
 @Service
 public class RabbitMQListener {
 
     @Autowired
-    DescriptionService descriptionService;
+    DocumentService documentService;
 
     @Autowired
     RelationshipService relationshipService;
@@ -35,7 +33,7 @@ public class RabbitMQListener {
 
 
         /*creates description node*/
-        Description description = new Description();
+        Document description = new Document();
         description.setTimestamp(evaluator.getTimestamp().toString());
         description.setDomain(evaluator.getDomain());
         description.setConcept(evaluator.getConcept());
@@ -43,10 +41,10 @@ public class RabbitMQListener {
         description.setDescription(evaluator.getDescription());
         description.setKeywords(evaluator.getKeywords());
         description.setTitle(evaluator.getTitle());
-        descriptionService.create(description);
+        documentService.create(description);
 
         /*creates the relationship*/
-        relationshipService.create(evaluator.getConcept(),evaluator.getConfidenceScore(),evaluator.getLevel());
+        relationshipService.create(description.getConcept(),evaluator.getConfidenceScore(),evaluator.getLevel(),description.getUrl(),description.getTimestamp());
     }
 
     public Evaluator getEvaluator() {

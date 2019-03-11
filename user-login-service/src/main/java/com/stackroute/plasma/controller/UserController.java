@@ -1,7 +1,7 @@
 package com.stackroute.plasma.controller;
 
 
-import com.stackroute.plasma.model.User;
+import com.stackroute.plasma.model.UserAuth;
 import com.stackroute.plasma.exception.UserIdAndPasswordMismatchException;
 import com.stackroute.plasma.exception.UserNameOrPasswordEmptyException;
 import com.stackroute.plasma.exception.UserNotFoundException;
@@ -22,7 +22,7 @@ import java.util.Map;
 
 @CrossOrigin(value = "*")
 @RestController
-@RequestMapping("api/")
+@RequestMapping("api/v1/")
 public class UserController {
 
     @Autowired
@@ -33,8 +33,8 @@ public class UserController {
         this.userService = userService;
     }
 
-    @PostMapping("user")
-    public ResponseEntity<?> login(@RequestBody User loginDetails) {
+    @PostMapping("userAuth")
+    public ResponseEntity<?> login(@RequestBody UserAuth loginDetails) {
         try {
 
             String userId = loginDetails.getUserId();
@@ -43,38 +43,38 @@ public class UserController {
 
             if (userId == null || password == null) {
                 System.out.println("in  method1");
-                throw new UserNameOrPasswordEmptyException("Userid and Password cannot be empty");
+                throw new UserNameOrPasswordEmptyException("UserId or Password cannot be empty");
             }
 
-            User user  = userService.findByUserIdAndPassword(userId, password);
-            System.out.println(user);
-           if (user == null) {
+            UserAuth userAuth = userService.findByUserIdAndPassword(userId, password);
+            System.out.println(userAuth);
+           if (userAuth == null) {
                System.out.println("in  method2");
-               throw new UserNotFoundException("User with given Id does not exists");
+               throw new UserNotFoundException("UserAuth with given Id does not exists");
            }
 
-            String fetchedPassword = user.getPassword();
+            String fetchedPassword = userAuth.getPassword();
             if (!password.equals(fetchedPassword)) {
                 System.out.println("in  method3");
                 throw new UserIdAndPasswordMismatchException("Invalid login credential, Please check username and password ");
             }
 
             // generating token
-            SecurityTokenGenerator securityTokenGenerator = (User userDetails) -> {
+            SecurityTokenGenerator securityTokenGenerator = (UserAuth userDetails) -> {
 
                 String jwtToken = "";
-                jwtToken = Jwts.builder().setId(user.getUserId()).setSubject(user.getRole()).setIssuedAt(new Date())
+                jwtToken = Jwts.builder().setId(userAuth.getUserId()).setSubject(userAuth.getRole()).setIssuedAt(new Date())
                         .signWith(SignatureAlgorithm.HS256, "secretkey").compact();
 
                 Map<String, String> map1 = new HashMap<>();
                 map1.put("token", jwtToken);
-                map1.put("message", "User successfully logged in");
+                map1.put("message", "UserAuth successfully logged in");
                 System.out.println("token value"+jwtToken);
                 System.out.println("in  method4");
                 return map1;
             };
 
-            Map<String, String> map = securityTokenGenerator.generateToken(user);
+            Map<String, String> map = securityTokenGenerator.generateToken(userAuth);
 
             return new ResponseEntity<>(map, HttpStatus.OK);
 
@@ -85,18 +85,18 @@ public class UserController {
     }
 
 
-    @GetMapping("user")
-    public ResponseEntity<?> getAllUsers()
+    @GetMapping("user/{id}")
+    public ResponseEntity<?> getAllUsers(@PathVariable("id") String userId)
     {
-        return new ResponseEntity<List<User>>(userService.getAllUsers(), HttpStatus.OK);
+        return new ResponseEntity<UserAuth>(userService.getUser(userId), HttpStatus.OK);
     }
 
-    @ApiOperation(value="Accept user into repository")
+    @ApiOperation(value="Accept userAuth into repository")
     @PostMapping("users")
-    public ResponseEntity<?> saveUser(@RequestBody User user) throws UserNotFoundException
+    public ResponseEntity<?> saveUser(@RequestBody UserAuth userAuth) throws UserNotFoundException
     {
-        userService.saveUsers(user);
-        responseEntity = new ResponseEntity<User>(user, HttpStatus.OK);
+        userService.saveUsers(userAuth);
+        responseEntity = new ResponseEntity<UserAuth>(userAuth, HttpStatus.OK);
 
         return responseEntity;
     }

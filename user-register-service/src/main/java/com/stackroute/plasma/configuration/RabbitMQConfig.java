@@ -9,7 +9,6 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-
 @Configuration
 public class RabbitMQConfig {
 
@@ -17,14 +16,14 @@ public class RabbitMQConfig {
     @Value("${javainuse3.rabbitmq.queue}")
     String queueName;
 
-    @Value("${javainuse3.rabbitmq.exchange}")
+    @Value("${javainuse.rabbitmq.exchange}")
     String exchange;
 
     @Value("${javainuse3.rabbitmq.routingkey}")
-    private String routingkey2;
+    private String routingkey3;
 
     @Bean
-    org.springframework.amqp.core.Queue queue() {
+    Queue queue() {
         return new Queue(queueName, true);
     }
 
@@ -33,10 +32,9 @@ public class RabbitMQConfig {
         return new DirectExchange(exchange);
     }
 
-
     @Bean
     Binding binding(Queue queue, DirectExchange exchange) {
-        return BindingBuilder.bind(queue).to(exchange).with(routingkey2);
+        return BindingBuilder.bind(queue).to(exchange).with(routingkey3);
     }
 
     @Bean

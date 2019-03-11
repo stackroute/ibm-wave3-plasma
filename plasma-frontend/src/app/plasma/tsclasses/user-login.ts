@@ -3,4 +3,5 @@ export class UserLogin {
     password: string;
     token: string;
     role: string;
+  jti: any;
 }

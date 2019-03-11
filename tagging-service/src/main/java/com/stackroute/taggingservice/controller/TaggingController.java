@@ -16,18 +16,19 @@ public class TaggingController {
     TagService tagService;
 
 //    @Autowired
-//    RabbitMQListener rabbitMQListener;
+    RabbitMQListener rabbitMQListener;
    // @Autowired
-    TagInput tagInput = new TagInput();
-    @PostMapping("/tag")
-    public ResponseEntity<?> tagger(@RequestBody TagInput tagInput) {
-        //temp = tagService.tagger(nlpOutput);
-        System.out.println("check");
-        System.out.println(tagInput.getTokenizedQuery().toString());
-        return new ResponseEntity<>(tagService.tagger(tagInput.getTokenizedQuery().toString()), HttpStatus.CREATED);
-        //return new ResponseEntity<>(temp.stream().map(String::toString).collect(Collectors.toList()), HttpStatus.CREATED);
-
-    }
+   // TagInput tagInput = new TagInput();
+//    @PostMapping("/tag")
+//    public ResponseEntity<?> tagger(@RequestBody TagInput tagInput) {
+//        //temp = tagService.tagger(nlpOutput);
+//        System.out.println("check");
+//        System.out.println(tagInput.getTokenizedQuery().toString());
+//        return new ResponseEntity<>(tagService.tagger(tagInput.getTokenizedQuery().toString()), HttpStatus.CREATED);
+//        //return new ResponseEntity<>(temp.stream().map(String::toString).collect(Collectors.toList()), HttpStatus.CREATED);
+//
+//
+//    }
 
   //@GetMapping("/tag")
 //
@@ -42,4 +43,14 @@ public class TaggingController {
 //        //tagService.tagger("how is java executed");
 //       //return null;
 //    }
+
+
+  @GetMapping("/tag")
+
+    public ResponseEntity<?> tagger() {
+        System.out.println("controller listener check:  "+rabbitMQListener.getTagInput());
+        System.out.println("controller sender check:   "+tagService.tagger(rabbitMQListener.getTagInput().getTokenized_lematized().toString()));
+        return new ResponseEntity<>(tagService.tagger(rabbitMQListener.getTagInput().getTokenized_lematized().toString()),HttpStatus.OK);
+
+    }
 }
