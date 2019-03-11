@@ -24,7 +24,7 @@ public class SwaggerConfig {
                 .apis(RequestHandlerSelectors.basePackage("com.stackroute"))
                 .paths(regex("/api/v1.*"))
                 .build()
-                .apiInfo(metaInfo());   //custom configuration
+                .apiInfo(metaInfo());
     }
 
     private ApiInfo metaInfo() {
