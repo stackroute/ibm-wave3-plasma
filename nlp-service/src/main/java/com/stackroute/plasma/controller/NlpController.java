@@ -1,6 +1,7 @@
 package com.stackroute.plasma.controller;
 
 
+import com.stackroute.plasma.model.InputQuery;
 import com.stackroute.plasma.model.NlpModel;
 import com.stackroute.plasma.model.UserQuery;
 import com.stackroute.plasma.service.NlpService;
@@ -31,19 +32,44 @@ public class NlpController {
     UserQuery userQuery ;
     int i=0;
 @PostMapping("/query")
-public ResponseEntity<?> extractedQuery(@RequestBody final String query) {
+public ResponseEntity<?> extractedQuery(@RequestBody InputQuery inputQuery) {
     temp = new ArrayList<>();
     userQuery = new UserQuery();
-    userQuery.setUser_id(i++);
-    userQuery.setUser_query(query);
+    userQuery.setUser_id(inputQuery.getUser_id());
+    userQuery.setUser_query(inputQuery.getUser_query());
+    userQuery.setJwt(inputQuery.getJwt());
+    userQuery.setRole(inputQuery.getRole());
     logger.info(userQuery.getUser_query());
 
     nlpService.save(userQuery);
-    temp = nlpService.queryConverter(query);
+    temp = nlpService.queryConverter(inputQuery.getUser_query());
     nlpModel.setTokenized_lematized(temp);
-   logger.info("controller output" + temp);
+    nlpModel.setUserId(inputQuery.getUser_id());
+    nlpModel.setJwt(inputQuery.getJwt());
+    nlpModel.setRole(inputQuery.getRole());
+    logger.info("controller output" + temp);
     rabbitMQSender.sender(nlpModel);
     return new ResponseEntity<>(temp.stream().map(String::toString).collect(Collectors.toList()), HttpStatus.CREATED);
 
   }
+
+
+//    @GetMapping("/query")
+//    public ResponseEntity<?> extractedQuery() {
+//        InputQuery inputQuery = new InputQuery();
+//        temp = new ArrayList<>();
+//        userQuery = new UserQuery();
+//        userQuery.setUser_id(inputQuery.getUser_id());
+//        userQuery.setUser_query(inputQuery.getUser_query());
+//        userQuery.setJwt(inputQuery.getJwt());
+//        userQuery.setRole(inputQuery.getRole());
+//        logger.info(userQuery.getUser_query());
+//
+//        nlpService.save(userQuery);
+//        temp = nlpService.queryConverter(inputQuery.getUser_query());
+//        nlpModel.setTokenized_lematized(temp);
+//        logger.info("controller output" + temp);
+//        //rabbitMQSender.sender(nlpModel);
+//        return new ResponseEntity<>(temp.stream().map(String::toString).collect(Collectors.toList()), HttpStatus.CREATED);
+//    }
 }

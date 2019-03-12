@@ -93,11 +93,7 @@ public class NlpServiceImpl implements NlpService{
                 extractedString.add(lemma);
             }
         }
-        NlpModel nlpModel = new NlpModel(extractedString);
 
-
-        rabbitMQSender.sender(nlpModel);
-        logger.info("service output"+nlpModel);
 
         return extractedString;
     }
