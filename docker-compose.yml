@@ -226,17 +226,17 @@ services:
      - 8087:8087
     expose:
      - 8070
-
-  notificationservice:
-    image: notification-service:latest
-    build: notification-service/
-    restart: always
-    network_mode: host
-    depends_on:
-       - eurekaserver
-       - rabbitmq
-       - knowledgequeryservice
-    ports:
-       - 8095:8095
-    expose:
-       - 8095
+#
+#  notificationservice:
+#    image: notification-service:latest
+#    build: notification-service/
+#    restart: always
+#    network_mode: host
+#    depends_on:
+#       - eurekaserver
+#       - rabbitmq
+#       - knowledgequeryservice
+#    ports:
+#       - 8095:8095
+#    expose:
+#       - 8095
