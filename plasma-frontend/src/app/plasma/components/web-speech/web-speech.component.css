@@ -5,7 +5,7 @@
   }
 
   .Front{
-    background-image: url("../../../../assets/ed1.png");
+    background-image: url("../../../../assets/l2.png");
     height: 700px;
   width:100%;
   opacity: 0.9;
@@ -90,14 +90,14 @@
   
    .search
   {
-    margin-left: 100px;
+    margin-left: 70px;
     position: absolute;
     width: 30%;
     }
   
   .go
   {
-    margin-left: 610px;
+    margin-left: 580px;
     position: absolute;
     top:360px;
   } 
@@ -113,7 +113,32 @@
  }
  
 
- @media (max-width: 770px) {
+ @media (max-width: 850px) {
+  figure img, section, .center2,.go,.Front ,mat-form-field,div{
+    width: 100%;
+    margin-left: 0;
+   
+  }
+  .go{
+    height: 10%;
+    width: 10%;
+    position: absolute;
+    left: 40%;
+    /* margin-left: 70%; */
+  }
+.search{
+  height: 20%;
+    width: 20%;
+}
+.center2{
+  height: 10%;
+  width: 10%;
+  position: absolute;
+  padding-left: 130px;
+}
+
+}
+@media (max-width: 300px) {
   figure img, section, .center2,.go,.Front ,mat-form-field,div{
     width: 100%;
     margin-left: 0;

@@ -15,7 +15,7 @@
     /* margin-top: 10%; */
     background: inherit;
     padding-left: 220px;
-    font-size: 25px;
+    font-size: 29px;
     font-family: 'Crimson Text', serif;
     
   }
@@ -54,7 +54,7 @@
 
 
   button{
-    margin-left: 180px;
+    margin-left: 220px;
   }
 
   p{
@@ -62,11 +62,8 @@
     font-size: 17px;
     font-family: 'Crimson Text', serif;
   }
-  .btn-link{
-    position: absolute;;
-    left: 600px;
-  }
-  .regis,.btn-link{
+  
+  .regis{
     background-color: darkblue;
     color: white;
 
@@ -97,11 +94,7 @@
     padding-left: 5%;
     margin-left: 5%;
   }
-  .btn-link{
-    position: absolute;
-    left: 20px;
-    top: 510px;
-  }
+
   .full-width{
     height: 5%;
     width: 70%;
