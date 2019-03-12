@@ -38,7 +38,7 @@
         <module>knowledge-indexer-service</module>
         <module>knowledge-query-service</module>
         <module>tagging-service</module>
-       <!-- <module>notification-service</module>-->
+        <module>notification-service</module>
 
     </modules>
     <dependencies>
