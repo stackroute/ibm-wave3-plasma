@@ -45,7 +45,5 @@ public ResponseEntity<?> extractedQuery(@RequestBody final String query) {
     rabbitMQSender.sender(nlpModel);
     return new ResponseEntity<>(temp.stream().map(String::toString).collect(Collectors.toList()), HttpStatus.CREATED);
 
-
   }
 }
-

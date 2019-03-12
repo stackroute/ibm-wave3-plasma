@@ -1,8 +1,5 @@
 package com.stackroute.plasma.domain;
 
-
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
 import org.springframework.data.annotation.Id;
@@ -31,6 +28,7 @@ public class User {
     private String emailId;
     @JsonProperty("password")
     private String password;
+
     public String getEmailId() {
         return emailId;
     }
@@ -39,5 +37,4 @@ public class User {
         this.emailId = emailId;
     }
 
-
-   }
+}

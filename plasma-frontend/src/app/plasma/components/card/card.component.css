@@ -1,0 +1,74 @@
+
+ .plasma{
+  
+  width: 49.5em;
+  height: 16vh;
+  display: flex;
+  /* padding: 1.9em; */
+  /* overflow: auto; */
+  position: relative;
+  
+  /* flex: auto; */
+ }
+ p{
+  text-align: justify;
+ }
+
+ mat-card-title{
+  position: absolute;
+  left: 3px;
+  top: 30px;
+  font-size: 18px;
+  margin :auto;
+  object-fit: cover; /*this makes de image in src fit to the size of specified below*/
+  width: 100%; 
+  color: blue;
+  /* margin-top: 20px; */
+ }
+
+ mat-card-subtitle
+ {
+   position: absolute;
+   left:3px;
+   padding-top: 50px;
+   top:20px;
+   color: green;
+   font-size: 15px;
+ }
+ .description{
+   position: absolute;
+   left: 3px;
+   top:50px;
+   color: #545454;
+   font-size: 15px;
+ }
+
+ .row{
+  flex-direction: row;
+  /* flex-wrap: wrap; */
+  justify-content: flex-start;
+  margin-bottom: 100px;
+  padding-left: 200.5px;
+  margin-top: 79px;
+
+ }
+
+ .keywords{
+   position: absolute;
+   left: 23px;
+   top:90px;
+   
+   color: grey;
+   font-size: 15px;
+ }
+
+ a{
+   text-decoration: none;
+ }
+a:hover{
+  text-decoration: underline;
+  color:#609;
+}
+a:visited{
+  color:#609;
+  }

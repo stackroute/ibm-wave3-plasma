@@ -6,7 +6,6 @@ import com.stackroute.plasma.domain.Evaluator;
 import com.stackroute.plasma.domain.Url;
 import org.json.JSONArray;
 import org.json.JSONObject;
-//import org.json.simple.JSONArray;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 import org.jsoup.Jsoup;
@@ -29,7 +28,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-//import com.stackroute.plasma.domain.Url;
 
 @Service
 public class EvaluatorServiceImpl implements EvaluatorService  {
@@ -110,7 +108,6 @@ public class EvaluatorServiceImpl implements EvaluatorService  {
         getScore();
 
     }
-    //Calculating scores for html tag
     @Override
     public void htmlTag() {
         System.out.println("in html");

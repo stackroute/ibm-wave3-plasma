@@ -1,7 +1,5 @@
 package com.stackroute.plasma.service;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.stackroute.plasma.domain.Url;
 
 import org.slf4j.Logger;
@@ -26,8 +24,6 @@ public class RabbitMQSender {
 
     @Value("${javainuse.rabbitmq.routingkey}")
     private String routingkey;
-    // String kafkaTopic = "java_in_use_topic";
-    //ObjectMapper objectMapper = new ObjectMapper();
     public void send(Url url) {
         rabbitTemplate.convertAndSend(exchange, routingkey, url);
        logger.info("Send msg = " +url);

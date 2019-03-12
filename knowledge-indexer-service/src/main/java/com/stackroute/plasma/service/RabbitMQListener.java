@@ -20,7 +20,7 @@ public class RabbitMQListener {
     @RabbitListener(queues = "${javainuse1.rabbitmq.queue}", containerFactory = "jsaFactory")
     public void consume(Evaluator evaluator){
         System.out.println("Recieved Message From RabbitMQ: " + evaluator.toString());
-        /*either remove the Evaluator object, hence getters and setter OR implement three methods for modularity and call other two methods in consume*/
+
         this.evaluator.setTimestamp(evaluator.getTimestamp());
         this.evaluator.setDomain(evaluator.getDomain());
         this.evaluator.setConcept(evaluator.getConcept());

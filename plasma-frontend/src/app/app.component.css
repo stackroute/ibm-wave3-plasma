@@ -1,0 +1,8 @@
+@media screen and (max-width:959px){
+    app-header{
+        width: 100%;
+    }
+    app-footer{
+        width: 100%;
+    }
+    }
