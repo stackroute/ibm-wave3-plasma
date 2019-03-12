@@ -19,8 +19,6 @@ public class RabbitMQSender {
     @Value("${javainuse2.rabbitmq.routingkey}")
     private String routingkey2;
 
-
-
     public void sender(SearchOutput searchOutput) {
 
         rabbitTemplate.convertAndSend(exchange, routingkey2,searchOutput);

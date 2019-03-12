@@ -11,6 +11,18 @@ services:
       MYSQL_DATABASE: plasmaDB
     network_mode: host
 
+  #  mysql:
+  #    image: mysql:5.7
+  #    ports:
+  #      - 3306:3306
+  #    container_name: mysql
+  #    environment:
+  #      MYSQL_ROOT_PASSWORD: root
+  #      MYSQL_DATABASE: mysqldock
+  #    #    volumes:
+  #    #      - '/opt/datasql:/var/lib/mysql'
+  #    network_mode: host
+
   mongo:
     image: mongo:3.4-jessie
     ports:
@@ -203,7 +215,7 @@ services:
     expose:
       - 8086
 
-  plasmaFrontend:
+  plasmafrontend:
     build: plasma-frontend/
     image: plasma-frontend:latest
     container_name: plasma-frontend
@@ -241,7 +253,6 @@ services:
     expose:
        - 8095
 
-
 #  spellchecker:
 #    image: spell-checker:latest
 #    build: spell-checker/
@@ -256,15 +267,4 @@ services:
 #      - 8077
 
 
-#  mysql:
-#    image: mysql:5.7
-#    ports:
-#      - 3306:3306
-#    container_name: mysql
-#    environment:
-#      MYSQL_ROOT_PASSWORD: root
-#      MYSQL_DATABASE: mysqldock
-#    #    volumes:
-#    #      - '/opt/datasql:/var/lib/mysql'
-#    network_mode: host
 

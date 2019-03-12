@@ -27,7 +27,8 @@ export class HeaderComponent implements OnInit {
          this.userLogged = true;
   }
   profile() {
-    this.route.navigate(['/', 'profile']);
+    this.userLoginService.profile();
+         this.flag = false;
   }
 
 }

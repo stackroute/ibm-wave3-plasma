@@ -17,11 +17,12 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @CrossOrigin(value = "*")
 @RestController
-@RequestMapping("api/v1/")
+@RequestMapping("api/")
 public class UserController {
 
     @Autowired
@@ -42,7 +43,7 @@ public class UserController {
 
             if (userId == null || password == null) {
                 System.out.println("in  method1");
-                throw new UserNameOrPasswordEmptyException("UserId or Password cannot be empty");
+                throw new UserNameOrPasswordEmptyException("Userid and Password cannot be empty");
             }
 
             UserAuth userAuth = userService.findByUserIdAndPassword(userId, password);

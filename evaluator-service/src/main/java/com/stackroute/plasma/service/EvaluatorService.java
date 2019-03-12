@@ -7,7 +7,7 @@ import org.json.simple.parser.ParseException;
 
 public interface EvaluatorService {
 
-    Evaluator getScore();
+    Evaluator getScore(Url url);
     void getConsumedUrl(Url url);
     void getWeights()throws ParseException;
     void htmlTag();
