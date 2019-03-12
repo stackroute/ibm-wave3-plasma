@@ -1,5 +1,4 @@
-<!-- <app-header></app-header>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+<!-- <app-header></app-header> -->
  <link href="https://fonts.googleapis.com/css?family=Crimson+Text" rel="stylesheet"> 
 <div class="register">
 <section class="whole">
@@ -45,12 +44,14 @@
            </mat-form-field>   -->
            <mat-form-field class="full-width" appearance = "outline" >
              <mat-label>Password</mat-label>
-            <input matInput placeholder="Enter your password" [type]="hide ? 'password' : 'text'"   pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" [(ngModel)]="setPassword" [ngModelOptions]="{standalone: true}" required>
+            <input matInput placeholder="Enter your password" [type]="hide ? 'password' : 'text'"   pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" [(ngModel)]="password" [ngModelOptions]="{standalone: true}" required>
             <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
           </mat-form-field> 
     </form>
   </mat-card-content>
   <!-- <mat-card-actions> -->
+    <!--<button mat-raised-button (click)="register($event)" color="accent">Register</button>-->
+   <!--<button mat-raised-button [routerLink]="['/login']" class="btn btn-link" color="accent"> Cancel</button>-->
     <button class="regis" mat-raised-button (click)="register($event)" >Register</button>
   <!-- </mat-card-actions> -->
   <p> Already have an account?<a routerLink="/login">Login</a></p>
