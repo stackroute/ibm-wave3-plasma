@@ -30,11 +30,8 @@ public class SearchController {
     @Autowired
     ApiService apiService;
 
-
-   @Autowired
-   RabbitMQSender rabbitMQSender;
-
-
+    @Autowired
+    RabbitMQSender rabbitMQSender;
 
     @PostMapping(value = "/search")
     public ResponseEntity<?> getPostApi(@RequestBody SearchInput searchInput) throws JsonProcessingException {

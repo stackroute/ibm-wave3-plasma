@@ -227,33 +227,33 @@ services:
     expose:
      - 8087
 
-  notificationservice:
-    image: notification-service:latest
-    build: notification-service/
-    restart: always
-    network_mode: host
-    depends_on:
-       - eurekaserver
-       - rabbitmq
-       - knowledgequeryservice
-    ports:
-       - 8095:8095
-    expose:
-       - 8095
+#  notificationservice:
+#    image: notification-service:latest
+#    build: notification-service/
+#    restart: always
+#    network_mode: host
+#    depends_on:
+#       - eurekaserver
+#       - rabbitmq
+#       - knowledgequeryservice
+#    ports:
+#       - 8095:8095
+#    expose:
+#       - 8095
 
-
-  spellchecker:
-    image: spell-checker:latest
-    build: spell-checker/
-    restart: always
-    network_mode: host
-    depends_on:
-      - eurekaserver
-      - rabbitmq
-    ports:
-      - 8077:8077
-    expose:
-      - 8077
+#
+#  spellchecker:
+#    image: spell-checker:latest
+#    build: spell-checker/
+#    restart: always
+#    network_mode: host
+#    depends_on:
+#      - eurekaserver
+#      - rabbitmq
+#    ports:
+#      - 8077:8077
+#    expose:
+#      - 8077
 
 
 #  mysql:

@@ -22,7 +22,6 @@ public class DocumentController {
 
     @GetMapping("/doc")
     public ResponseEntity<?> getContent() throws IOException {
-
         return new ResponseEntity<>(documentService.getHtml(),HttpStatus.OK);
     }
 
