@@ -241,7 +241,7 @@ services:
 #    expose:
 #       - 8095
 
-#
+
 #  spellchecker:
 #    image: spell-checker:latest
 #    build: spell-checker/

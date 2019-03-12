@@ -25,4 +25,9 @@ public class DocumentController {
         return new ResponseEntity<>(documentService.getHtml(),HttpStatus.OK);
     }
 
+    @GetMapping("hello")
+    public String hello(){
+        return "this is https";
+    }
+
 }
