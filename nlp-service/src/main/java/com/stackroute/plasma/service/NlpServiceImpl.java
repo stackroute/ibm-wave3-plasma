@@ -59,7 +59,7 @@ public class NlpServiceImpl implements NlpService{
             while (bufferedReader.readLine() != null){
                 stopWordLine = stopWordLine + bufferedReader.readLine() + " ";
             }
-            String splitStopWord[] = stopWordLine.split(" ");
+            String splitStopWord[] = stopWordLine.split(",");
             for (String splitWord: splitStopWord
             ) {
                 stopWordSet.add(splitWord);
@@ -93,11 +93,7 @@ public class NlpServiceImpl implements NlpService{
                 extractedString.add(lemma);
             }
         }
-        NlpModel nlpModel = new NlpModel(extractedString);
 
-
-        rabbitMQSender.sender(nlpModel);
-        logger.info("service output"+nlpModel);
 
         return extractedString;
     }

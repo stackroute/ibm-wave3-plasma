@@ -37,7 +37,9 @@ public class TagServiceImpl implements TagService {
     = new ArrayList<>();
     private final static   ArrayList<String> concept_word_set = new ArrayList<>();
     private final static  ArrayList<String> intent_word_set = new ArrayList<>();
-    private TagOutput tagOutput = new TagOutput(new ArrayList<>(),new ArrayList<>());
+    //private TagOutput tagOutput = new TagOutput(new ArrayList<>(),new ArrayList<>());
+    @Autowired
+    RabbitMQListener rabbitMQListener;
 
     @Autowired
     RabbitMQSender rabbitMQSender;
@@ -327,10 +329,11 @@ public class TagServiceImpl implements TagService {
 
         checkForConcept();
         checkForIntent();
-        tagOutput.setTaggedConcept(finalConcept);
-        tagOutput.setTaggedLevel(finalIntent);
+        //tagOutput.setTaggedConcept(finalConcept);
+       // tagOutput.setTaggedLevel(finalIntent);
 
-        TagOutput tagOutput = new TagOutput(finalConcept,finalIntent);
+        TagOutput tagOutput = new TagOutput(finalConcept,finalIntent,rabbitMQListener.tagInput.getUserId(),
+                rabbitMQListener.tagInput.getJwt(),rabbitMQListener.tagInput.getRole());
 
 
 
