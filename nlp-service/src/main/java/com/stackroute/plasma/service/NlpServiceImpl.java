@@ -55,10 +55,12 @@ public class NlpServiceImpl implements NlpService{
         try {
             BufferedReader bufferedReader = new BufferedReader(new FileReader("./dictionary/stopwords.csv"));
             String stopWordLine = "";
-            stopWordLine = stopWordLine + bufferedReader.readLine() + " ";
-            while (bufferedReader.readLine() != null){
-                stopWordLine = stopWordLine + bufferedReader.readLine() + " ";
-            }
+            stopWordLine = stopWordLine + bufferedReader.readLine() + ",";
+            String line;
+            do{
+                line = bufferedReader.readLine();
+                stopWordLine = stopWordLine + line + ",";
+            }while(line!=null);
             String splitStopWord[] = stopWordLine.split(",");
             for (String splitWord: splitStopWord
             ) {
