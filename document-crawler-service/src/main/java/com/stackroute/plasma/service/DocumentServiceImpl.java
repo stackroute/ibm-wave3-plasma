@@ -88,6 +88,7 @@ public class DocumentServiceImpl implements DocumentService {
 
             list.add(url);
         }
+        rabbitMQSender.inform();
 
         return list;
     }
