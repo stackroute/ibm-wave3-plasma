@@ -43,6 +43,8 @@ public class EvaluatorServiceImpl implements EvaluatorService  {
     Evaluator eva;
     Url url;
 
+    int evalcount=0;
+
     private String keywords;
     private String description;
     private Map<String, Long> tagweight = new HashMap<>();
@@ -938,6 +940,7 @@ public class EvaluatorServiceImpl implements EvaluatorService  {
     //calculate confidence score and level and return json object
     @Override
     public Evaluator getScore(Url url) {
+        evalcount++;
         this.docx = Jsoup.parse(url.getDoc());
         long[][] val = new long[26][4];
         Float[] score = new Float[6];
@@ -1011,6 +1014,9 @@ public class EvaluatorServiceImpl implements EvaluatorService  {
         this.eva.setTitle(this.docx.title());
         //rabbitmq sender
         rabbitMQSender.send(this.eva);
+        if (evalcount==RabbitMQListner.counter){
+            rabbitMQSender.inform();
+        }
         System.out.print(this.eva);
         return this.eva;
     }

@@ -62,6 +62,7 @@ public class SearchController {
 
         }
 
+        rabbitMQSender.inform();
         responseEntity = new ResponseEntity(searchOutput,HttpStatus.CREATED);
         return responseEntity;
     }

@@ -24,8 +24,19 @@ public class RabbitMQSender {
 
     @Value("${javainuse.rabbitmq.routingkey}")
     private String routingkey;
+
+    @Value("${javainuse8.rabbitmq.routingkey}")
+    private String routingkey8;
+
     public void send(Url url) {
         rabbitTemplate.convertAndSend(exchange, routingkey, url);
        logger.info("Send msg = " +url);
+    }
+
+    public void inform() {
+        boolean inform=true;
+        //rabbitTemplate.convertAndSend(exchange, routingkey, url);
+        rabbitTemplate.convertAndSend(exchange,routingkey8,inform);
+        //System.out.println("Send msg = " +url);
     }
 }
