@@ -27,11 +27,15 @@ public class DocumentController {
     RabbitMQSender rabbitMQSender;
 
     @GetMapping("get")
-    public List<List<Document>> concept(){
+    public Documents concept(){
         Tag tag = rabbitMQListener.getTag();
         Documents sender = new Documents();
         sender.setDocuments(documentService.concept(tag.getTaggedConcept(),tag.getTaggedLevel()));
+        sender.setEmailId(tag.getEmailId());
+        sender.setJwt(tag.getJwt());
+        sender.setRole(tag.getRole());
         rabbitMQSender.sender(sender);
-        return documentService.concept(tag.getTaggedConcept(),tag.getTaggedLevel());
+        //return documentService.concept(tag.getTaggedConcept(),tag.getTaggedLevel());
+        return sender;
     }
 }

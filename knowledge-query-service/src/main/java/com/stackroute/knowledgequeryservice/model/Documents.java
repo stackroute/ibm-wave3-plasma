@@ -5,6 +5,8 @@ import java.util.List;
 
 @Data
 public class Documents {
-    String userId;
+    String emailId;
+    private String role;
+    private String jwt;
     List<List<Document>> documents;
 }

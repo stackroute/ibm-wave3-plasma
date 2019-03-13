@@ -59,7 +59,7 @@ public class NlpServiceImpl implements NlpService{
             while (bufferedReader.readLine() != null){
                 stopWordLine = stopWordLine + bufferedReader.readLine() + " ";
             }
-            String splitStopWord[] = stopWordLine.split(" ");
+            String splitStopWord[] = stopWordLine.split(",");
             for (String splitWord: splitStopWord
             ) {
                 stopWordSet.add(splitWord);

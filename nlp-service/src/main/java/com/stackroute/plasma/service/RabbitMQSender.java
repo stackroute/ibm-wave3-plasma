@@ -21,7 +21,7 @@ public class RabbitMQSender {
 
     public void sender(NlpModel nlpModel) {
         rabbitTemplate.convertAndSend(exchange,routingkey4,nlpModel);
-        System.out.println("Send msg = " + nlpModel.getTokenized_lematized());
+        System.out.println("Send msg = " + nlpModel);
     }
 
 }

@@ -20,7 +20,7 @@ import java.util.stream.Collectors;
 @RestController
 @RequestMapping("/api/v1")
 public class NlpController {
-    Logger logger = LoggerFactory.getLogger(NlpController.class.getName());
+    //Logger logger = LoggerFactory.getLogger(NlpController.class.getName());
 
     @Autowired
     NlpService nlpService;
@@ -31,27 +31,49 @@ public class NlpController {
     List<String> temp;
     UserQuery userQuery ;
     int i=0;
-@PostMapping("/query")
-public ResponseEntity<?> extractedQuery(@RequestBody InputQuery inputQuery) {
-    temp = new ArrayList<>();
-    userQuery = new UserQuery();
-    userQuery.setUser_id(inputQuery.getUser_id());
-    userQuery.setUser_query(inputQuery.getUser_query());
-    userQuery.setJwt(inputQuery.getJwt());
-    userQuery.setRole(inputQuery.getRole());
-    logger.info(userQuery.getUser_query());
+   /* @PostMapping("/query")
+    public ResponseEntity<?> extractedQuery(@RequestBody InputQuery inputQuery) {
+        temp = new ArrayList<>();
+        userQuery = new UserQuery();
+        userQuery.setEmailId(inputQuery.getEmailId());
+        userQuery.setUserQuery(inputQuery.getUserQuery());
+        userQuery.setJwt(inputQuery.getJwt());
+        userQuery.setRole(inputQuery.getRole());
+        System.out.println(userQuery.getUserQuery());
 
-    nlpService.save(userQuery);
-    temp = nlpService.queryConverter(inputQuery.getUser_query());
-    nlpModel.setTokenized_lematized(temp);
-    nlpModel.setUserId(inputQuery.getUser_id());
-    nlpModel.setJwt(inputQuery.getJwt());
-    nlpModel.setRole(inputQuery.getRole());
-    logger.info("controller output" + temp);
-    rabbitMQSender.sender(nlpModel);
-    return new ResponseEntity<>(temp.stream().map(String::toString).collect(Collectors.toList()), HttpStatus.CREATED);
+        nlpService.save(userQuery);
+        temp = nlpService.queryConverter(inputQuery.getUserQuery());
+        nlpModel.setTokenized_lematized(temp);
+        nlpModel.setUserId(inputQuery.getEmailId());
+        nlpModel.setJwt(inputQuery.getJwt());
+        nlpModel.setRole(inputQuery.getRole());
+        System.out.println("controller output" + nlpModel);
+        rabbitMQSender.sender(nlpModel);
+        return new ResponseEntity<>(temp.stream().map(String::toString).collect(Collectors.toList()), HttpStatus.CREATED);
 
-  }
+  }*/
+
+    @PostMapping("/query")
+    public NlpModel extractedQuery(@RequestBody InputQuery inputQuery) {
+        temp = new ArrayList<>();
+        userQuery = new UserQuery();
+        userQuery.setEmailId(inputQuery.getEmailId());
+        userQuery.setUserQuery(inputQuery.getUserQuery());
+        userQuery.setJwt(inputQuery.getJwt());
+        userQuery.setRole(inputQuery.getRole());
+        System.out.println(userQuery.getUserQuery());
+
+        nlpService.save(userQuery);
+        temp = nlpService.queryConverter(inputQuery.getUserQuery());
+        nlpModel.setTokenized_lematized(temp);
+        nlpModel.setUserId(inputQuery.getEmailId());
+        nlpModel.setJwt(inputQuery.getJwt());
+        nlpModel.setRole(inputQuery.getRole());
+        System.out.println("controller output" + nlpModel);
+        rabbitMQSender.sender(nlpModel);
+        return nlpModel;
+
+    }
 
 
 //    @GetMapping("/query")

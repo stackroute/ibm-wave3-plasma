@@ -6,6 +6,8 @@ import java.util.List;
 
 @Data
 public class Descriptions {
-    String userId;
+    String emailId;
+    private String role;
+    private String jwt;
     List<List<Description>> descriptions;
 }
