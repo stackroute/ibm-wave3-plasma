@@ -67,11 +67,16 @@ public class TagServiceImpl implements TagService {
         try {
             BufferedReader bufferedReader = new BufferedReader(new FileReader("./dict/intent.csv"));
             String intent_word = "";
+            String line;
             try {
-                intent_word = intent_word + bufferedReader.readLine() + "";
-                while (bufferedReader.readLine() != null){
-                    intent_word = intent_word + bufferedReader.readLine() + " ";
-                }
+//                intent_word = intent_word + bufferedReader.readLine() + "";
+//                while (bufferedReader.readLine() != null){
+//                    intent_word = intent_word + bufferedReader.readLine() + " ";
+//                }
+                do{
+                    line = bufferedReader.readLine();
+                    intent_word = intent_word + line+",";
+                }while (line!=null);
                 String[] intent_word_split = intent_word.split(" ");
                 for (String intent_word_split_single:intent_word_split
                      ) {
@@ -90,11 +95,16 @@ public class TagServiceImpl implements TagService {
         try {
             BufferedReader bufferedReader = new BufferedReader(new FileReader("./dict/basic.csv"));
             String basic_word = "";
+            String line;
             try {
-                basic_word = basic_word + bufferedReader.readLine() + "";
-                while (bufferedReader.readLine() != null){
-                    basic_word = basic_word + bufferedReader.readLine() + " ";
-                }
+//                basic_word = basic_word + bufferedReader.readLine() + "";
+//                while (bufferedReader.readLine() != null){
+//                    basic_word = basic_word + bufferedReader.readLine() + " ";
+//                }
+                do{
+                    line = bufferedReader.readLine();
+                    basic_word = basic_word + line + ",";
+                }while (line!=null);
                 String[] basic_word_split = basic_word.split(" ");
                 for (String basic_word_split_single:basic_word_split
                 ) {
@@ -113,11 +123,16 @@ public class TagServiceImpl implements TagService {
         try {
             BufferedReader bufferedReader = new BufferedReader(new FileReader("./dict/tutorials.csv"));
             String tutorial_word = "";
+            String line;
             try {
-                tutorial_word = tutorial_word + bufferedReader.readLine() + "";
-                while (bufferedReader.readLine() != null){
-                    tutorial_word = tutorial_word + bufferedReader.readLine() + " ";
-                }
+//                tutorial_word = tutorial_word + bufferedReader.readLine() + "";
+//                while (bufferedReader.readLine() != null){
+//                    tutorial_word = tutorial_word + bufferedReader.readLine() + " ";
+//                }
+                do{
+                    line = bufferedReader.readLine();
+                    tutorial_word = tutorial_word + line + ",";
+                }while (line!=null);
                 String[] tutorial_word_split = tutorial_word.split(" ");
                 for (String tutorial_word_split_single:tutorial_word_split
                 ) {
@@ -136,11 +151,17 @@ public class TagServiceImpl implements TagService {
         try {
             BufferedReader bufferedReader = new BufferedReader(new FileReader("./dict/reference.csv"));
             String reference_word = "";
+            String line;
             try {
-                reference_word = reference_word + bufferedReader.readLine() + "";
-                while (bufferedReader.readLine() != null){
-                    reference_word = reference_word + bufferedReader.readLine() + " ";
-                }
+//                reference_word = reference_word + bufferedReader.readLine() + "";
+//                while (bufferedReader.readLine() != null){
+//                    reference_word = reference_word + bufferedReader.readLine() + " ";
+//                }
+                do{
+                    line = bufferedReader.readLine();
+                    reference_word = reference_word + line + ",";
+                }while (line!=null);
+
                 String[] reference_word_split = reference_word.split(" ");
                 for (String reference_word_split_single:reference_word_split
                 ) {
@@ -159,11 +180,16 @@ public class TagServiceImpl implements TagService {
         try {
             BufferedReader bufferedReader = new BufferedReader(new FileReader("./dict/concept.csv"));
             String concept_word = "";
+            String line;
             try {
-                concept_word = concept_word + bufferedReader.readLine() + "";
-                while (bufferedReader.readLine() != null){
-                    concept_word = concept_word + bufferedReader.readLine() + " ";
-                }
+//                concept_word = concept_word + bufferedReader.readLine() + "";
+//                while (bufferedReader.readLine() != null){
+//                    concept_word = concept_word + bufferedReader.readLine() + " ";
+//                }
+                do{
+                    line = bufferedReader.readLine();
+                    concept_word = concept_word + line + ",";
+                }while (line!=null);
                 String[] concept_word_split = concept_word.split(",");
                 for (String concept_word_split_single:concept_word_split
                 ) {
@@ -182,11 +208,17 @@ public class TagServiceImpl implements TagService {
         try {
             BufferedReader bufferedReader = new BufferedReader(new FileReader("./dict/trouleshooting.csv"));
             String trouble_word = "";
+            String line;
             try {
-                trouble_word = trouble_word + bufferedReader.readLine() + "";
-                while (bufferedReader.readLine() != null){
-                    trouble_word = trouble_word + bufferedReader.readLine() + " ";
-                }
+//                trouble_word = trouble_word + bufferedReader.readLine() + "";
+//                while (bufferedReader.readLine() != null){
+//                    trouble_word = trouble_word + bufferedReader.readLine() + " ";
+//                }
+                do{
+                    line = bufferedReader.readLine();
+                    trouble_word = trouble_word + line + ",";
+                }while (line!=null);
+
                 String[] trouble_word_split = trouble_word.split(" ");
                 for (String trouble_word_split_single:trouble_word_split
                 ) {
@@ -206,11 +238,16 @@ public class TagServiceImpl implements TagService {
         try {
             BufferedReader bufferedReader = new BufferedReader(new FileReader("./dict/gettingstarted.csv"));
             String started_word = "";
+            String line;
             try {
-                started_word = started_word + bufferedReader.readLine() + "";
-                while (bufferedReader.readLine() != null){
-                    started_word = started_word + bufferedReader.readLine() + " ";
-                }
+//                started_word = started_word + bufferedReader.readLine() + "";
+//                while (bufferedReader.readLine() != null){
+//                    started_word = started_word + bufferedReader.readLine() + " ";
+//                }
+                do{
+                    line = bufferedReader.readLine();
+                    started_word = started_word + line + ",";
+                }while (line!=null);
                 String[] started_word_split = started_word.split(" ");
                 for (String started_word_split_single:started_word_split
                 ) {
@@ -229,11 +266,16 @@ public class TagServiceImpl implements TagService {
         try {
             BufferedReader bufferedReader = new BufferedReader(new FileReader("./dict/example.csv"));
             String example_word = "";
+            String line;
             try {
-                example_word = example_word + bufferedReader.readLine() + "";
-                while (bufferedReader.readLine() != null){
-                    example_word = example_word + bufferedReader.readLine() + " ";
-                }
+//                example_word = example_word + bufferedReader.readLine() + "";
+//                while (bufferedReader.readLine() != null){
+//                    example_word = example_word + bufferedReader.readLine() + " ";
+//                }
+                do{
+                    line = bufferedReader.readLine();
+                    example_word = example_word + line + ",";
+                }while (line!=null);
                 String[] example_word_split = example_word.split(" ");
                 for (String example_word_split_single:example_word_split
                 ) {
