@@ -128,8 +128,8 @@ p{
   
   }
   footer{
-    
-    margin-top:-27%;
+    position: relative;
+    margin-top:-20%;
     
   }
   p{

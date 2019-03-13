@@ -89,7 +89,7 @@ header{
    
     position: absolute;
     top:35%;
-    right:20%;
+    right:0%;
   
   }
   .profile{
@@ -101,7 +101,34 @@ header{
   }
   
     }
+    @media (max-width: 425px){
 
+
+
+      mat-toolbar-row {
+        display: flex;
+        /* flex-direction: column; */
+        width: 100%;
+      }
+      img{
+        padding-top:9%;
+      }
+      .login{
+       
+        position: absolute;
+        top:25%;
+        right:0%;
+      
+      }
+      .profile{
+        float: right;
+        height: 10%;
+        width: 10%;
+        padding-top: 0%;
+        background-color: black;
+      }
+      
+        }
 
 
 @media (max-width: 375px){
@@ -119,8 +146,9 @@ img{
 .login{
  
   position: absolute;
-  top:35%;
-  right:20%;
+  top:25%;
+  right:0%;
+
 
 }
 .profile{
@@ -132,7 +160,34 @@ img{
 }
 
   }
+  @media (max-width: 320px){
 
+
+header{
+  width: 320px;
+}
+    mat-toolbar-row {
+      display: flex;
+      /* flex-direction: column; */
+      width: 100%;
+    }
+    img{
+      padding-top:5%;
+    }
+    .login{
+     
+      margin-left: 0%;
+    
+    }
+    .profile{
+      /* float: right; */
+      height: 10%;
+      width: 10%;
+      padding-top: 0%;
+      background-color: black;
+    }
+    
+      }
 
 
 
