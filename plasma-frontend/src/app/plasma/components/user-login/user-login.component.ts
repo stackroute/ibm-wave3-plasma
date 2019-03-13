@@ -34,6 +34,7 @@ private password: string;
      console.log(this.userAuth);
     console.log(this.value);
     this.loginService.login(this.userAuth).subscribe((res: any) => {
+      window.alert('User logged in successfully');
       console.log('Res: ', res);
       console.log(this.helper.decodeToken(res.body.token).jti, ' :this is the value of the userId');
     console.log(this.helper.decodeToken(res.body.token).sub, ' :this is the value of the role');
@@ -46,7 +47,7 @@ private password: string;
     if ((this.helper.decodeToken(res.body.token).sub === 'user' )) {
       localStorage.setItem('token', res.body.token);
       console.log('In login');
-      this.router.navigate([`/card`]);
+      this.router.navigate([`/web-speech`]);
       // this.loginService.setCookie('token', res.body.token, 1);
       this.isLoggedIn = true;
     }

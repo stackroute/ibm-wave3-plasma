@@ -36,6 +36,25 @@ public class RabbitMQConfig {
     Binding binding(Queue queue, DirectExchange exchange) {
         return BindingBuilder.bind(queue).to(exchange).with(routingkey2);
     }
+    @Value("${javainuse7.rabbitmq.queue}")
+    String queueName1;
+
+
+    @Value("${javainuse7.rabbitmq.routingkey}")
+    private String routingkey21;
+
+    @Bean
+    Queue queue1() {
+        return new Queue(queueName1, true);
+    }
+
+
+    @Bean
+    Binding binding1(Queue queue1, DirectExchange exchange) {
+        return BindingBuilder.bind(queue1).to(exchange).with(routingkey21);
+    }
+
+
 
     @Bean
     public MessageConverter jsonMessageConverter() {

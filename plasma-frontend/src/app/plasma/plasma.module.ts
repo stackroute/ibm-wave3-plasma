@@ -1,4 +1,4 @@
-import { WebSpeechModule } from './components/web-speech/web-speech.module';
+import { WebSocketComponent } from './components/web-socket/web-socket.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { CardComponent } from './components/card/card.component';
 import { HttpClientModule } from '@angular/common/http';
@@ -19,6 +19,7 @@ import { NgModule } from '@angular/core';
 import { ProfileComponent } from './components/profile/profile.component';
 import { AboutComponent } from './components/about/about.component';
 import { Ng2CarouselamosModule } from 'ng2-carouselamos';
+import { SpeechRecognizerService } from './services/speech-recognizer.service';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,9 @@ import { Ng2CarouselamosModule } from 'ng2-carouselamos';
     CardComponent,
     UserLoginComponent,
     ProfileComponent,
-    AboutComponent
+    AboutComponent,
+    WebSocketComponent,
+    WebSpeechComponent
     ],
   imports: [
    BrowserModule,
@@ -39,12 +42,11 @@ import { Ng2CarouselamosModule } from 'ng2-carouselamos';
    HttpClientModule,
    CommonModule,
    PlasmaMaterialModule,
-   WebSpeechModule,
    ReactiveFormsModule,
    Ng2CarouselamosModule
 
   ],
-  providers: [UserLoginService],
+  providers: [UserLoginService, SpeechRecognizerService],
   exports: [
     HeaderComponent,
     DomainExpertComponent,
@@ -53,7 +55,9 @@ import { Ng2CarouselamosModule } from 'ng2-carouselamos';
     FooterComponent,
     UserregistrationComponent,
     ProfileComponent,
-    AboutComponent
+    AboutComponent,
+    WebSpeechComponent,
+    WebSocketComponent
   ]
 })
 export class PlasmaModule { }

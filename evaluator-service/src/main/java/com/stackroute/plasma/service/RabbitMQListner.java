@@ -11,11 +11,15 @@ public class RabbitMQListner{
 
     @Autowired
     EvaluatorService evaluatorService;
+   public static int  counter;
+    int count=0;
 
     @RabbitListener(queues = "${javainuse.rabbitmq.queue}", containerFactory = "jsaFactory")
     public void recievedMessage(Url urlx){
         System.out.println("Recieved Message From RabbitMQ: " + urlx.getUrl());
+        count++;
         evaluatorService.getConsumedUrl(urlx);
+        counter=count;
     }
 
 }

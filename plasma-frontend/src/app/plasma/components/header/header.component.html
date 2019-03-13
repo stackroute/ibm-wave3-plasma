@@ -12,8 +12,12 @@
         <div *ngIf="userLogged">
           <mat-card-actions>
             <button mat-raised-button class="login" routerLink="/login">
-              Login
+              Login 
             </button>
+            <div class="icon" routerLink="/login">
+            <i class="material-icons">lock</i>
+            </div>
+         
             <!-- <button mat-raised-button (click)='logout()'>logout</button>  -->
           </mat-card-actions>  
         </div>

@@ -2,12 +2,13 @@
   min-width: 150px;
   max-width: 500px;
   width: 100%;
-  margin-left: 30px;
+  margin-left: 90px;
+  margin-top: 10px;
   font-family: 'Crimson Text', serif;
 }
  
 .full-width {
-  width: 100%;
+  width: 60%;
 }
 .Add{
   background-color: darkblue;
@@ -18,7 +19,7 @@ section{
   margin-top: 180px;
   background: white;
     opacity: 0.8;
-    width: 550px;
+    width: 410px;
     height: 290px;
     font-family: 'Crimson Text', serif;
     box-shadow: 10px 10px 10px #333333;
@@ -32,16 +33,16 @@ mat-toolbar{
 
   width:53%;
   background: inherit;
-  padding-left: 220px;
+  padding-left: 180px;
   font-size: 25px;
   border-radius: 50px 50px;
   font-family: 'Crimson Text', serif;
 }
 button{
-  margin-left: 240px;
+  margin-left: 180px;
 }
 .domain{
-  background-image: url("../../../../assets/bg11.jpg");
+  background-image: url("../../../../assets/bg76.png");
   height: 700px;
   width:100%;
   opacity: 0.9;
@@ -55,13 +56,13 @@ button{
 mat-label{
   font-family: 'Crimson Text', serif;
   color: black;
-  font-size: 15px;
+  font-size: 17px;
 }
 @media (max-width: 1024px){
 
   .domain {
    width: 100%;
-   height:76%;
+   height:90%;
   }
   section{
     width: 30%;
@@ -69,9 +70,9 @@ mat-label{
     margin-left: 35%;
   }
   .my-form{
-    width: 30%;
+    width: 50%;
     height: 30%;
-    margin-left: 20%;
+    margin-left: 37%;
   }
   mat-toolbar{
     padding-left: 40%;
@@ -79,7 +80,7 @@ mat-label{
   }
   .Add{
     margin-top: 20%;
-    margin-left: 35%;
+    margin-left: 40%;
   }
  
 }
@@ -98,7 +99,7 @@ mat-label{
   .my-form{
     width: 30%;
     height: 30%;
-    margin-left: 20%;
+    margin-left: 30%;
     
   }
   mat-toolbar{
@@ -112,6 +113,8 @@ mat-label{
   .Add{
     margin-top: 25%;
     margin-left: 37%;
+    height: 10%;
+    font-size: 13px;
   }
  
 }
@@ -169,7 +172,7 @@ mat-label{
   .my-form{
     width: 30%;
     height: 30%;
-    margin-left: 10%;
+    margin-left: 30%;
     
   }
   mat-toolbar{
@@ -182,10 +185,47 @@ mat-label{
   }
   .Add{
     height: 10%;
-    margin-top: 38%;
+    margin-top: 30%;
     margin-left: 37%;
     font-size: 12px;
     padding-bottom: 15%;
+  }
+ 
+}
+
+@media (max-width: 320px){
+
+  .domain {
+   width: 100%;
+   height:96%;
+   position:absolute;
+   top:2%;
+  }
+  section{
+    width: 50%;
+    height: 34%;
+    margin-left: 30%;
+  }
+  .my-form{
+    width: 30%;
+    height: 30%;
+    margin-left: 30%;
+    
+  }
+  mat-toolbar{
+    padding-left: 40%;
+    font-size: 15px;
+  
+  }
+  mat-label{
+    font-size: 12px;
+  }
+  .Add{
+    height: 10%;
+    margin-top: 36%;
+    margin-left: 37%;
+    font-size: 12px;
+    /* padding-bottom: 15%; */
   }
  
 }

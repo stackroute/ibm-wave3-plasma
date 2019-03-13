@@ -50,6 +50,7 @@
     background-color: #ddd;
     color: black;
   }
+  
 
 
 
@@ -185,28 +186,30 @@
    
   }
   figure img{
-    margin-left: 0px;
+    height: 50%;
+    width: 60%;
+    margin-left: 20%;
     padding-left:0px;
   }
   .go{
     height: 10%;
     width: 10%;
     position: absolute;
-    left: 75%;
-    top:55%;
+    left: 73%;
+    top:44%;
     /* margin-left: 70%; */
   }
 .search{
   height: 20%;
-    width: 50%;
+    width: 45%;
     margin-left: 25%;
 }
 .center2{
   height: 10%;
   width: 10%;
   position: absolute;
-  top:60%;
-  left: 35%;
+  top:50%;
+  left: 33%;
   padding-left: 130px;
 }
 }
@@ -236,8 +239,46 @@
   }
 .search{
   height: 20%;
-    width: 40%;
+    width: 50%;
     /* margin-left: 25%; */
+}
+.center2{
+  height: 10%;
+  width: 10%;
+  position: absolute;
+  top:47%;
+  
+  padding-left: 10%;
+}
+}
+@media (max-width: 375px) {
+  figure img, section, .center2,.go,.Front ,mat-form-field,div{
+    width: 100%;
+    margin-left: 0;
+   
+   
+  }
+.Front{
+  position: absolute;
+  top:0%;
+}
+
+  figure img{
+    margin-left: 0px;
+    padding-left:0px;
+  }
+  .go{
+    height: 5%;
+    width: 5%;
+    position: absolute;
+    left: 75%;
+    top:38%;
+    
+  }
+.search{
+  height: 20%;
+    width: 50%;
+    margin-left: 19%;
 }
 .center2{
   height: 10%;
@@ -275,7 +316,7 @@
   }
 .search{
   height: 20%;
-    width: 40%;
+    width: 53%;
     /* margin-left: 25%; */
 }
 .center2{
