@@ -24,8 +24,8 @@ color: white;
 .profile:hover{
   background-color: darkblue;
 }
-.wrap1:hover{
-  background-color: #4CAF50;
+.wrap1:hover,.wrap2:hover{
+  background-color: darkblue;
 }
 .navbar-header
 {
@@ -69,6 +69,10 @@ img{
 mat-card-actions{
   margin-bottom: 3px;
   margin-right: 3px;
+}
+.wrap2{
+  background-color: inherit;
+  color: white;
 }
 
 @media (max-width: 768px){

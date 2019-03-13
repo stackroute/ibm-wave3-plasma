@@ -12,6 +12,7 @@ text-align: center;
  p {
    font-size: 29px;
    text-align: center;
+   margin-left: -130px;
    font-family: 'Crimson Text', serif;
   
 }
@@ -28,13 +29,13 @@ text-align: center;
 .col1{
 /* padding-top: 1000px; */
  margin-left: 550px;
- margin-top: 180px;
+ margin-top: 200px;
  width: 1500px;
  height: 700px;
  color: black;
  opacity: 0.8;
- width: 350px;
- height: 290px;
+ width: 260px;
+ height: 230px;
  text-align: left;
  box-shadow: 10px 10px 10px black;
  /*border-top-left-radius: 25px;*/
@@ -53,6 +54,9 @@ section{
     top:60px;
     background-size: 100% 100%;
     
+}
+.col1{
+  padding-left: 170px;
 }
 
 @media (max-width: 1024px){
