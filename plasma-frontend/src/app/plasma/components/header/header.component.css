@@ -75,9 +75,23 @@ mat-card-actions{
   color: white;
 }
 
+@media (max-width: 2560px){
+
+  div.icon{
+    display: none;
+  }
+}
+@media (max-width: 1024px){
+
+  div.icon{
+    display: none;
+  }
+}
 @media (max-width: 768px){
 
-
+  div.icon{
+    display: none;
+  }
 header{
   width:100%;
 }
@@ -108,7 +122,14 @@ header{
     @media (max-width: 425px){
 
 
-
+      div.icon{
+        position: absolute;
+        top:25%;
+        right:5%;
+        display: inline;
+        color: white;
+        background: inherit;
+      }
       mat-toolbar-row {
         display: flex;
         /* flex-direction: column; */
@@ -119,9 +140,8 @@ header{
       }
       .login{
        
-        position: absolute;
-        top:25%;
-        right:0%;
+       
+        display: none;
       
       }
       .profile{
@@ -155,6 +175,9 @@ img{
 
 
 }
+div.icon{
+  display: inline;
+}
 .profile{
   float: right;
   height: 10%;
@@ -178,11 +201,16 @@ header{
     img{
       padding-top:5%;
     }
-    .login{
+button.login{
+  display: none;
+}
+
+
+    /* .login{
      
       margin-left: 0%;
     
-    }
+    } */
     .profile{
       /* float: right; */
       height: 10%;
