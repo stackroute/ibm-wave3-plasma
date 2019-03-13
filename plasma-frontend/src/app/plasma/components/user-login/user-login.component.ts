@@ -1,4 +1,4 @@
-import { UserLogin } from './../../tsclasses/user-login';
+import { UserAuth } from './../../tsclasses/user-auth';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { UserLoginService } from './../../services/user-login.service';
 import { Validators, FormBuilder } from '@angular/forms';
@@ -20,20 +20,21 @@ export class UserLoginComponent {
 
 
 @Input()
-user: UserLogin;
+userAuth: UserAuth;
 private userId: string;
 private password: string;
   statusCode: number;
   constructor(private fb: FormBuilder, private loginService: UserLoginService, private router: Router, private snackBar: MatSnackBar) {}
   helper = new JwtHelperService();
   login(event: any) {
-    this.user = new UserLogin();
-    this.user.userId = this.userId;
-    this.user.password = this.password;
+    this.userAuth = new UserAuth();
+    this.userAuth.userId = this.userId;
+    this.userAuth.password = this.password;
 
-     console.log(this.user);
+     console.log(this.userAuth);
     console.log(this.value);
-    this.loginService.login(this.user).subscribe((res: any) => {
+    this.loginService.login(this.userAuth).subscribe((res: any) => {
+      window.alert('User logged in successfully');
       console.log('Res: ', res);
       console.log(this.helper.decodeToken(res.body.token).jti, ' :this is the value of the userId');
     console.log(this.helper.decodeToken(res.body.token).sub, ' :this is the value of the role');
@@ -45,7 +46,8 @@ private password: string;
     }
     if ((this.helper.decodeToken(res.body.token).sub === 'user' )) {
       localStorage.setItem('token', res.body.token);
-      this.router.navigate([`/card`]);
+      console.log('In login');
+      this.router.navigate([`/web-speech`]);
       // this.loginService.setCookie('token', res.body.token, 1);
       this.isLoggedIn = true;
     }
@@ -56,7 +58,7 @@ private password: string;
         const errorStatus = err;
         this.statusCode = parseInt(errorStatus, 10);
         if (this.statusCode === 401) {
-          console.log('user does not exist');
+          console.log('userAuth does not exist');
           window.alert('User does not exist');
         }
     });

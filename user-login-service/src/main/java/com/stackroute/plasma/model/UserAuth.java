@@ -42,4 +42,10 @@ public class UserAuth {
         this.password = password;
         this.role = role;
     }
+
 }
+
+
+
+
+

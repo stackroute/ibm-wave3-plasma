@@ -28,7 +28,6 @@ public class User {
     private String emailId;
     @JsonProperty("password")
     private String password;
-
     public String getEmailId() {
         return emailId;
     }
@@ -37,4 +36,9 @@ public class User {
         this.emailId = emailId;
     }
 
-}
+
+
+   }
+
+
+

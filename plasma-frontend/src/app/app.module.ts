@@ -18,13 +18,13 @@ import { AppComponent } from './app.component';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { UserregistrationService } from './plasma/services/userregistration.service';
-import { WebSocketComponent } from './plasma/components/web-socket/web-socket.component';
+// import { WebSocketComponent } from './plasma/components/web-socket/web-socket.component';
 import { Ng2CarouselamosModule } from 'ng2-carouselamos';
 
 @NgModule({
 declarations: [
   AppComponent,
-  WebSocketComponent
+  // WebSocketComponent
 ],
 imports: [
   BrowserModule,

@@ -33,6 +33,10 @@ public class UserServiceImpl implements UserService {
        rabbitMQSender.sender(savedUser);
         System.out.println("after rabbit mq===========");
 
+
+//         User saveUser = userRepository.save(user);
+
+
         if (savedUser == null) {
             throw new UserAlreadyExistException("User already exists");
         }

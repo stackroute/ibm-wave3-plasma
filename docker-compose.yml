@@ -234,6 +234,7 @@ services:
      - eurekaserver
      - rabbitmq
      - apigateway
+     - nlpservice
     ports:
      - 8087:8087
     expose:

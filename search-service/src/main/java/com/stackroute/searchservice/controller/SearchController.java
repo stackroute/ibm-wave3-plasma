@@ -66,5 +66,4 @@ public class SearchController {
         responseEntity = new ResponseEntity(searchOutput,HttpStatus.CREATED);
         return responseEntity;
     }
-
 }
