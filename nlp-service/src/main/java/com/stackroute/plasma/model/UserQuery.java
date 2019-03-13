@@ -13,7 +13,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @AllArgsConstructor
 public class UserQuery {
     @Id
-    private String emailId;
+    private String userId;
     private String userQuery;
     private String jwt;
     private String role;

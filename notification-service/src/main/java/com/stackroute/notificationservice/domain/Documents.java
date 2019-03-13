@@ -1,13 +1,13 @@
 package com.stackroute.notificationservice.domain;
 
 import lombok.Data;
+
 import java.util.List;
 
-
 @Data
-public class Descriptions {
+public class Documents {
     String emailId;
     private String role;
     private String jwt;
-    List<List<Description>> descriptions;
+    List<List<Document>> documents;
 }

@@ -13,22 +13,23 @@ public class RabbitMQListener {
     @Autowired
     TagService tagService;
 
-    TagInput tagInput = new TagInput();
+    NlpModel nlpModel = new NlpModel();
 
     @RabbitListener(queues = "${javainuse4.rabbitmq.queue}", containerFactory = "jsaFactory")
-    public void consume(TagInput tagInput){
-        this.tagInput.setTokenizedQuery(tagInput.getTokenizedQuery());
-        this.tagInput.setEmailId(tagInput.getEmailId());
-        this.tagInput.setJwt(tagInput.getJwt());
-        this.tagInput.setRole(tagInput.getRole());
-        System.out.println("Recieved Message From RabbitMQ: " + tagInput.toString());
+    public void consume(NlpModel nlpModel){
+        this.nlpModel.setTokenized_lematized(nlpModel.getTokenized_lematized());
+        this.nlpModel.setUserId(nlpModel.getUserId());
+        this.nlpModel.setJwt(nlpModel.getJwt());
+        this.nlpModel.setRole(nlpModel.getRole());
+        System.out.println("Recieved Message From RabbitMQ: " + nlpModel.toString());
     }
 
-    public TagInput getTagInput() {
-        return tagInput;
+    public NlpModel getNlpModel() {
+        return nlpModel;
     }
 
-    public void setTagInput(TagInput tagInput) {
-        this.tagInput = tagInput;
+    public void setNlpModel(NlpModel nlpModel) {
+        this.nlpModel = nlpModel;
     }
+
 }

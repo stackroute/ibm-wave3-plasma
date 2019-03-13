@@ -57,16 +57,16 @@ public class NlpController {
     public NlpModel extractedQuery(@RequestBody InputQuery inputQuery) {
         temp = new ArrayList<>();
         userQuery = new UserQuery();
-        userQuery.setEmailId(inputQuery.getEmailId());
+        userQuery.setUserId(inputQuery.getUserId());
         userQuery.setUserQuery(inputQuery.getUserQuery());
         userQuery.setJwt(inputQuery.getJwt());
         userQuery.setRole(inputQuery.getRole());
-        System.out.println(userQuery.getUserQuery());
+        System.out.println("user query"+userQuery);
 
         nlpService.save(userQuery);
         temp = nlpService.queryConverter(inputQuery.getUserQuery());
         nlpModel.setTokenized_lematized(temp);
-        nlpModel.setUserId(inputQuery.getEmailId());
+        nlpModel.setUserId(inputQuery.getUserId());
         nlpModel.setJwt(inputQuery.getJwt());
         nlpModel.setRole(inputQuery.getRole());
         System.out.println("controller output" + nlpModel);

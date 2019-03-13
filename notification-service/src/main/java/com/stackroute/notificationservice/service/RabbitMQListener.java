@@ -1,6 +1,6 @@
 package com.stackroute.notificationservice.service;
 
-import com.stackroute.notificationservice.domain.Descriptions;
+import com.stackroute.notificationservice.domain.Documents;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
@@ -18,9 +18,9 @@ public class RabbitMQListener {
     }
 
      @RabbitListener(queues = "${javainuse6.rabbitmq.queue}", containerFactory = "jsaFactory")
-    public void consume(Descriptions descriptions){
-        System.out.println("Recieved Message From RabbitMQ: " + descriptions.toString());
-        this.send.convertAndSend("/topic", descriptions);
+    public void consume(Documents documents){
+        System.out.println("Recieved Message From RabbitMQ: " + documents.toString());
+        this.send.convertAndSend("/topic", documents);
     }
 
 }

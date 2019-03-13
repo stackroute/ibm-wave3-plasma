@@ -31,7 +31,7 @@ public class DocumentController {
         Tag tag = rabbitMQListener.getTag();
         Documents sender = new Documents();
         sender.setDocuments(documentService.concept(tag.getTaggedConcept(),tag.getTaggedLevel()));
-        sender.setEmailId(tag.getEmailId());
+        sender.setEmailId(tag.getUserId());
         sender.setJwt(tag.getJwt());
         sender.setRole(tag.getRole());
         rabbitMQSender.sender(sender);

@@ -20,8 +20,10 @@ public class RabbitMQSender {
     private String routingkey4;
 
     public void sender(NlpModel nlpModel) {
-        rabbitTemplate.convertAndSend(exchange,routingkey4,nlpModel);
+
         System.out.println("Send msg = " + nlpModel);
+        rabbitTemplate.convertAndSend(exchange,routingkey4,nlpModel);
+
     }
 
 }

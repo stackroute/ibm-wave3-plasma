@@ -1,12 +1,9 @@
 package com.stackroute.taggingservice.controller;
 
-import com.stackroute.taggingservice.domain.TagInput;
 import com.stackroute.taggingservice.domain.TagOutput;
 import com.stackroute.taggingservice.service.RabbitMQListener;
 import com.stackroute.taggingservice.service.TagService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -49,9 +46,9 @@ public class TaggingController {
   @GetMapping("/tag")
 
     public TagOutput tagger() {
-        System.out.println("controller listener check:  "+rabbitMQListener.getTagInput());
+        System.out.println("controller listener check:  "+rabbitMQListener.getNlpModel());
         //System.out.println("controller sender check:   "+tagService.tagger(rabbitMQListener.getTagInput().getTokenizedQuery().toString()));
-        return tagService.tagger(rabbitMQListener.getTagInput().getTokenizedQuery().toString());
+        return tagService.tagger(rabbitMQListener.getNlpModel().getTokenized_lematized().toString());
 
     }
 }
