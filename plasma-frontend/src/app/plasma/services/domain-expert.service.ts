@@ -23,7 +23,7 @@ httpOptions = {
       return this.http.get('http://13.234.94.77:3000/data');
     }
     add(reg: Domainexpert) {
-      this.url = 'http://13.234.94.77:8090/api/v1/search';
+      this.url = 'http://13.234.94.77:8092/search-service';
       // this.http.get(this.url + '').subscribe(resp => {
       //     console.log(resp);
       // this.response = resp;
