@@ -17,7 +17,8 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class RabbitMQConfig {
 
-
+    @Value("${javainuse.rabbitmq.exchange}")
+    String exchange;
 
     @Value("${javainuse10.rabbitmq.queue}")
     String queueName1;
@@ -30,6 +31,11 @@ public class RabbitMQConfig {
     Queue queue1() {
         return new Queue(queueName1, true);
     }
+    @Bean
+    DirectExchange exchange() {
+        return new DirectExchange(exchange);
+    }
+
 
 
     @Bean

@@ -290,7 +290,7 @@ public class TagServiceImpl implements TagService {
                 finalIntent.add("tutorial");
            }
         }
-        if(intent.isEmpty()){
+        if(finalIntent.isEmpty()){
              finalIntent.add("basics");
              return finalIntent;
         }

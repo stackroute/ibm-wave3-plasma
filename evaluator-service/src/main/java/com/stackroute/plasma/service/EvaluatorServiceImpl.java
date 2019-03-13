@@ -1014,9 +1014,12 @@ public class EvaluatorServiceImpl implements EvaluatorService  {
         this.eva.setTitle(this.docx.title());
         //rabbitmq sender
         rabbitMQSender.send(this.eva);
-        if (evalcount==RabbitMQListner.counter){
+       /* if (evalcount==RabbitMQListner.counter){
             rabbitMQSender.inform();
         }
+        else {
+            System.out.println("inform not working");
+        }*/
         System.out.print(this.eva);
         return this.eva;
     }
