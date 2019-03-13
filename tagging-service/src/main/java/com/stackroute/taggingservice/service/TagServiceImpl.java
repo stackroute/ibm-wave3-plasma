@@ -325,17 +325,13 @@ public class TagServiceImpl implements TagService {
             }
         }
 
-
-
         checkForConcept();
         checkForIntent();
         //tagOutput.setTaggedConcept(finalConcept);
        // tagOutput.setTaggedLevel(finalIntent);
 
-        TagOutput tagOutput = new TagOutput(finalConcept,finalIntent,rabbitMQListener.tagInput.getUserId(),
-                rabbitMQListener.tagInput.getJwt(),rabbitMQListener.tagInput.getRole());
-
-
+        TagOutput tagOutput = new TagOutput(finalConcept,finalIntent,rabbitMQListener.tagInput.getEmailId(),rabbitMQListener.tagInput.getRole(),
+                rabbitMQListener.tagInput.getJwt());
 
         System.out.println("sending message to RabbitMQ toString: " + tagOutput);
         rabbitMQSender.sender(tagOutput);

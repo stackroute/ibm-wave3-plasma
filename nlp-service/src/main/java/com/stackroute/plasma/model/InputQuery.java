@@ -1,35 +1,28 @@
 package com.stackroute.plasma.model;
 
 public class InputQuery {
-    private String userid ;
-    private String user_query;
+    private String emailId ;
+    private String userQuery;
     private String jwt;
     private String role ;
-
-    public InputQuery(String userid, String user_query, String jwt, String role) {
-        this.userid = userid;
-        this.user_query = user_query;
-        this.jwt = jwt;
-        this.role = role;
-    }
 
     public InputQuery() {
     }
 
-    public String getUser_id() {
-        return userid;
+    public String getEmailId() {
+        return emailId;
     }
 
-    public void setUser_id(String user_id) {
-        this.userid = user_id;
+    public void setEmailId(String emailId) {
+        this.emailId = emailId;
     }
 
-    public String getUser_query() {
-        return user_query;
+    public String getUserQuery() {
+        return userQuery;
     }
 
-    public void setUser_query(String user_query) {
-        this.user_query = user_query;
+    public void setUserQuery(String userQuery) {
+        this.userQuery = userQuery;
     }
 
     public String getJwt() {
@@ -48,14 +41,20 @@ public class InputQuery {
         this.role = role;
     }
 
+    public InputQuery(String userId, String userQuery, String jwt, String role) {
+        this.emailId = userId;
+        this.userQuery = userQuery;
+        this.jwt = jwt;
+        this.role = role;
+    }
+
     @Override
     public String toString() {
         return "InputQuery{" +
-                "user_id='" + userid + '\'' +
-                ", user_query='" + user_query + '\'' +
+                "userId='" + emailId + '\'' +
+                ", userQuery='" + userQuery + '\'' +
                 ", jwt='" + jwt + '\'' +
                 ", role='" + role + '\'' +
                 '}';
     }
-
 }

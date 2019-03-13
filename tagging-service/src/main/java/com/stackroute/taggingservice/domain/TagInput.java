@@ -5,18 +5,21 @@ import java.util.List;
 public class TagInput {
 
     private List<String> tokenizedQuery;
-    private String userId;
+    private String emailId;
     private String role;
     private String jwt;
 
-    public TagInput(List<String> tokenizedQuery, String userId, String role, String jwt) {
-        this.tokenizedQuery = tokenizedQuery;
-        this.userId = userId;
-        this.role = role;
-        this.jwt = jwt;
+    public TagInput() {
     }
 
-    public TagInput() {
+    @Override
+    public String toString() {
+        return "TagInput{" +
+                "tokenizedQuery=" + tokenizedQuery +
+                ", emailId='" + emailId + '\'' +
+                ", role='" + role + '\'' +
+                ", jwt='" + jwt + '\'' +
+                '}';
     }
 
     public List<String> getTokenizedQuery() {
@@ -27,12 +30,12 @@ public class TagInput {
         this.tokenizedQuery = tokenizedQuery;
     }
 
-    public String getUserId() {
-        return userId;
+    public String getEmailId() {
+        return emailId;
     }
 
-    public void setUserId(String userId) {
-        this.userId = userId;
+    public void setEmailId(String emailId) {
+        this.emailId = emailId;
     }
 
     public String getRole() {
@@ -51,13 +54,10 @@ public class TagInput {
         this.jwt = jwt;
     }
 
-    @Override
-    public String toString() {
-        return "TagInput{" +
-                "tokenizedQuery=" + tokenizedQuery +
-                ", userId='" + userId + '\'' +
-                ", role='" + role + '\'' +
-                ", jwt='" + jwt + '\'' +
-                '}';
+    public TagInput(List<String> tokenizedQuery, String emailId, String role, String jwt) {
+        this.tokenizedQuery = tokenizedQuery;
+        this.emailId = emailId;
+        this.role = role;
+        this.jwt = jwt;
     }
 }
