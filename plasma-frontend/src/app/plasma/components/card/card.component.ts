@@ -9,6 +9,7 @@ import { WebSocketService } from '../../services/web-socket.service';
 })
 export class CardComponent implements OnInit {
    private resp: any ;
+   cards: any;
   constructor( private ws:  WebSocketService) { }
   // public resp;
   ngOnInit() {
@@ -18,8 +19,9 @@ export class CardComponent implements OnInit {
     // });
     console.log('this is cards component !!');
     this.ws.dataFromTopic.subscribe(({body}) => {
-        console.log(JSON.parse(body), 'this is the data ');
-        this.resp = JSON.parse(body);
+      this.cards = JSON.parse(body).documents;
+      // console.log(JSON.stringify(JSON.parse(body).documents, 1, 1)));
+      console.log(JSON.stringify(JSON.parse(body).documents));    
     });
   }
 

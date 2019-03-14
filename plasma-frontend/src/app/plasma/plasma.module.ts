@@ -4,6 +4,8 @@ import { CardComponent } from './components/card/card.component';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {MatCardModule} from '@angular/material/card';
+
 
 import { UserregistrationComponent } from './components/userregistration/userregistration.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -43,7 +45,8 @@ import { SpeechRecognizerService } from './services/speech-recognizer.service';
    CommonModule,
    PlasmaMaterialModule,
    ReactiveFormsModule,
-   Ng2CarouselamosModule
+   Ng2CarouselamosModule,
+   MatCardModule
 
   ],
   providers: [UserLoginService, SpeechRecognizerService],
@@ -57,7 +60,8 @@ import { SpeechRecognizerService } from './services/speech-recognizer.service';
     ProfileComponent,
     AboutComponent,
     WebSpeechComponent,
-    WebSocketComponent
+    WebSocketComponent,
+    MatCardModule
   ]
 })
 export class PlasmaModule { }
