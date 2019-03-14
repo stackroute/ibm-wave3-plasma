@@ -54,7 +54,7 @@ public class NlpController {
   }*/
 
     @PostMapping("/query")
-    public NlpModel extractedQuery(@RequestBody InputQuery inputQuery) {
+    public ResponseEntity<?> extractedQuery(@RequestBody InputQuery inputQuery) {
         temp = new ArrayList<>();
         userQuery = new UserQuery();
         userQuery.setUserId(inputQuery.getUserId());
@@ -71,7 +71,8 @@ public class NlpController {
         nlpModel.setRole(inputQuery.getRole());
         System.out.println("controller output" + nlpModel);
         rabbitMQSender.sender(nlpModel);
-        return nlpModel;
+        //return nlpModel;
+        return new ResponseEntity<>(nlpModel,HttpStatus.CREATED);
 
     }
 

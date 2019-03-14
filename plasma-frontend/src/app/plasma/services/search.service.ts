@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { JwtHelperService } from "@auth0/angular-jwt";
 @Injectable({
   providedIn: 'root'
 })
@@ -11,24 +12,28 @@ export class SearchService {
 constructor(private http: HttpClient) {
 
 }
+
+ helper = new JwtHelperService();
+
  options = {
    headers: new HttpHeaders({
-     'Content-Type': 'text/plain'
+     'Content-Type': 'application/json'
    })
  };
 
 data(finalTranscript: String) {
-  console.log(this.nlpserviceurl, finalTranscript);
-  // return this.http
-  // .post(`${this.nlpserviceurl}`, JSON.stringify(finalTranscript), this.options);
 
-  return this.http
-  .post(`${this.nlpserviceurl}`, finalTranscript);
+  const decodedToken = this.helper.decodeToken(localStorage.getItem('token'));
+  let requestBody = {
+    "userId" : decodedToken.jti,  
+    "userQuery" : finalTranscript,
+    "jwt" : localStorage.getItem('token'),
+    "role" : decodedToken.sub
+  }
+
+ console.log(decodedToken, "this is the token data ")
+  return this.http.post(`${this.nlpserviceurl}`, requestBody);
 
 }
-// profile(userId: String) {
-//   this.url = 'http://localhost:8132/api/user/' + userId;
-//   return this.http.get(this.url);
-//  }
 
 }

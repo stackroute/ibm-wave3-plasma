@@ -16,11 +16,9 @@
     background: inherit;
     padding-left: 220px;
     font-size: 29px;
-    font-family: 'Crimson Text', serif;
     
   }
   mat-label{
-    font-family: 'Crimson Text', serif;
     color: black;
   }
 
@@ -34,7 +32,6 @@
     position: absolute;
     top:60px;
     background-size: 100% 100%;
-    font-family: 'Crimson Text', serif;
   }
 .whole
   {
@@ -48,7 +45,6 @@
     /*border-top-left-radius: 25px;*/
     border-radius: 50px 50px 50px 50px;
     background-image: url("../../../../assets/gra.jpg");
-    font-family: 'Crimson Text', serif;
  
   }
 
@@ -60,7 +56,6 @@
   p{
     margin-left: 170px;
     font-size: 17px;
-    font-family: 'Crimson Text', serif;
   }
   /* .btn-link{
     position: absolute;;
