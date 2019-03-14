@@ -21,7 +21,7 @@ export class CardComponent implements OnInit {
     this.ws.dataFromTopic.subscribe(({body}) => {
       this.cards = JSON.parse(body).documents;
       // console.log(JSON.stringify(JSON.parse(body).documents, 1, 1)));
-      console.log(JSON.stringify(JSON.parse(body).documents));    
+      console.log(JSON.stringify(JSON.parse(body).documents));
     });
   }
 
