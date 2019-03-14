@@ -4,7 +4,6 @@
   width: 100%;
   margin-left: 90px;
   margin-top: 10px;
-  font-family: 'Crimson Text', serif;
 }
  
 .full-width {
@@ -21,7 +20,6 @@ section{
     opacity: 0.8;
     width: 410px;
     height: 290px;
-    font-family: 'Crimson Text', serif;
     box-shadow: 10px 10px 10px #333333;
     /*border-top-left-radius: 25px;*/
     border-radius: 50px 50px 50px 50px;
@@ -36,7 +34,6 @@ mat-toolbar{
   padding-left: 180px;
   font-size: 25px;
   border-radius: 50px 50px;
-  font-family: 'Crimson Text', serif;
 }
 button{
   margin-left: 180px;
@@ -54,7 +51,6 @@ button{
 }
 
 mat-label{
-  font-family: 'Crimson Text', serif;
   color: black;
   font-size: 17px;
 }

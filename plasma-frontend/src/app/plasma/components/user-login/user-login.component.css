@@ -4,7 +4,6 @@
   width: 100%;
   padding-left: 90px;
   padding-top: 10px;
-  font-family: 'Crimson Text', serif;
  
  }
  
@@ -51,7 +50,6 @@ section{
   background: inherit;
   border-radius: 50px 50px;
   font-size: 29px;
-  font-family: 'Crimson Text', serif;
  }
  #login{
    background-color: darkblue;
@@ -59,14 +57,12 @@ section{
  }
 
  mat-label{
-  font-family: 'Crimson Text', serif;
   color: black;
  }
  button{
   margin-left: 170px;
   /* padding-left: 50px; */
   font-size: 18px;
-  font-family: 'Crimson Text', serif;
  }
  span{
    margin-left: 80px;
@@ -84,8 +80,6 @@ section{
   margin-left: 95px;
   font-size: 18px;
   padding-top: 10px;
-  font-style: italic;
-  font-family: 'Crimson Text', serif;
  }
  .signup{
   color: darkblue;
