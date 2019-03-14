@@ -6,7 +6,7 @@ import java.util.List;
 
 @Data
 public class Documents {
-    String emailId;
+    String userId;
     private String role;
     private String jwt;
     List<List<Document>> documents;
