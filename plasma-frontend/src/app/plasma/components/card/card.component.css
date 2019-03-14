@@ -1,43 +1,87 @@
 .cardContainer {
   display: flex;
+  margin-left: 10%;
   
 }
-
 mat-card-title{
   color: blue;
-  font-size: 18px;
+  
   object-fit: cover;
   text-decoration: none;
 }
-
 mat-card-content{
   margin-left: 19px;
 }
   .example-card {
     position: relative;
-    top:50px;
+    top:60px;
     max-width: 59.5em;
     
-
   }
 .title a{
   text-decoration: none;
+  font-size: 18px;
 }
   .key{
-    color: grey;
+    color:#777;
   }
   mat-card-title:hover{
     /* text-decoration: underline; */
     color: purple
   }
-
   .green a{
     text-decoration: none;
     color: green;
+    font-size: 15px;
     margin-left: 5px;
   }
   
   .example-header-image {
     background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
     background-size: cover;
+  }
+  @media (max-width: 1024px) {
+    .cardContainer{
+      width: 80%;
+      height:90%
+    }
+    .example-card{
+      width: 70%;
+    }
+  }
+  @media (max-width: 768px) {
+    .cardContainer{
+      width: 90%;
+      height:60%
+    }
+    .example-card{
+      width: 90%;
+    }
+    mat-card-title a{
+      font-size: 14px;
+    }
+    .green a{
+      font-size: 11px;
+    }
+    mat-card-content{
+      font-size: 9px;
+    }
+  }
+  @media (max-width: 425px) {
+    .cardContainer{
+      width: 90%;
+      height:60%
+    }
+    .example-card{
+      width: 80%;
+    }
+    mat-card-title a{
+      font-size: 12px;
+    }
+    .green a{
+      font-size: 9px;
+    }
+    mat-card-content{
+      font-size: 6px;
+    }
   }
