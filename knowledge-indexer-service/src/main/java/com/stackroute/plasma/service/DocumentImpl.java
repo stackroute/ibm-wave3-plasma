@@ -23,7 +23,9 @@ public class DocumentImpl implements DocumentService{
         String title = description.getTitle();
         String url = description.getUrl();
         String keywords = description.getKeywords();
-        return documentRepository.create(timestamp,concept,domain,descript,title,keywords,url);
+        String level = description.getLevel();
+        float confidenceScore = description.getConfidenceScore();
+        return documentRepository.create(timestamp,concept,domain,descript,title,keywords,url,level,confidenceScore);
     }
 
     @Override

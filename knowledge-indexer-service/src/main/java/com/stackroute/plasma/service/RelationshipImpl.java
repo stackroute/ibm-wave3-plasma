@@ -13,8 +13,8 @@ public class RelationshipImpl implements RelationshipService {
     RelationshipRespository relationshipRespository;
 
     @Override
-    public void create(String concept, float confidenceScore, String level,String url, String timestamp) {
-        relationshipRespository.create(concept,confidenceScore,level,url,timestamp);
+    public void create(String concept, float confidenceScore, String level,String url) {
+        relationshipRespository.create(concept,confidenceScore,level,url);
     }
 
     @Override
