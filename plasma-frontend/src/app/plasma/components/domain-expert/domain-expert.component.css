@@ -5,7 +5,13 @@
   margin-left: 90px;
   margin-top: 10px;
 }
- 
+#concept{
+  width: 238px;
+}
+.concepts{
+  padding-left: 10px;
+}
+
 .full-width {
   width: 60%;
 }
