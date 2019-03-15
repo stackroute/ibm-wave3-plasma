@@ -26,12 +26,13 @@ mat-card-content{
 }
   .example-card {
     position: relative;
-    top:60px;
-    width: 80%;
+    top:50px;
+    width: 90%;
     box-shadow: 10px 10px 10px #333333;
     /*border-top-left-radius: 25px;*/
     border-radius: 50px 50px 50px 50px;
     margin-top: 20px;
+    background-color: #eaeded;
     /* margin-left: 10%; */
     
   }
