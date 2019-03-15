@@ -5,6 +5,16 @@
   margin-left: 10%;
   
 }
+.full{
+  background-image: url("../../../../assets/bg91.jpg");
+  height: 700px;
+  width:100%;
+  opacity: 0.9;
+  background-repeat: no-repeat;
+  position: absolute;
+  top:60px;
+  background-size: 100% 100%;
+}
 mat-card-title{
   color: blue;
   
@@ -18,6 +28,10 @@ mat-card-content{
     position: relative;
     top:60px;
     width: 80%;
+    box-shadow: 10px 10px 10px #333333;
+    /*border-top-left-radius: 25px;*/
+    border-radius: 50px 50px 50px 50px;
+    margin-top: 20px;
     /* margin-left: 10%; */
     
   }
@@ -51,6 +65,10 @@ mat-card-content{
     .example-card{
       width: 70%;
     }
+    .full{
+      width: 100%;
+      height: 90%;
+    }
   }
   @media (max-width: 768px) {
     .cardContainer{
@@ -74,6 +92,9 @@ mat-card-content{
     .cardContainer{
       width: 90%;
       height:60%
+    }
+    .full{
+      margin-top:-5%;
     }
     .example-card{
       width: 80%;
