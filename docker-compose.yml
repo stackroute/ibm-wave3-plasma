@@ -275,6 +275,6 @@ services:
     restart: always
     network_mode: host
     ports:
-      - 8061:8061
+      - 8074:8074
     expose:
-      - 8061
+      - 8074

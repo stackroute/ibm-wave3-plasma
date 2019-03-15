@@ -1,4 +1,6 @@
+import { List } from 'lodash';
+
 export class Domainexpert {
     domain: string;
-    concepts: string[];
+    concepts: List<String>;
 }
