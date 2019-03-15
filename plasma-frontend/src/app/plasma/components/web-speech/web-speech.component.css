@@ -3,7 +3,9 @@
     padding-left: 20px;
     padding-right: 20px;
   }
-
+  mat-form-field .mat-form-field-wrapper .mat-form-field-underline {
+    height: 10px;
+  }
   .Front{
     background-image: url("../../../../assets/bg65.jpeg");
     height: 90%;
