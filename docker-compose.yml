@@ -63,7 +63,7 @@ services:
       - NEO4J_AUTH=neo4j/Neo4j
 
   apigateway:
-    image: zuul-service
+    image: zuul-service-0
     build: zuul-gatewayservice/
     restart: always
     network_mode: host
@@ -73,6 +73,19 @@ services:
       - 8092:8092
     expose:
       - 8092
+
+#  apigateway1:
+#    image: zuul-service-1
+#    build: zuul-gatewayservice/
+#    restart: always
+#    network_mode: host
+#    depends_on:
+#      - eurekaserver
+#    ports:
+#      - 8072:8092
+#    expose:
+#      - 8072
+
 
   eurekaserver:
     image: eureka-service:latest
