@@ -1,6 +1,6 @@
 .cardContainer {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   width: 80%;
   margin-left: 10%;
   
@@ -18,7 +18,7 @@ mat-card-content{
     position: relative;
     top:60px;
     width: 80%;
-    margin-left: 10%;
+    /* margin-left: 10%; */
     
   }
 .title a{
