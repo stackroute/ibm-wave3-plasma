@@ -10,9 +10,9 @@ import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.io.File;
@@ -35,13 +35,15 @@ public class EvaluatorServiceImpl implements EvaluatorService  {
 
     Evaluator eval = new Evaluator();
 
+    @Autowired
+    RabbitMQSender rabbitMQSender;
+
     @JsonIgnore
     Document docx;
     Evaluator eva;
     Url url;
 
-    @Autowired
-    RabbitMQSender rabbitMQSender;
+    int evalcount=0;
 
     private String keywords;
     private String description;
@@ -108,85 +110,96 @@ public class EvaluatorServiceImpl implements EvaluatorService  {
         getScore(this.url);
 
     }
-    //Calculating scores for html tag
     @Override
     public void htmlTag() {
         System.out.println("in html");
+        long n = 0L;
         String htmlTag = docx.select("html").text();
         String[] str = htmlTag.toLowerCase().trim().split(" ");
         htmlDoc = Arrays.asList(str);
 
         //basics intent
         for (int j = 0; j < (basicsIndicatorTerms.length()); j++) {
-            if (htmlDoc.contains(basicsIndicatorTerms.getJSONObject(j).getString("word"))) {
-
-                indicatorVal[0] += (countOccurences(htmlDoc, basicsIndicatorTerms.getJSONObject(j).getString("word"))) * basicsIndicatorTerms.getJSONObject(j).getLong("intensity") * tagweight.get("html");
+            if (htmlDoc.contains(basicsIndicatorTerms.getJSONObject(j).getString("intent"))) {
+                n = ((countOccurences(headDoc, basicsIndicatorTerms.getJSONObject(j).getString("intent")) + (countOccurences(bodyDoc, basicsIndicatorTerms.getJSONObject(j).getString("intent")))));
+                indicatorVal[0] += (countOccurences(htmlDoc, basicsIndicatorTerms.getJSONObject(j).getString("intent")) - n) * basicsIndicatorTerms.getJSONObject(j).getLong("intensity") * tagweight.get("html");
             }
         }
         for (int j = 0; j < (basicsCounterIndicatorTerms.length()); j++) {
-            if (htmlDoc.contains(basicsCounterIndicatorTerms.getJSONObject(j).getString("word"))) {
-                counterIndicatorVal[0] += (countOccurences(htmlDoc, basicsCounterIndicatorTerms.getJSONObject(j).getString("word"))) * basicsCounterIndicatorTerms.getJSONObject(j).getLong("intensity") * tagweight.get("html");
+            if (htmlDoc.contains(basicsCounterIndicatorTerms.getJSONObject(j).getString("intent"))) {
+                n = ((countOccurences(headDoc, basicsCounterIndicatorTerms.getJSONObject(j).getString("intent")) + (countOccurences(bodyDoc, basicsCounterIndicatorTerms.getJSONObject(j).getString("intent")))));
+                counterIndicatorVal[0] += (countOccurences(htmlDoc, basicsCounterIndicatorTerms.getJSONObject(j).getString("intent")) - n) * basicsCounterIndicatorTerms.getJSONObject(j).getLong("intensity") * tagweight.get("html");
             }
         }
 
         //tutorials intent
         for (int j = 0; j < tutorialsIndicatorTerms.length(); j++) {
-            if (htmlDoc.contains(tutorialsIndicatorTerms.getJSONObject(j).getString("word"))) {
-                indicatorVal[1] += (countOccurences(htmlDoc, tutorialsIndicatorTerms.getJSONObject(j).getString("word")) ) * tutorialsIndicatorTerms.getJSONObject(j).getLong("intensity") * tagweight.get("html");
+            if (htmlDoc.contains(tutorialsIndicatorTerms.getJSONObject(j).getString("intent"))) {
+                n = ((countOccurences(headDoc, tutorialsIndicatorTerms.getJSONObject(j).getString("intent")) + (countOccurences(bodyDoc, tutorialsIndicatorTerms.getJSONObject(j).getString("intent")))));
+                indicatorVal[1] += (countOccurences(htmlDoc, tutorialsIndicatorTerms.getJSONObject(j).getString("intent")) - n) * tutorialsIndicatorTerms.getJSONObject(j).getLong("intensity") * tagweight.get("html");
             }
         }
         for (int j = 0; j < tutorialsCounterIndicatorTerms.length(); j++) {
-            if (htmlDoc.contains(tutorialsCounterIndicatorTerms.getJSONObject(j).getString("word"))) {
-                counterIndicatorVal[1] += (countOccurences(htmlDoc, tutorialsCounterIndicatorTerms.getJSONObject(j).getString("word"))) * tutorialsCounterIndicatorTerms.getJSONObject(j).getLong("intensity") * tagweight.get("html");
+            if (htmlDoc.contains(tutorialsCounterIndicatorTerms.getJSONObject(j).getString("intent"))) {
+                n = ((countOccurences(headDoc, tutorialsCounterIndicatorTerms.getJSONObject(j).getString("intent")) + (countOccurences(bodyDoc, tutorialsCounterIndicatorTerms.getJSONObject(j).getString("intent")))));
+                counterIndicatorVal[1] += (countOccurences(htmlDoc, tutorialsCounterIndicatorTerms.getJSONObject(j).getString("intent")) - n) * tutorialsCounterIndicatorTerms.getJSONObject(j).getLong("intensity") * tagweight.get("html");
             }
         }
 
         //example  intent
         for (int j = 0; j < exampleIndicatorTerms.length(); j++) {
-            if (htmlDoc.contains(exampleIndicatorTerms.getJSONObject(j).getString("word"))) {
-                indicatorVal[2] += (countOccurences(htmlDoc, exampleIndicatorTerms.getJSONObject(j).getString("word"))) * exampleIndicatorTerms.getJSONObject(j).getLong("intensity") * tagweight.get("html");
+            if (htmlDoc.contains(exampleIndicatorTerms.getJSONObject(j).getString("intent"))) {
+                n = ((countOccurences(headDoc, exampleIndicatorTerms.getJSONObject(j).getString("intent")) + (countOccurences(bodyDoc, exampleIndicatorTerms.getJSONObject(j).getString("intent")))));
+                indicatorVal[2] += (countOccurences(htmlDoc, exampleIndicatorTerms.getJSONObject(j).getString("intent")) - n) * exampleIndicatorTerms.getJSONObject(j).getLong("intensity") * tagweight.get("html");
             }
         }
         for (int j = 0; j < exampleCounterIndicatorTerms.length(); j++) {
-            if (htmlDoc.contains(exampleCounterIndicatorTerms.getJSONObject(j).getString("word"))) {
-                counterIndicatorVal[2] += (countOccurences(htmlDoc, exampleCounterIndicatorTerms.getJSONObject(j).getString("word"))) * exampleCounterIndicatorTerms.getJSONObject(j).getInt("intensity") * tagweight.get("html");
+            if (htmlDoc.contains(exampleCounterIndicatorTerms.getJSONObject(j).getString("intent"))) {
+                n = ((countOccurences(headDoc, exampleCounterIndicatorTerms.getJSONObject(j).getString("intent")) + (countOccurences(bodyDoc, exampleCounterIndicatorTerms.getJSONObject(j).getString("intent")))));
+                counterIndicatorVal[2] += (countOccurences(htmlDoc, exampleCounterIndicatorTerms.getJSONObject(j).getString("intent")) - n) * exampleCounterIndicatorTerms.getJSONObject(j).getInt("intensity") * tagweight.get("html");
             }
         }
 
         //complete reference intent
         for (int j = 0; j < completeReferenceIndicatorTerms.length(); j++) {
-            if (htmlDoc.contains(completeReferenceIndicatorTerms.getJSONObject(j).getString("word"))) {
-                indicatorVal[3] += (countOccurences(htmlDoc, completeReferenceIndicatorTerms.getJSONObject(j).getString("word")) ) * completeReferenceIndicatorTerms.getJSONObject(j).getInt("intensity") * tagweight.get("html");
+            if (htmlDoc.contains(completeReferenceIndicatorTerms.getJSONObject(j).getString("intent"))) {
+                n = ((countOccurences(headDoc, completeReferenceIndicatorTerms.getJSONObject(j).getString("intent")) + (countOccurences(bodyDoc, completeReferenceIndicatorTerms.getJSONObject(j).getString("intent")))));
+                indicatorVal[3] += (countOccurences(htmlDoc, completeReferenceIndicatorTerms.getJSONObject(j).getString("intent")) - n) * completeReferenceIndicatorTerms.getJSONObject(j).getInt("intensity") * tagweight.get("html");
             }
         }
         for (int j = 0; j < completeReferenceCounterIndicatorTerms.length(); j++) {
-            if (htmlDoc.contains(completeReferenceCounterIndicatorTerms.getJSONObject(j).getString("word"))) {
-                counterIndicatorVal[3] += (countOccurences(htmlDoc, completeReferenceCounterIndicatorTerms.getJSONObject(j).getString("word")) ) * completeReferenceCounterIndicatorTerms.getJSONObject(j).getInt("intensity") * tagweight.get("html");
+            if (htmlDoc.contains(completeReferenceCounterIndicatorTerms.getJSONObject(j).getString("intent"))) {
+                n = ((countOccurences(headDoc, completeReferenceCounterIndicatorTerms.getJSONObject(j).getString("intent")) + (countOccurences(bodyDoc, completeReferenceCounterIndicatorTerms.getJSONObject(j).getString("intent")))));
+                counterIndicatorVal[3] += (countOccurences(htmlDoc, completeReferenceCounterIndicatorTerms.getJSONObject(j).getString("intent")) - n) * completeReferenceCounterIndicatorTerms.getJSONObject(j).getInt("intensity") * tagweight.get("html");
             }
         }
 
         //trouble shooting intent
         for (int j = 0; j < troubleShootingIndicatorTerms.length(); j++) {
-            if (htmlDoc.contains(troubleShootingIndicatorTerms.getJSONObject(j).getString("word"))) {
-                indicatorVal[4] += (countOccurences(htmlDoc, troubleShootingIndicatorTerms.getJSONObject(j).getString("word")) ) * troubleShootingIndicatorTerms.getJSONObject(j).getInt("intensity") * tagweight.get("html");
+            if (htmlDoc.contains(troubleShootingIndicatorTerms.getJSONObject(j).getString("intent"))) {
+                n = ((countOccurences(headDoc, troubleShootingIndicatorTerms.getJSONObject(j).getString("intent")) + (countOccurences(bodyDoc, troubleShootingIndicatorTerms.getJSONObject(j).getString("intent")))));
+                indicatorVal[4] += (countOccurences(htmlDoc, troubleShootingIndicatorTerms.getJSONObject(j).getString("intent")) - n) * troubleShootingIndicatorTerms.getJSONObject(j).getInt("intensity") * tagweight.get("html");
             }
 
         }
         for (int j = 0; j < troubleShootingCounterIndicatorTerms.length(); j++) {
-            if (htmlDoc.contains(troubleShootingCounterIndicatorTerms.getJSONObject(j).getString("word"))) {
-                counterIndicatorVal[4] += (countOccurences(htmlDoc, troubleShootingCounterIndicatorTerms.getJSONObject(j).getString("word")) ) * troubleShootingCounterIndicatorTerms.getJSONObject(j).getInt("intensity") * tagweight.get("html");
+            if (htmlDoc.contains(troubleShootingCounterIndicatorTerms.getJSONObject(j).getString("intent"))) {
+                n = ((countOccurences(headDoc, troubleShootingCounterIndicatorTerms.getJSONObject(j).getString("intent")) + (countOccurences(bodyDoc, troubleShootingCounterIndicatorTerms.getJSONObject(j).getString("intent")))));
+                counterIndicatorVal[4] += (countOccurences(htmlDoc, troubleShootingCounterIndicatorTerms.getJSONObject(j).getString("intent")) - n) * troubleShootingCounterIndicatorTerms.getJSONObject(j).getInt("intensity") * tagweight.get("html");
             }
         }
 
         //gettingStarted
         for (int j = 0; j < gettingStartedIndicatorTerms.length(); j++) {
-            if (htmlDoc.contains(gettingStartedIndicatorTerms.getJSONObject(j).getString("word"))) {
-                indicatorVal[5] += (countOccurences(htmlDoc, gettingStartedIndicatorTerms.getJSONObject(j).getString("word"))) * gettingStartedIndicatorTerms.getJSONObject(j).getInt("intensity") * tagweight.get("html");
+            if (htmlDoc.contains(gettingStartedIndicatorTerms.getJSONObject(j).getString("intent"))) {
+                n = ((countOccurences(headDoc, gettingStartedIndicatorTerms.getJSONObject(j).getString("intent")) + (countOccurences(bodyDoc, gettingStartedIndicatorTerms.getJSONObject(j).getString("intent")))));
+                indicatorVal[5] += (countOccurences(htmlDoc, gettingStartedIndicatorTerms.getJSONObject(j).getString("intent")) - n) * gettingStartedIndicatorTerms.getJSONObject(j).getInt("intensity") * tagweight.get("html");
             }
         }
         for (int j = 0; j < gettingStartedCounterIndicatorTerms.length(); j++) {
-            if (htmlDoc.contains(gettingStartedCounterIndicatorTerms.getJSONObject(j).getString("word"))) {
-                counterIndicatorVal[5] += (countOccurences(htmlDoc, gettingStartedCounterIndicatorTerms.getJSONObject(j).getString("word")) ) * gettingStartedCounterIndicatorTerms.getJSONObject(j).getInt("intensity") * tagweight.get("html");
+            if (htmlDoc.contains(gettingStartedCounterIndicatorTerms.getJSONObject(j).getString("intent"))) {
+                n = ((countOccurences(headDoc, gettingStartedCounterIndicatorTerms.getJSONObject(j).getString("intent")) + (countOccurences(bodyDoc, gettingStartedCounterIndicatorTerms.getJSONObject(j).getString("intent")))));
+                counterIndicatorVal[5] += (countOccurences(htmlDoc, gettingStartedCounterIndicatorTerms.getJSONObject(j).getString("intent")) - n) * gettingStartedCounterIndicatorTerms.getJSONObject(j).getInt("intensity") * tagweight.get("html");
 
             }
         }
@@ -195,82 +208,95 @@ public class EvaluatorServiceImpl implements EvaluatorService  {
     //Calculating scores for head tag
     @Override
     public void headTag() {
+        long n = 0L;
         String headTag = docx.select("head").text();
         String[] str = headTag.toLowerCase().trim().split(" ");
         headDoc = Arrays.asList(str);
 
         //basics intent
         for (int j = 0; j < (basicsIndicatorTerms.length()); j++) {
-            if (headDoc.contains(basicsIndicatorTerms.getJSONObject(j).getString("word"))) {
-                indicatorVal[0] += ((countOccurences(headDoc, basicsIndicatorTerms.getJSONObject(j).getString("word")) > 0 ? (countOccurences(headDoc, basicsIndicatorTerms.getJSONObject(j).getString("word"))) : 0) * basicsIndicatorTerms.getJSONObject(j).getLong("intensity") * tagweight.get("head"));
+            if (headDoc.contains(basicsIndicatorTerms.getJSONObject(j).getString("intent"))) {
+                n = (countOccurences(metaDoc, basicsIndicatorTerms.getJSONObject(j).getString("intent")) + (countOccurences(titleDoc, basicsIndicatorTerms.getJSONObject(j).getString("intent"))));
+                indicatorVal[0] += ((countOccurences(headDoc, basicsIndicatorTerms.getJSONObject(j).getString("intent")) - n > 0 ? (countOccurences(headDoc, basicsIndicatorTerms.getJSONObject(j).getString("intent")) - n) : 0) * basicsIndicatorTerms.getJSONObject(j).getLong("intensity") * tagweight.get("head"));
             }
         }
         for (int j = 0; j < (basicsCounterIndicatorTerms.length()); j++) {
-            if (headDoc.contains(basicsCounterIndicatorTerms.getJSONObject(j).getString("word"))) {
-                counterIndicatorVal[0] += ((countOccurences(headDoc, basicsCounterIndicatorTerms.getJSONObject(j).getString("word"))) > 0 ? (countOccurences(headDoc, basicsIndicatorTerms.getJSONObject(j).getString("word")) ) : 0) * basicsCounterIndicatorTerms.getJSONObject(j).getLong("intensity") * tagweight.get("head");
+            if (headDoc.contains(basicsCounterIndicatorTerms.getJSONObject(j).getString("intent"))) {
+                n = (countOccurences(metaDoc, basicsCounterIndicatorTerms.getJSONObject(j).getString("intent")) + (countOccurences(titleDoc, basicsCounterIndicatorTerms.getJSONObject(j).getString("intent"))));
+                counterIndicatorVal[0] += ((countOccurences(headDoc, basicsCounterIndicatorTerms.getJSONObject(j).getString("intent")) - n) > 0 ? (countOccurences(headDoc, basicsIndicatorTerms.getJSONObject(j).getString("intent")) - n) : 0) * basicsCounterIndicatorTerms.getJSONObject(j).getLong("intensity") * tagweight.get("head");
             }
         }
 
         //tutorials intent
         for (int j = 0; j < tutorialsIndicatorTerms.length(); j++) {
-            if (headDoc.contains(tutorialsIndicatorTerms.getJSONObject(j).getString("word"))) {
-                indicatorVal[1] += ((countOccurences(headDoc, tutorialsIndicatorTerms.getJSONObject(j).getString("word"))) > 0 ? (countOccurences(headDoc, tutorialsIndicatorTerms.getJSONObject(j).getString("word"))) : 0) * tutorialsIndicatorTerms.getJSONObject(j).getLong("intensity") * tagweight.get("head");
+            if (headDoc.contains(tutorialsIndicatorTerms.getJSONObject(j).getString("intent"))) {
+                n = (countOccurences(metaDoc, tutorialsIndicatorTerms.getJSONObject(j).getString("intent")) + (countOccurences(titleDoc, tutorialsIndicatorTerms.getJSONObject(j).getString("intent"))));
+                indicatorVal[1] += ((countOccurences(headDoc, tutorialsIndicatorTerms.getJSONObject(j).getString("intent")) - n) > 0 ? (countOccurences(headDoc, tutorialsIndicatorTerms.getJSONObject(j).getString("intent")) - n) : 0) * tutorialsIndicatorTerms.getJSONObject(j).getLong("intensity") * tagweight.get("head");
             }
         }
         for (int j = 0; j < tutorialsCounterIndicatorTerms.length(); j++) {
-            if (headDoc.contains(tutorialsCounterIndicatorTerms.getJSONObject(j).getString("word"))) {
-                counterIndicatorVal[1] += ((countOccurences(headDoc, tutorialsCounterIndicatorTerms.getJSONObject(j).getString("word"))) > 0 ? (countOccurences(headDoc, tutorialsIndicatorTerms.getJSONObject(j).getString("word"))) : 0) * tutorialsCounterIndicatorTerms.getJSONObject(j).getLong("intensity") * tagweight.get("head");
+            if (headDoc.contains(tutorialsCounterIndicatorTerms.getJSONObject(j).getString("intent"))) {
+                n = (countOccurences(metaDoc, tutorialsCounterIndicatorTerms.getJSONObject(j).getString("intent")) + (countOccurences(titleDoc, tutorialsCounterIndicatorTerms.getJSONObject(j).getString("intent"))));
+                counterIndicatorVal[1] += ((countOccurences(headDoc, tutorialsCounterIndicatorTerms.getJSONObject(j).getString("intent")) - n) > 0 ? (countOccurences(headDoc, tutorialsIndicatorTerms.getJSONObject(j).getString("intent")) - n) : 0) * tutorialsCounterIndicatorTerms.getJSONObject(j).getLong("intensity") * tagweight.get("head");
             }
         }
 
         //example  intent
         for (int j = 0; j < exampleIndicatorTerms.length(); j++) {
-            if (headDoc.contains(exampleIndicatorTerms.getJSONObject(j).getString("word"))) {
-                indicatorVal[2] += ((countOccurences(headDoc, exampleIndicatorTerms.getJSONObject(j).getString("word"))) > 0 ? (countOccurences(headDoc, exampleIndicatorTerms.getJSONObject(j).getString("word"))) : 0) * exampleIndicatorTerms.getJSONObject(j).getLong("intensity") * tagweight.get("head");
+            if (headDoc.contains(exampleIndicatorTerms.getJSONObject(j).getString("intent"))) {
+                n = (countOccurences(metaDoc, exampleIndicatorTerms.getJSONObject(j).getString("intent")) + (countOccurences(titleDoc, exampleIndicatorTerms.getJSONObject(j).getString("intent"))));
+                indicatorVal[2] += ((countOccurences(headDoc, exampleIndicatorTerms.getJSONObject(j).getString("intent")) - n) > 0 ? (countOccurences(headDoc, exampleIndicatorTerms.getJSONObject(j).getString("intent")) - n) : 0) * exampleIndicatorTerms.getJSONObject(j).getLong("intensity") * tagweight.get("head");
             }
         }
         for (int j = 0; j < exampleCounterIndicatorTerms.length(); j++) {
-            if (headDoc.contains(exampleCounterIndicatorTerms.getJSONObject(j).getString("word"))) {
-                counterIndicatorVal[2] += ((countOccurences(headDoc, exampleCounterIndicatorTerms.getJSONObject(j).getString("word"))) > 0 ? (countOccurences(headDoc, exampleIndicatorTerms.getJSONObject(j).getString("word")) ) : 0) * exampleCounterIndicatorTerms.getJSONObject(j).getInt("intensity") * tagweight.get("head");
+            if (headDoc.contains(exampleCounterIndicatorTerms.getJSONObject(j).getString("intent"))) {
+                n = (countOccurences(metaDoc, exampleCounterIndicatorTerms.getJSONObject(j).getString("intent")) + (countOccurences(titleDoc, exampleCounterIndicatorTerms.getJSONObject(j).getString("intent"))));
+                counterIndicatorVal[2] += ((countOccurences(headDoc, exampleCounterIndicatorTerms.getJSONObject(j).getString("intent")) - n) > 0 ? (countOccurences(headDoc, exampleIndicatorTerms.getJSONObject(j).getString("intent")) - n) : 0) * exampleCounterIndicatorTerms.getJSONObject(j).getInt("intensity") * tagweight.get("head");
             }
         }
 
         //complete reference intent
         for (int j = 0; j < completeReferenceIndicatorTerms.length(); j++) {
-            if (headDoc.contains(completeReferenceIndicatorTerms.getJSONObject(j).getString("word"))) {
-                indicatorVal[3] += ((countOccurences(headDoc, completeReferenceIndicatorTerms.getJSONObject(j).getString("word")) ) > 0 ? (countOccurences(headDoc, completeReferenceIndicatorTerms.getJSONObject(j).getString("word"))) : 0) * completeReferenceIndicatorTerms.getJSONObject(j).getInt("intensity") * tagweight.get("head");
+            if (headDoc.contains(completeReferenceIndicatorTerms.getJSONObject(j).getString("intent"))) {
+                n = (countOccurences(metaDoc, completeReferenceIndicatorTerms.getJSONObject(j).getString("intent")) + (countOccurences(titleDoc, completeReferenceIndicatorTerms.getJSONObject(j).getString("intent"))));
+                indicatorVal[3] += ((countOccurences(headDoc, completeReferenceIndicatorTerms.getJSONObject(j).getString("intent")) - n) > 0 ? (countOccurences(headDoc, completeReferenceIndicatorTerms.getJSONObject(j).getString("intent")) - n) : 0) * completeReferenceIndicatorTerms.getJSONObject(j).getInt("intensity") * tagweight.get("head");
             }
         }
         for (int j = 0; j < completeReferenceCounterIndicatorTerms.length(); j++) {
-            if (headDoc.contains(completeReferenceCounterIndicatorTerms.getJSONObject(j).getString("word"))) {
-                counterIndicatorVal[3] += ((countOccurences(headDoc, completeReferenceCounterIndicatorTerms.getJSONObject(j).getString("word"))) > 0 ? (countOccurences(headDoc, completeReferenceIndicatorTerms.getJSONObject(j).getString("word"))) : 0) * completeReferenceCounterIndicatorTerms.getJSONObject(j).getInt("intensity") * tagweight.get("head");
+            if (headDoc.contains(completeReferenceCounterIndicatorTerms.getJSONObject(j).getString("intent"))) {
+                n = (countOccurences(metaDoc, completeReferenceCounterIndicatorTerms.getJSONObject(j).getString("intent")) + (countOccurences(titleDoc, completeReferenceCounterIndicatorTerms.getJSONObject(j).getString("intent"))));
+                counterIndicatorVal[3] += ((countOccurences(headDoc, completeReferenceCounterIndicatorTerms.getJSONObject(j).getString("intent")) - n) > 0 ? (countOccurences(headDoc, completeReferenceIndicatorTerms.getJSONObject(j).getString("intent")) - n) : 0) * completeReferenceCounterIndicatorTerms.getJSONObject(j).getInt("intensity") * tagweight.get("head");
             }
         }
 
         //trouble shooting intent
         for (int j = 0; j < troubleShootingIndicatorTerms.length(); j++) {
-            if (headDoc.contains(troubleShootingIndicatorTerms.getJSONObject(j).getString("word"))) {
-                indicatorVal[4] += ((countOccurences(headDoc, troubleShootingIndicatorTerms.getJSONObject(j).getString("word"))) > 0 ? (countOccurences(headDoc, troubleShootingIndicatorTerms.getJSONObject(j).getString("word"))) : 0) * troubleShootingIndicatorTerms.getJSONObject(j).getInt("intensity") * tagweight.get("head");
+            if (headDoc.contains(troubleShootingIndicatorTerms.getJSONObject(j).getString("intent"))) {
+                n = (countOccurences(metaDoc, troubleShootingIndicatorTerms.getJSONObject(j).getString("intent")) + (countOccurences(titleDoc, troubleShootingIndicatorTerms.getJSONObject(j).getString("intent"))));
+                indicatorVal[4] += ((countOccurences(headDoc, troubleShootingIndicatorTerms.getJSONObject(j).getString("intent")) - n) > 0 ? (countOccurences(headDoc, troubleShootingIndicatorTerms.getJSONObject(j).getString("intent")) - n) : 0) * troubleShootingIndicatorTerms.getJSONObject(j).getInt("intensity") * tagweight.get("head");
             }
         }
 
 
         for (int j = 0; j < troubleShootingCounterIndicatorTerms.length(); j++) {
-            if (headDoc.contains(troubleShootingCounterIndicatorTerms.getJSONObject(j).getString("word"))) {
-                counterIndicatorVal[4] += ((countOccurences(headDoc, troubleShootingCounterIndicatorTerms.getJSONObject(j).getString("word"))) > 0 ? (countOccurences(headDoc, troubleShootingCounterIndicatorTerms.getJSONObject(j).getString("word"))) : 0) * troubleShootingCounterIndicatorTerms.getJSONObject(j).getInt("intensity") * tagweight.get("head");
+            if (headDoc.contains(troubleShootingCounterIndicatorTerms.getJSONObject(j).getString("intent"))) {
+                n = (countOccurences(metaDoc, troubleShootingCounterIndicatorTerms.getJSONObject(j).getString("intent")) + (countOccurences(titleDoc, troubleShootingCounterIndicatorTerms.getJSONObject(j).getString("intent"))));
+                counterIndicatorVal[4] += ((countOccurences(headDoc, troubleShootingCounterIndicatorTerms.getJSONObject(j).getString("intent")) - n) > 0 ? (countOccurences(headDoc, troubleShootingCounterIndicatorTerms.getJSONObject(j).getString("intent")) - n) : 0) * troubleShootingCounterIndicatorTerms.getJSONObject(j).getInt("intensity") * tagweight.get("head");
             }
 
         }
 
         //gettingStarted
         for (int j = 0; j < gettingStartedIndicatorTerms.length(); j++) {
-            if (headDoc.contains(gettingStartedIndicatorTerms.getJSONObject(j).getString("word"))) {
-                indicatorVal[5] += ((countOccurences(headDoc, gettingStartedIndicatorTerms.getJSONObject(j).getString("word"))) > 0 ? (countOccurences(headDoc, gettingStartedIndicatorTerms.getJSONObject(j).getString("word"))) : 0) * gettingStartedIndicatorTerms.getJSONObject(j).getInt("intensity") * tagweight.get("head");
+            if (headDoc.contains(gettingStartedIndicatorTerms.getJSONObject(j).getString("intent"))) {
+                n = (countOccurences(metaDoc, gettingStartedIndicatorTerms.getJSONObject(j).getString("intent")) + (countOccurences(titleDoc, gettingStartedIndicatorTerms.getJSONObject(j).getString("intent"))));
+                indicatorVal[5] += ((countOccurences(headDoc, gettingStartedIndicatorTerms.getJSONObject(j).getString("intent")) - n) > 0 ? (countOccurences(headDoc, gettingStartedIndicatorTerms.getJSONObject(j).getString("intent")) - n) : 0) * gettingStartedIndicatorTerms.getJSONObject(j).getInt("intensity") * tagweight.get("head");
             }
         }
         for (int j = 0; j < gettingStartedCounterIndicatorTerms.length(); j++) {
-            if (headDoc.contains(gettingStartedCounterIndicatorTerms.getJSONObject(j).getString("word"))) {
-                counterIndicatorVal[5] += ((countOccurences(headDoc, gettingStartedCounterIndicatorTerms.getJSONObject(j).getString("word"))) > 0 ? (countOccurences(headDoc, gettingStartedIndicatorTerms.getJSONObject(j).getString("word"))) : 0) * gettingStartedCounterIndicatorTerms.getJSONObject(j).getInt("intensity") * tagweight.get("head");
+            if (headDoc.contains(gettingStartedCounterIndicatorTerms.getJSONObject(j).getString("intent"))) {
+                n = (countOccurences(metaDoc, gettingStartedCounterIndicatorTerms.getJSONObject(j).getString("intent")) + (countOccurences(titleDoc, gettingStartedCounterIndicatorTerms.getJSONObject(j).getString("intent"))));
+                counterIndicatorVal[5] += ((countOccurences(headDoc, gettingStartedCounterIndicatorTerms.getJSONObject(j).getString("intent")) - n) > 0 ? (countOccurences(headDoc, gettingStartedIndicatorTerms.getJSONObject(j).getString("intent")) - n) : 0) * gettingStartedCounterIndicatorTerms.getJSONObject(j).getInt("intensity") * tagweight.get("head");
             }
         }
     }
@@ -301,11 +327,20 @@ public class EvaluatorServiceImpl implements EvaluatorService  {
         calScore(metaDoc, "meta");
     }
 
+    int bodyCal(String string) {
+        int count = 0;
+        count = countOccurences(h1Doc, string) + countOccurences(h2Doc, string) + countOccurences(h3Doc, string) + countOccurences(h4Doc, string) + countOccurences(h5Doc, string) +
+                countOccurences(h6Doc, string) + countOccurences(codeDoc, string) + countOccurences(addressDoc, string) + countOccurences(summaryDoc, string) + countOccurences(blockquoteDoc, string) +
+                countOccurences(markDoc, string) + countOccurences(insDoc, string) + countOccurences(mapDoc, string) + countOccurences(pDoc, string) + countOccurences(spanDoc, string) +
+                countOccurences(divDoc, string) + countOccurences(ulDoc, string) + countOccurences(olDoc, string) + countOccurences(articleDoc, string) + countOccurences(navDoc, string);
+        return count;
+    }
 
     //Calculating scores for body tag
     @Override
     public void bodyTag() {
         if (!docx.select("body").isEmpty()) {
+            long n = 0L;
             String bodyTag = docx.select("body").text();
             String ss = bodyTag.toLowerCase().trim().replaceAll(":", "");
             String ss1 = ss.trim().replaceAll(",", "");
@@ -314,8 +349,9 @@ public class EvaluatorServiceImpl implements EvaluatorService  {
 
             for (int j = 0; j < (basicsIndicatorTerms.length()); j++) {
                 try {
-                    if (bodyDoc.contains(basicsIndicatorTerms.getJSONObject(j).getString("word"))) {
-                        indicatorVal[0] += ((countOccurences(bodyDoc, basicsIndicatorTerms.getJSONObject(j).getString("word"))) > 0 ? (countOccurences(bodyDoc, basicsIndicatorTerms.getJSONObject(j).getString("word"))) : 0) * basicsIndicatorTerms.getJSONObject(j).getLong("intensity") * tagweight.get("body");
+                    if (bodyDoc.contains(basicsIndicatorTerms.getJSONObject(j).getString("intent"))) {
+                        n = bodyCal(basicsIndicatorTerms.getJSONObject(j).getString("intent"));
+                        indicatorVal[0] += ((countOccurences(bodyDoc, basicsIndicatorTerms.getJSONObject(j).getString("intent")) - n) > 0 ? (countOccurences(bodyDoc, basicsIndicatorTerms.getJSONObject(j).getString("intent")) - n) : 0) * basicsIndicatorTerms.getJSONObject(j).getLong("intensity") * tagweight.get("body");
                     }
                 } catch (NullPointerException ex) {
                     continue;
@@ -324,8 +360,9 @@ public class EvaluatorServiceImpl implements EvaluatorService  {
 
             for (int j = 0; j < (basicsCounterIndicatorTerms.length()); j++) {
                 try {
-                    if (bodyDoc.contains(basicsCounterIndicatorTerms.getJSONObject(j).getString("word"))) {
-                        counterIndicatorVal[0] += ((countOccurences(bodyDoc, basicsCounterIndicatorTerms.getJSONObject(j).getString("word")) ) > 0 ? (countOccurences(bodyDoc, basicsIndicatorTerms.getJSONObject(j).getString("word"))) : 0) * basicsCounterIndicatorTerms.getJSONObject(j).getLong("intensity") * tagweight.get("body");
+                    if (bodyDoc.contains(basicsCounterIndicatorTerms.getJSONObject(j).getString("intent"))) {
+                        n = bodyCal(basicsCounterIndicatorTerms.getJSONObject(j).getString("intent"));
+                        counterIndicatorVal[0] += ((countOccurences(bodyDoc, basicsCounterIndicatorTerms.getJSONObject(j).getString("intent")) - n) > 0 ? (countOccurences(bodyDoc, basicsIndicatorTerms.getJSONObject(j).getString("intent")) - n) : 0) * basicsCounterIndicatorTerms.getJSONObject(j).getLong("intensity") * tagweight.get("body");
 
                     }
                 } catch (NullPointerException ex) {
@@ -337,9 +374,9 @@ public class EvaluatorServiceImpl implements EvaluatorService  {
 
             for (int j = 0; j < tutorialsIndicatorTerms.length(); j++) {
                 try {
-                    if (bodyDoc.contains(tutorialsIndicatorTerms.getJSONObject(j).getString("word"))) {
-
-                        indicatorVal[1] += ((countOccurences(bodyDoc, tutorialsIndicatorTerms.getJSONObject(j).getString("word")) ) > 0 ? (countOccurences(bodyDoc, tutorialsIndicatorTerms.getJSONObject(j).getString("word"))) : 0) * tutorialsIndicatorTerms.getJSONObject(j).getLong("intensity") * tagweight.get("body");
+                    if (bodyDoc.contains(tutorialsIndicatorTerms.getJSONObject(j).getString("intent"))) {
+                        n = bodyCal(tutorialsIndicatorTerms.getJSONObject(j).getString("intent"));
+                        indicatorVal[1] += ((countOccurences(bodyDoc, tutorialsIndicatorTerms.getJSONObject(j).getString("intent")) - n) > 0 ? (countOccurences(bodyDoc, tutorialsIndicatorTerms.getJSONObject(j).getString("intent")) - n) : 0) * tutorialsIndicatorTerms.getJSONObject(j).getLong("intensity") * tagweight.get("body");
                     }
                 } catch (NullPointerException ex){
                     continue;
@@ -347,9 +384,9 @@ public class EvaluatorServiceImpl implements EvaluatorService  {
             }
             for (int j = 0; j < tutorialsCounterIndicatorTerms.length(); j++) {
                 try {
-                    if (bodyDoc.contains(tutorialsCounterIndicatorTerms.getJSONObject(j).getString("word"))) {
-
-                        counterIndicatorVal[1] += ((countOccurences(bodyDoc, tutorialsCounterIndicatorTerms.getJSONObject(j).getString("word"))) > 0 ? (countOccurences(bodyDoc, tutorialsIndicatorTerms.getJSONObject(j).getString("word"))) : 0) * tutorialsCounterIndicatorTerms.getJSONObject(j).getLong("intensity") * tagweight.get("body");
+                    if (bodyDoc.contains(tutorialsCounterIndicatorTerms.getJSONObject(j).getString("intent"))) {
+                        n = bodyCal(tutorialsCounterIndicatorTerms.getJSONObject(j).getString("intent"));
+                        counterIndicatorVal[1] += ((countOccurences(bodyDoc, tutorialsCounterIndicatorTerms.getJSONObject(j).getString("intent")) - n) > 0 ? (countOccurences(bodyDoc, tutorialsIndicatorTerms.getJSONObject(j).getString("intent")) - n) : 0) * tutorialsCounterIndicatorTerms.getJSONObject(j).getLong("intensity") * tagweight.get("body");
                     }
                 } catch (NullPointerException ex){
                     continue;
@@ -360,8 +397,9 @@ public class EvaluatorServiceImpl implements EvaluatorService  {
             //example  intent
             for (int j = 0; j < exampleIndicatorTerms.length(); j++) {
                 try {
-                    if (bodyDoc.contains(exampleIndicatorTerms.getJSONObject(j).getString("word"))) {
-                        indicatorVal[2] += ((countOccurences(bodyDoc, exampleIndicatorTerms.getJSONObject(j).getString("word")) ) > 0 ? (countOccurences(bodyDoc, exampleIndicatorTerms.getJSONObject(j).getString("word"))) : 0) * exampleIndicatorTerms.getJSONObject(j).getLong("intensity") * tagweight.get("body");
+                    if (bodyDoc.contains(exampleIndicatorTerms.getJSONObject(j).getString("intent"))) {
+                        n = bodyCal(exampleIndicatorTerms.getJSONObject(j).getString("intent"));
+                        indicatorVal[2] += ((countOccurences(bodyDoc, exampleIndicatorTerms.getJSONObject(j).getString("intent")) - n) > 0 ? (countOccurences(bodyDoc, exampleIndicatorTerms.getJSONObject(j).getString("intent")) - n) : 0) * exampleIndicatorTerms.getJSONObject(j).getLong("intensity") * tagweight.get("body");
                     }
                 } catch (NullPointerException ex){
                     continue;
@@ -369,8 +407,9 @@ public class EvaluatorServiceImpl implements EvaluatorService  {
             }
             for (int j = 0; j < exampleCounterIndicatorTerms.length(); j++) {
                 try {
-                    if (bodyDoc.contains(exampleCounterIndicatorTerms.getJSONObject(j).getString("word"))) {
-                        counterIndicatorVal[2] += ((countOccurences(bodyDoc, exampleCounterIndicatorTerms.getJSONObject(j).getString("word")) ) > 0 ? (countOccurences(bodyDoc, exampleIndicatorTerms.getJSONObject(j).getString("word"))) : 0) * exampleCounterIndicatorTerms.getJSONObject(j).getInt("intensity") * tagweight.get("body");
+                    if (bodyDoc.contains(exampleCounterIndicatorTerms.getJSONObject(j).getString("intent"))) {
+                        n = bodyCal(exampleCounterIndicatorTerms.getJSONObject(j).getString("intent"));
+                        counterIndicatorVal[2] += ((countOccurences(bodyDoc, exampleCounterIndicatorTerms.getJSONObject(j).getString("intent")) - n) > 0 ? (countOccurences(bodyDoc, exampleIndicatorTerms.getJSONObject(j).getString("intent")) - n) : 0) * exampleCounterIndicatorTerms.getJSONObject(j).getInt("intensity") * tagweight.get("body");
                     }
                 } catch (NullPointerException ex){
                     continue;
@@ -380,8 +419,9 @@ public class EvaluatorServiceImpl implements EvaluatorService  {
             //complete reference intent
             for (int j = 0; j < completeReferenceIndicatorTerms.length(); j++) {
                 try {
-                    if (bodyDoc.contains(completeReferenceIndicatorTerms.getJSONObject(j).getString("word"))) {
-                        indicatorVal[3] += ((countOccurences(bodyDoc, completeReferenceIndicatorTerms.getJSONObject(j).getString("word"))) > 0 ? (countOccurences(bodyDoc, completeReferenceIndicatorTerms.getJSONObject(j).getString("word"))) : 0) * completeReferenceIndicatorTerms.getJSONObject(j).getInt("intensity") * tagweight.get("body");
+                    if (bodyDoc.contains(completeReferenceIndicatorTerms.getJSONObject(j).getString("intent"))) {
+                        n = bodyCal(completeReferenceIndicatorTerms.getJSONObject(j).getString("intent"));
+                        indicatorVal[3] += ((countOccurences(bodyDoc, completeReferenceIndicatorTerms.getJSONObject(j).getString("intent")) - n) > 0 ? (countOccurences(bodyDoc, completeReferenceIndicatorTerms.getJSONObject(j).getString("intent")) - n) : 0) * completeReferenceIndicatorTerms.getJSONObject(j).getInt("intensity") * tagweight.get("body");
                     }
                 } catch (NullPointerException ex){
                     continue;
@@ -389,8 +429,9 @@ public class EvaluatorServiceImpl implements EvaluatorService  {
             }
             for (int j = 0; j < completeReferenceCounterIndicatorTerms.length(); j++) {
                 try {
-                    if (bodyDoc.contains(completeReferenceCounterIndicatorTerms.getJSONObject(j).getString("word"))) {
-                        counterIndicatorVal[3] += ((countOccurences(bodyDoc, completeReferenceCounterIndicatorTerms.getJSONObject(j).getString("word"))) > 0 ? (countOccurences(bodyDoc, completeReferenceIndicatorTerms.getJSONObject(j).getString("word"))) : 0) * completeReferenceCounterIndicatorTerms.getJSONObject(j).getInt("intensity") * tagweight.get("body");
+                    if (bodyDoc.contains(completeReferenceCounterIndicatorTerms.getJSONObject(j).getString("intent"))) {
+                        n = bodyCal(completeReferenceCounterIndicatorTerms.getJSONObject(j).getString("intent"));
+                        counterIndicatorVal[3] += ((countOccurences(bodyDoc, completeReferenceCounterIndicatorTerms.getJSONObject(j).getString("intent")) - n) > 0 ? (countOccurences(bodyDoc, completeReferenceIndicatorTerms.getJSONObject(j).getString("intent")) - n) : 0) * completeReferenceCounterIndicatorTerms.getJSONObject(j).getInt("intensity") * tagweight.get("body");
                     }
                 } catch (NullPointerException ex){
                     continue;
@@ -400,8 +441,9 @@ public class EvaluatorServiceImpl implements EvaluatorService  {
             //trouble shooting intent
             for (int j = 0; j < troubleShootingIndicatorTerms.length(); j++) {
                 try {
-                    if (bodyDoc.contains(troubleShootingIndicatorTerms.getJSONObject(j).getString("word"))) {
-                        indicatorVal[4] += ((countOccurences(bodyDoc, troubleShootingIndicatorTerms.getJSONObject(j).getString("word"))) > 0 ? (countOccurences(bodyDoc, troubleShootingIndicatorTerms.getJSONObject(j).getString("word"))) : 0) * troubleShootingIndicatorTerms.getJSONObject(j).getInt("intensity") * tagweight.get("body");
+                    if (bodyDoc.contains(troubleShootingIndicatorTerms.getJSONObject(j).getString("intent"))) {
+                        n = bodyCal(troubleShootingIndicatorTerms.getJSONObject(j).getString("intent"));
+                        indicatorVal[4] += ((countOccurences(bodyDoc, troubleShootingIndicatorTerms.getJSONObject(j).getString("intent")) - n) > 0 ? (countOccurences(bodyDoc, troubleShootingIndicatorTerms.getJSONObject(j).getString("intent")) - n) : 0) * troubleShootingIndicatorTerms.getJSONObject(j).getInt("intensity") * tagweight.get("body");
                     }
                 } catch (NullPointerException ex){
                     continue;
@@ -410,8 +452,9 @@ public class EvaluatorServiceImpl implements EvaluatorService  {
 
             for (int j = 0; j < troubleShootingCounterIndicatorTerms.length(); j++) {
                 try {
-                    if (bodyDoc.contains(troubleShootingCounterIndicatorTerms.getJSONObject(j).getString("word"))) {
-                        counterIndicatorVal[4] += ((countOccurences(bodyDoc, troubleShootingCounterIndicatorTerms.getJSONObject(j).getString("word"))) > 0 ? (countOccurences(bodyDoc, troubleShootingCounterIndicatorTerms.getJSONObject(j).getString("word"))) : 0) * troubleShootingCounterIndicatorTerms.getJSONObject(j).getInt("intensity") * tagweight.get("body");
+                    if (bodyDoc.contains(troubleShootingCounterIndicatorTerms.getJSONObject(j).getString("intent"))) {
+                        n = bodyCal(troubleShootingCounterIndicatorTerms.getJSONObject(j).getString("intent"));
+                        counterIndicatorVal[4] += ((countOccurences(bodyDoc, troubleShootingCounterIndicatorTerms.getJSONObject(j).getString("intent")) - n) > 0 ? (countOccurences(bodyDoc, troubleShootingCounterIndicatorTerms.getJSONObject(j).getString("intent")) - n) : 0) * troubleShootingCounterIndicatorTerms.getJSONObject(j).getInt("intensity") * tagweight.get("body");
                     }
                 } catch (NullPointerException ex){
                     continue;
@@ -422,8 +465,9 @@ public class EvaluatorServiceImpl implements EvaluatorService  {
             //gettingStarted
             for (int j = 0; j < gettingStartedIndicatorTerms.length(); j++) {
                 try {
-                    if (bodyDoc.contains(gettingStartedIndicatorTerms.getJSONObject(j).getString("word"))) {
-                        indicatorVal[5] += ((countOccurences(bodyDoc, gettingStartedIndicatorTerms.getJSONObject(j).getString("word"))) > 0 ? (countOccurences(bodyDoc, gettingStartedIndicatorTerms.getJSONObject(j).getString("word"))) : 0) * gettingStartedIndicatorTerms.getJSONObject(j).getInt("intensity") * tagweight.get("body");
+                    if (bodyDoc.contains(gettingStartedIndicatorTerms.getJSONObject(j).getString("intent"))) {
+                        n = bodyCal(gettingStartedIndicatorTerms.getJSONObject(j).getString("intent"));
+                        indicatorVal[5] += ((countOccurences(bodyDoc, gettingStartedIndicatorTerms.getJSONObject(j).getString("intent")) - n) > 0 ? (countOccurences(bodyDoc, gettingStartedIndicatorTerms.getJSONObject(j).getString("intent")) - n) : 0) * gettingStartedIndicatorTerms.getJSONObject(j).getInt("intensity") * tagweight.get("body");
                     }
                 } catch (NullPointerException ex){
                     continue;
@@ -432,8 +476,9 @@ public class EvaluatorServiceImpl implements EvaluatorService  {
 
             for (int j = 0; j < gettingStartedCounterIndicatorTerms.length(); j++) {
                 try {
-                    if (bodyDoc.contains(gettingStartedCounterIndicatorTerms.getJSONObject(j).getString("word"))) {
-                        counterIndicatorVal[5] += ((countOccurences(bodyDoc, gettingStartedCounterIndicatorTerms.getJSONObject(j).getString("word"))) > 0 ? (countOccurences(bodyDoc, gettingStartedIndicatorTerms.getJSONObject(j).getString("word"))) : 0) * gettingStartedCounterIndicatorTerms.getJSONObject(j).getInt("intensity") * tagweight.get("body");
+                    if (bodyDoc.contains(gettingStartedCounterIndicatorTerms.getJSONObject(j).getString("intent"))) {
+                        n = bodyCal(gettingStartedCounterIndicatorTerms.getJSONObject(j).getString("intent"));
+                        counterIndicatorVal[5] += ((countOccurences(bodyDoc, gettingStartedCounterIndicatorTerms.getJSONObject(j).getString("intent")) - n) > 0 ? (countOccurences(bodyDoc, gettingStartedIndicatorTerms.getJSONObject(j).getString("intent")) - n) : 0) * gettingStartedCounterIndicatorTerms.getJSONObject(j).getInt("intensity") * tagweight.get("body");
                     }
                 } catch (NullPointerException ex){
                     continue;
@@ -659,7 +704,7 @@ public class EvaluatorServiceImpl implements EvaluatorService  {
             String ulTag = docx.select("ul").text();
             String[] str = ulTag.toLowerCase().trim().split(" ");
             ulDoc = Arrays.asList(str);
-            calScore(ulDoc, "ul");
+            calScoreOne(ulDoc, "ul");
         }
     }
 
@@ -671,7 +716,7 @@ public class EvaluatorServiceImpl implements EvaluatorService  {
             String olTag = docx.select("ol").text();
             String[] str = olTag.toLowerCase().trim().split(" ");
             olDoc = Arrays.asList(str);
-            calScore(olDoc, "ol");
+            calScoreOne(olDoc, "ol");
         }
     }
 
@@ -725,169 +770,167 @@ public class EvaluatorServiceImpl implements EvaluatorService  {
 
     }
 
-//    void calScoreOne(List<String> str, String tag) {
-//        long n = 0L;
-//        for (int j = 0; j < (basicsIndicatorTerms.length()); j++) {
-//            if (str.contains(basicsIndicatorTerms.getJSONObject(j).getString("word"))) {
-//                n = countOccurences(liDoc, basicsIndicatorTerms.getJSONObject(j).getString("word"));
-//                indicatorVal[0] += ((countOccurences(str, basicsIndicatorTerms.getJSONObject(j).getString("word")) - n) > 0 ? (countOccurences(str, basicsIndicatorTerms.getJSONObject(j).getString("word")) - n) : 0) * basicsIndicatorTerms.getJSONObject(j).getLong("intensity") * tagweight.get(tag);
-//
-//            }
-//        }
-//        for (int j = 0; j < (basicsCounterIndicatorTerms.length()); j++) {
-//            if (str.contains(basicsCounterIndicatorTerms.getJSONObject(j).getString("word"))) {
-//                n = countOccurences(liDoc, basicsCounterIndicatorTerms.getJSONObject(j).getString("word"));
-//                counterIndicatorVal[0] += ((countOccurences(str, basicsCounterIndicatorTerms.getJSONObject(j).getString("word")) - n) > 0 ? (countOccurences(str, basicsCounterIndicatorTerms.getJSONObject(j).getString("word")) - n) : 0) * basicsCounterIndicatorTerms.getJSONObject(j).getLong("intensity") * tagweight.get(tag);
-//
-//            }
-//        }
-//
-//        //tutorials intent
-//        for (int j = 0; j < tutorialsIndicatorTerms.length(); j++) {
-//            if (str.contains(tutorialsIndicatorTerms.getJSONObject(j).getString("word"))) {
-//                n = countOccurences(liDoc, tutorialsIndicatorTerms.getJSONObject(j).getString("word"));
-//                indicatorVal[1] += ((countOccurences(str, tutorialsIndicatorTerms.getJSONObject(j).getString("word")) - n) > 0 ? (countOccurences(str, tutorialsIndicatorTerms.getJSONObject(j).getString("word")) - n) : 0) * tutorialsIndicatorTerms.getJSONObject(j).getLong("intensity") * tagweight.get(tag);
-//            }
-//        }
-//
-//        for (int j = 0; j < tutorialsCounterIndicatorTerms.length(); j++) {
-//            if (str.contains(tutorialsCounterIndicatorTerms.getJSONObject(j).getString("word"))) {
-//                n = countOccurences(liDoc, tutorialsCounterIndicatorTerms.getJSONObject(j).getString("word"));
-//                counterIndicatorVal[1] += ((countOccurences(str, tutorialsCounterIndicatorTerms.getJSONObject(j).getString("word")) - n) > 0 ? (countOccurences(str, tutorialsCounterIndicatorTerms.getJSONObject(j).getString("word")) - n) : 0) * tutorialsCounterIndicatorTerms.getJSONObject(j).getLong("intensity") * tagweight.get(tag);
-//            }
-//        }
-//
-//
-//        //example  intent
-//        for (int j = 0; j < exampleIndicatorTerms.length(); j++) {
-//            if (str.contains(exampleIndicatorTerms.getJSONObject(j).getString("word"))) {
-//                n = countOccurences(liDoc, exampleIndicatorTerms.getJSONObject(j).getString("word"));
-//                indicatorVal[2] += (((countOccurences(str, exampleIndicatorTerms.getJSONObject(j).getString("word"))) - n) > 0 ? (countOccurences(str, exampleIndicatorTerms.getJSONObject(j).getString("word")) - n) : 0) * exampleIndicatorTerms.getJSONObject(j).getLong("intensity") * tagweight.get(tag);
-//            }
-//        }
-//        for (int j = 0; j < exampleCounterIndicatorTerms.length(); j++) {
-//            if (str.contains(exampleCounterIndicatorTerms.getJSONObject(j).getString("word"))) {
-//                n = countOccurences(liDoc, exampleCounterIndicatorTerms.getJSONObject(j).getString("word"));
-//                counterIndicatorVal[2] += ((countOccurences(str, exampleCounterIndicatorTerms.getJSONObject(j).getString("word")) - n) > 0 ? (countOccurences(str, exampleCounterIndicatorTerms.getJSONObject(j).getString("word")) - n) : 0) * exampleCounterIndicatorTerms.getJSONObject(j).getInt("intensity") * tagweight.get(tag);
-//            }
-//        }
-//
-//        //complete reference intent
-//        for (int j = 0; j < completeReferenceIndicatorTerms.length(); j++) {
-//            if (str.contains(completeReferenceIndicatorTerms.getJSONObject(j).getString("word"))) {
-//                n = countOccurences(liDoc, completeReferenceIndicatorTerms.getJSONObject(j).getString("word"));
-//                indicatorVal[3] += ((countOccurences(str, completeReferenceIndicatorTerms.getJSONObject(j).getString("word")) - n) > 0 ? (countOccurences(str, completeReferenceIndicatorTerms.getJSONObject(j).getString("word")) - n) : 0) * completeReferenceIndicatorTerms.getJSONObject(j).getInt("intensity") * tagweight.get(tag);
-//            }
-//        }
-//        for (int j = 0; j < completeReferenceCounterIndicatorTerms.length(); j++) {
-//            if (str.contains(completeReferenceCounterIndicatorTerms.getJSONObject(j).getString("word"))) {
-//                n = countOccurences(liDoc, completeReferenceCounterIndicatorTerms.getJSONObject(j).getString("word"));
-//                counterIndicatorVal[3] += ((countOccurences(str, completeReferenceCounterIndicatorTerms.getJSONObject(j).getString("word")) - n) > 0 ? (countOccurences(str, completeReferenceCounterIndicatorTerms.getJSONObject(j).getString("word")) - n) : 0) * completeReferenceCounterIndicatorTerms.getJSONObject(j).getInt("intensity") * tagweight.get(tag);
-//            }
-//        }
-//
-//        //trouble shooting intent
-//        for (int j = 0; j < troubleShootingIndicatorTerms.length(); j++) {
-//            if (str.contains(troubleShootingIndicatorTerms.getJSONObject(j).getString("word"))) {
-//                n = countOccurences(liDoc, troubleShootingIndicatorTerms.getJSONObject(j).getString("word"));
-//                indicatorVal[4] += ((countOccurences(str, troubleShootingIndicatorTerms.getJSONObject(j).getString("word")) - n) > 0 ? (countOccurences(str, troubleShootingIndicatorTerms.getJSONObject(j).getString("word")) - n) : 0) * troubleShootingIndicatorTerms.getJSONObject(j).getInt("intensity") * tagweight.get(tag);
-//            }
-//        }
-//
-//        for (int j = 0; j < troubleShootingCounterIndicatorTerms.length(); j++) {
-//            if (str.contains(troubleShootingCounterIndicatorTerms.getJSONObject(j).getString("word"))) {
-//                n = countOccurences(liDoc, troubleShootingCounterIndicatorTerms.getJSONObject(j).getString("word"));
-//                counterIndicatorVal[4] += ((countOccurences(str, troubleShootingCounterIndicatorTerms.getJSONObject(j).getString("word")) - n) > 0 ? (countOccurences(str, troubleShootingCounterIndicatorTerms.getJSONObject(j).getString("word")) - n) : 0) * troubleShootingCounterIndicatorTerms.getJSONObject(j).getInt("intensity") * tagweight.get(tag);
-//            }
-//        }
-//
-//        //gettingStarted
-//        for (int j = 0; j < gettingStartedIndicatorTerms.length(); j++) {
-//            if (str.contains(gettingStartedIndicatorTerms.getJSONObject(j).getString("word"))) {
-//                n = countOccurences(liDoc, gettingStartedIndicatorTerms.getJSONObject(j).getString("word"));
-//                indicatorVal[5] += ((countOccurences(str, gettingStartedIndicatorTerms.getJSONObject(j).getString("word")) - n) > 0 ? (countOccurences(str, gettingStartedIndicatorTerms.getJSONObject(j).getString("word")) - n) : 0) * gettingStartedIndicatorTerms.getJSONObject(j).getInt("intensity") * tagweight.get(tag);
-//            }
-//        }
-//        for (int j = 0; j < gettingStartedCounterIndicatorTerms.length(); j++) {
-//            if (str.contains(gettingStartedCounterIndicatorTerms.getJSONObject(j).getString("word"))) {
-//                n = countOccurences(liDoc, gettingStartedCounterIndicatorTerms.getJSONObject(j).getString("word"));
-//                counterIndicatorVal[5] += ((countOccurences(str, gettingStartedCounterIndicatorTerms.getJSONObject(j).getString("word")) - n) > 0 ? (countOccurences(str, gettingStartedCounterIndicatorTerms.getJSONObject(j).getString("word")) - n) : 0) * gettingStartedCounterIndicatorTerms.getJSONObject(j).getInt("intensity") * tagweight.get(tag);
-//            }
-//        }
-//
-//    }
-
-    void calScore(List<String> str, String tag) {
+    void calScoreOne(List<String> str, String tag) {
+        long n = 0L;
         for (int j = 0; j < (basicsIndicatorTerms.length()); j++) {
-            if (str.contains(basicsIndicatorTerms.getJSONObject(j).getString("word"))) {
-                indicatorVal[0] += countOccurences(str, basicsIndicatorTerms.getJSONObject(j).getString("word")) * basicsIndicatorTerms.getJSONObject(j).getLong("intensity") * tagweight.get(tag);
+            if (str.contains(basicsIndicatorTerms.getJSONObject(j).getString("intent"))) {
+                n = countOccurences(liDoc, basicsIndicatorTerms.getJSONObject(j).getString("intent"));
+                indicatorVal[0] += ((countOccurences(str, basicsIndicatorTerms.getJSONObject(j).getString("intent")) - n) > 0 ? (countOccurences(str, basicsIndicatorTerms.getJSONObject(j).getString("intent")) - n) : 0) * basicsIndicatorTerms.getJSONObject(j).getLong("intensity") * tagweight.get(tag);
             }
         }
         for (int j = 0; j < (basicsCounterIndicatorTerms.length()); j++) {
-            if (str.contains(basicsCounterIndicatorTerms.getJSONObject(j).getString("word"))) {
-                counterIndicatorVal[0] += countOccurences(str, basicsCounterIndicatorTerms.getJSONObject(j).getString("word")) * basicsCounterIndicatorTerms.getJSONObject(j).getLong("intensity") * tagweight.get(tag);
+            if (str.contains(basicsCounterIndicatorTerms.getJSONObject(j).getString("intent"))) {
+                n = countOccurences(liDoc, basicsCounterIndicatorTerms.getJSONObject(j).getString("intent"));
+                counterIndicatorVal[0] += ((countOccurences(str, basicsCounterIndicatorTerms.getJSONObject(j).getString("intent")) - n) > 0 ? (countOccurences(str, basicsCounterIndicatorTerms.getJSONObject(j).getString("intent")) - n) : 0) * basicsCounterIndicatorTerms.getJSONObject(j).getLong("intensity") * tagweight.get(tag);
+
             }
         }
 
         //tutorials intent
         for (int j = 0; j < tutorialsIndicatorTerms.length(); j++) {
-            if (str.contains(tutorialsIndicatorTerms.getJSONObject(j).getString("word"))) {
-                indicatorVal[1] += countOccurences(str, tutorialsIndicatorTerms.getJSONObject(j).getString("word")) * tutorialsIndicatorTerms.getJSONObject(j).getLong("intensity") * tagweight.get(tag);
+            if (str.contains(tutorialsIndicatorTerms.getJSONObject(j).getString("intent"))) {
+                n = countOccurences(liDoc, tutorialsIndicatorTerms.getJSONObject(j).getString("intent"));
+                indicatorVal[1] += ((countOccurences(str, tutorialsIndicatorTerms.getJSONObject(j).getString("intent")) - n) > 0 ? (countOccurences(str, tutorialsIndicatorTerms.getJSONObject(j).getString("intent")) - n) : 0) * tutorialsIndicatorTerms.getJSONObject(j).getLong("intensity") * tagweight.get(tag);
             }
         }
+
         for (int j = 0; j < tutorialsCounterIndicatorTerms.length(); j++) {
-            if (str.contains(tutorialsCounterIndicatorTerms.getJSONObject(j).getString("word"))) {
-                counterIndicatorVal[1] += countOccurences(str, tutorialsCounterIndicatorTerms.getJSONObject(j).getString("word")) * tutorialsCounterIndicatorTerms.getJSONObject(j).getLong("intensity") * tagweight.get(tag);
+            if (str.contains(tutorialsCounterIndicatorTerms.getJSONObject(j).getString("intent"))) {
+                n = countOccurences(liDoc, tutorialsCounterIndicatorTerms.getJSONObject(j).getString("intent"));
+                counterIndicatorVal[1] += ((countOccurences(str, tutorialsCounterIndicatorTerms.getJSONObject(j).getString("intent")) - n) > 0 ? (countOccurences(str, tutorialsCounterIndicatorTerms.getJSONObject(j).getString("intent")) - n) : 0) * tutorialsCounterIndicatorTerms.getJSONObject(j).getLong("intensity") * tagweight.get(tag);
             }
         }
 
 
         //example  intent
         for (int j = 0; j < exampleIndicatorTerms.length(); j++) {
-            if (str.contains(exampleIndicatorTerms.getJSONObject(j).getString("word"))) {
-                indicatorVal[2] += countOccurences(str, exampleIndicatorTerms.getJSONObject(j).getString("word")) * exampleIndicatorTerms.getJSONObject(j).getLong("intensity") * tagweight.get(tag);
+            if (str.contains(exampleIndicatorTerms.getJSONObject(j).getString("intent"))) {
+                n = countOccurences(liDoc, exampleIndicatorTerms.getJSONObject(j).getString("intent"));
+                indicatorVal[2] += (((countOccurences(str, exampleIndicatorTerms.getJSONObject(j).getString("intent"))) - n) > 0 ? (countOccurences(str, exampleIndicatorTerms.getJSONObject(j).getString("intent")) - n) : 0) * exampleIndicatorTerms.getJSONObject(j).getLong("intensity") * tagweight.get(tag);
             }
         }
         for (int j = 0; j < exampleCounterIndicatorTerms.length(); j++) {
-            if (str.contains(exampleCounterIndicatorTerms.getJSONObject(j).getString("word"))) {
-                counterIndicatorVal[2] += countOccurences(str, exampleCounterIndicatorTerms.getJSONObject(j).getString("word")) * exampleCounterIndicatorTerms.getJSONObject(j).getInt("intensity") * tagweight.get(tag);
+            if (str.contains(exampleCounterIndicatorTerms.getJSONObject(j).getString("intent"))) {
+                n = countOccurences(liDoc, exampleCounterIndicatorTerms.getJSONObject(j).getString("intent"));
+                counterIndicatorVal[2] += ((countOccurences(str, exampleCounterIndicatorTerms.getJSONObject(j).getString("intent")) - n) > 0 ? (countOccurences(str, exampleCounterIndicatorTerms.getJSONObject(j).getString("intent")) - n) : 0) * exampleCounterIndicatorTerms.getJSONObject(j).getInt("intensity") * tagweight.get(tag);
             }
         }
 
         //complete reference intent
         for (int j = 0; j < completeReferenceIndicatorTerms.length(); j++) {
-            if (str.contains(completeReferenceIndicatorTerms.getJSONObject(j).getString("word"))) {
-                indicatorVal[3] += countOccurences(str, completeReferenceIndicatorTerms.getJSONObject(j).getString("word")) * completeReferenceIndicatorTerms.getJSONObject(j).getInt("intensity") * tagweight.get(tag);
+            if (str.contains(completeReferenceIndicatorTerms.getJSONObject(j).getString("intent"))) {
+                n = countOccurences(liDoc, completeReferenceIndicatorTerms.getJSONObject(j).getString("intent"));
+                indicatorVal[3] += ((countOccurences(str, completeReferenceIndicatorTerms.getJSONObject(j).getString("intent")) - n) > 0 ? (countOccurences(str, completeReferenceIndicatorTerms.getJSONObject(j).getString("intent")) - n) : 0) * completeReferenceIndicatorTerms.getJSONObject(j).getInt("intensity") * tagweight.get(tag);
             }
         }
         for (int j = 0; j < completeReferenceCounterIndicatorTerms.length(); j++) {
-            if (str.contains(completeReferenceCounterIndicatorTerms.getJSONObject(j).getString("word"))) {
-                counterIndicatorVal[3] += countOccurences(str, completeReferenceCounterIndicatorTerms.getJSONObject(j).getString("word")) * completeReferenceCounterIndicatorTerms.getJSONObject(j).getInt("intensity") * tagweight.get(tag);
+            if (str.contains(completeReferenceCounterIndicatorTerms.getJSONObject(j).getString("intent"))) {
+                n = countOccurences(liDoc, completeReferenceCounterIndicatorTerms.getJSONObject(j).getString("intent"));
+                counterIndicatorVal[3] += ((countOccurences(str, completeReferenceCounterIndicatorTerms.getJSONObject(j).getString("intent")) - n) > 0 ? (countOccurences(str, completeReferenceCounterIndicatorTerms.getJSONObject(j).getString("intent")) - n) : 0) * completeReferenceCounterIndicatorTerms.getJSONObject(j).getInt("intensity") * tagweight.get(tag);
             }
         }
+
         //trouble shooting intent
         for (int j = 0; j < troubleShootingIndicatorTerms.length(); j++) {
-            if (str.contains(troubleShootingIndicatorTerms.getJSONObject(j).getString("word"))) {
-                indicatorVal[4] += countOccurences(str, troubleShootingIndicatorTerms.getJSONObject(j).getString("word")) * troubleShootingIndicatorTerms.getJSONObject(j).getInt("intensity") * tagweight.get(tag);
+            if (str.contains(troubleShootingIndicatorTerms.getJSONObject(j).getString("intent"))) {
+                n = countOccurences(liDoc, troubleShootingIndicatorTerms.getJSONObject(j).getString("intent"));
+                indicatorVal[4] += ((countOccurences(str, troubleShootingIndicatorTerms.getJSONObject(j).getString("intent")) - n) > 0 ? (countOccurences(str, troubleShootingIndicatorTerms.getJSONObject(j).getString("intent")) - n) : 0) * troubleShootingIndicatorTerms.getJSONObject(j).getInt("intensity") * tagweight.get(tag);
             }
         }
 
         for (int j = 0; j < troubleShootingCounterIndicatorTerms.length(); j++) {
-            if (str.contains(troubleShootingCounterIndicatorTerms.getJSONObject(j).getString("word"))) {
-                counterIndicatorVal[4] += countOccurences(str, troubleShootingCounterIndicatorTerms.getJSONObject(j).getString("word")) * troubleShootingCounterIndicatorTerms.getJSONObject(j).getInt("intensity") * tagweight.get(tag);
+            if (str.contains(troubleShootingCounterIndicatorTerms.getJSONObject(j).getString("intent"))) {
+                n = countOccurences(liDoc, troubleShootingCounterIndicatorTerms.getJSONObject(j).getString("intent"));
+                counterIndicatorVal[4] += ((countOccurences(str, troubleShootingCounterIndicatorTerms.getJSONObject(j).getString("intent")) - n) > 0 ? (countOccurences(str, troubleShootingCounterIndicatorTerms.getJSONObject(j).getString("intent")) - n) : 0) * troubleShootingCounterIndicatorTerms.getJSONObject(j).getInt("intensity") * tagweight.get(tag);
+            }
+        }
+
+        //gettingStarted
+        for (int j = 0; j < gettingStartedIndicatorTerms.length(); j++) {
+            if (str.contains(gettingStartedIndicatorTerms.getJSONObject(j).getString("intent"))) {
+                n = countOccurences(liDoc, gettingStartedIndicatorTerms.getJSONObject(j).getString("intent"));
+                indicatorVal[5] += ((countOccurences(str, gettingStartedIndicatorTerms.getJSONObject(j).getString("intent")) - n) > 0 ? (countOccurences(str, gettingStartedIndicatorTerms.getJSONObject(j).getString("intent")) - n) : 0) * gettingStartedIndicatorTerms.getJSONObject(j).getInt("intensity") * tagweight.get(tag);
+            }
+        }
+        for (int j = 0; j < gettingStartedCounterIndicatorTerms.length(); j++) {
+            if (str.contains(gettingStartedCounterIndicatorTerms.getJSONObject(j).getString("intent"))) {
+                n = countOccurences(liDoc, gettingStartedCounterIndicatorTerms.getJSONObject(j).getString("intent"));
+                counterIndicatorVal[5] += ((countOccurences(str, gettingStartedCounterIndicatorTerms.getJSONObject(j).getString("intent")) - n) > 0 ? (countOccurences(str, gettingStartedCounterIndicatorTerms.getJSONObject(j).getString("intent")) - n) : 0) * gettingStartedCounterIndicatorTerms.getJSONObject(j).getInt("intensity") * tagweight.get(tag);
+            }
+        }
+    }
+
+    void calScore(List<String> str, String tag) {
+        for (int j = 0; j < (basicsIndicatorTerms.length()); j++) {
+            if (str.contains(basicsIndicatorTerms.getJSONObject(j).getString("intent"))) {
+                indicatorVal[0] += countOccurences(str, basicsIndicatorTerms.getJSONObject(j).getString("intent")) * basicsIndicatorTerms.getJSONObject(j).getLong("intensity") * tagweight.get(tag);
+            }
+        }
+        for (int j = 0; j < (basicsCounterIndicatorTerms.length()); j++) {
+            if (str.contains(basicsCounterIndicatorTerms.getJSONObject(j).getString("intent"))) {
+                counterIndicatorVal[0] += countOccurences(str, basicsCounterIndicatorTerms.getJSONObject(j).getString("intent")) * basicsCounterIndicatorTerms.getJSONObject(j).getLong("intensity") * tagweight.get(tag);
+            }
+        }
+
+        //tutorials intent
+        for (int j = 0; j < tutorialsIndicatorTerms.length(); j++) {
+            if (str.contains(tutorialsIndicatorTerms.getJSONObject(j).getString("intent"))) {
+                indicatorVal[1] += countOccurences(str, tutorialsIndicatorTerms.getJSONObject(j).getString("intent")) * tutorialsIndicatorTerms.getJSONObject(j).getLong("intensity") * tagweight.get(tag);
+            }
+        }
+        for (int j = 0; j < tutorialsCounterIndicatorTerms.length(); j++) {
+            if (str.contains(tutorialsCounterIndicatorTerms.getJSONObject(j).getString("intent"))) {
+                counterIndicatorVal[1] += countOccurences(str, tutorialsCounterIndicatorTerms.getJSONObject(j).getString("intent")) * tutorialsCounterIndicatorTerms.getJSONObject(j).getLong("intensity") * tagweight.get(tag);
+            }
+        }
+
+
+        //example  intent
+        for (int j = 0; j < exampleIndicatorTerms.length(); j++) {
+            if (str.contains(exampleIndicatorTerms.getJSONObject(j).getString("intent"))) {
+                indicatorVal[2] += countOccurences(str, exampleIndicatorTerms.getJSONObject(j).getString("intent")) * exampleIndicatorTerms.getJSONObject(j).getLong("intensity") * tagweight.get(tag);
+            }
+        }
+        for (int j = 0; j < exampleCounterIndicatorTerms.length(); j++) {
+            if (str.contains(exampleCounterIndicatorTerms.getJSONObject(j).getString("intent"))) {
+                counterIndicatorVal[2] += countOccurences(str, exampleCounterIndicatorTerms.getJSONObject(j).getString("intent")) * exampleCounterIndicatorTerms.getJSONObject(j).getInt("intensity") * tagweight.get(tag);
+            }
+        }
+
+        //complete reference intent
+        for (int j = 0; j < completeReferenceIndicatorTerms.length(); j++) {
+            if (str.contains(completeReferenceIndicatorTerms.getJSONObject(j).getString("intent"))) {
+                indicatorVal[3] += countOccurences(str, completeReferenceIndicatorTerms.getJSONObject(j).getString("intent")) * completeReferenceIndicatorTerms.getJSONObject(j).getInt("intensity") * tagweight.get(tag);
+            }
+        }
+        for (int j = 0; j < completeReferenceCounterIndicatorTerms.length(); j++) {
+            if (str.contains(completeReferenceCounterIndicatorTerms.getJSONObject(j).getString("intent"))) {
+                counterIndicatorVal[3] += countOccurences(str, completeReferenceCounterIndicatorTerms.getJSONObject(j).getString("intent")) * completeReferenceCounterIndicatorTerms.getJSONObject(j).getInt("intensity") * tagweight.get(tag);
+            }
+        }
+        //trouble shooting intent
+        for (int j = 0; j < troubleShootingIndicatorTerms.length(); j++) {
+            if (str.contains(troubleShootingIndicatorTerms.getJSONObject(j).getString("intent"))) {
+                indicatorVal[4] += countOccurences(str, troubleShootingIndicatorTerms.getJSONObject(j).getString("intent")) * troubleShootingIndicatorTerms.getJSONObject(j).getInt("intensity") * tagweight.get(tag);
+            }
+        }
+
+        for (int j = 0; j < troubleShootingCounterIndicatorTerms.length(); j++) {
+            if (str.contains(troubleShootingCounterIndicatorTerms.getJSONObject(j).getString("intent"))) {
+                counterIndicatorVal[4] += countOccurences(str, troubleShootingCounterIndicatorTerms.getJSONObject(j).getString("intent")) * troubleShootingCounterIndicatorTerms.getJSONObject(j).getInt("intensity") * tagweight.get(tag);
             }
         }
 
 
         //gettingStarted
         for (int j = 0; j < gettingStartedIndicatorTerms.length(); j++) {
-            if (str.contains(gettingStartedIndicatorTerms.getJSONObject(j).getString("word"))) {
-                indicatorVal[5] += countOccurences(str, gettingStartedIndicatorTerms.getJSONObject(j).getString("word")) * gettingStartedIndicatorTerms.getJSONObject(j).getInt("intensity") * tagweight.get(tag);
+            if (str.contains(gettingStartedIndicatorTerms.getJSONObject(j).getString("intent"))) {
+                indicatorVal[5] += countOccurences(str, gettingStartedIndicatorTerms.getJSONObject(j).getString("intent")) * gettingStartedIndicatorTerms.getJSONObject(j).getInt("intensity") * tagweight.get(tag);
             }
         }
         for (int j = 0; j < gettingStartedCounterIndicatorTerms.length(); j++) {
-            if (str.contains(gettingStartedCounterIndicatorTerms.getJSONObject(j).getString("word"))) {
-                counterIndicatorVal[5] += countOccurences(str, gettingStartedCounterIndicatorTerms.getJSONObject(j).getString("word")) * gettingStartedCounterIndicatorTerms.getJSONObject(j).getInt("intensity") * tagweight.get(tag);
+            if (str.contains(gettingStartedCounterIndicatorTerms.getJSONObject(j).getString("intent"))) {
+                counterIndicatorVal[5] += countOccurences(str, gettingStartedCounterIndicatorTerms.getJSONObject(j).getString("intent")) * gettingStartedCounterIndicatorTerms.getJSONObject(j).getInt("intensity") * tagweight.get(tag);
             }
 
         }
@@ -897,7 +940,9 @@ public class EvaluatorServiceImpl implements EvaluatorService  {
     //calculate confidence score and level and return json object
     @Override
     public Evaluator getScore(Url url) {
+        evalcount++;
         this.docx = Jsoup.parse(url.getDoc());
+        long[][] val = new long[26][4];
         Float[] score = new Float[6];
         Float[] scoren = new Float[6];
         DecimalFormat df2 = new DecimalFormat(".##");
@@ -967,7 +1012,14 @@ public class EvaluatorServiceImpl implements EvaluatorService  {
         this.eva.setDescription(description);
         this.eva.setKeywords(keywords);
         this.eva.setTitle(this.docx.title());
+        //rabbitmq sender
         rabbitMQSender.send(this.eva);
+       /* if (evalcount==RabbitMQListner.counter){
+            rabbitMQSender.inform();
+        }
+        else {
+            System.out.println("inform not working");
+        }*/
         System.out.print(this.eva);
         return this.eva;
     }
@@ -987,7 +1039,7 @@ public class EvaluatorServiceImpl implements EvaluatorService  {
 
             tagweight.putAll((Map<? extends String, ? extends Long>) obj);
 
-            FileReader fileReaderData = new FileReader("./assets/abc.json");
+            FileReader fileReaderData = new FileReader("./assets/data.json");
 
             JSONParser parserData = new JSONParser();
             Object objData = parserData.parse(fileReaderData);
