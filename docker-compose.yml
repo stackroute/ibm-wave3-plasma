@@ -268,5 +268,12 @@ services:
 #    expose:
 #      - 8077
 
-
-
+  conceptstorage:
+    image: config-service:latest
+    build: config-server/
+    restart: always
+    network_mode: host
+    ports:
+      - 8061:8061
+    expose:
+      - 8061

@@ -66,7 +66,7 @@ mat-label{
     margin-left: 35%;
   }
   .my-form{
-    width: 50%;
+    width: 70%;
     height: 30%;
     margin-left: 37%;
   }
@@ -96,6 +96,7 @@ mat-label{
     width: 30%;
     height: 30%;
     margin-left: 30%;
+    margin-top: 0%;
     
   }
   mat-toolbar{
@@ -109,6 +110,7 @@ mat-label{
   .Add{
     margin-top: 25%;
     margin-left: 37%;
+    padding-bottom: 12%;
     height: 10%;
     font-size: 13px;
   }
@@ -217,11 +219,11 @@ mat-label{
     font-size: 12px;
   }
   .Add{
-    height: 10%;
+    height: 13%;
     margin-top: 36%;
     margin-left: 37%;
     font-size: 12px;
-    /* padding-bottom: 15%; */
+    padding-bottom: 15%;
   }
  
 }

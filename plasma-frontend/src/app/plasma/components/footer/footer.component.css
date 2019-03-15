@@ -19,7 +19,7 @@
 p{
     padding-top: 5px;
     margin-left: 650px;
-    font-size: 15px;
+    font-size: 13px;
     letter-spacing: 0.5px;
 }
 
@@ -80,7 +80,7 @@ p{
   }
    .about{
     position: relative;
-    left:-3%;
+    left:-6%;
     /* top:-524%; */
   } 
 }
@@ -99,7 +99,7 @@ p{
   }
   .about{
     position: relative;
-    left:-20%;
+    left:-30%;
     /* top:-84%; */
   }
 }

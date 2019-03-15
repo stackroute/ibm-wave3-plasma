@@ -59,7 +59,7 @@ private password: string;
         this.statusCode = parseInt(errorStatus, 10);
         if (this.statusCode === 401) {
           console.log('userAuth does not exist');
-          window.alert('User does not exist');
+          this.snackBar.open('User does not exist !!!', '', { duration: 2000, verticalPosition: 'bottom' });
         }
     });
   }
