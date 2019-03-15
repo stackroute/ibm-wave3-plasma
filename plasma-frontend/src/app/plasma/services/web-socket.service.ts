@@ -20,7 +20,7 @@ export class WebSocketService {
 
   initializeWebSocketConnection() {
     // tslint:disable-next-line:prefer-const
-    let ws = new SockJS("http://13.234.94.77:8095/socket");
+    let ws = new SockJS("http://13.234.94.77:8092/notification-service");
     this.stompClient = Stomp.over(ws);
     let that = this;
     this.stompClient.connect({}, function(frame) {

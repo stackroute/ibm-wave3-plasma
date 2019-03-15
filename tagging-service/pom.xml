@@ -62,6 +62,11 @@
 			<scope>provided</scope>
 		</dependency>
 
+		<!--dependency for eureka-client-->
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+		</dependency>
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>

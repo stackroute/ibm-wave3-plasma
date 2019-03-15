@@ -11,7 +11,7 @@ export class UserregistrationService {
   response: any;
   get: any;
   profile(userId: String) {
-    this.url = 'http://1localhost:8132/api/user/' + userId;
+    this.url = 'http://1localhost:8092/user-login-service/user/' + userId;
     return this.http.get(this.url);
    }
 constructor(private http: HttpClient ) {

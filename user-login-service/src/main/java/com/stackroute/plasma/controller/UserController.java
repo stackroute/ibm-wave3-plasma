@@ -22,7 +22,7 @@ import java.util.Map;
 
 @CrossOrigin(value = "*")
 @RestController
-@RequestMapping("api/")
+@RequestMapping("api/v1")
 public class UserController {
 
     @Autowired
