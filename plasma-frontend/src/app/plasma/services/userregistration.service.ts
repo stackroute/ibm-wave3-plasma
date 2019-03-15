@@ -11,13 +11,13 @@ export class UserregistrationService {
   response: any;
   get: any;
   profile(userId: String) {
-    this.url = 'http://1localhost:8092/user-login-service/user/' + userId;
+    this.url = 'http://13.234.94.77:8132/api/user/' + userId;
     return this.http.get(this.url);
    }
 constructor(private http: HttpClient ) {
 }
  addregister(reg: Userregister) {
-  this.url = 'http://localhost:8092/user-register-service';
+  this.url = 'http://13.234.94.77:8092/user-register-service';
   this.http.get(this.url).subscribe(resp => {
 
   this.response = resp;
