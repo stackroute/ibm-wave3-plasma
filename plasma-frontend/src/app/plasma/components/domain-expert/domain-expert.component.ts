@@ -3,7 +3,7 @@ import { DomainExpertService } from './../../services/domain-expert.service';
 import { Component, OnInit, Input } from '@angular/core';
 import { Domainexpert } from '../../tsclasses/domainexpert';
 import { HttpClient } from '@angular/common/http';
-
+import data from '../../seedData/data.json';
 
 
 
@@ -52,6 +52,7 @@ export class DomainExpertComponent implements OnInit {
   //   });
   }
   ngOnInit() {
-
+      this.conceptsAll = data.data.concepts;
+      console.log(data.data.concepts);
   }
 }
