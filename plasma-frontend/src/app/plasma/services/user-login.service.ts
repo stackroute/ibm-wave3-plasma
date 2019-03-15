@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 @Injectable()
   export class UserLoginService {
     response: any;
-  private loginUrl = 'http://13.234.94.77:8132/api/userAuth';
+  private loginUrl = 'http://localhost:8132/api/userAuth';
   private errorStatus: string;
   private errorBody: string;
   constructor(private http: HttpClient, private router: Router) { }
