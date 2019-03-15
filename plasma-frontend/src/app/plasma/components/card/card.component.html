@@ -8,6 +8,7 @@
 
      <mat-card class="example-card">
         <mat-card-header>
+            <div mat-card-avatar>{{y.confidenceScore}}</div>
           <mat-card-title class="title">
            <a href="{{y.url}}">
            {{y.title}}
@@ -21,7 +22,8 @@
             {{y.description}}<br>
           </mat-card-content>
           <mat-card-content class="key">  
-            {{y.keywords}}
+            {{y.keywords}}<br>
+            This is results for {{level}}
           </mat-card-content>
         
        

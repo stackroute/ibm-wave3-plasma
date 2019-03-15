@@ -22,6 +22,7 @@ public class RabbitMQListener {
         this.nlpModel.setJwt(nlpModel.getJwt());
         this.nlpModel.setRole(nlpModel.getRole());
         System.out.println("Recieved Message From RabbitMQ: " + nlpModel.toString());
+        tagService.tagger(this.nlpModel.getTokenized_lematized().toString());
     }
 
     public NlpModel getNlpModel() {

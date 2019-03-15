@@ -1,3 +1,4 @@
+/*
 package com.stackroute.taggingservice.controller;
 
 import com.stackroute.taggingservice.domain.TagOutput;
@@ -52,3 +53,4 @@ public class TaggingController {
 
     }
 }
+*/
