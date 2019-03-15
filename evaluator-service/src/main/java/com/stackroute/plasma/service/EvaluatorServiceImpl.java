@@ -12,6 +12,7 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.io.File;
@@ -38,6 +39,9 @@ public class EvaluatorServiceImpl implements EvaluatorService  {
     Document docx;
     Evaluator eva;
     Url url;
+
+    @Autowired
+    RabbitMQSender rabbitMQSender;
 
     private String keywords;
     private String description;
@@ -963,7 +967,7 @@ public class EvaluatorServiceImpl implements EvaluatorService  {
         this.eva.setDescription(description);
         this.eva.setKeywords(keywords);
         this.eva.setTitle(this.docx.title());
-
+        rabbitMQSender.send(this.eva);
         System.out.print(this.eva);
         return this.eva;
     }
