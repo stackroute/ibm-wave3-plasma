@@ -55,7 +55,7 @@ services:
     network_mode: host
     volumes:
       - ./graph.db:/data/databases/graph.db
-      - ./neo4j/data:/data
+ #     - ./neo4j/data:/data
       - ./neo4j/import:/import
       - ./neo4j/plugins:/plugins
     environment:
