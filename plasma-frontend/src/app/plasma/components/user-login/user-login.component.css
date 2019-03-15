@@ -7,6 +7,10 @@
  
  }
  
+
+ .cdk-overlay-pane {
+  margin-top: 50px;   
+}
  .full-width {
   width: 100%;
  }
@@ -240,6 +244,8 @@ section{
     font-size: 13px;
 
   }
+
+  
 }
 @media (max-width: 320px){
 
