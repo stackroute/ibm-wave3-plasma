@@ -1,9 +1,9 @@
 
-<div class="row" fxLayout.xs="column">
+
 
    
-<div fxLayout="" fxLayoutGap="32px" fxLayoutAlign="flex-start" *ngFor = "let x of cards">
-  <div fxFlex="20%">
+<div *ngFor = "let x of cards">
+ 
 
   <div class="cardContainer" *ngFor= "let y of x">
      
@@ -36,8 +36,7 @@
       </mat-card>
   </div>
 </div>
-</div>
-</div>
+
 
 <!-- {{cards}} -->
 <!-- <mat-card class="example-card">
