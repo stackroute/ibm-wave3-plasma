@@ -1,3 +1,4 @@
+/*
 package com.stackroute.knowledgequeryservice.controller;
 
 import com.stackroute.knowledgequeryservice.model.Document;
@@ -39,3 +40,4 @@ public class DocumentController {
         return sender;
     }
 }
+*/
