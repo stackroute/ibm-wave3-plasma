@@ -23,7 +23,7 @@ httpOptions = {
       return this.http.get('http://localhost:8074/api/v1/concept');
     }
     add(reg: Domainexpert) {
-      this.url = 'http://13.234.94.77:8092/search-service';
+      this.url = 'http://localhost:8092/search-service';
       // this.http.get(this.url + '').subscribe(resp => {
       //     console.log(resp);
       // this.response = resp;

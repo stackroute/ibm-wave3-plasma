@@ -6,7 +6,7 @@ import { JwtHelperService } from "@auth0/angular-jwt";
 })
 export class SearchService {
   console: any;
-  private nlpserviceurl: String = 'http://13.234.94.77:8092/nlp-service';
+  private nlpserviceurl: String = 'http://localhost:8092/nlp-service';
   url: string;
 
 constructor(private http: HttpClient) {

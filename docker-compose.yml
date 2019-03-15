@@ -48,6 +48,7 @@ services:
     ports:
       - 7474:7474
       - 7687:7687
+    restart: always
     expose:
       - 7474
       - 7687
