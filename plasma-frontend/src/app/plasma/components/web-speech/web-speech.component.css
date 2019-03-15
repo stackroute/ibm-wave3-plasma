@@ -30,6 +30,11 @@
   
   
   }
+  .sea{
+     border-width: 1000px;
+   border: 200px;
+    border-bottom-width: 1000px
+  }
   figure img{
    width: 150%;
    height:60%;
