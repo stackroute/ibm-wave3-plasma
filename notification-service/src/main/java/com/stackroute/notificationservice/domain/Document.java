@@ -31,4 +31,8 @@ public class Document {
     @ApiModelProperty(notes = "basic keywords present in the URL")
     private String keywords;
 
+    private String level;
+
+    private float confidenceScore;
+
 }

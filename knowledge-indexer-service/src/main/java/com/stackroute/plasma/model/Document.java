@@ -26,5 +26,10 @@ public class Document {
     private String url;
     @Property
     private String keywords;
+    @Property
+    private String level;
+    @Property
+    private float confidenceScore;
+
 
 }

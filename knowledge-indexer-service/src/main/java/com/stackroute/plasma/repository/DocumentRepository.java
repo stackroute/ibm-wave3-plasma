@@ -11,7 +11,7 @@ public interface DocumentRepository extends Neo4jRepository<Document,Long> {
 
     /* Creates the description node */
     @Query("CREATE (d:Document) SET d.timestamp={timestamp},d.concept={concept},d.domain={domain},d.description={description}," +
-            "d.title={title},d.url={url},d.keywords={keywords} RETURN d")
+            "d.title={title},d.url={url},d.keywords={keywords},d.level={level},d.confidenceScore={confidenceScore} RETURN d")
     Document create(//@Param("id") long id,
                     @Param("timestamp") String timestamp,
                     @Param("concept") String concept,
@@ -19,7 +19,9 @@ public interface DocumentRepository extends Neo4jRepository<Document,Long> {
                     @Param("description") String description,
                     @Param("title") String title,
                     @Param("keywords") String keywords,
-                    @Param("url") String url);
+                    @Param("url") String url,
+                    @Param("level")String level,
+                    @Param("confidenceScore")float confidenceScore);
 
     /* Updates the description node */
     @Query("MATCH (d:Document) WHERE d.id={id} " +
