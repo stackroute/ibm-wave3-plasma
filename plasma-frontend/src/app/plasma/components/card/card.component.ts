@@ -29,7 +29,7 @@ export class CardComponent implements OnInit {
         this.cards = JSON.parse(body).documents;
       }else {
         this.check = true;
-        this.message = "User Not Logged In"
+        // this.message = "User Not Logged In"
       }
 
 
