@@ -11,11 +11,15 @@
             <mat-label>Domain</mat-label>
               <input matInput [(ngModel)] ="domainName" name="domain">
             </mat-form-field>
-            <mat-form-field class="full-width" appearance = "fill">
+            <!-- <mat-form-field class="full-width" appearance = "fill">
                <mat-label>Concepts</mat-label>
                   <mat-select  placeholder="Concept"  multiple>
                    <mat-option  *ngFor="let data of conceptsAll" [value]="data" (click)="onChange(data)" >{{data}}</mat-option>
                </mat-select>
+            </mat-form-field> -->
+            <mat-form-field>
+            <mat-label>Concepts</mat-label>
+              <input matInput [(ngModel)] ="conceptsAll" name="domain" placeholder="add concepts">
             </mat-form-field>
         </form>
      </mat-card-content>

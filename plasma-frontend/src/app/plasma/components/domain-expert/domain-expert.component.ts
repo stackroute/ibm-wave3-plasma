@@ -32,19 +32,19 @@ export class DomainExpertComponent implements OnInit {
     this.conceptList.push(event);
  }
   send(event: Domainexpert) {
-   
+
     this.regform = new Domainexpert();
     this.regform.domain = this.domainName;
     this.regform.concepts = this.conceptList;
     console.log(this.regform);
     this.search.add(this.regform).subscribe(data => {
-      console.log('this is the response from api call',data);
+      console.log('this is the response from api call', data);
     });
 
    }
    constructor(private search: DomainExpertService,  private http: HttpClient ) {
 
-   
+
   //  openSnackBar()
   //   this.snackBar.open('Added successfully !!!!', {
   //   duration: 2000,
