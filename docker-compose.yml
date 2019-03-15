@@ -54,6 +54,7 @@ services:
     container_name: neo4j
     network_mode: host
     volumes:
+      - ./graph.db:/data/databases/graph.db
       - ./neo4j/data:/data
       - ./neo4j/import:/import
       - ./neo4j/plugins:/plugins
