@@ -6,7 +6,7 @@ import { JwtHelperService } from "@auth0/angular-jwt";
 })
 export class SearchService {
   console: any;
-  private nlpserviceurl: String = 'http://13.234.94.77:8092/nlp-service';
+  private nlpserviceurl: String = 'http://localhost:8092/nlp-service';
   url: string;
 
 constructor(private http: HttpClient) {
@@ -28,7 +28,8 @@ data(finalTranscript: String) {
     "userId" : decodedToken.jti,  
     "userQuery" : finalTranscript,
     "jwt" : localStorage.getItem('token'),
-    "role" : decodedToken.sub
+    "role" : decodedToken.sub,
+    "sessionId": localStorage.getItem('sessionId')
   }
 
  console.log(decodedToken, "this is the token data ")

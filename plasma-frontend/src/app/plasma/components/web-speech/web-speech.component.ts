@@ -14,6 +14,7 @@ import { Router } from '@angular/router';
 import * as jwt_decode from 'jwt-decode';
 import * as search from '../../tsclasses/search';
 
+import { WebSocketService } from '../../services/web-socket.service';
 
 @Component({
  selector: 'app-web-speech',
@@ -35,7 +36,8 @@ export class WebSpeechComponent implements OnInit {
    private speechRecognizer: SpeechRecognizerService,
    private searchService: SearchService,
    private router: Router,
-   private Cardservice: CardService
+   private Cardservice: CardService,
+   private ws: WebSocketService
  ) { }
 
  ngOnInit() {

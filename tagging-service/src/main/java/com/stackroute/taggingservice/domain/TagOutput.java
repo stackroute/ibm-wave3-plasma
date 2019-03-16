@@ -14,5 +14,6 @@ public class TagOutput {
     private String userId;
     private String role;
     private String jwt;
+    private String sessionId;
 
 }
