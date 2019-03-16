@@ -34,7 +34,7 @@ private password: string;
      console.log(this.userAuth);
     console.log(this.value);
     this.loginService.login(this.userAuth).subscribe((res: any) => {
-      window.alert('User logged in successfully');
+      this.snackBar.open('User logged in successfully', '', { duration: 2000, verticalPosition: 'bottom' });
       console.log('Res: ', res);
       console.log(this.helper.decodeToken(res.body.token).jti, ' :this is the value of the userId');
     console.log(this.helper.decodeToken(res.body.token).sub, ' :this is the value of the role');
