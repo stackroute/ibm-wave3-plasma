@@ -120,6 +120,7 @@ mat-label{
     padding-bottom: 12%;
     height: 10%;
     font-size: 13px;
+    width: 30%;
   }
  
 }
@@ -152,6 +153,7 @@ mat-label{
     font-size: 12px;
   }
   .Add{
+    width: 20%;
     height: 10%;
     margin-top: 28%;
     margin-left: 37%;
@@ -190,6 +192,7 @@ mat-label{
   }
   .Add{
     height: 10%;
+    width: 20%;
     margin-top: 30%;
     margin-left: 37%;
     font-size: 12px;
