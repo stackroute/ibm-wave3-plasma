@@ -220,6 +220,7 @@ section{
     display: flex;
     flex-direction: column;
     width: 80%;
+    margin-bottom: 8%;
 
   }
   mat-toolbar{
@@ -236,7 +237,7 @@ section{
     width: 20%;
     font-size: 12px;
 
-  
+  margin-top: 10px;
     margin-left: 5%;
   }
   p{
@@ -270,7 +271,7 @@ section{
     display: flex;
     flex-direction: column;
     width: 80%;
-    margin-bottom: 0%;
+    margin-bottom: 8%;
 
   }
   mat-toolbar{
@@ -281,7 +282,7 @@ section{
  #login{
     /* padding-left: 5%; */
     position: relative;
-    top:0px;
+    top:10px;
     left: 30%;
     height: 10%;
     width: 20%;
