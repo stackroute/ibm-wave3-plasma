@@ -102,20 +102,21 @@ section{
      width: 40%;
      height: 50%;
      margin-left: 10%;
-     margin-bottom: 0%;
+     margin-bottom: -8%;
    }
  
    .container{
-     width: 50%;
-     height:50%;
-     margin-left: 25%;
+     width: 40%;
+     height:40%;
+     margin-left: 28%;
    }
    .full-width{
-     height: 50%;
+     /* height: 50%; */
      margin-top: 0%;
+     margin-bottom: 0%;
      display: flex;
      flex-direction: column;
-     width: 80%;
+     width: 100%;
  
    }
    mat-toolbar{
@@ -125,8 +126,10 @@ section{
    }
   #login{
      /* padding-left: 5%; */
-     position: relative;
+     /* position: relative; */
+     margin-top: 0%;
      /* top:10px; */
+     top:3%;
      left: 30%;
      height: 10%;
      width: 20%;
@@ -136,8 +139,8 @@ section{
      margin-left: 5%;
    }
    p{
-     margin-left: 29%;
-     font-size: 19px;
+     margin-left: 24%;
+     font-size: 17px;
  
    }
 }
@@ -153,7 +156,7 @@ section{
     width: 40%;
     height: 50%;
     margin-left: 10%;
-    margin-bottom: 0%;
+    margin-bottom: -8%;
   }
 
   .container{
@@ -171,7 +174,7 @@ section{
   mat-toolbar{
     padding-left: 15%;
     margin-left: 0%;
-    font-size: 16px;
+    font-size: 18px;
   }
  #login{
     /* padding-left: 5%; */
@@ -203,12 +206,12 @@ section{
     width: 40%;
     height: 50%;
    padding-left: 10%;
-    margin-bottom: 0%;
+   margin-bottom: -15%;
   }
 
   .container{
     width: 60%;
-    height:50%;
+    height:40%;
     margin-left: 20%;
   }
   .full-width{
@@ -230,13 +233,13 @@ section{
     left: 30%;
     height: 10%;
     width: 20%;
-    font-size: 13px;
+    font-size: 12px;
 
   
     margin-left: 5%;
   }
   p{
-    margin-left: 19%;
+    margin-left: 15%;
     font-size: 13px;
 
   }
@@ -253,12 +256,12 @@ section{
     width: 40%;
     height: 50%;
    padding-left: 10%;
-    margin-bottom: 0%;
+   margin-bottom: -20%;
   }
 
   .container{
     width: 60%;
-    height:50%;
+    height:40%;
     margin-left: 20%;
   }
   .full-width{
