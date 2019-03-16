@@ -33,7 +33,7 @@ section{
   width: 420px;
   box-shadow: 10px 10px 8px #333333;
   /*border-top-left-radius: 25px;*/
-  border-radius: 50px 50px 50px 50px;
+  border-radius: 50px 30px 50px 50px;
   background-image: url("../../../../assets/gra.jpg");
   
  
@@ -63,6 +63,7 @@ section{
   margin-left: 170px;
   /* padding-left: 50px; */
   font-size: 18px;
+  width: 100px;
  }
  span{
    margin-left: 80px;
@@ -219,6 +220,7 @@ section{
     display: flex;
     flex-direction: column;
     width: 80%;
+    margin-bottom: 8%;
 
   }
   mat-toolbar{
@@ -235,7 +237,7 @@ section{
     width: 20%;
     font-size: 12px;
 
-  
+  margin-top: 10px;
     margin-left: 5%;
   }
   p{
@@ -269,7 +271,7 @@ section{
     display: flex;
     flex-direction: column;
     width: 80%;
-    margin-bottom: 0%;
+    margin-bottom: 8%;
 
   }
   mat-toolbar{
@@ -280,7 +282,7 @@ section{
  #login{
     /* padding-left: 5%; */
     position: relative;
-    top:0px;
+    top:10px;
     left: 30%;
     height: 10%;
     width: 20%;
