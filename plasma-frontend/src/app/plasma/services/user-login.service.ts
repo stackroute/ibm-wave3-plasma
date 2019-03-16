@@ -10,7 +10,7 @@ import { Subject } from "rxjs";
 @Injectable()
 export class UserLoginService {
   response: any;
-  private loginUrl = "http://13.234.94.77:8132/api/userAuth";
+  private loginUrl = "http://13.234.94.77:8092/user-login-service/userAuth";
   private errorStatus: string;
   private errorBody: string;
   public checkFlag = new Subject();

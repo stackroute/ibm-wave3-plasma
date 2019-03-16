@@ -177,6 +177,7 @@ services:
       - mysql
       - apigateway
       - rabbitmq
+      - userregisterservice
     ports:
       - 8132:8132
     expose:
