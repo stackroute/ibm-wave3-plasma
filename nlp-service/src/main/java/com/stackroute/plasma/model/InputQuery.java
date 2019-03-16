@@ -8,4 +8,5 @@ public class InputQuery {
     private String userQuery;
     private String jwt;
     private String role ;
+    private String sessionId;
 }

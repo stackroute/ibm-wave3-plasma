@@ -61,14 +61,18 @@ public class NlpController {
         userQuery.setUserQuery(inputQuery.getUserQuery());
         userQuery.setJwt(inputQuery.getJwt());
         userQuery.setRole(inputQuery.getRole());
+        //not required to save sessionId
+        userQuery.setSessionId(inputQuery.getSessionId());
         System.out.println("user query"+userQuery);
-
         nlpService.save(userQuery);
+
+
         temp = nlpService.queryConverter(inputQuery.getUserQuery());
         nlpModel.setTokenized_lematized(temp);
         nlpModel.setUserId(inputQuery.getUserId());
         nlpModel.setJwt(inputQuery.getJwt());
         nlpModel.setRole(inputQuery.getRole());
+        nlpModel.setSessionId(inputQuery.getSessionId());
         System.out.println("controller output" + nlpModel);
         rabbitMQSender.sender(nlpModel);
         //return nlpModel;

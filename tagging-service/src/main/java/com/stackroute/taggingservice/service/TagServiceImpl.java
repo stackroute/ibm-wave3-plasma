@@ -373,7 +373,7 @@ public class TagServiceImpl implements TagService {
        // tagOutput.setTaggedLevel(finalIntent);
 
         TagOutput tagOutput = new TagOutput(finalConcept,finalIntent,rabbitMQListener.nlpModel.getUserId(),rabbitMQListener.nlpModel.getRole(),
-                rabbitMQListener.nlpModel.getJwt());
+                rabbitMQListener.nlpModel.getJwt(),rabbitMQListener.nlpModel.getSessionId());
 
         System.out.println("sending message to RabbitMQ toString: " + tagOutput);
         rabbitMQSender.sender(tagOutput);

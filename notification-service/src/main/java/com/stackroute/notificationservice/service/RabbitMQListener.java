@@ -20,7 +20,12 @@ public class RabbitMQListener {
      @RabbitListener(queues = "${javainuse6.rabbitmq.queue}", containerFactory = "jsaFactory")
     public void consume(Documents documents){
         System.out.println("Recieved Message From RabbitMQ: " + documents.toString());
-        this.send.convertAndSend("/topic", documents);
+
+        /* previously sending with convertAndSend */
+        //this.send.convertAndSend("/topic", documents);
+
+         /* to send the sessionId,have specified the user which is first parameter */
+         this.send.convertAndSendToUser(documents.getSessionId(),"/topic", documents);
     }
 
 }

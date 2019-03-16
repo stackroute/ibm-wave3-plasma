@@ -7,7 +7,7 @@
 }
 .full{
   background-image: url("../../../../assets/bg91.jpg");
-  height: 700px;
+  height: 100%;
   width:100%;
   opacity: 0.9;
   background-repeat: no-repeat;
@@ -32,6 +32,7 @@ mat-card-content{
     /*border-top-left-radius: 25px;*/
     border-radius: 50px 50px 50px 50px;
     margin-top: 20px;
+    margin-bottom: 40px;
     background-color: #eaeded;
     /* margin-left: 10%; */
     

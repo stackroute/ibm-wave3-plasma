@@ -16,11 +16,11 @@ public class RabbitMQConfig {
     @Value("${javainuse3.rabbitmq.queue}")
     String queueName;
 
-    @Value("${javainuse.rabbitmq.exchange}")
-    String exchange;
+//    @Value("${javainuse.rabbitmq.exchange}")
+    String exchange = "javainuse.exchange";
 
     @Value("${javainuse3.rabbitmq.routingkey}")
-    private String routingkey3;
+    String routingkey3;
 
     @Bean
     Queue queue() {

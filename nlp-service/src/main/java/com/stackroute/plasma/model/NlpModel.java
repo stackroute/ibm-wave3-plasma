@@ -12,4 +12,5 @@ public class NlpModel {
     String userId;
     String  jwt;
     String role;
+    String sessionId;
 }

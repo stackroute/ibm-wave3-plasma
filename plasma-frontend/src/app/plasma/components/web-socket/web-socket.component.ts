@@ -17,23 +17,23 @@ export class WebSocketComponent {
 
   initializeWebSocketConnection() {
     // tslint:disable-next-line:prefer-const
-    let ws = new SockJS(this.serverUrl);
-    this.stompClient = Stomp.over(ws);
-    let that = this;
-    this.stompClient.connect({}, function(frame) {
-      that.stompClient.subscribe('/topic', message => {
-        if (message.body) {
-          that.topicdata = message.body;
-          console.log('data is ', that.topicdata);
-          console.log('message body is ', message.body);
-        }
-      });
-    });
+    // let ws = new SockJS(this.serverUrl);
+    // this.stompClient = Stomp.over(ws);
+    // let that = this;
+    // this.stompClient.connect({}, function(frame) {
+    //   that.stompClient.subscribe('/topic', message => {
+    //     if (message.body) {
+    //       that.topicdata = message.body;
+    //       console.log('data is ', that.topicdata);
+    //       console.log('message body is ', message.body);
+    //     }
+    //   });
+    // });
   }
 
   sendMessage(message) {
-    this.stompClient.send('/app/data', {}, message);
-    // $("#input").val("");
-    console.log('Inside the send message');
+    // this.stompClient.send('/app/data', {}, message);
+    // // $("#input").val("");
+    // console.log('Inside the send message');
   }
  }
