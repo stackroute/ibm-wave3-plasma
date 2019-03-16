@@ -263,7 +263,7 @@ services:
     depends_on:
        - eurekaserver
        - rabbitmq
-       - knowledgequeryservice
+#       - knowledgequeryservice
     ports:
        - 8095:8095
     expose:

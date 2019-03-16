@@ -1,4 +1,4 @@
-import { WebSocketComponent } from './components/web-socket/web-socket.component';
+// import { WebSocketComponent } from './components/web-socket/web-socket.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { CardComponent } from './components/card/card.component';
 import { HttpClientModule } from '@angular/common/http';
@@ -33,7 +33,7 @@ import { SpeechRecognizerService } from './services/speech-recognizer.service';
     UserLoginComponent,
     ProfileComponent,
     AboutComponent,
-    WebSocketComponent,
+    // WebSocketComponent,
     WebSpeechComponent
     ],
   imports: [
@@ -60,7 +60,7 @@ import { SpeechRecognizerService } from './services/speech-recognizer.service';
     ProfileComponent,
     AboutComponent,
     WebSpeechComponent,
-    WebSocketComponent,
+    // WebSocketComponent,
     MatCardModule
   ]
 })

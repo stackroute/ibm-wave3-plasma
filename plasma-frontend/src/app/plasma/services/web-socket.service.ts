@@ -20,18 +20,21 @@ export class WebSocketService {
 
   initializeWebSocketConnection() {
     // tslint:disable-next-line:prefer-const
-    let ws = new SockJS("http://localhost:8095/socket");
+    let ws = new SockJS("http://13.234.94.77:8095/socket");
     this.stompClient = Stomp.over(ws);
     let that = this;
     this.stompClient.connect({}, function(frame) {
+      let sessionId = ws._transport.url.split("/")[5];
       console.log(ws._transport.url.split("/")[5], "can we get the session ID ")
       localStorage.setItem('sessionId', ws._transport.url.split("/")[5]);
-      that.stompClient.subscribe('/topic', message => {
-        // console.log("MY MESSAGE", message);
+      that.stompClient.subscribe(`/user/${sessionId}/queue/reply`, message => {
+        console.log("MY MESSAGE", message);
           that.dataFromTopic.next(message);
       });
     });
   }
+
+
 
 //   sendMessage(message) {
 //     this.stompClient.send('/app/data', {}, message);
