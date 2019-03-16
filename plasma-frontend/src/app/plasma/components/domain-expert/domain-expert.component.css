@@ -24,7 +24,7 @@ section{
   margin-top: 180px;
   background: white;
     opacity: 0.8;
-    width: 410px;
+    width: 480px;
     height: 290px;
     box-shadow: 10px 10px 10px #333333;
     /*border-top-left-radius: 25px;*/
@@ -43,9 +43,10 @@ mat-toolbar{
 }
 button{
   margin-left: 180px;
+  width: 100px;
 }
 .domain{
-  background-image: url("../../../../assets/bg12.jpeg");
+  background-image: url("../../../../assets/bg53.png");
   height: 700px;
   width:100%;
   opacity: 0.9;
