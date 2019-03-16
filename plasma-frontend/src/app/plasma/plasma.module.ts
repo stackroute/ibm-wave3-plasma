@@ -6,7 +6,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MatCardModule} from '@angular/material/card';
 
-
+import { AuthGuard } from './components/auth/auth.guard';
 import { UserregistrationComponent } from './components/userregistration/userregistration.component';
 import { HeaderComponent } from './components/header/header.component';
 import { WebSpeechComponent } from './components/web-speech/web-speech.component';
@@ -49,7 +49,7 @@ import { SpeechRecognizerService } from './services/speech-recognizer.service';
    MatCardModule
 
   ],
-  providers: [UserLoginService, SpeechRecognizerService],
+  providers: [UserLoginService, SpeechRecognizerService,AuthGuard],
   exports: [
     HeaderComponent,
     DomainExpertComponent,
@@ -61,7 +61,8 @@ import { SpeechRecognizerService } from './services/speech-recognizer.service';
     AboutComponent,
     WebSpeechComponent,
     // WebSocketComponent,
-    MatCardModule
+    MatCardModule,
+    
   ]
 })
 export class PlasmaModule { }
