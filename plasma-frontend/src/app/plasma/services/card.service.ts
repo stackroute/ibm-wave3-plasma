@@ -9,7 +9,7 @@ export class CardService {
      constructor(private http: HttpClient) {
    }
   getdoc() {
-   this.url = 'http://13.234.94.77:3000/plasma';
+   this.url = 'http://localhost:3000/plasma';
    console.log('response from jsonr', this.http.get(this.url));
    return this.http.get(this.url);
   }

@@ -25,10 +25,10 @@ data(finalTranscript: String) {
 
   const decodedToken = this.helper.decodeToken(localStorage.getItem('token'));
   let requestBody = {
-    "userId" : decodedToken.jti,  
+    // "userId" : decodedToken.jti,  
     "userQuery" : finalTranscript,
-    "jwt" : localStorage.getItem('token'),
-    "role" : decodedToken.sub,
+    // "jwt" : localStorage.getItem('token'),
+    // "role" : decodedToken.sub,
     "sessionId": localStorage.getItem('sessionId')
   }
 
