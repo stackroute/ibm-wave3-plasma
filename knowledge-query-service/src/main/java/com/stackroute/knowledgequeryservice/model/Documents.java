@@ -10,4 +10,5 @@ public class Documents {
     private String jwt;
     private String sessionId;
     List<List<Document>> documents;
+    //List<Document> documents;
 }
