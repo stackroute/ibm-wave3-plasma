@@ -17,4 +17,5 @@ public class UserQuery {
     private String userQuery;
     private String jwt;
     private String role;
+    private String sessionId;
 }

@@ -14,6 +14,8 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 
+import { WebSocketService } from './plasma/services/web-socket.service';
+
 
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
@@ -39,7 +41,7 @@ imports: [
   Ng2CarouselamosModule
 
 ],
-providers: [UserLoginService, CardService, UserregistrationService],
+providers: [UserLoginService, CardService, UserregistrationService, WebSocketService],
 bootstrap: [
   AppComponent
 ]

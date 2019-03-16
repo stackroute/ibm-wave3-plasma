@@ -28,7 +28,8 @@ data(finalTranscript: String) {
     "userId" : decodedToken.jti,  
     "userQuery" : finalTranscript,
     "jwt" : localStorage.getItem('token'),
-    "role" : decodedToken.sub
+    "role" : decodedToken.sub,
+    "sessionId": localStorage.getItem('sessionId')
   }
 
  console.log(decodedToken, "this is the token data ")

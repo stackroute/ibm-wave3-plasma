@@ -15,5 +15,6 @@ public class NlpModel {
     String  jwt;
     @JsonProperty("role")
     String role;
-
+    @JsonProperty("sessionId")
+    String sessionId;
 }

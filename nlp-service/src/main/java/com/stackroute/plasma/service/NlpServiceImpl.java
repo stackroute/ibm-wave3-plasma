@@ -26,15 +26,14 @@ public class NlpServiceImpl implements NlpService{
 
     @Autowired
     NlpRepository nlpRepository;
-    @Autowired
-    RabbitMQSender rabbitMQSender;
+
     @Override
     public UserQuery save(UserQuery userQuery) {
         return nlpRepository.save(userQuery);
     }
 
     private final static HashSet<String> stopWordSet = new HashSet<>();
-    NlpModel nlpModel = new NlpModel();
+
     List<String> extractedString;
     @Autowired
     StanfordCoreNLP stanfordCoreNLP;

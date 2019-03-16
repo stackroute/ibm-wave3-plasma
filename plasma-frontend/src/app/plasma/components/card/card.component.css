@@ -2,12 +2,13 @@
   display: flex;
   flex-direction: column;
   width: 80%;
-  margin-left: 10%;
-  
-}
-.full{
+  margin-left: 8%;
+  margin-bottom: 10px;
+  }
+  .full{
   background-image: url("../../../../assets/bg91.jpg");
-  height: 100%;
+  height: auto;
+  /* height: 240%; */
   width:100%;
   opacity: 0.9;
   background-repeat: no-repeat;
@@ -27,12 +28,12 @@ mat-card-content{
   .example-card {
     position: relative;
     top:50px;
-    width: 90%;
+    width: 100%;
     box-shadow: 10px 10px 10px #333333;
     /*border-top-left-radius: 25px;*/
     border-radius: 50px 50px 50px 50px;
-    margin-top: 20px;
-    margin-bottom: 40px;
+    /* margin-top: 20px; */
+    margin-bottom:0px;
     background-color: #eaeded;
     /* margin-left: 10%; */
     
@@ -62,20 +63,30 @@ mat-card-content{
   @media (max-width: 1024px) {
     .cardContainer{
       width: 80%;
-      height:90%
+      height:90%;
+      margin-bottom: 7%;
     }
+
+    
     .example-card{
-      width: 70%;
+      width: 100%;
     }
     .full{
       width: 100%;
-      height: 90%;
+       /* height: 200%; */
+       height: auto;
     }
   }
   @media (max-width: 768px) {
     .cardContainer{
       width: 90%;
-      height:60%
+      height:60%;
+      margin-bottom: 10%;
+    }
+
+    .full{
+      /* height: 250%; */
+      height: auto;
     }
     .example-card{
       width: 90%;
@@ -93,13 +104,42 @@ mat-card-content{
   @media (max-width: 425px) {
     .cardContainer{
       width: 90%;
-      height:60%
+      height:60%;
+      margin-bottom: 18%;
     }
     .full{
       margin-top:-5%;
+      /* height: 250%; */
+      height: auto;
     }
     .example-card{
       width: 80%;
+    }
+    mat-card-title a{
+      font-size: 12px;
+    }
+    .green a{
+      font-size: 9px;
+    }
+    mat-card-content{
+      font-size: 6px;
+    }
+  }
+
+  @media (max-width: 320px) {
+    .cardContainer{
+      width: 90%;
+      height:60%;
+      margin-bottom: 25%;
+    }
+    .full{
+      margin-top:-5%;
+      /* height: 211%; */
+      height: auto;
+    }
+    .example-card{
+      width: 80%;
+      margin-bottom: 5%;
     }
     mat-card-title a{
       font-size: 12px;

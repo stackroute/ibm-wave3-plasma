@@ -26,6 +26,7 @@ public class RabbitMQListener {
         sender.setUserId(tag.getUserId());
         sender.setJwt(tag.getJwt());
         sender.setRole(tag.getRole());
+        sender.setSessionId(tag.getSessionId());
         rabbitMQSender.sender(sender);
 
 
