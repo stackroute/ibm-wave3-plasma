@@ -24,7 +24,6 @@ const routes: Routes = [
   {
     path: 'admin',
     component: DomainExpertComponent,
-     canActivate: [AuthGuard]
   },
   {
     path: 'header',
@@ -41,12 +40,10 @@ const routes: Routes = [
   {
     path: 'card',
     component: CardComponent,
-    canActivate: [AuthGuard]
   },
   {
     path: 'profile',
     component: ProfileComponent,
-    canActivate: [AuthGuard]
   },
   {
     path: 'about',
