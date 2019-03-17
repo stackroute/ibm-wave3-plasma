@@ -85,17 +85,17 @@ services:
     expose:
       - 8092
 
-  apigateway1:
-    image: zuul-service-1
-    build: zuul-gatewayservice/
-    restart: always
-    network_mode: host
-    depends_on:
-      - eurekaserver
-    ports:
-      - 8072:8092
-    expose:
-      - 8072
+#  apigateway1:
+#    image: zuul-service-1
+#    build: zuul-gatewayservice/
+#    restart: always
+#    network_mode: host
+#    depends_on:
+#      - eurekaserver
+#    ports:
+#      - 8072:8092
+#    expose:
+#      - 8072
 
   eurekaserver:
     image: eureka-service:latest
