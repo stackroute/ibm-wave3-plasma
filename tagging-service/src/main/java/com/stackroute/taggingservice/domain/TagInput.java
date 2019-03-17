@@ -12,5 +12,4 @@ public class TagInput {
     private String userId;
     private String role;
     private String jwt;
-
 }
