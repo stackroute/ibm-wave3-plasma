@@ -62,6 +62,16 @@ services:
     environment:
       - NEO4J_AUTH=neo4j/Neo4j
 
+  clientsideloadbalancer:
+    image: client-side-load-balancer:latest
+    build: client-side-load-balancer/
+    restart: always
+    network_mode: host
+    ports:
+      - 8071:8071
+    expose:
+      - 8071
+
   apigateway:
     image: zuul-service-0
     build: zuul-gatewayservice/
@@ -74,18 +84,17 @@ services:
     expose:
       - 8092
 
-#  apigateway1:
-#    image: zuul-service-1
-#    build: zuul-gatewayservice/
-#    restart: always
-#    network_mode: host
-#    depends_on:
-#      - eurekaserver
-#    ports:
-#      - 8072:8092
-#    expose:
-#      - 8072
-
+  apigateway1:
+    image: zuul-service-1
+    build: zuul-gatewayservice/
+    restart: always
+    network_mode: host
+    depends_on:
+      - eurekaserver
+    ports:
+      - 8072:8092
+    expose:
+      - 8072
 
   eurekaserver:
     image: eureka-service:latest
