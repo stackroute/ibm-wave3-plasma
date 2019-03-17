@@ -8,7 +8,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { DomainExpertComponent } from './plasma/components/domain-expert/domain-expert.component';
 import { UserregistrationComponent } from './plasma/components/userregistration/userregistration.component';
 import { ProfileComponent } from './plasma/components/profile/profile.component';
-import { AuthGuard } from './plasma/components/auth/auth.guard';
+// import { AuthGuard } from './plasma/components/auth/auth.guard';
 
 
 const routes: Routes = [
