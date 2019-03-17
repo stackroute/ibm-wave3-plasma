@@ -70,13 +70,12 @@ public class DocumentServiceImpl implements DocumentService {
         for (String urlx : searchOutputt.getUrls()) {
 
             url = new Url();
-            Document doc;
-            try {
-                doc = Jsoup.connect(urlx).get();
-            }catch(HttpStatusException e){
-                System.out.println("url can't be fetched");
-                continue;
-            }
+	    if (urlx == null){
+		    continue;
+	    }
+	    else{
+            Document doc = Jsoup.connect(urlx).get();
+            
             url.setConcept(searchOutputt.getConcept());
             url.setDomain(searchOutputt.getDomain());
             url.setUrl(urlx);
@@ -87,6 +86,7 @@ public class DocumentServiceImpl implements DocumentService {
             rabbitMQSender.send(url);
 
             list.add(url);
+	    }
         }
         rabbitMQSender.inform();
 

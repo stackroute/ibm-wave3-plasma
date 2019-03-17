@@ -27,6 +27,7 @@ services:
     image: mongo:3.4-jessie
     ports:
       - 27017:27017
+    restart: always
     container_name: mongo
     network_mode: host
 
