@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 public interface DocumentRepository extends Neo4jRepository<Document,Long> {
 
     /* Creates the description node */
-    @Query("CREATE (d:Document) SET d.timestamp={timestamp},d.concept={concept},d.domain={domain},d.description={description}," +
+    @Query("merge (d:Document) SET d.timestamp={timestamp},d.concept={concept},d.domain={domain},d.description={description}," +
             "d.title={title},d.url={url},d.keywords={keywords},d.level={level},d.confidenceScore={confidenceScore} RETURN d")
     Document create(//@Param("id") long id,
                     @Param("timestamp") String timestamp,

@@ -40,6 +40,7 @@
         <module>tagging-service</module>
         <module>concept-storage</module>
         <module>notification-service</module>
+        <module>client-side-load-balancer</module>
 
     </modules>
     <dependencies>

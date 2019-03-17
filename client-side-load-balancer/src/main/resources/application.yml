@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: client-side-load-balancer
+
+server:
+  port: 8071
+
+zuul-service:
+  ribbon:
+    eureka:
+      enabled: false
+    listOfServers: localhost:8092/,localhost:8072/
+    ServerListRefreshInterval: 15000

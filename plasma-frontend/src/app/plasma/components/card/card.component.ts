@@ -19,7 +19,7 @@ export class CardComponent implements OnInit {
   ngOnInit() {
     console.log('this is cards component !!');
     this.ws.dataFromTopic.subscribe(({body}) => {
-      let loggedInUser = this.helper.decodeToken(localStorage.getItem('token')).jti;
+      // let loggedInUser = this.helper.decodeToken(localStorage.getItem('token')).jti;
         this.cards = JSON.parse(body).documents;
        });
   }
