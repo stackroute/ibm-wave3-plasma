@@ -25,9 +25,7 @@ public class DocumentServiceImpl implements DocumentService {
     }
 
     @Override
-
-    public List<List<Document>>
-    concept(List<String> concepts, List<String> levels) {
+    public List<List<Document>> concept(List<String> concepts, List<String> levels) {
         System.out.println(concepts);
         System.out.println(levels);
         List<List<Document>> documents = new ArrayList<>();
@@ -39,3 +37,9 @@ public class DocumentServiceImpl implements DocumentService {
             return documents;
         }
     }
+
+  /* @Override
+    public List<Document> concept(String concept,String level) {
+       List<Document> documents= documentRepository.concept(concept, level);
+       return documents;
+    }*/

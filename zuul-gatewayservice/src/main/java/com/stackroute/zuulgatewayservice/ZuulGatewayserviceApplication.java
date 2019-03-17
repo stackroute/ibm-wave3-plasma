@@ -32,3 +32,18 @@ public class ZuulGatewayserviceApplication {
 	}
 
 }
+
+/*
+
+@RestController
+class DummyController {
+
+	@Value("${server.port}")
+	private int serverPort;
+
+	@RequestMapping("/abc")
+	public String home() {
+		return "Zuul on port: " + serverPort;
+
+
+*/

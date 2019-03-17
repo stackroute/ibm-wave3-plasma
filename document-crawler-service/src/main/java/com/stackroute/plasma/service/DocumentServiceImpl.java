@@ -69,24 +69,24 @@ public class DocumentServiceImpl implements DocumentService {
 
         for (String urlx : searchOutputt.getUrls()) {
 
-            url = new Url();
-	    if (urlx == null){
-		    continue;
-	    }
-	    else{
-            Document doc = Jsoup.connect(urlx).get();
-            
-            url.setConcept(searchOutputt.getConcept());
-            url.setDomain(searchOutputt.getDomain());
-            url.setUrl(urlx);
-            url.setDoc(doc.toString());
-            logger.info(doc.toString());
-            url.setTimestamp(Timestamp.valueOf(LocalDateTime.of(LocalDate.now(), LocalTime.now())).toString());
-            url.setTimestamp(Timestamp.valueOf(LocalDateTime.of(LocalDate.now(), LocalTime.now())).toString());
-            rabbitMQSender.send(url);
+            if(urlx == null){
+                System.out.println("NULL URL FOUND");
+                continue;
+            }
+            else {
+                url = new Url();
+                Document doc = Jsoup.connect(urlx).get();
+                url.setConcept(searchOutputt.getConcept());
+                url.setDomain(searchOutputt.getDomain());
+                url.setUrl(urlx);
+                url.setDoc(doc.toString());
+                logger.info(doc.toString());
+                url.setTimestamp(Timestamp.valueOf(LocalDateTime.of(LocalDate.now(), LocalTime.now())));
+                url.setTimestamp(Timestamp.valueOf(LocalDateTime.of(LocalDate.now(), LocalTime.now())));
+                rabbitMQSender.send(url);
 
-            list.add(url);
-	    }
+                list.add(url);
+            }
         }
         rabbitMQSender.inform();
 

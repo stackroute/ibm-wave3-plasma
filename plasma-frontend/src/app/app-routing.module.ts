@@ -8,6 +8,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { DomainExpertComponent } from './plasma/components/domain-expert/domain-expert.component';
 import { UserregistrationComponent } from './plasma/components/userregistration/userregistration.component';
 import { ProfileComponent } from './plasma/components/profile/profile.component';
+import { AuthGuard } from './plasma/components/auth/auth.guard';
+
 
 const routes: Routes = [
   {
@@ -17,11 +19,12 @@ const routes: Routes = [
   },
   {
     path: 'web-speech',
-    component: WebSpeechComponent
+    component: WebSpeechComponent,
   },
   {
     path: 'admin',
-    component: DomainExpertComponent
+    component: DomainExpertComponent,
+     canActivate: [AuthGuard]
   },
   {
     path: 'header',
@@ -37,16 +40,18 @@ const routes: Routes = [
   },
   {
     path: 'card',
-    component: CardComponent
+    component: CardComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'profile',
-    component: ProfileComponent
+    component: ProfileComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'about',
     component: AboutComponent
-  }
+    }
 
 ];
 @NgModule({
