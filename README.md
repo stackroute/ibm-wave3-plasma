@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/stackroute/ibm-wave3-plasma.svg?branch=v1.0.1)](https://travis-ci.org/stackroute/ibm-wave3-plasma)
+[![Build Status](https://travis-ci.org/stackroute/ibm-wave3-plasma.svg?branch=v1.0.2)](https://travis-ci.org/stackroute/ibm-wave3-plasma)
 
 ![](https://img.shields.io/codecov/c/github/stackroute/ibm-wave3-plasma.svg?style=flat)
 
